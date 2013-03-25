@@ -1,11 +1,9 @@
 %
-% CUEDthesis v1.1
-% By Harish Bhanderi <harish.bhanderi@cantab.net
-% Version 1.0 released 15/07/2002
-% Version 1.1 released 14/07/2010
+% Based on CUEDthesis v1.1 by Harish Bhanderi <harish.bhanderi@cantab.net>
+%
 %-------------------------- identification ---------------------
 %\NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{CUEDthesisPSnPDF}[2010/07/14 v1.1 CUED thesis class]
+\ProvidesClass{PhDThesis}[2010/07/14 based on v1.1 CUED thesis class]
 %-------------------------- initial code -----------------------
 \newif\ifCU@bookmode
 \CU@bookmodetrue
@@ -133,6 +131,8 @@
 %\setlength{\textheight}{700pt}
 %\setlength{\textwidth}{500pt}
 
+\newcommand{\headfont}{\slshape}
+\newcommand{\chapterheadfont}{}
 
 %A4 settings
 \ifpdf
@@ -158,18 +158,58 @@
 \setlength{\footskip}{2.36cm}
 
 \pagestyle{fancy}
-\renewcommand{\chaptermark}[1]{\markboth{\MakeUppercase{\thechapter. #1 }}{}}
-\renewcommand{\sectionmark}[1]{}
-\fancyhf{}
-\fancyhead[RO]{\bfseries\rightmark}
-\fancyhead[LE]{\bfseries\leftmark}
-\fancyfoot[C]{\thepage}
-\renewcommand{\headrulewidth}{0.5pt}
-\renewcommand{\footrulewidth}{0pt}
+\renewcommand{\chaptermark}[1]{\markboth{\thechapter.\ #1}{}}
+\fancyhf{} % clear all header and footer fields
+\fancyhead[LE,RO]{{\headfont\thepage}} % left/right header for even/odd pages
+\fancyhead[LO]{\headfont\nouppercase{\rightmark}} % header for left side (odd)
+\fancyhead[RE]{\headfont\nouppercase{\leftmark}} % right header for even pages
+\renewcommand{\headrulewidth}{0.5pt} % head rule
+\renewcommand{\footrulewidth}{0pt} % no rule
 \addtolength{\headheight}{0.5pt}
 \fancypagestyle{plain}{
-  \fancyhead{}
+  \fancyhf{}
   \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% style for headings
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\chaptername}{
+\vspace{-2cm}
+}
+
+\renewcommand{\section}{%
+\@startsection{section}%
+{1}% Gliederungsebene
+{0mm}% Einzug
+{1.5ex plus 1ex minus 1.2ex}% Vorabstand
+{0.5ex plus 0.5ex minus 0.5ex}% Nachabstand
+{\chapterheadfont\Large\bfseries}% Stil
+}
+\renewcommand{\subsection}{%
+\@startsection{subsection}%
+{2}%
+{0mm}%
+{1ex plus 1ex minus 1ex}%
+{0.3ex plus 0.3ex minus 0.3ex}%
+{\chapterheadfont\large\bfseries}%
+}
+\renewcommand{\subsubsection}{%
+\@startsection{subsubsection}%
+{3}%
+{0mm}%
+{1ex plus 1ex minus 1ex}%
+{0.2ex plus 0.2ex minus 0.2ex}%
+{\chapterheadfont\normalsize\bfseries}%
+}
+\renewcommand{\paragraph}{%
+\@startsection{paragraph}%
+{4}%
+{0mm}%
+{2ex plus 1ex minus 2ex}%
+{0.2ex plus 0.2ex minus 0.2ex}%
+{\chapterheadfont\normalsize\bfseries}%
 }
 
 \newcommand{\submittedtext}{{A thesis submitted for the degree of}}
