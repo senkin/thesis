@@ -1,11 +1,14 @@
 .DS_Store
 tmp/
+.project
+.texlipse
 *.acn
 *.acr
 *.alg
 *.aux
 *.bbl
 *.blg
+*.brf
 *.dvi
 *.fdb_latexmk
 *.glg
@@ -23,6 +26,7 @@ tmp/
 *.mtc0
 *.nav
 *.nlo
+*.nls
 *.out
 *.pdfsync
 *.ps
