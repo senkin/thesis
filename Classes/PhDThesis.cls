@@ -36,6 +36,7 @@
 \usepackage{setspace}
 \usepackage{tocbibind}
 \usepackage{amssymb}
+\usepackage{hyphenat}
 %\usepackage{graphicx}
 \usepackage{fancyhdr}
 \usepackage{eucal}
@@ -88,7 +89,7 @@
                  breaklinks = true,
                  linktocpage,
                  pagebackref,
-                 colorlinks = true,
+                 colorlinks = false,
                  linkcolor = blue,
                  urlcolor  = blue,
                  citecolor = red,
@@ -212,6 +213,55 @@
 {\chapterheadfont\normalsize\bfseries}%
 }
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                                                                                                                                                                                  
+%% style of the chapter heading                                                                                                                                                                                                               
+%% examples : http://zoonek.free.fr/LaTeX/LaTeX_samples_chapter/0.html                                                                                                                                                                        
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                                                                                                                                                                                  
+\newlength{\chapnolen}
+\newlength{\chapparlen}
+\newsavebox{\chapno}
+
+\renewcommand{\@makeschapterhead}[1]{%                                                                                                                                                                                                        
+  \vspace*{50\p@}%                                                                                                                                                                                                                            
+  {\parindent \z@ \raggedright
+    \normalfont
+    \interlinepenalty\@M
+    \chapterheadfont \huge \bfseries  #1\par\nobreak                                                                                                                                                                                          
+    \vskip 40\p@                                                                                                                                                                                                                              
+  }%                                                                                                                                                                                                                                          
+}
+% new chapter                                                                                                                                                                                                                                 
+\makeatletter
+\def\@makechapterhead#1{%
+  %\vspace*{1\p@}%                                                                                                                                                                                                                     
+  {\parindent \z@ \reset@font
+        %{\Huge \scshape \thechapter}
+        %\par\nobreak
+        %\vspace*{10\p@}%                                                                                                                                                                                                                      
+        %\interlinepenalty\@M
+        %\par\nobreak
+        %\vspace*{2\p@}%                                                                                                                                                                                                      
+        \nohyphens{{\Huge \bfseries \thechapter.~ #1\par\nobreak}}
+        \par\nobreak
+        \vspace*{2\p@}
+    \vskip 40\p@                                                                                                                                                                                                                             
+    %\vskip 100\p@
+  }}
+\def\@makeschapterhead#1{%                                                                                                                                                                                                                    
+  \vspace*{10\p@}%                                                                                                                                                                                                                            
+  {\parindent \z@ \centering \reset@font
+        {\Huge \scshape \vphantom{\thechapter}}
+        \par\nobreak
+        \vspace*{10\p@}%                                                                                                                                                                                                                      
+        \interlinepenalty\@M
+        \par\nobreak
+        \vspace*{2\p@}%                                                                                                                                                                                                                       
+        \nohyphens{{\Huge \bfseries #1\par\nobreak}}
+        \par\nobreak
+        \vspace*{2\p@}%                                                                                                                                                                                                                       
+    \vskip 100\p@
+  }}
+
 \newcommand{\submittedtext}{{A thesis submitted for the degree of}}
 %
 %
@@ -260,10 +310,10 @@
     {{\submittedtext} \par}
 \vspace*{1ex}
     {\it {\@degree} \par}
+    \null\vfill
 \vspace*{2ex}
     {\@degreedate}}
   \end{center}
-  \null\vfill
 \end{alwayssingle}}
 
 % DEDICATION
