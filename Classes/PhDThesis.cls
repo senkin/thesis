@@ -43,7 +43,7 @@
 \usepackage[english]{babel}
 \usepackage[usenames, dvipsnames]{color}
 \usepackage[perpage]{footmisc}
-\usepackage[square, sort, numbers, authoryear]{natbib}
+\usepackage[square, sort, numbers]{natbib}
 \usepackage{ifthen}
 \usepackage{ifpdf}
 
