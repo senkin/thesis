@@ -46,6 +46,7 @@
 \usepackage[square, sort, numbers]{natbib}
 \usepackage{ifthen}
 \usepackage{ifpdf}
+\usepackage{xspace}
 
 
 %Bibliography
