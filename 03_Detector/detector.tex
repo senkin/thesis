@@ -8,25 +8,26 @@
 \section{The Large Hadron Collider}
 The LHC \cite{LHC} is currently the largest and the most powerful particle accelerator ever built. It is installed in
 the 26.7 km tunnel that was originally constructed for the LEP accelerator in the 1980s. The tunnel lies at a depth of
-45 m to 170 m underground between the Jura mountain and the Lake Geneva, being a main part of the CERN accelerator
+45 m to 170 m underground between the Jura mountain and the Lake Geneva, being the main part of the CERN accelerator
 complex.
 
 The machine is designed to accelerate proton beams and provide collisions at a centre of mass energy of $\sqrt s = 14$
 TeV. Unlike particle-antiparticle colliders, the LHC requires two rings with opposite magnetic dipole fields in order to
-maintain and collide two counter-rotating proton beams. Since the tunnel was originally designed for the electron-
-positron LEP, it has an internal diameter of 3.7 m which is not enough to install two separate independent rings.
-Therefore, a twin-bore magnet design was adopted \cite{Blewett}, which also came as a substantial cost-saving measure.
+maintain and collide two counter-rotating proton beams. Since the tunnel was originally designed for the
+electron-positron LEP, it has an internal diameter of 3.7 m which is not enough to install two separate independent
+rings. Therefore, a twin-bore magnet design was adopted \cite{Blewett}, which also came as a substantial cost-saving
+measure.
 
 \begin{figure}[!htbp]
   \begin{center}
     \leavevmode
     \includegraphics[width=\columnwidth]{LHC}
-    \caption{CERN accelerator complex}
+    \caption{CERN accelerator complex.}
     \label{LHC}
   \end{center}
 \end{figure}
 
-A schematic view of the LHC accelerator chain is shown on fig.~\ref{LHC}. In the beginning, the protons are obtained by
+A schematic view of the LHC accelerator chain is shown on Fig.~\ref{LHC}. In the beginning, the protons are obtained by
 stripping orbiting electrons from hydrogen atoms. Then they are injected into the linear accelerator LINAC2 to reach the
 energy of 50 MeV and enter the Proton Synchrotron Booster (PSB). The booster accelerates them to 1.4 GeV and passes the
 beam to the Proton Synchrotron (PS) where the energy rises to 25 GeV. In the next step, protons enter the Super Proton
@@ -74,13 +75,78 @@ upgrades scheduled. The next physics run is expected in 2015 with the beam energ
 \textit{[add any upgrade details and distant future plans, like SLHC?]}
 
 \section{The CMS Detector}
-The CMS detector is described elsewhere. \cite{CMS}
+The Compact Muon Solenoid \cite{CMS} is a general-purpose detector designed to carry out precise measurements of the
+Standard Model and the searches for physics beyond it. The primary design requirement was the ability to
+discover the nature of electroweak symmetry breaking, and the first observation of a Higgs boson was obtained in the
+Summer of 2012 \cite{CMS_Higgs}.
 
-\subsection{Tracking}
+\begin{figure}[htbp]
+  \begin{center}
+    \leavevmode
+    \includegraphics[width=\columnwidth]{CMS}
+    \caption{Sectional view of the CMS detector.}
+    \label{CMS}
+  \end{center}
+\end{figure}
 
-\subsection{Calorimetry}
+The detector is installed at one of the LHC interaction points (Point 5) at about 100 m undeground near the French
+village of Cessy, between the Jura mountains and Lake Geneva. The overall dimensions of the CMS detector are a length of
+21.6 m, a diameter of 14.6 m and a total weight of 12500 tons.
 
-\subsection{Muon Systems}
+The sectional view of CMS is shown on Fig.~\ref{CMS}. In the centre of the detector, tracking and calorimetry systems
+are surrounded by the superconducting solenoid. On the outermost part of it the magnetic flux is returned through the
+iron yoke in which the muon system is also integrated. All the sub-systems are discussed in the following sections with
+more detail.
+
+The cylindrical shape of the CMS detector dictates using the cylindrical coordinate system, with the origin centered at
+the interaction point, the $x$-axis pointing towards the centre of the LHC ring, the $y$-axis pointing upwards and the
+$z$-axis pointing along the beamline in the anti-clockwise direction. The azimuthal angle $\phi$ is measured from the
+$x$-axis in the transverse ($x-y$) plane and the polar angle $\theta$ is measured from the $z$-axis. Tha radial distance
+to the beamline is denoted as $r$. Pseudorapidity is defined as:
+\begin{equation}
+  \eta = - \ln{\tan{\frac{\theta}{2}}}.
+\end{equation}
+This implies that the particles moving in the transverse plane (perpendicular to the beamline) have a pseudorapidity of
+0, whereas the beam direction has an infinite pseudorapidity. Considering the cylindrical shape of the detector, it has
+the barrel and the endcaps regions, with the transition occuring at $\eta = 1.4$. The momentum and energy transverse to
+the beamline are denoted by $p_T$ and $E_T$ respectively; the imbalance of the energy measured in the transverse plane,
+called missing transverse energy, is denoted by \ETm.
+
+\subsection{Inner Tracking System}
+
+\begin{figure}[htbp]
+  \begin{center}
+    \leavevmode
+    \includegraphics[width=\columnwidth]{tracker}
+    \caption{Sectional view of the tracker system.}
+    \label{Tracker}
+  \end{center}
+\end{figure}
+
+\subsection{Electromagnetic Calorimeter}
+
+\subsection{Hadron Calorimeter}
+
+\subsection{Superconducting Magnet}
+
+\subsection{Muon System}
+
+\subsection{Trigger and Data Acquisition}
+[1.4 experimental challenge in TDR]
+
+\section{Computing}
+
+\section{Object Reconstruction}
+
+\subsection{Electron Reconstruction}
+
+\subsection{Muon Reconstruction}
+
+\subsection{Jet Reconstruction}
+
+\subsection{Missing Transverse Energy}
+
+\section{Summary}
 
 % ------------------------------------------------------------------------
 
