@@ -27,7 +27,7 @@ measure.
   \end{center}
 \end{figure}
 
-A schematic view of the LHC accelerator chain is shown on Fig.~\ref{LHC}. In the beginning, the protons are obtained by
+A schematic view of the LHC accelerator chain is shown on Figure~\ref{LHC}. In the beginning, the protons are obtained by
 stripping orbiting electrons from hydrogen atoms. Then they are injected into the linear accelerator LINAC2 to reach the
 energy of 50 MeV and enter the Proton Synchrotron Booster (PSB). The booster accelerates them to 1.4 GeV and passes the
 beam to the Proton Synchrotron (PS) where the energy rises to 25 GeV. In the next step, protons enter the Super Proton
@@ -80,6 +80,10 @@ Standard Model and the searches for physics beyond it. The primary design requir
 discover the nature of electroweak symmetry breaking, and the first observation of a Higgs boson was obtained in the
 Summer of 2012 \cite{CMS_Higgs}.
 
+The detector is installed at one of the LHC interaction points (Point 5) at about 100 m undeground near the French
+village of Cessy, between the Jura mountains and Lake Geneva. The overall dimensions of the CMS detector are a length of
+21.6 m, a diameter of 14.6 m and a total weight of 12500 tons.
+
 \begin{figure}[htbp]
   \begin{center}
     \leavevmode
@@ -89,11 +93,7 @@ Summer of 2012 \cite{CMS_Higgs}.
   \end{center}
 \end{figure}
 
-The detector is installed at one of the LHC interaction points (Point 5) at about 100 m undeground near the French
-village of Cessy, between the Jura mountains and Lake Geneva. The overall dimensions of the CMS detector are a length of
-21.6 m, a diameter of 14.6 m and a total weight of 12500 tons.
-
-The sectional view of CMS is shown on Fig.~\ref{CMS}. In the centre of the detector, tracking and calorimetry systems
+The sectional view of CMS is shown on Figure~\ref{CMS}. In the centre of the detector, tracking and calorimetry systems
 are surrounded by the superconducting solenoid. On the outermost part of it the magnetic flux is returned through the
 iron yoke in which the muon system is also integrated. All the sub-systems are discussed in the following sections with
 more detail.
@@ -113,15 +113,49 @@ the beamline are denoted by $p_T$ and $E_T$ respectively; the imbalance of the e
 called missing transverse energy, is denoted by \ETm.
 
 \subsection{Inner Tracking System}
+The tracking system lies in the heart of the CMS detector and is the closest to the interaction point where the particle
+flux has the highest value. This determines high requirements on the configuration of the system. At design luminosity
+of $L = 10^{34}$ cm$^{-2}$ s$^{-1}$ with the bunch spacing of 25 ns, an average of 1000 particles from about 25
+proton-proton interactions (pile-up vertices) is expected to traverse the tracker for each bunch crossing. However, up
+until the long shutdown the bunch spacing of 50 ns was used, which meant the higher number of protons in each bunch
+leading to approximately twice as higher number of pile-up vertices. Therefore, in order for the particle tracks to be
+identified reliably and separately for each bunch crossing, the tracker requires a very fine granularity and fast
+response parameters. Another complication caused by the intense particle flux is the severe radiation damage, so the
+tracker has to be highly resilient in operating in the harsh environment for a reasonable lifetime.
+
+To meet these requirements on granularity, response time and radiation resilience, the tracker design was chosen to be
+based on silicon detector technology. Although capable to meet such conditions, this technology has a disadvantage of a
+high power density of on-detector electronics. This implies the necessity of an efficient cooling system. Moreover, a
+large amount of dense material interacting with the particles leads to the higher multiple scattering, bremsstrahlung,
+photon conversions and nuclear interactions. Therefore, there are complications in the reconstruction of the tracks,
+meaning some loss of efficiency and precision. This will be discussed in detail later on in the object reconstruction
+section.
 
 \begin{figure}[htbp]
   \begin{center}
     \leavevmode
     \includegraphics[width=\columnwidth]{tracker}
-    \caption{Sectional view of the tracker system.}
+    \caption{Cross-section of the CMS tracker system.}
     \label{Tracker}
   \end{center}
 \end{figure}
+
+Figure~\ref{Tracker} shows the overall layout of the tracking system. It consists of the inner pixel detector, located
+in the vicinity of the interaction point, and silicon strip tracker detectors: inner barrel and disks (TIB and TID),
+outer barrel (TOB) and endcaps (TEC). The geometrical acceptance of the tracker system goes up to \abs\eta $<2.5$. The
+outer radius of the CMS tracker reaches approximately 110 cm, and its total length is about 540 cm.
+
+The pixel detector consists of three layers of pixel sensors at radii of 4.4 cm, 7.3 cm and 10.2 cm from the beamline in
+the barrel region. In addition there are two endcap disks on each side at \abs z $=$ 34.5 cm and 46.5 cm. The pixel size
+equals $100 \times 150~\mu m^2$ in $r \phi \times z$ coordinates. The pixel detector has 66 million pixels and the total
+area of about 1 $m^2$.
+
+The silicon strip tracker consists of the several layers of the silicon microstrip detectors. It covers the region
+between 20 to 110 cm in radius and extends up to $\pm$ 280 cm in the z direction. The Tracker Inner Barrel (TIB) is made
+out of 4 layers and the Tracker Outer Barrel (TOB) has 6 layers in it. The tracker endcaps (TEC) comprise 9 disks, and
+there are also the tracker inner disks (TID) that consist of 3 discs filling the gap between TIB and TEC. There are 9.3
+million silicon strips covering the area of about 200 $m^2$. The silicon sensors' thickness varies between 320
+and 500 $\mu m$ and the strip pitch varies from 80 $\mu m$ in the TIB to 180 $\mu m$ in TOB and TEC.
 
 \subsection{Electromagnetic Calorimeter}
 
