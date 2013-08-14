@@ -37,6 +37,7 @@
 \usepackage{tocbibind}
 \usepackage{amssymb}
 \usepackage{amsmath}
+\usepackage{siunitx}
 \usepackage{hyphenat}
 %\usepackage{graphicx}
 \usepackage{fancyhdr}

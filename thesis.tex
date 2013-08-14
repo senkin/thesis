@@ -1,6 +1,5 @@
-\include{Macros/ParticlePhysicsMacros}
-
 \documentclass[oneside,12pt]{Classes/PhDThesis}
+\include{Macros/ParticlePhysicsMacros}
  
 \ifpdf
     \pdfinfo { /Title  (PhD Thesis)
@@ -40,6 +39,10 @@ Philosophy in the Faculty of Science}}
 \hbadness=10000
 \hfuzz=50pt
 
+% setup the SIunits package (more info in 'texdoc siunitx')
+\sisetup{number-unit-product = \text{ }}
+\sisetup{binary-units = true}
+
 % Put all the style files you want in the directory StyleFiles and usepackage like this:
 %\usepackage{StyleFiles/watermark}
 
@@ -49,7 +52,7 @@ Philosophy in the Faculty of Science}}
 
 %\watermark{DRAFT COPY}
 
-\onehalfspacing
+%\onehalfspacing
 
 \maketitle
 
