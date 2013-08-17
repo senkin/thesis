@@ -191,7 +191,7 @@ segmentation and high resolution.
 
 ECAL is a hermetic, high-granularity, high-resolution scintillating crystal calorimeter consisting of \num{61200} lead
 tungstate ($\textrm{PbWO}_4$) crystals located in the central barrel region (\abs\eta $<1.479$), and \num{7324} crystals
-in each of the two endcaps ($1.479 <$ \abs\eta $< 3.0$). All crystals are followed by photodetectors reading and
+in each of the two endcaps (\num{1.479} $<$\abs\eta\num{<3.0}). All crystals are followed by photodetectors reading and
 amplifying their scintillation: avalanche photodiodes (APD) are used in the barrel, and vacuum phototriodes (VPTs) are
 used in the endcaps. These different choices were caused by the configuration of the magnetic field and the expected
 level of radiation.
@@ -258,9 +258,9 @@ where $S$ is the stochastic term, $N$ is the noise term, and $C$ is the constant
 shows the energy resolution measured using incident electrons, during the beam tests in 2004.
 
 \subsection{Hadron Calorimeter}
-The hadron calorimeter (HCAL) is the next sub-detector located inside the solenoid and completing the CMS calorimetry
-system. It is essential for the measurement of hadron jets and missing transverse energy. As shown on Figure~\ref{HCAL},
-HCAL surrounds ECAL from its outer limit of \SI{1.77}{m}.
+
+The hadron calorimeter (HCAL) is the next sub-detector located mostly inside the solenoid and completing the CMS
+calorimetry system. It is essential for the measurement of hadron jets and missing transverse energy.
 
 \begin{figure}[htbp]
   \begin{center}
@@ -272,6 +272,30 @@ HCAL surrounds ECAL from its outer limit of \SI{1.77}{m}.
     \label{HCAL}
   \end{center}
 \end{figure}
+
+As shown on Figure~\ref{HCAL}, HCAL consists of four subsystems: the hadron barrel calorimeter (HB), the hadron endcap
+calorimeter (HE), the hadron outer calorimeter (HO) and the hadron forward calorimeter (HF). The barrel and endcap parts
+(HB, HE) cover the pseudorapidity range up to \abs\eta \num{<3.0}, and the forward part (HF) extends it to a total
+coverage of \abs\eta \num{<5.0}. HCAL surrounds ECAL from its outer limit of \SI{1.77}{\metre} from the beamline, to the
+inner limit of the magnet coil at \SI{2.95}{\metre} from the beamline. However, due to space limitations the barrel
+calorimeters do not contain complete hadronic showers, therefore an outer calorimeter (HO) was designed to measure the
+energy leakage. It is placed in the muon system just outside of the solenoid in the barrel region.
+
+HCAL is a sampling calorimiter consisting of alternating layers of brass and stainless steel absorbers, and plastic
+scintillators as active elements. The choice of the absorber material was caused by its large hadronic interaction
+length and its property of being non-magnetic, which is crucial in the strong magnetic field of the CMS magnet. The
+scintillation light is guided by embedded wavelength-shifting (WLS) fibers. The light from the WLS is then transmitted
+via a network of clear fibers, arranged in read-out towers, to hybrid photodiodes (HPDs) \cite{CMS}.
+
+Both HB and HE scintillators have a granularity of $\Delta \eta \times \Delta \phi =$ \num{0.087x0.087} for \abs\eta
+\num{<1.6}, and $\Delta \eta \times \Delta \phi =$ \num{0.17x0.17} for \abs\eta \num{>=1.6}. The tower segmentation of
+the forward calorimeter (HF) varies from $\Delta \eta \times \Delta \phi =$ \num{0.175x0.175} at \abs\eta \num{=3.0} to
+$\Delta \eta \times \Delta \phi =$ \num{0.3x0.35} at at \abs\eta \num{=5.0}. The HF is placed at about \SI{11}{\metre}
+from the interaction point, and is essential to reconstruct very forward hardon jets. Together with HO, it provides the
+hermeticity of the calorimetry system, making it possible to measure the transverse missing energy to a reasonable
+presicion.
+
+\textit{[perhaps need to add the energy resolution plots]}
 
 \subsection{Superconducting Magnet}
 
