@@ -344,20 +344,25 @@ separate from the background.
   \begin{center}
     \leavevmode
     \includegraphics[width=\columnwidth]{muon_system}
-    \caption{Layout of one quarter of the CMS muon system \cite{CMS_TDR1}.}
+    \caption{Layout of one quarter of the CMS muon system. Four drift tube (DT, in light orange) stations are labeled MB
+    (“muon barrel”) and the cathode strip chambers (CSC, in green) are labeled ME (“muon endcap”). Resistive plate
+    chambers (RPC, in blue) are in both the barrel and the endcaps of CMS, where they are labeled RB and RE,
+    respectively.}
     \label{muon_system}
   \end{center}
 \end{figure}
 
 The layout of the CMS muon system is shown of Figure~\ref{muon_system}. It consists of the drift tubes (DT), cathode
-strip chambers (CSC) and resistive plate chambers (RPC). The entire system is surrounding the solenoid and covers the
+strip chambers (CSC) and resistive plate chambers (RPC). The entire system surrounds the solenoid and covers the
 pseudorapidity region of \abs\eta \num{<2.4}.
 
 The drift tubes are located in the barrel region (\abs\eta \num{<1.2}). Consisting of four stations, they form
 concentric cylinders around the beam line; there are \num{250} drift chambers with about \num{172000} sensitive wires in
-total. The chambers are filled with the gas mixture of \SI{85}{\percent} $\textrm{Ar}$ and \SI{15}{\percent}
-$\textrm{CO}_2$, where the muon drift time does not exceed \SI{380}{\ns}. Although this value is bigger than the typical
-bunch crossing time (\num{25} or \SI{50}{\ns}), it is sufficient because of the small muon rate.
+total. When a muon passes through the volume, it knocks electrons off the atoms of the gas, which then follow the
+electric field and reach the positively-charged wires, providing information on the muon's position. The chambers are
+filled with the gas mixture of \SI{85}{\percent} $\textrm{Ar}$ and \SI{15}{\percent} $\textrm{CO}_2$, where the muon
+drift time does not exceed \SI{380}{\ns}. Although this value is bigger than the typical bunch crossing time (\num{25}
+or \SI{50}{\ns}), it is sufficient because of the small muon rate in this region.
 
 In the endcaps, the cathode strip chambers cover the pseudorapidity region of \num{0.9} $<$\abs\eta\num{<2.4}. Each of
 \num{468} CSCs is a trapezoidal multi-wire proportional chamber consisting of 6 gas gaps with a plane of radial cathode
@@ -366,8 +371,28 @@ causes the gas ionization and a subsequent electron avalanche which produces a c
 charge on the cathode strips. The gas used in CSCs is a mixture of $\textrm{Ar}$, $\textrm{CO}_2$ and $\textrm{CF}_4$.
 
 The resistive plate chambers system is complementary to both DT and CSC systems, and is located in both barrel and
-endcap regions (\abs\eta\num{<2.1}). RPCs operate in avalanche mode, and due to an excellent time resolution of about
-\SI{1}{\ns} they provide fast information for triggering. The spacial resolution is, however, quite limited.
+endcap regions (\abs\eta\num{<2.1}). RPCs also operate in avalanche mode with a gas mixture of C$_2$H$_2$F$_4$,
+C$_4$H$_{10}$ and $\textrm{SF}_6$, and due to an excellent time resolution of about \SI{1}{\ns} they provide fast
+information for triggering. The spacial resolution is, however, quite limited (\SI{\approx 1}{\cm}, compared to
+\SI{\approx 100}{\micron} for DTs and CSCs). %http://arxiv.org/abs/1306.6905
+
+\begin{figure}[htbp]
+  \begin{center}
+    \leavevmode
+    \includegraphics[width=\columnwidth]{muon_resolution}
+    \caption{The muon transverse momentum resolution as a function of the transverse momentum (\pt) using the muon
+    system only (black), the inner tracking only (blue), and both (red), in regions of \abs\eta \num{<0.8} (left) and
+    \num{1.2} $<$\abs\eta\num{<2.4} (right) \cite{CMS}.}
+    \label{muon_resolution}
+  \end{center}
+\end{figure}
+
+The muon momentum is measured in both the tracker and the muon system.  As it can be seen on
+Figure~\ref{muon_resolution}, both sub-systems contribute to the momentum resolution at different \pt values. This
+happens due to the difference in the magnetic field and detector technology. For low-\pt muons, the best momentum
+resolution is obtained in the tracker, whereas in the high-\pt region the muon system provides a significant
+improvement. Therefore, by using information from both the silicon tracker and the muon chambers (i.e. reconstructing
+the ``global muon''), the momentum resolution is improved in the whole \pt region up to a \SI{\approx 1}{\TeV/c} level.
 
 \subsection{Trigger and Data Acquisition}
 [1.4 experimental challenge in TDR]
