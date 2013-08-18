@@ -117,13 +117,14 @@ called missing transverse energy, is denoted by \ETm.
 \subsection{Inner Tracking System}
 The tracking system lies in the heart of the CMS detector and is the closest to the interaction point where the particle
 flux has the highest value. This determines high requirements on the configuration of the system. At design luminosity
-of $L = $ \SI{d34}{\cm^{-2} s^{-1}} with the bunch spacing of \SI{25}{\ns}, an average of \num{1000} particles from about
-\num{25} proton-proton interactions (pile-up vertices) is expected to traverse the tracker for each bunch crossing.
-However, up until the long shutdown the bunch spacing of \SI{50}{\ns} was used, which meant the higher number of protons
-in each bunch leading to approximately twice as higher number of pile-up vertices. Therefore, in order for the particle
-tracks to be identified reliably and separately for each bunch crossing, the tracker requires a very fine granularity
-and fast response parameters. Another complication caused by the intense particle flux is the severe radiation damage,
-so the tracker has to be highly resilient in operating in the harsh environment for a reasonable lifetime.
+of $L = $ \SI{d34}{\cm^{-2} s^{-1}} with the bunch spacing of \SI{25}{\ns}, an average of \num{1000} particles from
+about \num{25} proton-proton interactions (pile-up vertices) is expected to traverse the tracker for each bunch
+crossing. However, up until the long shutdown the bunch spacing of \SI{50}{\ns} was used, which meant the higher number
+of protons in each bunch leading to approximately twice as higher number of pile-up vertices. Therefore, in order for
+the particle tracks to be identified reliably and separately for each bunch crossing, the tracker requires a very fine
+granularity and fast response parameters. Another complication caused by the intense particle flux is the severe
+radiation damage, so the tracker has to be highly resilient in operating in the harsh environment for a reasonable
+lifetime.
 
 To meet these requirements on granularity, response time and radiation resilience, the tracker design was chosen to be
 based on silicon detector technology. Although capable to meet such conditions, this technology has a disadvantage of a
@@ -297,7 +298,7 @@ precision.
 \textit{[perhaps need to add the energy resolution plots]}
 
 \subsection{Superconducting Magnet}
-The superconducting solenoid is a very important part of the CMS detector, essentially giving it its name. The magnet
+The superconducting solenoid is a central feature of the CMS apparatus, essentially giving it its name. The magnet
 has a length of \SI{12.5}{\metre}, diameter of \SI{6.3}{\metre} and mass of \SI{220}{\tonne}. Although it was initially
 designed to sustain a uniform magnetic field of \SI{4}{\tesla} within the \SI{5.9}{\metre} diameter free bore, operation
 at \SI{3.8}{\tesla} was chosen in order to increase the lifetime. The magnetic field is returned by a massive iron yoke.
@@ -395,9 +396,34 @@ improvement. Therefore, by using information from both the silicon tracker and t
 the ``global muon''), the momentum resolution is improved in the whole \pt region up to a \SI{\approx 1}{\TeV/c} level.
 
 \subsection{Trigger and Data Acquisition}
-[1.4 experimental challenge in TDR]
+At design LHC luminosity of $L = $ \SI{d34}{\cm^{-2} s^{-1}}, approximately \num{25} collisions are expected to occur at
+each crossing of the proton bunches. The bunch spacing of \SI{25}{\ns} corresponds to a crossing rate of
+\SI{40}{\mega\hertz}. Since every event produces \SI{\sim1}{\mega\byte} of raw data, it corresponds to a total data
+production of \SI{40}{\tera\byte\per\second}. Attempting to store all of this data is clearly beyond the available
+technology. Moreover, only a fraction of events contain hard scattering processes that are of interest, therefore an
+effective trigger system had to be implemented.
+
+The CMS trigger is a two-level system, consisting of two independent parts: the Level-1 (L1) trigger and the High-Level
+Trigger (HLT). The L1 trigger is a hardware system implemented in programmable electronics residing partly on detector,
+and partly in the underground control room located at approximately \SI{90}{\metre} from the experimental cavern. The
+maximum latency between the collision and the L1 accept decision received by front-end electronics is
+\SI{3.2}{\micro\second}. During this amount of time, the complete event information is buffered in pipelined memories
+on the detector. The only information used for the L1 trigger decision is the one from the muon system and the
+calorimetry. Since the reconstruction of tracks exceeds the time scale required for the L1 decision, the tracker
+information can't be used. The L1 trigger reduces the event rate from \SI{\sim40}{\mega\hertz} to
+\SI{\sim100}{\kilo\hertz}, corresponding to a data flow of about \SI{100}{\giga\byte\per\second}. These events are fed
+into the HLT system.
+
+The High-Level Trigger is a software system implemented in a single CPU farm, sometimes referred to as the ``Event
+Filter Farm''. Having access to the full event information, customised algorithms of increasing complexity are used
+which results in a highly flexible trigger system. The event rate is reduced down to \SI{\sim300}{\Hz}, with the final
+data rate of approximately \SI{300}{\mega\byte\per\second} being stored on a large disk cache at the experimental site
+(the Storage Manager) and later on transferred to CERN Tier 0 for further processing (see Section \ref{s:computing}).
+
+\textit{[mention parked data?]}
 
 \section{Computing}
+\label{s:computing}
 
 \section{Object Reconstruction}
 
