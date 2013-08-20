@@ -1,4 +1,4 @@
-\documentclass[oneside,12pt]{Classes/PhDThesis}
+\documentclass[twoside,12pt]{Classes/PhDThesis}
 \include{Macros/ParticlePhysicsMacros}
  
 \ifpdf
@@ -64,23 +64,12 @@ Philosophy in the Faculty of Science}}
 %\include{Dedication/dedication}
 %\include{Abstract/abstract}
 %\include{Acknowledgements/acknowledgements}
-\include{Declaration/declaration}
+%\include{Declaration/declaration}
 
 %% ++++++++++++++++++++++++++++++++++++++++++                                                                                                                                                                                                 
 %% index                                                                                                                                                                                                                                      
 %% ++++++++++++++++++++++++++++++++++++++++++                                                                                                                                                                                                 
-% {\parskip 0pt\tableofcontents}
-
-%\tableofcontents
-% getting rid of toc in toc
-\makeatletter
-\fancyhf{}
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0pt}
-{\Huge \bfseries Contents \par}
-\vspace{1cm}
-\@starttoc{toc}
-\makeatother
+\tableofcontents
 
 %\cleardoublepage
 %\listoffigures
@@ -88,16 +77,19 @@ Philosophy in the Faculty of Science}}
 %\addcontentsline{toc}{chapter}{Nomenclature}
 %\listoftables
 
+%change page numbering back to arabic (and start from 1)
+\pagenumbering{arabic}
+
 \mainmatter % book mode only
 \doublespacing
 
-\include{01_Introduction/introduction}
-\include{02_Theory/theory}
+%\include{01_Introduction/introduction}
+%\include{02_Theory/theory}
 \include{03_Detector/detector}
-\include{04_Service_work/service_work}
-\include{05_Mass_analysis/mass_analysis}
-\include{06_Cross_section_analysis/cross_section_analysis}
-\include{07_Conclusions/conclusions}
+%\include{04_Service_work/service_work}
+%\include{05_Mass_analysis/mass_analysis}
+%\include{06_Cross_section_analysis/cross_section_analysis}
+%\include{07_Conclusions/conclusions}
 
 \backmatter % book mode only
 %\appendix

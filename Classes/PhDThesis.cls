@@ -40,6 +40,7 @@
 \usepackage{siunitx}
 \usepackage{hyphenat}
 %\usepackage{graphicx}
+\usepackage{makeidx}
 \usepackage{fancyhdr}
 \usepackage{eucal}
 \usepackage[english]{babel}
@@ -84,7 +85,8 @@
 %--> http://www.uni-giessen.de/partosch/eurotex99/ oberdiek/print/sli4a4col.pdf
 %--> http://me.in-berlin.de/~miwie/tex-refs/html/latex-packages.html
 %-->
-    \usepackage[ pdftex, plainpages = false, pdfpagelabels, 
+    \usepackage[ pdftex, plainpages = false,
+                 pdfpagelabels = true, 
                  pdfpagelayout = OneColumn, % display single page, advancing flips the page - Sasa Tomic
                  bookmarks,
                  bookmarksopen = true,
@@ -150,16 +152,15 @@
 \setlength{\hoffset}{0.00cm}
 \setlength{\voffset}{0.00cm}
 
-\setlength{\evensidemargin}{1.96cm}
-%\setlength{\oddsidemargin}{-0.54cm}
-\setlength{\topmargin}{1mm}
+\setlength{\topmargin}{0in}
 \setlength{\headheight}{1.36cm}
 \setlength{\headsep}{1.00cm}
-\setlength{\textheight}{20.84cm}
-\setlength{\textwidth}{14.5cm}
-\setlength{\marginparsep}{1mm}
-\setlength{\marginparwidth}{3cm}
-\setlength{\footskip}{2.36cm}
+\setlength{\textheight}{8.7in}
+\setlength{\textwidth}{6.5in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\parindent}{0.25in}
+\setlength{\parskip}{0.25in}
 
 \pagestyle{fancy}
 \renewcommand{\chaptermark}[1]{\markboth{\thechapter.\ #1}{}}
@@ -264,6 +265,47 @@
         \vspace*{2\p@}%                                                                                                                                                                                                                       
     \vskip 100\p@
   }}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% index (also for other font families)              
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\let\oldtableofcontents\tableofcontents
+\renewcommand{\tableofcontents}{{\pdfbookmark{\contentsname}{\contentsname}\chapterheadfont\oldtableofcontents}}
+\let\@olddottedtocline\@dottedtocline
+\renewcommand{\@dottedtocline}[5]{\@olddottedtocline{#1}{#2}{#3}{#4}{\chapterheadfont #5}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%              
+
+%% style of index page
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\renewenvironment{theindex}
+{\if@twocolumn
+   \@restonecolfalse
+ \else
+   \@restonecoltrue
+ \fi
+ \columnseprule \z@
+ \columnsep 35\p@
+ \twocolumn[\@makeschapterhead{\indexname}]%       
+ \@mkboth{\indexname}%
+         {\indexname}%
+ \addcontentsline{toc}{chapter}{\indexname}%
+ \thispagestyle{fancy}
+ \flushbottom
+ \parindent\z@
+ \parskip\z@ \@plus .3\p@\relax
+ \let\item\@idxitem
+ \def\,{\relax\ifmmode\mskip\thinmuskip
+              \else\hskip0.2em\ignorespaces\fi}%
+ \raggedright}
+
 
 \newcommand{\submittedtext}{{A thesis submitted for the degree of}}
 %
