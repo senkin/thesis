@@ -441,10 +441,19 @@ processing of this data, not just for CMS but for the entire high energy physics
 LHC computing grid (WLCG) has been put in place.
 
 WLCG is a global collaboration of more than 150 computing centres in about 40 countries. The grid has a tiered
-architecture, comprising 4 tiers with different resources and services. The first one, Tier 0, is based at CERN...
+architecture, comprising 4 tiers with different resources and services. The first one, Tier 0, is based at CERN and is
+responsible for data-taking. It accepts raw data from the data acquisition system and repacks it into primary datasets
+according to the trigger information. The raw data is archived to tape, and is also prompt-reconstructed (within 48
+hours) before being distributed to the Tier 1 (T1) centres around the world. There are 8 T1 sites based at large
+national laboratories in collaborating countries (e.g.\ RAL in the UK and FNAL in the US). Each of the T1 centres is
+used for large-scale centrally organised data-processing activities. The data is then distributed in the reduced format
+(see Section~\ref{ss:edm}) to a more numerous set of Tier 2 centres, typically located at collaborating universities.
+Each of these centres is used for the grid-based analysis and Monte Carlo simulation for the whole experiment, as well
+as local services for groups maintaining them. The last stage of computing system, Tier 3, is meant solely for the local
+institution's user analysis.
 
 \subsection{Event Data Model}
-
+\label{ss:edm}
 
 
 \section{Object Reconstruction}
