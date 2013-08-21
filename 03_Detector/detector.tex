@@ -209,7 +209,7 @@ level of radiation.
 
 The layout of the ECAL sub-detector is shown in Figure~\ref{ECAL}. An additional preshower detector is used in the
 endcap region to lower the required detector depth. Its principal aim is to identify neutral pions in the endcaps, but
-it also helps to distinguish neutral pions and electrons from minimum ionizing particles and improves the position
+it also helps to distinguish neutral pions and electrons from minimum ionising particles and improves the position
 determination of electrons and photons with high granularity.
 
 \begin{table}[htbp]
@@ -369,7 +369,7 @@ or \SI{50}{\ns}), it is sufficient because of the small muon rate in this region
 In the endcaps, the cathode strip chambers cover the pseudorapidity region of \num{0.9} $<$\abs\eta\num{<2.4}. Each of
 \num{468} CSCs is a trapezoidal multi-wire proportional chamber consisting of 6 gas gaps with a plane of radial cathode
 strips and a plane of anode wires which are roughly perpendicular. A charged muon traversing each plane of a chamber
-causes gas ionization and a subsequent electron avalanche which produces a charge on the anode wire and an image charge
+causes gas ionisation and a subsequent electron avalanche which produces a charge on the anode wire and an image charge
 on the cathode strips. The gas used in CSCs is a mixture of $\textrm{Ar}$, $\textrm{CO}_2$ and $\textrm{CF}_4$.
 
 The resistive plate chambers system is complementary to both DT and CSC systems, and is located in both barrel and
@@ -420,10 +420,28 @@ which results in a highly flexible trigger system. The event rate is reduced dow
 data rate of approximately \SI{300}{\mega\byte\per\second} being stored on a large disk cache at the experimental site
 (the Storage Manager) and later on transferred to CERN Tier 0 for further processing (see Section \ref{s:computing}).
 
-\textit{[mention parked data?]}
+Since the start of the LHC running, the operating conditions have been changing drastically. During the start-up year of
+2010, the instantaneous luminosity went up from about \SI{d27}{\cm^{-2} s^{-1}} to approximately \SI{0.2d32}{\cm^{-2}
+s^{-1}}. In 2011 the luminosity ramped up to a factor of \num{20} above that of 2010, reaching approximately
+\SI{4d34}{\cm^{-2} s^{-1}}. This required a lot of continuous effort to control the trigger rates at reasonable level,
+whilst also keeping its efficiency acceptable. In 2012 the luminosity was more stable, peaking at
+\SI{\approx7.6d34}{\cm^{-2} s^{-1}} which is just a factor of 2 above the 2011 values. However, it still came as a
+challenge because of the impact of pile-up. At a bunch spacing of \SI{50}{\ns} and increased centre-of-mass energy of
+\SI{8}{\TeV}, the average number of pile-up vertices nearly doubled comparing to that in 2011, which required a major
+CPU extension and implementation of sophisticated PU mitigation techniques at the HLT level. The author's contribution
+to the HLT development of the trigger paths important for top physics is described in Chapter~\ref{c:service_work}.
 
 \section{Computing}
 \label{s:computing}
+The vast amounts of data delivered by the CMS detector impose high requirements on the offline computing system. During
+2010--2012, CMS collected \SI{\sim10}{\peta\byte} of raw data, and is expected to produce even more at nominal LHC
+luminosity after the long shutdown. Including Monte Carlo simulations, reconstructed data and analysis skims, the total
+annual amount of data is estimated $\mathcal{O}$(\SI{100}{\peta\byte}) per year. To handle the distributed storage and
+processing of this data, not just for CMS but for the entire high energy physics community using the LHC, a worldwide
+LHC computing grid (WLCG) has been put in place.
+
+WLCG is a global collaboration of more than 150 computing centres in about 40 countries. The grid has a tiered
+architecture, comprising 4 tiers with different resources and services. The first one, Tier 0, is based at CERN...
 
 \subsection{Event Data Model}
 

@@ -159,8 +159,8 @@
 \setlength{\textwidth}{6.5in}
 \setlength{\oddsidemargin}{0in}
 \setlength{\evensidemargin}{0in}
-\setlength{\parindent}{0.25in}
-\setlength{\parskip}{0.25in}
+%\setlength{\parindent}{0.25in}
+%\setlength{\parskip}{0.25in}
 
 \pagestyle{fancy}
 \renewcommand{\chaptermark}[1]{\markboth{\thechapter.\ #1}{}}
