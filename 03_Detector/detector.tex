@@ -423,9 +423,9 @@ data rate of approximately \SI{300}{\mega\byte\per\second} being stored on a lar
 Since the start of the LHC running, the operating conditions have been changing drastically. During the start-up year of
 2010, the instantaneous luminosity went up from about \SI{d27}{\cm^{-2} s^{-1}} to approximately \SI{0.2d32}{\cm^{-2}
 s^{-1}}. In 2011 the luminosity ramped up to a factor of \num{20} above that of 2010, reaching approximately
-\SI{4d34}{\cm^{-2} s^{-1}}. This required a lot of continuous effort to control the trigger rates at reasonable level,
+\SI{4d33}{\cm^{-2} s^{-1}}. This required a lot of continuous effort to control the trigger rates at reasonable level,
 whilst also keeping its efficiency acceptable. In 2012 the luminosity was more stable, peaking at
-\SI{\approx7.6d34}{\cm^{-2} s^{-1}} which is just a factor of 2 above the 2011 values. However, it still came as a
+\SI{\approx7.6d33}{\cm^{-2} s^{-1}} which is just a factor of 2 above the 2011 values. However, it still came as a
 challenge because of the impact of pile-up. At a bunch spacing of \SI{50}{\ns} and increased centre-of-mass energy of
 \SI{8}{\TeV}, the average number of pile-up vertices nearly doubled comparing to that in 2011, which required a major
 CPU extension and implementation of sophisticated PU mitigation techniques at the HLT level. The author's contribution
@@ -434,11 +434,10 @@ to the HLT development of the trigger paths important for top physics is describ
 \section{Computing}
 \label{s:computing}
 The vast amounts of data delivered by the CMS detector impose high requirements on the offline computing system. During
-2010--2012, CMS collected \SI{\sim10}{\peta\byte} of raw data, and is expected to produce even more at nominal LHC
-luminosity after the long shutdown. Including Monte Carlo simulations, reconstructed data and analysis skims, the total
-annual amount of data is estimated $\mathcal{O}$(\SI{100}{\peta\byte}) per year. To handle the distributed storage and
-processing of this data, not just for CMS but for the entire high energy physics community using the LHC, a worldwide
-LHC computing grid (WLCG) has been put in place.
+2010--2012 operation, CMS collected \SI{\sim10}{\peta\byte} of raw data per year. Including Monte Carlo simulations,
+reconstructed data and analysis skims, the total annual amount of data essentially doubles. To handle the distributed
+storage and processing of this data, not just for CMS but for the entire high energy physics community using the LHC, a
+worldwide LHC computing grid (WLCG) has been put in place.
 
 WLCG is a global collaboration of more than 150 computing centres in about 40 countries. The grid has a tiered
 architecture, comprising 4 tiers with different resources and services. The first one, Tier 0, is based at CERN and is
@@ -454,7 +453,34 @@ institution's user analysis.
 
 \subsection{Event Data Model}
 \label{ss:edm}
+In the basis of the CMS Event Data Model lies the concept of an event, which is physically a result of a single
+collision in the LHC. From a software point of view, the event is a C\verb!++! object container storing raw data from a
+single readout of detector electronics (e.g.\ hits in various sub-detectors), as well as reconstructed data which is
+based on this information, such as tracks, clusters and physics objects. All these C\verb!++! objects are stored in ROOT
+format \cite{ROOT}.
 
+The EDM makes use of three main data formats, based on different levels of detail and precision:
+\begin{itemize}
+  \item RAW format, containing full information from the detector as well as L1 and HLT trigger decisions, with the
+  event size of \SI{\sim1.5}{\mega\byte}.
+  \item RECO (reconstructed data) format, which is obtained from raw data by application of pattern recognition and
+  compression algorithms. This data includes reconstructed detector hits, clusters and physics objects (electrons,
+  muons, etc). The typical event size is \SI{\sim250}{\kilo\byte}.
+  \item AOD (Analysis Oriented Data) format, produced by filtering the RECO data from the reconstructed detector
+  objects, leaving just the high-level physics objects required for analysis. The event size is reduced down to
+  \SI{\sim50}{\kilo\byte}.
+\end{itemize}
+
+The RECO and AOD data are analysis-ready data formats, produced centrally and used by many physics analysis groups.
+However, further simplification of the data is also a common practice. By transforming the C\verb!++! objects produced
+by CMS software into plain basic types or vectors of them, only including the analysis-specific content, the event size
+can be reduced down to \SI{\sim3}{\kilo\byte} level depending on the needs of a particular analysis. This data format is
+often referred to as private ``ntuples'', and it requires specific analysis software capable of restructuring the data
+into user-defined classes. By following this approach, the analysis can be run locally and generally much faster than
+processing the RECO or AOD data. However, it requires ``ntuplising'' this data every time the new centrally-recommended
+physics objects or corrections are produced.
+
+\subsection{Analysis Software}
 
 \section{Object Reconstruction}
 
