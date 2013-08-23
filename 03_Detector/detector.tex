@@ -477,10 +477,15 @@ by CMS software into plain basic types or vectors of them, only including the an
 can be reduced down to \SI{\sim3}{\kilo\byte} level depending on the needs of a particular analysis. This data format is
 often referred to as private ``ntuples'', and it requires specific analysis software capable of restructuring the data
 into user-defined classes. By following this approach, the analysis can be run locally and generally much faster than
-processing the RECO or AOD data. However, it requires ``ntuplising'' this data every time the new centrally-recommended
+processing the RECO or AOD data. However, it requires ``ntuplising'' this data every time when new centrally-recommended
 physics objects or corrections are produced.
 
 \subsection{Analysis Software}
+Both of the analyses described in this thesis use the CMS software
+framework\footnote{\url{http://cms-sw.github.io/cmssw}} (CMSSW), as well as Bristol Analysis
+Tools\footnote{\url{https://github.com/BristolTopGroup/AnalysisSoftware}} (BAT). The differential cross section analysis
+also uses an additional level of python scripts for
+post-processing\footnote{\url{https://github.com/BristolTopGroup/DailyPythonScripts}}.
 
 \section{Object Reconstruction}
 
