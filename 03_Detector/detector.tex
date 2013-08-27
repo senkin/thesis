@@ -465,7 +465,7 @@ The EDM makes use of three main data formats, based on different levels of detai
   event size of \SI{\sim1.5}{\mega\byte}.
   \item RECO (reconstructed data) format, which is obtained from raw data by application of pattern recognition and
   compression algorithms. This data includes reconstructed detector hits, clusters and physics objects (electrons,
-  muons, etc). The typical event size is \SI{\sim250}{\kilo\byte}.
+  muons, etc.). The typical event size is \SI{\sim250}{\kilo\byte}.
   \item AOD (Analysis Oriented Data) format, produced by filtering the RECO data from the reconstructed detector
   objects, leaving just the high-level physics objects required for analysis. The event size is reduced down to
   \SI{\sim50}{\kilo\byte}.
@@ -481,11 +481,42 @@ processing the RECO or AOD data. However, it requires ``ntuplising'' this data e
 physics objects or corrections are produced.
 
 \subsection{Analysis Software}
+\label{ss:analysis_software}
 Both of the analyses described in this thesis use the CMS software
 framework\footnote{\url{http://cms-sw.github.io/cmssw}} (CMSSW), as well as Bristol Analysis
 Tools\footnote{\url{https://github.com/BristolTopGroup/AnalysisSoftware}} (BAT). The differential cross section analysis
 also uses an additional level of python scripts for
 post-processing\footnote{\url{https://github.com/BristolTopGroup/DailyPythonScripts}}.
+
+CMSSW is the key CMS software framework built around the Event Data Model (see Section~\ref{ss:edm}). The framework is
+essential for purposes of Monte Carlo simulation, detector calibration and alignment, as well as data reconstruction
+and analysis. CMSSW has a modular architecture, consisting of one configurable executable (cmsRun) and a large set of
+plug-in modules that contain all the code needed for event processing (reconstruction algorithms, calibration, etc.).
+Different versions of CMSSW were used for different analyses: 
+
+\begin{itemize}
+  \item \verb!CMSSW_4_2_8! for the top mass analysis on 2011 data;
+  \item \verb!CMSSW_4_4_4! for the missing transverse energy analysis on 2011 data;
+  \item \verb!CMSSW_5_3_9! for the top cross pair cross section analysis on 2012 data.
+\end{itemize}
+
+Corresponding versions were used to produce ntuples for processing by BAT, which was used to read the data, apply
+selections, calculate high-level variables and to create various histograms of distributions. BAT was originally started
+in 2010 by Dr.\ Lukasz Kreczko for the needs of the Bristol top group, later on also developed by the author and other
+researchers from Bristol and affiliated top groups. Like CMSSW, this framework has a modular structure, with its classes
+falling in four main categories:
+
+\begin{itemize}
+  \item readers, for translating plain data types from ROOT files into C\verb!++! objects;
+  \item RECO objects, i.e.\ output of the readers (physical objects like leptons, jets and its collections);
+  \item selections, for application of event selections;
+  \item analysers for creating histograms, applying selections, algorithms, and filling histograms.
+\end{itemize}
+
+All analysers are independent from each other, making the analysis chain stable and reliable. The final set of python
+scripts is used to prepare the histograms, perform fitting and unfolding procedures (in case of cross section analysis),
+and producing final tables and plots. Rootpy\footnote{\url{http://rootpy.org/}} package was used to access ROOT
+libraries in python interface, and matplotlib\footnote{\url{http://matplotlib.org/}} was used to create plots.
 
 \section{Object Reconstruction}
 
