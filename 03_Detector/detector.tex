@@ -116,6 +116,7 @@ beamline are denoted by $p_T$ and $E_T$ respectively; the imbalance of the energ
 called missing transverse energy, is denoted by \ETm.
 
 \subsection{Inner Tracking System}
+\label{ss:tracker}
 The tracking system lies in the heart of the CMS detector and is the closest to the interaction point where the particle
 flux has the highest value. This imposes demanding requirements on the configuration of the system. At design luminosity
 of $L = $ \SI{d34}{\cm^{-2} s^{-1}} with the bunch spacing of \SI{25}{\ns}, an average of \num{1000} particles from
@@ -519,14 +520,52 @@ and producing final tables and plots. Rootpy\footnote{\url{http://rootpy.org/}} 
 libraries in python interface, and matplotlib\footnote{\url{http://matplotlib.org/}} was used to create plots.
 
 \section{Object Reconstruction}
+\label{s:object_reconstruction}
+Most CMS analyses, including the ones described in this thesis, adopt a reconstruction technique called Particle Flow
+(PF) \cite{PF}. This algorithm is used to obtain a global event description at level of individually reconstructed
+particles by means of combining information coming from all sub-detector systems. The ultimate goal is to determine
+type, energy and momentum of all the particles in the event with highest possible precision and in the most optimal way.
+The types of these particles include electrons, muons, charged hadrons, neutral hadrons and photons. All these particles
+are then used to reconstruct jets (Section~\ref{ss:jet_reconstruction}), missing transverse energy
+(Section~\ref{ss:electron_reconstruction}) and tau leptons from their decay products.
 
 \subsection{Electron Reconstruction}
+\label{ss:electron_reconstruction}
+The reconstruction of the \ttbar pair with an electron in the final state imposes high requirements on the electron
+identification and its energy-momentum measurement, precision of which is of major importance for both top mass and
+\ttbar cross section measurements.
+
+Although the CMS detector is equipped with highly accurate ECAL and tracker systems, electron identification and
+reconstruction is still a challenging task due to the large amount of tracker material (see Section~\ref{ss:tracker}).
+This results in a significant Bremsstrahlung photon emission, which often causes an ECAL energy deposit to be widely
+spread in azimuthal direction because of the high magnetic field. Therefore, dedicated algorithms were developed in
+order to collect all Bremsstrahlung energy deposits in the calorimeter, and also to take into account the kinks in the
+electron trajectory caused by the photon emissions.
+
+The baseline of the CMS track reconstruction is the Kalman filter (KF) \cite{KF}, which is a linear least-squares
+estimator based solely on Gaussian probability density functions. It is particularly suitable for muon reconstruction,
+since it is dominated by multiple Coulomb scattering and its impact is well modelled by Gaussian fluctuations. However,
+this approach fails for electrons, because Bremsstrahlung photon emission is highly non-Gaussian. To accommodate for the
+resulting kinks in the electron trajectory, the Gaussian-Sum Filter (GSF) \cite{GSF} is used, which is essentially a
+non-linear generalisation of the Kalman Filter. In this method, Bremsstrahlung energy loss is modelled by a
+Gaussian mixture, therefore GSF track fit provides a better estimate for the inner and outer track momentum,
+comparing to the KF algorithm. The downside of this approach is its high CPU usage.
+
+%write about the ECAL-driven and tracker-driven seeding strategies. Which one is used in the thesis?
+%more about the Bremsstrahlung recovery.
+
+%electron ID. Simple cut based, CiC, MVA. Which one is used where?
+
+%electrons in jets
 
 \subsection{Muon Reconstruction}
+\label{ss:muon_reconstruction}
 
 \subsection{Jet Reconstruction}
+\label{ss:jet_reconstruction}
 
 \subsection{Missing Transverse Energy}
+\label{ss:MET_reconstruction}
 
 \section{Summary}
 
