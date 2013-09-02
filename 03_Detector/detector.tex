@@ -539,20 +539,62 @@ Although the CMS detector is equipped with highly accurate ECAL and tracker syst
 reconstruction is still a challenging task due to the large amount of tracker material (see Section~\ref{ss:tracker}).
 This results in a significant Bremsstrahlung photon emission, which often causes an ECAL energy deposit to be widely
 spread in azimuthal direction because of the high magnetic field. Therefore, dedicated algorithms were developed in
-order to collect all Bremsstrahlung energy deposits in the calorimeter, and also to take into account the kinks in the
-electron trajectory caused by the photon emissions.
+order to collect all Bremsstrahlung energy deposits in the calorimeter (Bremsstrahlung recovery), and also to take into
+account the kinks in the electron trajectory caused by photon emissions.
 
-The baseline of the CMS track reconstruction is the Kalman filter (KF) \cite{KF}, which is a linear least-squares
-estimator based solely on Gaussian probability density functions. It is particularly suitable for muon reconstruction,
-since it is dominated by multiple Coulomb scattering and its impact is well modelled by Gaussian fluctuations. However,
-this approach fails for electrons, because Bremsstrahlung photon emission is highly non-Gaussian. To accommodate for the
-resulting kinks in the electron trajectory, the Gaussian-Sum Filter (GSF) \cite{GSF} is used, which is essentially a
-non-linear generalisation of the Kalman Filter. In this method, Bremsstrahlung energy loss is modelled by a
-Gaussian mixture, therefore GSF track fit provides a better estimate for the inner and outer track momentum,
-comparing to the KF algorithm. The downside of this approach is its high CPU usage.
+Electron reconstruction in CMS has following distinct stages: seeding, track finding, pre-identification, Bremsstrahlung
+recovery, track-cluster linking and final identification. Historically, the original seeding algorithm was designed and
+optimised for isolated high-\pt electrons. This approach starts from ECAL clusters, and therefore is called the
+'ECAL-driven' seeding. It is based on the property of the ECAL energy deposits to have narrow width in the $\eta$
+coordinate, and to be widely spread in $\phi$ (azimuthal direction) like it was mentioned above. The electron and all
+the associated Bremsstrahlung energy deposits form a single ``super-cluster'', and the ability to correctly determine it
+affects the overall performance of this method. Only the super-clusters with transverse energy above \SI{4}{\GeV} are
+taken into account. Super-clusters are then matched to pairs or triplets of hits in the inner tracker layers, forming
+the track seeds on which the electron tracks are built upon.
 
-%write about the ECAL-driven and tracker-driven seeding strategies. Which one is used in the thesis?
-%more about the Bremsstrahlung recovery.
+The performance of the ECAL-driven method is not very well suited for non-isolated and low-\pt electrons. This occurs
+mainly due to the fact that the super-cluster position and energy can be highly biased by the impact of overlapping
+particles, especially if the electron happens to be within a jet and therefore non-isolated. Also, high track
+multiplicity complicates the backward propagation from the super-cluster, because it can be consistent with a number of
+track seeds corresponding to other particles. To minimise the number of these fake seeds, the ratio between the HCAL and
+ECAL energy deposits ($H/E$) is required to be smaller than \num{0.15}. The HCAL towers used in the calculation of this
+ratio are taken within a cone of $\DR = 0.3$ behind the super-cluster position. Although this helps to keep the fake
+seed rate under control, the efficiency for non-isolated electrons is rather limited. As for the low-\pt electrons, the
+wider azimuthal spread of the Bremsstrahlung photons leads to poorer reconstruction of the super-cluster, biasing its
+position and therefore preventing the efficient matching with a track seed.
+
+Within the particle flow method, efficient reconstruction of non-isolated and low-\pt electrons is particularly
+important since it affects the reconstruction of jets and missing transverse energy. Therefore, a different
+('tracker-driven') seeding algorithm is used, which starts from reconstruction of the tracks. The baseline of the CMS
+track reconstruction is the Kalman filter (KF) \cite{KF}, which is a linear least-squares estimator based solely on
+Gaussian probability density functions. It is particularly suitable for muon reconstruction, since it is dominated by
+multiple Coulomb scattering and its impact is well modelled by Gaussian fluctuations. However, this approach usually
+fails for electrons, because Bremsstrahlung photon emission is highly non-Gaussian. To accommodate for the resulting
+kinks in the electron trajectory, the Gaussian-Sum Filter (GSF) \cite{GSF} is used, which is essentially a non-linear
+generalisation of the Kalman Filter. In this method, Bremsstrahlung energy loss is modelled by a Gaussian mixture,
+therefore GSF track fit provides a better estimate for the inner and outer track momentum, comparing to the KF
+algorithm. The downside of this approach is its high CPU usage, which means it can be run on a limited number of seeds.
+
+The GSF tracks are reconstructed upon all the ECAL-driven seeds. In case of the 'tracker-driven' seeds, a
+pre-identification based on high-purity KF tracks has been adopted. This procedure starts with the tracks reconstructed
+with very tight criteria, thus decreasing the fake rate yet compromising on tracking efficiency. Then an
+iterative-tracking strategy is carried out by means of removing hits unambiguously assigned to the tracks from the
+previous iteration, and progressively relaxing track seeding criteria. This approach leads to both high efficiency and
+low fake rate, which is crucial for low-\pt and non-isolated electrons.
+
+In the next step, track-cluster matching has to be performed. In case if electron has negligible Bremsstrahlung
+emission, the track is well reconstructed with the KF algorithm all the way to the ECAL internal surface, where the
+closest cluster is matched to the track. The corresponding cluster energy is compared with the track momentum, and if
+the ratio ($E/p$) is close to unity, the track is selected. On the contrary, if the electron experiences a significant
+Bremsstrahlung emission, other track characteristics have to be exploited. In this case a selection based on the number
+of hits and the $\chi^2_\textrm{KF}$ of the KF fit is applied before running a GSF refit. Finally, the number of hits,
+the GSF refit $\chi^2_\textrm{GSF}$, $\chi^2_\textrm{KF}/\chi^2_\textrm{GSF}$ ratio, the energy loss measured by the
+track and the quality of the ECAL cluster-track matching are fed into a multivariate analysis using a Boosted Decision
+Trees (BDT) estimator.
+
+Both tracker-driven and ECAL-driven seeds are used in order to obtain the GSF track collection of electron candidates.
+
+%more about the Bremsstrahlung recovery and linking procedure
 
 %electron ID. Simple cut based, CiC, MVA. Which one is used where?
 
