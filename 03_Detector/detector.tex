@@ -548,55 +548,92 @@ optimised for isolated high-\pt electrons. This approach starts from ECAL cluste
 'ECAL-driven' seeding. It is based on the property of the ECAL energy deposits to have narrow width in the $\eta$
 coordinate, and to be widely spread in $\phi$ (azimuthal direction) like it was mentioned above. The electron and all
 the associated Bremsstrahlung energy deposits form a single ``super-cluster'', and the ability to correctly determine it
-affects the overall performance of this method. Only the super-clusters with transverse energy above \SI{4}{\GeV} are
-taken into account. Super-clusters are then matched to pairs or triplets of hits in the inner tracker layers, forming
-the track seeds on which the electron tracks are built upon.
+affects the overall performance of this method. Only super-clusters with transverse energy above \SI{4}{\GeV} are taken
+into account. Super-clusters are then matched to pairs or triplets of hits in the inner tracker layers, forming the
+track seeds on which the electron tracks are built upon.
 
 The performance of the ECAL-driven method is not very well suited for non-isolated and low-\pt electrons. This occurs
 mainly due to the fact that the super-cluster position and energy can be highly biased by the impact of overlapping
 particles, especially if the electron happens to be within a jet and therefore non-isolated. Also, high track
-multiplicity complicates the backward propagation from the super-cluster, because it can be consistent with a number of
+multiplicity complicates the backward propagation from a super-cluster, because it can be consistent with a number of
 track seeds corresponding to other particles. To minimise the number of these fake seeds, the ratio between the HCAL and
 ECAL energy deposits ($H/E$) is required to be smaller than \num{0.15}. The HCAL towers used in the calculation of this
 ratio are taken within a cone of $\DR = 0.3$ behind the super-cluster position. Although this helps to keep the fake
-seed rate under control, the efficiency for non-isolated electrons is rather limited. As for the low-\pt electrons, the
-wider azimuthal spread of the Bremsstrahlung photons leads to poorer reconstruction of the super-cluster, biasing its
+seed rate under control, the efficiency for non-isolated electrons becomes rather limited. As for the low-\pt electrons,
+the wider azimuthal spread of Bremsstrahlung photons leads to poorer reconstruction of the super-cluster, biasing its
 position and therefore preventing the efficient matching with a track seed.
 
 Within the particle flow method, efficient reconstruction of non-isolated and low-\pt electrons is particularly
 important since it affects the reconstruction of jets and missing transverse energy. Therefore, a different
-('tracker-driven') seeding algorithm is used, which starts from reconstruction of the tracks. The baseline of the CMS
-track reconstruction is the Kalman filter (KF) \cite{KF}, which is a linear least-squares estimator based solely on
-Gaussian probability density functions. It is particularly suitable for muon reconstruction, since it is dominated by
-multiple Coulomb scattering and its impact is well modelled by Gaussian fluctuations. However, this approach usually
-fails for electrons, because Bremsstrahlung photon emission is highly non-Gaussian. To accommodate for the resulting
-kinks in the electron trajectory, the Gaussian-Sum Filter (GSF) \cite{GSF} is used, which is essentially a non-linear
-generalisation of the Kalman Filter. In this method, Bremsstrahlung energy loss is modelled by a Gaussian mixture,
-therefore GSF track fit provides a better estimate for the inner and outer track momentum, comparing to the KF
-algorithm. The downside of this approach is its high CPU usage, which means it can be run on a limited number of seeds.
+('tracker-driven') seeding algorithm is used, which starts from reconstruction of tracks. The baseline of the CMS track
+reconstruction is the Kalman filter (KF) \cite{KF}, which is a linear least-squares estimator based solely on Gaussian
+probability density functions. It is particularly suitable for muon reconstruction since it is dominated by multiple
+Coulomb scattering and its impact is well modelled by Gaussian fluctuations. However, this approach usually fails for
+electrons because Bremsstrahlung photon emission is highly non-Gaussian. To accommodate for the resulting kinks in the
+electron trajectory, the Gaussian-Sum Filter (GSF) \cite{GSF} is used, which is essentially a non-linear generalisation
+of the Kalman Filter. In this method, Bremsstrahlung energy loss is modelled by a Gaussian mixture, therefore GSF track
+fit provides a better estimate for the inner and outer track momentum comparing to the KF algorithm. The downside of
+this approach is its high CPU usage, which means it can be run on a limited number of seeds.
 
-The GSF tracks are reconstructed upon all the ECAL-driven seeds. In case of the 'tracker-driven' seeds, a
-pre-identification based on high-purity KF tracks has been adopted. This procedure starts with the tracks reconstructed
-with very tight criteria, thus decreasing the fake rate yet compromising on tracking efficiency. Then an
-iterative-tracking strategy is carried out by means of removing hits unambiguously assigned to the tracks from the
-previous iteration, and progressively relaxing track seeding criteria. This approach leads to both high efficiency and
-low fake rate, which is crucial for low-\pt and non-isolated electrons.
+The GSF tracks are reconstructed upon all ECAL-driven seeds. In case of the 'tracker-driven' seeds, a pre-identification
+based on high-purity KF tracks has been adopted. This procedure starts with the tracks reconstructed with very tight
+criteria, thus decreasing the fake rate yet compromising on tracking efficiency. Then an iterative-tracking strategy is
+carried out by means of removing hits unambiguously assigned to tracks from the previous iteration, and also
+progressively relaxing track seeding criteria. This approach leads to both high efficiency and low fake rate, which is
+crucial for low-\pt and non-isolated electrons.
 
 In the next step, track-cluster matching has to be performed. In case if electron has negligible Bremsstrahlung
 emission, the track is well reconstructed with the KF algorithm all the way to the ECAL internal surface, where the
 closest cluster is matched to the track. The corresponding cluster energy is compared with the track momentum, and if
 the ratio ($E/p$) is close to unity, the track is selected. On the contrary, if the electron experiences a significant
 Bremsstrahlung emission, other track characteristics have to be exploited. In this case a selection based on the number
-of hits and the $\chi^2_\textrm{KF}$ of the KF fit is applied before running a GSF refit. Finally, the number of hits,
-the GSF refit $\chi^2_\textrm{GSF}$, $\chi^2_\textrm{KF}/\chi^2_\textrm{GSF}$ ratio, the energy loss measured by the
-track and the quality of the ECAL cluster-track matching are fed into a multivariate analysis using a Boosted Decision
-Trees (BDT) estimator.
+of hits in the tracker and the $\chi^2_\textrm{KF}$ of the KF fit is applied before running a GSF refit. Finally, the
+number of hits, the GSF refit $\chi^2_\textrm{GSF}$, $\chi^2_\textrm{KF}/\chi^2_\textrm{GSF}$ ratio, the energy loss
+measured by the track and the quality of the ECAL cluster-track matching are fed into a multivariate analysis using a
+Boosted Decision Trees (BDT) estimator.
 
-Both tracker-driven and ECAL-driven seeds are used in order to obtain the GSF track collection of electron candidates.
+Both tracker-driven and ECAL-driven seeds are used to obtain the GSF track collection of electron candidates. In the
+particle flow algorithm, it is necessary to link both electron and Bremsstrahlung energy deposits to the GSF track. A
+super-cluster is linked to a track if the extrapolated position from the outermost tracker measurement is within the
+boundaries of one of the ECAL cells at the expected depth of the electron shower maximum. The preshower-ECAL and
+ECAL-HCAL links are made in a similar way.
 
-%more about the Bremsstrahlung recovery and linking procedure
+Another important particle flow procedure, also driven by GSF tracks, is Bremsstrahlung recovery. In order to
+reconstruct an electron with correctly assigned energy and momentum, it is crucial to identify all energy deposits from
+Bremsstrahlung photons, thus forming a super-cluster. This procedure is carried out for each tracker layer by computing
+a straight-line extrapolation tangent to the track, up to the calorimeter. To determine a Bremsstrahlung photon,
+track-cluster linking is performed as described above. To limit the charged hadron contamination, clusters already
+assigned to KF tracks are not included in the calculation. Also, the distance in $\eta$ coordinate between the
+extrapolation and the cluster is required to be smaller than \num{0.015}, which helps to reduce the neutral particles
+background.
 
-%electron ID. Simple cut based, CiC, MVA. Which one is used where?
+The final step in electron reconstruction is building observables for the electron identification. There are several
+identification algorithms used by various CMS analyses, and four of them are used in this thesis: simple cut-based
+(SCB ID), cuts in categories (CiC ID), particle flow (PF ID) and multi-variate analysis (MVA ID).
+
+Simple cut-based identification is used in the High-Level Trigger, and therefore has to be as simple, fast and
+robust as possible. Cuts are applied on the following variables:
+
+\begin{itemize}
+  \item $H/E$, i.e.\ the ratio of hadronic energy of the HCAL towers centred at the super-cluster position of the
+  electron in a cone of radius $\Delta R = 0.15$, and the super-cluster electromagnetic energy;
+  \item $\Delta\eta_{\text{in}}$, i.e.\ the difference in $\eta$ between the extrapolated track position and $\eta$ of
+  the super-cluster;
+  \item $\Delta\phi_{\text{in}}$, i.e.\ the difference in $\phi$ between the extrapolated track position and $\phi$ of
+  the super-cluster;
+  \item $\sigma_{i\eta, i\eta}$, i.e.\ cluster shape of the electron energy in a $5\times5$ block of crystals around the
+  seed crystal (the one with the highest energy):
+  \begin{equation}
+    \sigma_{i\eta, i\eta} = \sum_{5\times5 \text{ crystals}} \left(\eta_i - \eta_\text{seed cluster}\right)^2
+    \frac{E_i}{E_{\text{seed cluster}}}
+  \end{equation}
+\end{itemize}
+
+CiC ID...
+
+PF ID...
+
+MVA ID...
 
 %electrons in jets
 
