@@ -607,9 +607,24 @@ assigned to KF tracks are not included in the calculation. Also, the distance in
 extrapolation and the cluster is required to be smaller than \num{0.015}, which helps to reduce the neutral particles
 background.
 
-The final step in electron reconstruction is building observables for the electron identification. There are several
-identification algorithms used by various CMS analyses, and four of them are used in this thesis: simple cut-based
-(SCB ID), cuts in categories (CiC ID), particle flow (PF ID) and multi-variate analysis (MVA ID).
+\subsubsection{Electron Identification}
+\label{sss:electron_id}
+
+Electron reconstruction in CMS is based on a characteristic signature that electrons leave in the tracker and
+calorimetry systems. However, other objects like charged hadrons, jets or photon conversions can produce very similar
+signatures and therefore may be reconstructed as electrons. Therefore, in order to distinguish these ``fake'' electrons
+from ``real'' ones, a further selection has to be applied. This procedure is referred to as electron identification (or
+electron ID).
+
+Initially the electron identification is performed at the final stage of the electron reconstruction process. The
+working points of the cuts applied are selected to be loose enough in order to satisfy most CMS analyses requirements.
+Afterwards, more specific (tighter) ID cuts are applied for each individual analysis, defining the working point in the
+trade-off between selection efficiency and fakes contamination. This will be discussed separately in the selection
+description for each analysis in corresponding chapters.
+
+There are several electron identification algorithms used by various CMS analyses, and four of them are used in the
+analyses described in this thesis: simple cut-based (SCB ID), cuts in categories (CiC ID), particle flow (PF ID) and
+multi-variate analysis (MVA ID).
 
 Simple cut-based identification is used in the High-Level Trigger, and therefore has to be as simple, fast and
 robust as possible. Cuts are applied on the following variables:
@@ -622,14 +637,48 @@ robust as possible. Cuts are applied on the following variables:
   \item $\Delta\phi_{\text{in}}$, i.e.\ the difference in $\phi$ between the extrapolated track position and $\phi$ of
   the super-cluster;
   \item $\sigma_{i\eta, i\eta}$, i.e.\ cluster shape of the electron energy in a $5\times5$ block of crystals around the
-  seed crystal (the one with the highest energy):
+  seed crystal (the one with the highest energy) \cite{electron_reconstruction}:
   \begin{equation}
     \sigma_{i\eta, i\eta} = \sum_{5\times5 \text{ crystals}} \left(\eta_i - \eta_\text{seed cluster}\right)^2
     \frac{E_i}{E_{\text{seed cluster}}}
   \end{equation}
 \end{itemize}
 
-CiC ID...
+Although this identification method has an advantage of its simplicity, it does not show the best signal efficiency and
+background rejection. One of the more complex methods is the CiC ID, which exploits the categorisation of electrons.
+This method is used for electron identification in the Top Mass analysis (Chapter~\ref{c:top_mass_analysis}). It is
+optimised to select electrons from different sources (W, Z and J/$\psi$ decays) and reject fakes from jets or
+conversions. In order to achieve higher efficiency, electron candidates are split into categories with different signal
+to background ratio, allowing to better tune the working points of the cuts. The first step in categorisation is done by
+division between barrel and endcap regions of the detector. Since the properties of both the tracker and calorimetry
+systems differ significantly in these two regions, different cuts are applied. The second step is based on the following
+observables:
+
+\begin{itemize}
+  \item $f_\text{brem}$, or measured bremsstrahlung fraction, defined as:
+  \begin{equation}
+    f_\text{brem} = \frac{p_\text{in}-p_\text{out}}{p_\text{in}}
+  \end{equation}
+  where $p_\text{in}$ is the initial track momentum at the vertex and $p_\text{out}$ is the track momentum at the last
+  hit;
+  \item $E/p$, which is the ratio of the super-cluster energy and the initial track momentum.
+\end{itemize}
+
+Three categories of electron candidates are distinguished \cite{CiC_ID}:
+\begin{itemize}
+  \item ``Low-Brem'': $0.9 < E/p < 1.2 - f_\text{brem} < 0.12$ (barrel), $0.82 < E/p < 1.22 - f_\text{brem} < 0.2$
+  (endcap), the fake-like region with high number of both real and fake electrons;
+  \item ``Bremming'': $0.9 < E/p < 1.2 - f_\text{brem} > 0.12$ (barrel), $0.82 < E/p < 1.22 - f_\text{brem} > 0.2$
+  (endcap), the electrons-like region with a little contamination from fakes;
+  \item ``Bad-Track'': remaining regions with a low number of real electrons.
+\end{itemize}
+
+The third and the final step in categorisation is based simply on the electron transverse energy, with the lower
+threshold taken as \SI{10}{\GeV}. In each category, the selection is performed on the basic ID variables already
+mentioned for the simple cut-based identification. On top of these variables, isolation and conversion rejection
+variables are also used.
+
+%explain more about isolation, photon conversions and corresponding observables
 
 PF ID...
 
