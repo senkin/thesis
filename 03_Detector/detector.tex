@@ -645,9 +645,8 @@ robust as possible. Cuts are applied on the following variables:
 \end{itemize}
 
 Although this identification method has an advantage of its simplicity, it does not show the best signal efficiency and
-background rejection. One of the more complex methods is the CiC ID, which exploits the categorisation of electrons.
-This method is used for electron identification in the Top Mass analysis (Chapter~\ref{c:top_mass_analysis}). It is
-optimised to select electrons from different sources (W, Z and J/$\psi$ decays) and reject fakes from jets or
+background rejection. One of the more complex methods is the CiC ID, which exploits the categorisation of electrons. It
+is optimised to select electrons from different sources (W, Z and J/$\psi$ decays) and reject fakes from jets or
 conversions. In order to achieve higher efficiency, electron candidates are split into categories with different signal
 to background ratio, allowing to better tune the working points of the cuts. The first step in categorisation is done by
 division between barrel and endcap regions of the detector. Since the properties of both the tracker and calorimetry
@@ -675,14 +674,106 @@ Three categories of electron candidates are distinguished \cite{CiC_ID}:
 
 The third and the final step in categorisation is based simply on the electron transverse energy, with the lower
 threshold taken as \SI{10}{\GeV}. In each category, the selection is performed on the basic ID variables already
-mentioned for the simple cut-based identification. On top of these variables, isolation and conversion rejection
-variables are also used.
+mentioned above for the simple cut-based identification. On top of these variables, isolation and conversion rejection
+variables are also used, they are discussed in Section~\ref{sss:electron_isolation} and
+Section~\ref{sss:photon_conversions}, respectively.
+
+The cuts within CiC ID are applied in order to maximise the signal to background ratio. Depending on the needs of
+different analyses, nine levels of cut severity are implemented: \textit{VeryLoose, Loose, Medium, Tight, SuperTight,
+HyperTight(1-4)}. Each step decreases the fake rate by about a factor of two for electrons with \ET$>$ \SI{20}{\GeV}
+\cite{CiC_ID}. The CiC ID is used as a primary electron identification method in the Top Mass analysis
+(Chapter~\ref{c:top_mass_analysis}).
+
+Particle flow ID is the final step of the particle flow electron reconstruction. Following the particle flow concept,
+is uses information from all the CMS sub-detectors obtained in previous reconstruction steps to build new observables
+for electron identification. The complete list of PF ID observables is given below:
+\begin{itemize}
+  \item $(E_\text{e}+\sum E_\gamma)/p_\text{in}$
+  \item $E_\text{e}/p_\text{out}$
+  \item $\sum E_\gamma/(p_\text{in}-p_\text{out})$
+  \item $EarlyBrem$
+  \item $LateBrem$
+  \item $\log (\sigma_{\eta\eta})$
+  \item $\lvert \eta_\text{GSF}-\eta_\text{cluster} \rvert$
+  \item $H/(H+E_\text{e})$
+  \item $f_\text{brem} = (p_\text{in}-p_\text{out})/p_\text{in}$
+  \item $\chi^2_\textrm{GSF}$ and $\chi^2_\textrm{KF}$
+  \item \#hits$_\text{KF}$
+  \item GSF $\sigma_{p_\text{T}}/p_\text{T}$
+  \item GSF $\ln (p_\text{T})$
+  \item GSF $\eta$
+\end{itemize}
+
+All these variables are combined into a single discriminator by a multivariate analysis technique (BDT method), which
+has been trained on signal and background Monte Carlo samples. PF ID is a relatively loose identification method, since
+it has to satisfy the needs of all analyses using particle flow collections.
+
+Finally, MVA electron identification is used in top cross sections analysis on 2012 data. It is another multivariate
+analysis technique, optimised to select isolated electrons from W and Z decays. The following variables are combined
+into a single discriminator:
+
+\begin{itemize}
+  \item $\chi^2_{\text{GSF}}$: $\chi^2$ of the GSF track
+  \item $\chi^2_{\text{KF}}$: $\chi^2$ of the KF track
+  \item Number of hits of the KF track
+  \item $\Delta\eta$: the distance in $\eta$ between the position of the cluster and the extrapolated position of the
+  track
+  \item $\Delta\phi$: the distance in $\phi$ between the position of the cluster and the extrapolated position of the
+  track
+  \item $\Delta\eta_{vtx}$: the distance in $\eta$ between the position of the cluster and the position of the track at
+  vertex
+  \item $\Delta\phi_{vtx}$: the distance in $\phi$ between the position of the cluster and the position of the track at
+  vertex
+  \item Cluster shape in $\eta$, $\sigma_{i\eta i\eta}$
+  \item Cluster shape in $\phi$, $\sigma_{i\phi i\phi}$
+  \item $\eta$ width of the super-cluster
+  \item $\phi$ width of the super-cluster
+  \item $1-\frac{E_{1\times 5}}{E_{5\times 5}}$ where $E_{1\times 5}$ is the energy in the central $1\times 5$ strip of
+  the $5\times 5$ electron cluster and $E_{5\times 5}$ its total energy
+  \item Ratio of the energy of a cluster of $3\times 3$ and the uncorrected (raw) energy of the super-cluster
+  $\left(\frac{E_{3\times 3}}{E_{\text{super-cluster, raw}}}\right)$
+  \item Ratio of the energy in the HCAL and ECAL ($H/E$)
+  \item Ratio of the supercluster energy and the momentum of the associated track
+  $\left(\frac{E_{\text{super-cluster}}}{P_{\text{track}}}\right)$
+  \item $\frac{1}{E_{\text{super-cluster}}} - \frac{1}{P_{\text{track}}}$
+  \item Ratio of the electron ECAL energy and the momentum of the track calculated in the outermost tracker
+  $\left(\frac{E_{\text{ECAL}}}{P_{\text{track}}}\right)$
+  \item Ratio of the energy in the preshower detector and the raw super-cluster energy \\
+  $\left(\frac{E_{\text{PS}}}{E_{\text{super-cluster, raw}}}\text{, only in the endcaps}\right)$
+  \item \pt and $\eta$
+\end{itemize}
+
+\subsubsection{Electron Isolation}
+\label{sss:electron_isolation}
+
+Isolation is an observable that allows to distinguish prompt electrons (i.e.\ the ones from W and Z decays) from jets
+faking electrons and electrons within jets. It is essentially a measure of activity around the particle. In CMS, there
+are two different ways of quantifying isolation: detector-based and particle-based. The detector-based isolation is
+defined separately for each detector sub-system (tracker, ECAL and HCAL):
+
+\begin{itemize}
+  \item Tracker isolation, calculated as the sum of transverse momenta of all track within a cone of $\Delta R = 0.3$
+  around the electron, excluding the electron momentum itself;
+  \item ECAL isolation, i.e.\ the sum of transverse energy of all ECAL clusters within a cone of $\Delta R = 0.3$
+  around the super-cluster position. The footprint of the original electron is also removed;
+  \item HCAL isolation, defined as the sum of transverse energy of all HCAL towers within a cone of $\Delta R = 0.3$
+  centred at the super-cluster position.
+\end{itemize}
+
+Particle-based isolation exploits the particle flow information: it is calculated as the sum of transverse energy of all
+PF particles in the cone of $\Delta R = 0.3$ around the electron. Both detector-based and particle-based isolation
+definitions are often normalised to the electron transverse momentum (or energy in case of calorimeter isolation) in
+order to improve signal efficiency. The normalised sum of the tracker, ECAL and HCAL isolation variables is referred to
+as detector-based relative isolation (or RelIso), similarly normalised particle-based isolation is called PF RelIso.
+These quantities are crucial in various methods to estimate the QCD background contribution for many analyses, and will
+be used for both electrons and muons throughout this thesis.
+
+\subsubsection{Identification of photon conversions}
+\label{sss:photon_conversions}
 
 %explain more about isolation, photon conversions and corresponding observables
 
-PF ID...
 
-MVA ID...
 
 %electrons in jets
 
