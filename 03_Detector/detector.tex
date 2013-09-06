@@ -639,6 +639,7 @@ robust as possible. Cuts are applied on the following variables:
   \item $\sigma_{i\eta, i\eta}$, i.e.\ cluster shape of the electron energy in a $5\times5$ block of crystals around the
   seed crystal (the one with the highest energy) \cite{electron_reconstruction}:
   \begin{equation}
+  \label{eq:cluster_shape}
     \sigma_{i\eta, i\eta} = \sum_{5\times5 \text{ crystals}} \left(\eta_i - \eta_\text{seed cluster}\right)^2
     \frac{E_i}{E_{\text{seed cluster}}}
   \end{equation}
@@ -656,6 +657,7 @@ observables:
 \begin{itemize}
   \item $f_\text{brem}$, or measured bremsstrahlung fraction, defined as:
   \begin{equation}
+  \label{eq:fbrem}
     f_\text{brem} = \frac{p_\text{in}-p_\text{out}}{p_\text{in}}
   \end{equation}
   where $p_\text{in}$ is the initial track momentum at the vertex and $p_\text{out}$ is the track momentum at the last
@@ -688,20 +690,27 @@ Particle flow ID is the final step of the particle flow electron reconstruction.
 is uses information from all the CMS sub-detectors obtained in previous reconstruction steps to build new observables
 for electron identification. The complete list of PF ID observables is given below:
 \begin{itemize}
-  \item $(E_\text{e}+\sum E_\gamma)/p_\text{in}$
-  \item $E_\text{e}/p_\text{out}$
-  \item $\sum E_\gamma/(p_\text{in}-p_\text{out})$
-  \item $EarlyBrem$
-  \item $LateBrem$
-  \item $\log (\sigma_{\eta\eta})$
-  \item $\lvert \eta_\text{GSF}-\eta_\text{cluster} \rvert$
-  \item $H/(H+E_\text{e})$
-  \item $f_\text{brem} = (p_\text{in}-p_\text{out})/p_\text{in}$
-  \item $\chi^2_\textrm{GSF}$ and $\chi^2_\textrm{KF}$
-  \item \#hits$_\text{KF}$
-  \item GSF $\sigma_{p_\text{T}}/p_\text{T}$
-  \item GSF $\ln (p_\text{T})$
-  \item GSF $\eta$
+  \item \pt and $\eta$ of the GSF track;
+  \item GSF $\sigma_{p_\text{T}}/p_\text{T}$, transverse momentum resolution of the GSF track;
+  \item \#hits$_\text{KF}$, number of reconstructed KF track hits;
+  \item $\chi^2_\textrm{GSF}$ and $\chi^2_\textrm{KF}$, GSF and KF goodness-of-fits;
+  \item $\Delta\eta$: distance in $\eta$ between the position of the cluster and the extrapolated position of the
+  GSF track;
+  \item $\sigma_{\eta\eta}$, cluster shape (Equation~\ref{eq:cluster_shape}) of the ECAL cluster linked to the
+  GSF track;
+  \item $H/(H+E_\text{e})$, hadron fraction of the shower, where $H$ is the energy of the hadron cluster linked to
+  the GSF track;
+  \item $(E_\text{e}+\sum E_\gamma)/p_\text{in}$, ratio between the super-cluster energy and the inner track
+  momentum;
+  \item $E_\text{e}/p_\text{out}$, ratio between the electron cluster energy and the track outer-momentum;
+  \item $\sum E_\gamma/(p_\text{in}-p_\text{out})$, the ratio between the Bremsstrahlung photon energy as measured by
+  ECAL and by the tracker;
+  \item $EarlyBrem$, flag of $(E_\text{e}+\sum E_\gamma)>p_\text{in}$ inequality, corresponding to an electron
+  emitting an ``early'' Bremsstrahlung photon, i.e.\ before it has crossed at least three tracker layers;
+  \item $LateBrem$, flag of $E_\text{e}>p_\text{out}$ inequality, corresponding to an electron emitting a ``late''
+  Bremsstrahlung electron, when the ECAL clustering is not able to disentangle the overlapping electron and photon
+  showers;
+  \item $f_\text{brem} = (p_\text{in}-p_\text{out})/p_\text{in}$, Bremsstrahlung fraction (Equation~\ref{eq:fbrem}).
 \end{itemize}
 
 All these variables are combined into a single discriminator by a multivariate analysis technique (BDT method), which
@@ -709,38 +718,37 @@ has been trained on signal and background Monte Carlo samples. PF ID is a relati
 it has to satisfy the needs of all analyses using particle flow collections.
 
 Finally, MVA electron identification is used in top cross sections analysis on 2012 data. It is another multivariate
-analysis technique, optimised to select isolated electrons from W and Z decays. The following variables are combined
-into a single discriminator:
+analysis technique, optimised to select isolated electrons from W and Z decays. The variables used in MVA ID are also
+combined into a single discriminator, they are largely similar to the ones used in PF ID:
 
 \begin{itemize}
-  \item $\chi^2_{\text{GSF}}$: $\chi^2$ of the GSF track
-  \item $\chi^2_{\text{KF}}$: $\chi^2$ of the KF track
-  \item Number of hits of the KF track
-  \item $\Delta\eta$: the distance in $\eta$ between the position of the cluster and the extrapolated position of the
-  track
-  \item $\Delta\phi$: the distance in $\phi$ between the position of the cluster and the extrapolated position of the
-  track
-  \item $\Delta\eta_{vtx}$: the distance in $\eta$ between the position of the cluster and the position of the track at
-  vertex
-  \item $\Delta\phi_{vtx}$: the distance in $\phi$ between the position of the cluster and the position of the track at
-  vertex
-  \item Cluster shape in $\eta$, $\sigma_{i\eta i\eta}$
-  \item Cluster shape in $\phi$, $\sigma_{i\phi i\phi}$
-  \item $\eta$ width of the super-cluster
-  \item $\phi$ width of the super-cluster
-  \item $1-\frac{E_{1\times 5}}{E_{5\times 5}}$ where $E_{1\times 5}$ is the energy in the central $1\times 5$ strip of
-  the $5\times 5$ electron cluster and $E_{5\times 5}$ its total energy
-  \item Ratio of the energy of a cluster of $3\times 3$ and the uncorrected (raw) energy of the super-cluster
-  $\left(\frac{E_{3\times 3}}{E_{\text{super-cluster, raw}}}\right)$
-  \item Ratio of the energy in the HCAL and ECAL ($H/E$)
-  \item Ratio of the supercluster energy and the momentum of the associated track
-  $\left(\frac{E_{\text{super-cluster}}}{P_{\text{track}}}\right)$
-  \item $\frac{1}{E_{\text{super-cluster}}} - \frac{1}{P_{\text{track}}}$
-  \item Ratio of the electron ECAL energy and the momentum of the track calculated in the outermost tracker
-  $\left(\frac{E_{\text{ECAL}}}{P_{\text{track}}}\right)$
-  \item Ratio of the energy in the preshower detector and the raw super-cluster energy \\
-  $\left(\frac{E_{\text{PS}}}{E_{\text{super-cluster, raw}}}\text{, only in the endcaps}\right)$
-  \item \pt and $\eta$
+  \item \pt and $\eta$ of the GSF track;
+  \item \#hits$_\text{KF}$, number of reconstructed KF track hits;
+  \item $\chi^2_\textrm{GSF}$ and $\chi^2_\textrm{KF}$, GSF and KF goodness-of-fits;
+  \item $\Delta\eta$: distance in $\eta$ between the position of the cluster and the extrapolated position of the
+  GSF track;
+  \item $\Delta\phi$: distance in $\phi$ between the position of the cluster and the extrapolated position of the
+  track;
+  \item $\Delta\eta_{vtx}$: distance in $\eta$ between the position of the cluster and the position of the GSF track
+  at vertex;
+  \item $\Delta\phi_{vtx}$: distance in $\phi$ between the position of the cluster and the position of the GSF track
+  at vertex;
+  \item $\sigma_{\eta \eta}$, cluster shape in $\eta$;
+  \item $\sigma_{\phi \phi}$, cluster shape in $\phi$;
+  \item $\eta$ width of the super-cluster;
+  \item $\phi$ width of the super-cluster;
+  \item $H/E$, ratio of HCAL and ECAL cluster energy;
+  \item $E_\text{super-cluster}/p_\text{T}$, ratio between the super-cluster energy and the track momentum;
+  \item $1/E_\text{super-cluster} - 1/p_\text{T}$, difference between inverse super-cluster energy and inverse
+  track momentum;
+  \item $E_\text{e}/p_\text{out}$, ratio between the electron cluster energy and the track outer-momentum;
+  \item $1-E_{1\times 5}/E_{5\times 5}$, where $E_{1\times 5}$ is the energy in the central $1\times 5$ strip of the
+  $5\times 5$ electron cluster and $E_{5\times 5}$ its total energy;
+  \item $E_{3\times 3}/E_\text{super-cluster, raw}$, ratio of the energy of a cluster of $3\times 3$ and the
+  uncorrected (raw) energy of the super-cluster;
+  \item $E_\text{PS}/E_\text{super-cluster, raw}$, ratio of the energy in the preshower detector and the raw
+  super-cluster energy (only in the endcap region).
+  % Surely there are isolation variables? There's no MVA documentation whatsoever. Absolute joke.
 \end{itemize}
 
 \subsubsection{Electron Isolation}
@@ -770,9 +778,13 @@ be used for both electrons and muons throughout this thesis.
 
 \subsubsection{Identification of photon conversions}
 \label{sss:photon_conversions}
-
-%explain more about isolation, photon conversions and corresponding observables
-
+Interacting with detector material, photons can convert into electron-positron pairs. Due to the large amount of
+material budget in the tracker (Figure~\ref{tracker_material_budget}), especially in the endcap region, there is a high
+chance of conversions to happen. The resulting electrons can successfully fake prompt signal electrons, passing all the
+identification criteria and appearing isolated if the initial photon was isolated, too. Therefore conversions constitute
+a large proportion of the QCD background to top signal. The electron-positron pair may not be symmetrical in transverse
+momenta, therefore a veto on a second electron is not sufficient to reject such electrons and other conversion
+identification criteria are necessary.
 
 
 %electrons in jets
