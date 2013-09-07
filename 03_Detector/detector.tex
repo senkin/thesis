@@ -786,8 +786,32 @@ a large proportion of the QCD background to top signal. The electron-positron pa
 momenta, therefore a veto on a second electron is not sufficient to reject such electrons and other conversion
 identification criteria are necessary.
 
+The simplest method is based on counting the number of missing hits in the tracker. Conversions are most likely to
+happen at some distance from the interaction point, essentially anywhere between the point of photon production and the
+end of the tracker. Therefore electrons produced in such conversions are likely not to traverse through all the pixel
+layers. To separate these electrons from the prompt ones, a cut on the number of missing layers can be used. However,
+this approach fails if conversion occurs in the beam pipe, or if the reconstructed electron track is paired with
+unrelated hits in the tracker, making it look like a prompt electron.
 
-%electrons in jets
+A slightly more sophisticated method is a partner track method. It is based on geometrical cuts on $dist$ and $dcot$
+variables, which refer to the distances between tangent points of any two tracks in the $r-\phi$-plane and $r-z$-plane,
+respectively:
+\begin{equation}
+  dist = \left|\left|\vec{r}_1 - \vec{r}_2 \right|- r_1 - r_2\right|
+\end{equation}
+\begin{equation}
+  dcot = \left|\frac{1}{\tan\theta_1} -\frac{1}{\tan\theta_2}\right|
+\end{equation}
+Here $\vec{r}_{1,2}$ are radial vectors of the two tracks, $r_{1,2}$ are the track radii and $\theta_{1,2}$ -- angles
+between the tracks and the beam pipe. Apart from the cuts on $dist$ and $dcot$ variables, tracks should have opposite
+charge in order to be considered to come from a photon conversion.
+
+These two methods for conversion identification were used in the top mass analysis on 2011 data. For the top cross
+sections analysis on 2012 data, along with the number of hits method, a more advanced technique called vertex fit was
+used. It is essentially a full vertex fit of all pairs of tracks, with the selection being made on the the fit
+probability. The method benefits from the full use of track uncertainties and covariances, combining all information
+into a single discriminator. However, increased complexity of this technique makes it more CPU-intensive than the
+partner track method.
 
 \subsection{Muon Reconstruction}
 \label{ss:muon_reconstruction}
