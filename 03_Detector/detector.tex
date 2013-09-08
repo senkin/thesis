@@ -813,8 +813,54 @@ probability. The method benefits from the full use of track uncertainties and co
 into a single discriminator. However, increased complexity of this technique makes it more CPU-intensive than the
 partner track method.
 
+% internal source: https://twiki.cern.ch/twiki/bin/view/CMS/ConversionTools
+
 \subsection{Muon Reconstruction}
 \label{ss:muon_reconstruction}
+A good muon reconstruction and identification was one of the main CMS design requirements. Initially, muons are
+reconstructed independently in the tracker (``tracker tracks'') and in the muon system (``standalone muon tracks'')
+using the Kalman Filter technique \cite{KF}. Based on these objects, two different reconstruction methods are used:
+\cite{muon_reconstruction}
+
+\begin{itemize}
+  \item Global muon reconstruction. Each standalone muon track reconstructed in the muon system is matched with the
+  tracker track by propagating onto a common surface. A global fit is performed on the combined collection of hits from
+  both tracks, and the resulting muon is referred to as a \textit{global muon}.
+  \item Tracker muon reconstruction. All tracker tracks above certain threshold (\pt $>$ \SI{0.5}{\GeV}, $p >$
+  \SI{0.5}{\GeV}) are extrapolated to the muon system, taking into account possible energy losses, magnetic field and
+  multiple Coulomb scattering. If the track matches at least one muon segment in the muon system, i.e.\ a short track
+  stub made of DT or CSC hits, it is considered a \textit{tracker muon}.
+\end{itemize}
+
+Global muon reconstruction has a high efficiency for high-\pt muons, penetrating through more than one muon station. On
+the contrary, tracker muon reconstruction is more efficient for low-\pt muons (\pt $<$ \SI{5}{\GeV}), as it requires
+just a single muon segment. Since the \ttbar analyses described in this thesis have a semi-leptonic signature with
+exactly one energetic muon in the final state (in case of the muon channel), only the global muon reconstruction method
+is used, as its momentum resolution at high transverse momenta benefits from both the tracker and the muon system
+(Figure~\ref{muon_resolution}).
+
+Following the reconstruction, the quality of the muon objects is verified by applying identification criteria. This is
+done in order to suppress hadronic punch-through, muons from decays in flight and cosmic muons. Selection is applied on
+the following observables:
+\begin{itemize}
+  \item normalised $\chi^2$ ($\chi^2$/number of degrees of freedom) of the global muon fit;
+  \item number of muon chamber hits in the global muon fit;
+  \item number of muon stations with muon segments;
+  \item transverse impact parameter $d_{xy}$ (closest approach of the track to the primary vertex);
+  \item longitudinal distance $d_z$ of the tracker track w.r.t. the primary vertex;
+  \item number of hits in the pixel detector;
+  \item number of hits in the tracker layers.
+\end{itemize}
+
+The muon identification also exploits the CMS particle flow event reconstruction, making use of information coming from
+all sub-detectors. Particle flow muons (PF muons) are identified by imposing selection on all muon candidates
+reconstructed with the global muon method. This selection was optimised for identification of muons in jets, minimising
+the fake rate from misidentified charged hadrons, which is crucial for correct reconstruction of jets and missing
+transverse energy (described in more detail in the following sections). Depending on the analysis specifics, isolation
+requirements can also be applied; isolation definitions closely follow the ones for electrons
+(Section~\ref{sss:electron_isolation}).
+
+%internal source https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideMuonId
 
 \subsection{Jet Reconstruction}
 \label{ss:jet_reconstruction}
