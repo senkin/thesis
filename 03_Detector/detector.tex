@@ -864,6 +864,24 @@ requirements can also be applied; isolation definitions closely follow the ones 
 
 \subsection{Jet Reconstruction}
 \label{ss:jet_reconstruction}
+Hadronisation of quarks and gluons leads to production of narrow cones of particles moving in approximately one
+direction, called jets. This happens due to colour confinement, as particles carrying a colour charge cannot exist in
+free form, they have to fragment into hadrons before they can be detected directly. Therefore, to measure the initial
+parton's momentum and energy, all these particles must be combined into jets.
+
+The CMS particle flow algorithm implies reconstruction of individual particles (charged and neutral hadrons, electrons,
+muons, photons) before combining (or clustering) them into jets. A few different jet clustering techniques exist, but
+the one used predominantly in CMS and exclusively in this work is anti-$k_t$ algorithm \cite{anti-kt}, which defines the
+distance between constituent particles as:
+\begin{equation}
+d_{ij} = \min\left(\frac{1}{k^2_{t,i}},\frac{1}{k^2_{t,j}}\right) \frac{\Delta_{i,j}^2}{R^2}
+\end{equation}
+where $\Delta_{i,j}^2 = (y_i-y_j)^2 + (\phi_i-\phi_j)^2$, $k_{t,i/j}$, $y_{i/j}$ and $\phi_{i/j}$ are respectively
+transverse momenta, rapidities and azimuth angles of particles $i/j$, and $R$ is the radius parameter.
+
+%need to add a bit more about anti-kt... read up.
+%JEC, JES (?), PF Jet ID.
+
 
 \subsection{Missing Transverse Energy}
 \label{ss:MET_reconstruction}
