@@ -879,8 +879,36 @@ d_{ij} = \min\left(\frac{1}{k^2_{t,i}},\frac{1}{k^2_{t,j}}\right) \frac{\Delta_{
 where $\Delta_{i,j}^2 = (y_i-y_j)^2 + (\phi_i-\phi_j)^2$, $k_{t,i/j}$, $y_{i/j}$ and $\phi_{i/j}$ are respectively
 transverse momenta, rapidities and azimuth angles of particles $i/j$, and $R$ is the radius parameter.
 
-%need to add a bit more about anti-kt... read up.
-%JEC, JES (?), PF Jet ID.
+The clustering proceeds by identifying the smallest distances between particles and recombining them until all jets are
+formed and no particles are left. An event typically has a few well-separated hard (high-\pt) particles and a large
+amount of soft (low-\pt) particles. The distance $d_{1i}$ between a hard particle 1 and a soft particle $i$ will be
+fully determined by the transverse momentum of the hard particle and the $\Delta_{1i}$ separation. On the other hand,
+distance between soft particles with similar separation will be substantially larger. Therefore, soft particles tend to
+cluster around the hard ones before they cluster amongst themselves. On the output, the anti-$k_t$ algorithm forms
+conical jets with boundaries resilient to soft radiation.
+
+Due to non-linear and non-uniform response of the calorimetry systems, jets reconstructed using detector inputs
+typically have energies different to the ones of corresponding generator jets obtained using Monte Carlo truth.
+Therefore some mapping procedure is necessary. Corrections applied to  reconstructed jets in order to translate the
+measured energy to the true particle (or parton) energy are referred to as jet energy corrections, or JEC.
+
+CMS has adopted a factorised approach of applying jet energy corrections, meaning that each correction level takes care
+of a different effect. The set of corrections is applied sequentially, i.e.\ the output of each step is the input to the
+next one. Essentially, each level of correction is a scaling of a jet's four-momentum, with a scale factor depending on
+various parameters of the jet, typically pseudorapidity and transverse momentum. Currently, the correction levels go as
+follows:
+
+\begin{itemize}
+  \item L1 Pile Up correction;
+  \item L2 Relative Jet correction;
+  \item L3 Absolute Jet correction;
+  \item L4 EMF (electromagnetic energy fraction) Jet correction;
+  \item L5 Jet Flavour correction;
+  \item L6 Underlying Event correction;
+  \item L7 Parton correction.
+\end{itemize}
+
+% more on JEC, JES (?), PF Jet ID.
 
 
 \subsection{Missing Transverse Energy}
