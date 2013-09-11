@@ -1,3 +1,5 @@
+%!TEX root = ../thesis.tex
+
 \chapter{The LHC and the CMS detector}
 \ifpdf
     \graphicspath{{03_Detector/plots/}}
@@ -888,25 +890,53 @@ cluster around the hard ones before they cluster amongst themselves. On the outp
 conical jets with boundaries resilient to soft radiation.
 
 Due to non-linear and non-uniform response of the calorimetry systems, jets reconstructed using detector inputs
-typically have energies different to the ones of corresponding generator jets obtained using Monte Carlo truth.
-Therefore some mapping procedure is necessary. Corrections applied to  reconstructed jets in order to translate the
-measured energy to the true particle (or parton) energy are referred to as jet energy corrections, or JEC.
+typically have energies different to the ones of corresponding Monte Carlo particle jets (or generator jets),
+reconstructed by clustering the four-momenta of all stable particles generated in Monte Carlo simulation. Therefore some
+mapping procedure is necessary. Corrections applied to  reconstructed jets in order to translate the measured energy to
+the true particle (or parton) energy are referred to as jet energy corrections, or JEC.
 
 CMS has adopted a factorised approach of applying jet energy corrections, meaning that each correction level takes care
 of a different effect. The set of corrections is applied sequentially, i.e.\ the output of each step is the input to the
-next one. Essentially, each level of correction is a scaling of a jet's four-momentum, with a scale factor depending on
+next one. Essentially, each level of correction is a scaling of a jet four-momentum, with a scale factor depending on
 various parameters of the jet, typically pseudorapidity and transverse momentum. Currently, the correction levels go as
 follows:
 
 \begin{itemize}
-  \item L1 Pile Up correction;
-  \item L2 Relative Jet correction;
-  \item L3 Absolute Jet correction;
-  \item L4 EMF (electromagnetic energy fraction) Jet correction;
-  \item L5 Jet Flavour correction;
-  \item L6 Underlying Event correction;
-  \item L7 Parton correction.
+  \item L1 Offset correction;
+  \item L2 Relative ($\eta$) correction;
+  \item L3 Absolute (\pt) correction;
+  \item L4 EMF (electromagnetic energy fraction) correction;
+  \item L5 Flavour correction;
+  \item L6 Underlying Event: correction for underlying event energy in the jet;
+  \item L7 Parton: final correction to parton level.
 \end{itemize}
+
+The goal of the L1 correction is subtraction of pile-up and electronic noise contributions from the jet energy. The
+energy from pile-up vertices can be deposited in calorimeters since the additional proton-proton collisions occur close
+enough in time to the hard scatter process. Electronic noise in calorimeter readouts also creates additional energy
+offset which needs to be corrected for. The scale factors for L1 correction are derived using data-driven methods
+(zero-bias collisions).
+
+The relative L2 correction is designed to flatten the jet response in pseudorapidity. These corrections are extracted
+with respect to the barrel region in bins of \pt, and therefore are uncorrelated with the following L3 corrections. Both
+Monte Carlo and data-driven (dijet balance) methods are used to derive the L2 scale factors. Once a jet is corrected for
+$\eta$ dependence, it is corrected back to the particle level by applying absolute L3 correction. The goal of this
+correction is to flatten the jet response in transverse momentum. Derivation of L3 scale factors is done by using Monte
+Carlo truth information, or data-driven $Z/\gamma$+jet balance techniques.
+
+The L4 EMF correction takes care of variations in jet response with respect to electromagnetic energy fraction, i.e.\
+the fraction of energy deposited in ECAL by hadrons. Although it has been shown that EMF-dependent correction in three
+parameters (\pt, $\eta$, EMF) can improve the observed jet resolution, this correction is optional for most CMS analyses
+and hasn't been used in this work.
+
+Another optional correction is the L5 flavour correction, which is intended to correct the jets depending on the flavour
+of initiating partons, i.e.\ light quarks, heavy ($b$ and $c$ quarks), or gluons. Jets originating from heavy quarks are
+different from light quark jets in a few aspects. The average number of charged hadrons within $b$-jets is higher than
+the one for the light jets, although the average momentum of charge hadrons is smaller. Moreover, $b$-hadrons have a
+larger branching fraction into semi-leptonic decays with neutrinos in the final state, which cannot be detected. All
+these factors lead to a substantially smaller charged hadron energy fraction comparing to the light jets, therefore the
+average calorimeter energy response is lower for the $b$-jets. These effects are meant to be taken care of by the L5
+correction, which is derived either from Monte Carlo or data-driven \ttbar events.
 
 % more on JEC, JES (?), PF Jet ID.
 
