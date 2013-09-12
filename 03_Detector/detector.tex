@@ -961,11 +961,32 @@ applied in order to achieve better agreement between data and simulation. It is 
 \pt-dependent calibration applied exclusively to data, which will remain in place until CMS develops a perfectly tuned
 simulation reproducing the data features out of the box.
 
+%internal source: https://twiki.cern.ch/twiki/bin/view/CMS/IntroToJEC
+
+%Jet energy resolution? https://twiki.cern.ch/twiki/bin/view/CMS/JetResolution
+
 \subsubsection{Particle Flow Jet Identification}
 \label{sss:PFJet_ID}
+To ensure the quality of the jets, a final identification criteria are applied to all jet objects. Particle flow jet
+identification (or PF jet ID) is used to reduce the noise and rate of electrons reconstructed as jets. The cuts are
+applied on the following observables :
+
+\begin{itemize}
+  \item number of constituent particles;
+  \item NHF (neutral hadron energy fraction);
+  \item CHF (charged hadron energy fraction);
+  \item NEF (neutral electromagnetic energy fraction);
+  \item CEF (charged electromagnetic energy fraction).
+\end{itemize}
+
+A rather loose identification cuts (referred to as ``loose PF jet ID'') were used in this work: a requirement of more
+than one constituent particle in the jet, NHF$<0.99$, CHF$<0.99$, NEF$>0$ and CEF$>0$ in pseudorapidity region of
+$\eta<2.4$.
 
 \subsubsection{b-tagging}
 \label{sss:b-tagging}
+The identification of jets originating from b-quarks, or b-tagging, is one of the  most important tools in top quark
+physics. \cite{b-tagging_CMS}.
 
 \subsection{Missing Transverse Energy}
 \label{ss:MET_reconstruction}
