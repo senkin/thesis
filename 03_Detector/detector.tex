@@ -889,6 +889,9 @@ distance between soft particles with similar separation will be substantially la
 cluster around the hard ones before they cluster amongst themselves. On the output, the anti-$k_t$ algorithm forms
 conical jets with boundaries resilient to soft radiation.
 
+\subsubsection{Jet Energy Corrections}
+\label{sss:JEC}
+
 Due to non-linear and non-uniform response of the calorimetry systems, jets reconstructed using detector inputs
 typically have energies different to the ones of corresponding Monte Carlo particle jets (or generator jets),
 reconstructed by clustering the four-momenta of all stable particles generated in Monte Carlo simulation. Therefore some
@@ -907,13 +910,13 @@ follows:
   \item L3 Absolute (\pt) correction;
   \item L4 EMF (electromagnetic energy fraction) correction;
   \item L5 Flavour correction;
-  \item L6 Underlying Event: correction for underlying event energy in the jet;
-  \item L7 Parton: final correction to parton level.
+  \item L6 UE (underlying event) correction;
+  \item L7 Parton correction.
 \end{itemize}
 
 The goal of the L1 correction is subtraction of pile-up and electronic noise contributions from the jet energy. The
 energy from pile-up vertices can be deposited in calorimeters since the additional proton-proton collisions occur close
-enough in time to the hard scatter process. Electronic noise in calorimeter readouts also creates additional energy
+enough in time to the hard scattering process. Electronic noise in calorimeter readouts also creates additional energy
 offset which needs to be corrected for. The scale factors for L1 correction are derived using data-driven methods
 (zero-bias collisions).
 
@@ -933,13 +936,36 @@ Another optional correction is the L5 flavour correction, which is intended to c
 of initiating partons, i.e.\ light quarks, heavy ($b$ and $c$ quarks), or gluons. Jets originating from heavy quarks are
 different from light quark jets in a few aspects. The average number of charged hadrons within $b$-jets is higher than
 the one for the light jets, although the average momentum of charge hadrons is smaller. Moreover, $b$-hadrons have a
-larger branching fraction into semi-leptonic decays with neutrinos in the final state, which cannot be detected. All
-these factors lead to a substantially smaller charged hadron energy fraction comparing to the light jets, therefore the
+larger branching fraction into semi-leptonic decays with neutrinos in the final state that cannot be detected. All these
+factors may lead to a substantially smaller charged hadron energy fraction comparing to the light jets, therefore the
 average calorimeter energy response is lower for the $b$-jets. These effects are meant to be taken care of by the L5
 correction, which is derived either from Monte Carlo or data-driven \ttbar events.
 
-% more on JEC, JES (?), PF Jet ID.
+Underlying event \cite{underlying_event} refers to all the activity in the proton-proton collision apart from the
+process of interest, i.e.\ the hard scattering process. It includes particles coming from additional parton interactions
+(or multiple scatterings) and beam remnants. Depending on the analysis goals, underlying event may also include initial
+and final state radiation (ISR and FSR) which represent the soft gluon radiation before and after the hard scattering
+process, respectively. Underlying event activity results in production of additional soft jets which can bias the jet
+energy measurement. Optional L6 UE correction attempts to mitigate such bias. However, it was not used in the analyses
+described in this thesis, since underlying event is an intrinsic part of proton-proton interactions effectively modelled
+by Monte Carlo simulation. In particular, the top cross sections analysis is designed to be very sensitive to such
+higher-order processes, and not taking them into account may result in compromising the discriminating power between
+Monte Carlo generators.
 
+Finally, L7 parton correction attempts to correct the jet energies back to the parton level. It is also optional and was
+only used in the top mass analysis. The correction factors were derived from Monte Carlo simulations by comparing the
+generator jets momenta to their matched partons.
+
+Due to the fact that CMS simulation is not perfectly tuned to the data yet, additional residual L2L3 corrections are
+applied in order to achieve better agreement between data and simulation. It is essentially a small residual $\eta$- and
+\pt-dependent calibration applied exclusively to data, which will remain in place until CMS develops a perfectly tuned
+simulation reproducing the data features out of the box.
+
+\subsubsection{Particle Flow Jet Identification}
+\label{sss:PFJet_ID}
+
+\subsubsection{b-tagging}
+\label{sss:b-tagging}
 
 \subsection{Missing Transverse Energy}
 \label{ss:MET_reconstruction}
