@@ -986,7 +986,30 @@ $\eta<2.4$.
 \subsubsection{b-tagging}
 \label{sss:b-tagging}
 The identification of jets originating from b-quarks, or b-tagging, is one of the  most important tools in top quark
-physics. \cite{b-tagging_CMS}.
+physics, capable of significantly decreasing the background contamination of signal processes. A variety of b-tagging
+algorithms have been developed by CMS \cite{b-tagging_CMS}, and the one that was used in this work is called combined
+secondary vertex (CSV) algorithm. It is based on the fact that b-hadrons have a significant lifetime (\SI{\sim e-12}{s})
+and can travel a distance of a few centimetres before decaying. Therefore jets originating from b-quarks are likely to
+have a secondary vertex located at a considerable distance from the primary vertex, which can be used as an efficient
+discriminator between light jets and b-jets. In order to maximise its efficiency, apart from the secondary vertex
+information the CSV algorithm also exploits the track-based lifetime information. The following variables are used in
+the algorithm:
+\begin{itemize}
+ \item secondary vertex category;
+ \item secondary vertex invariant mass;
+ \item number of tracks at the secondary vertex;
+ \item ratio of the energy carried by tracks at secondary vertex with respect to all tracks in the jet;
+ \item pseudorapidities of tracks at secondary vertex with respect to the jet axis;
+ \item impact parameter significance (i.e.\ ratio of IP to its uncertainty) of the first track that increases the
+ invariant mass above the charm threshold of \SI{1.5}{\GeV} (tracks are ordered by IP significance; the mass of the
+ system is recalculated after adding each track);
+ \item number of tracks in the jet;
+ \item impact parameter significances of each track in the jet.
+\end{itemize}
+
+All these observables are combined into a single discriminator, the ``medium'' working point of which is used in this
+work. It provides \SI{\sim70}{\percent} b-tagging efficiency for mis-tag rate of approximately \SI{1}{\percent}
+\cite{b-tagging_CMS}.
 
 \subsection{Missing Transverse Energy}
 \label{ss:MET_reconstruction}
