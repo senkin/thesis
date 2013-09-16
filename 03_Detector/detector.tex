@@ -995,15 +995,15 @@ discriminator between light jets and b-jets. In order to maximise its efficiency
 information the CSV algorithm also exploits the track-based lifetime information. The following variables are used in
 the algorithm:
 \begin{itemize}
+ \item number of tracks in the jet;
+ \item number of tracks at the secondary vertex;
  \item secondary vertex category;
  \item secondary vertex invariant mass;
- \item number of tracks at the secondary vertex;
- \item ratio of the energy carried by tracks at secondary vertex with respect to all tracks in the jet;
+ \item ratio of the total track energy at secondary vertex with respect to all tracks in the jet;
  \item pseudorapidities of tracks at secondary vertex with respect to the jet axis;
  \item impact parameter significance (i.e.\ ratio of IP to its uncertainty) of the first track that increases the
  invariant mass above the charm threshold of \SI{1.5}{\GeV} (tracks are ordered by IP significance; the mass of the
  system is recalculated after adding each track);
- \item number of tracks in the jet;
  \item impact parameter significances of each track in the jet.
 \end{itemize}
 
@@ -1013,8 +1013,49 @@ work. It provides \SI{\sim70}{\percent} b-tagging efficiency for mis-tag rate of
 
 \subsection{Missing Transverse Energy}
 \label{ss:MET_reconstruction}
+Due to the energy and momentum conservation, the sum of transverse momenta and energy of all particles in the final
+state of proton-proton collisions is expected to be zero. However, some particles can escape the detector without being
+reconstructed, therefore creating the imbalance in transverse momentum which is referred to as missing transverse
+energy, defined as:
+\begin{equation}
+\label{eq:MET}
+\vec{E}_\mathrm{T}^\mathrm{miss} = - \sum_i \vec{p^i}_\mathrm{T}
+\end{equation}
+where $\vec{p^i}_\mathrm{T}$ are the transverse momentum vectors of all reconstructed particles. The modulus of
+$\vec{E}_\mathrm{T}^\mathrm{miss}$ vector is denoted by \MET.
+
+Accurate reconstruction of missing transverse energy is crucial for precise measurements of Standard Model processes
+with neutrinos in the final state. Top quark pair semi-leptonic decay is one of such processes, therefore analyses
+covered in this thesis implicitly (top mass) or explicitly (\ttbar cross section with respect to \MET-related variables)
+rely on efficient reconstruction of \MET. Misidentification and misreconstruction of any visible particles in the event
+contribute to \MET measurement, therefore it is a rather demanding task.
+
+Just like in the case of leptons and jets, particle flow was used for \MET reconstruction: in equation~\ref{eq:MET} the
+transverse momentum vectors are of the particles reconstructed using particle flow algorithm. This procedure gives
+so-called raw \MET on the output. The raw \MET is systematically different from true \MET, which denotes the transverse
+momentum carried by invisible particles. This happens mainly due to non-compensating nature of the calorimeters,
+effects of pile-up, noise, etc. Therefore, a set of corrections is applied:
+\begin{itemize}
+ \item Type-0, which corrects \MET for pile-up;
+ \item Type-I, a propagation of jet energy corrections (Section~\ref{sss:JEC}) to \MET;
+ \item $xy$-shift correction, reducing the \MET $\phi$ modulation.
+\end{itemize}
+
+The causes of systematic \MET $\phi$ modulation include detector misalignment, beam spot displacement, inactive
+calorimeter cells and anisotropic detector response. $xy$-shift correction mitigates these effects, making the measured
+\MET distribution closer to true \MET distribution which is flat in $\phi$ because of the rotational symmetry of the
+collisions.
+
+All these corrections were applied to missing transverse energy in the analyses described in this work. However, the
+$xy$-shift correction was not applied in the top mass analysis, since it was not available at the time. As this analysis
+is not particularly sensitive to \MET, the $\phi$ modulation is not expected to affect the top mass measurement and its
+resolution.
 
 \section{Summary}
+In this chapter, the Large Hadron Collider (LHC) has been introduced to the reader. The CMS experiment including all its
+subsystems has been described in detail, the overview of the CMS computing model and analysis software have been shown.
+Reconstruction and identification methods of various analysis objects including particle flow algorithm have been
+discussed in detail.
 
 % ------------------------------------------------------------------------
 
