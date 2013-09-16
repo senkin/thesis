@@ -3,7 +3,7 @@
 %
 %-------------------------- identification ---------------------
 %\NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{PhDThesis}[2010/07/14 based on v1.1 CUED thesis class]
+\ProvidesClass{Classes/PhDThesis}[2010/07/14 based on v1.1 CUED thesis class]
 %-------------------------- initial code -----------------------
 \newif\ifCU@bookmode
 \CU@bookmodetrue
