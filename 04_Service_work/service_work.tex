@@ -1,3 +1,5 @@
+%!TEX root = ../thesis.tex
+
 \chapter{High level trigger development for Top Physics}
 \label{c:service_work}
 \ifpdf
@@ -5,6 +7,48 @@
 \else
     \graphicspath{{04_Service_work/plots/EPS/}{04_Service_work/plots/}}
 \fi
+
+The LHC is often referred to as a top quark factory, producing a \ttbar pair nearly each second of its nominal
+operation. While the production rate of \SI{\approx1}{\Hz} seems manageable in terms of recording the data, it is
+significantly complicated by background processes with similar signatures occuring at much higher rates.
+
+The trigger is the starting point of any physics event selection process, and therefore is clearly important for any
+physics analysis. As it was mentioned in Section~\ref{ss:trigger_daq}, the CMS L1 trigger rate is limited to
+\SI{\sim100}{\kilo\hertz}. In order to meet the data recording constraints of approximately
+\SI{300}{\mega\byte\per\second}, this rate is further reduced down to \SI{\sim300}{\Hz}, which is done by the HLT
+system. The total rate budget has to be shared between various physics analysis groups (e.g.\ Top, Higgs, Exotica,
+etc.). Corresponding allocations are determined by CMS trigger coordination according to CMS physics goals, and can be a
+matter of serious debate.
+
+During the LHC operation in 2011 and 2012 under conditions of gradual increase of instantaneous luminosity and pile-up,
+but very limited rate budget, trigger developers constantly faced the challenge of finding the best compromise between
+growing rates and maintaining reasonable signal efficiency. While the simplest approach is tightening the cuts on
+physics quantities like lepton or jet transverse momenta, it is not favourable since it lowers the number of stored
+signal events and decreases the phase space which is crucial for new physics searches as well as Standard Model
+precision measurements. Therefore, development of more efficient algorithms allowing to keep high level of acceptance
+for signal events, whilst effectively rejecting background events, is the most preferrable solution. This can often be
+achieved by increasing the level of approximation of the online (HLT) object reconstruction, making the algorithms
+closer to their sophisticated offline counterparts. However, it leads to a higher execution time, which is limited by
+the computing resources available for HLT reconstruction. Hence, CPU timing is another major constraint faced by the HLT
+developers.
+
+This chapter covers my contribution to development and maintenance of High-Level Triggers for top physics with
+semileptonic signature, where one of the W bosons decays into an electron and a neutrino. Trigger efficiency
+measurement, CPU timing studies, validation of jet energy corrections and pile-up subtraction applied at the HLT level
+are discussed in relevant sections of this chapter.
+
+\section{Level-1 triggers}
+The L1 trigger budget of \SI{\sim100}{\kilo\hertz} is shared between several L1 trigger ``seeds'', corresponding to
+different physics objects being present in the event.
+
+\section{High-level triggers for top physics}
+
+\section{Trigger efficiency measurement}
+
+\section{CPU timing studies}
+
+\section{Summary}
+
 
 % ------------------------------------------------------------------------
 
