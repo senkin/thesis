@@ -1,6 +1,7 @@
 %!TEX root = ../thesis.tex
 
 \chapter{The LHC and the CMS detector}
+\label{c:detector}
 \ifpdf
     \graphicspath{{03_Detector/plots/}}
 \else
@@ -400,6 +401,7 @@ improvement. Therefore, by using information from both the silicon tracker and t
 the ``global muon''), the momentum resolution is improved in the whole \pt region up to a \SI{\approx 1}{\TeV/c} level.
 
 \subsection{Trigger and Data Acquisition}
+\label{ss:trigger_daq}
 At design LHC luminosity of $L = $ \SI{d34}{\cm^{-2} s^{-1}}, approximately \num{25} collisions are expected to occur at
 each crossing of the proton bunches. The bunch spacing of \SI{25}{\ns} corresponds to a crossing rate of
 \SI{40}{\mega\hertz}. Since every event produces \SI{\sim1}{\mega\byte} of raw data, it corresponds to a total data
@@ -836,7 +838,7 @@ using the Kalman Filter technique \cite{KF}. Based on these objects, two differe
 
 Global muon reconstruction has a high efficiency for high-\pt muons, penetrating through more than one muon station. On
 the contrary, tracker muon reconstruction is more efficient for low-\pt muons (\pt $<$ \SI{5}{\GeV}), as it requires
-just a single muon segment. Since the \ttbar analyses described in this thesis have a semi-leptonic signature with
+just a single muon segment. Since the \ttbar analyses described in this thesis have a semileptonic signature with
 exactly one energetic muon in the final state (in case of the muon channel), only the global muon reconstruction method
 is used, as its momentum resolution at high transverse momenta benefits from both the tracker and the muon system
 (Figure~\ref{muon_resolution}).
@@ -936,7 +938,7 @@ Another optional correction is the L5 flavour correction, which is intended to c
 of initiating partons, i.e.\ light quarks, heavy ($b$ and $c$ quarks), or gluons. Jets originating from heavy quarks are
 different from light quark jets in a few aspects. The average number of charged hadrons within $b$-jets is higher than
 the one for the light jets, although the average momentum of charge hadrons is smaller. Moreover, $b$-hadrons have a
-larger branching fraction into semi-leptonic decays with neutrinos in the final state that cannot be detected. All these
+larger branching fraction into semileptonic decays with neutrinos in the final state that cannot be detected. All these
 factors may lead to a substantially smaller charged hadron energy fraction comparing to the light jets, therefore the
 average calorimeter energy response is lower for the $b$-jets. These effects are meant to be taken care of by the L5
 correction, which is derived either from Monte Carlo or data-driven \ttbar events.
@@ -1025,7 +1027,7 @@ where $\vec{p^i}_\mathrm{T}$ are the transverse momentum vectors of all reconstr
 $\vec{E}_\mathrm{T}^\mathrm{miss}$ vector is denoted by \MET.
 
 Accurate reconstruction of missing transverse energy is crucial for precise measurements of Standard Model processes
-with neutrinos in the final state. Top quark pair semi-leptonic decay is one of such processes, therefore analyses
+with neutrinos in the final state. Top quark pair semileptonic decay is one of such processes, therefore analyses
 covered in this thesis implicitly (top mass) or explicitly (\ttbar cross section with respect to \MET-related variables)
 rely on efficient reconstruction of \MET. Misidentification and misreconstruction of any visible particles in the event
 contribute to \MET measurement, therefore it is a rather demanding task.
