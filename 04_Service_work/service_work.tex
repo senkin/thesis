@@ -10,7 +10,7 @@
 
 The LHC is often referred to as a top quark factory, producing a \ttbar pair nearly each second of its nominal
 operation. While the production rate of \SI{\approx1}{\Hz} seems manageable in terms of recording the data, it is
-significantly complicated by background processes with similar signatures occuring at much higher rates.
+significantly complicated by background processes with similar signatures occurring at much higher rates.
 
 The trigger is the starting point of any physics event selection process, and therefore is clearly important for any
 physics analysis. As it was mentioned in Section~\ref{ss:trigger_daq}, the CMS L1 trigger rate is limited to
@@ -21,31 +21,87 @@ etc.). Corresponding allocations are determined by CMS trigger coordination acco
 matter of serious debate.
 
 During the LHC operation in 2011 and 2012 under conditions of gradual increase of instantaneous luminosity and pile-up,
-but very limited rate budget, trigger developers constantly faced the challenge of finding the best compromise between
-growing rates and maintaining reasonable signal efficiency. While the simplest approach is tightening the cuts on
-physics quantities like lepton or jet transverse momenta, it is not favourable since it lowers the number of stored
+but very limited rate budget, trigger developers constantly tackled the challenge of finding the best compromise between
+growing rates and maintaining reasonable signal acceptance. While the simplest approach is tightening the cuts on
+physical quantities like lepton or jet transverse momenta, it is not favourable since it lowers the number of stored
 signal events and decreases the phase space which is crucial for new physics searches as well as Standard Model
 precision measurements. Therefore, development of more efficient algorithms allowing to keep high level of acceptance
-for signal events, whilst effectively rejecting background events, is the most preferrable solution. This can often be
+for signal events, whilst effectively rejecting background events, is the most preferable solution. This can often be
 achieved by increasing the level of approximation of the online (HLT) object reconstruction, making the algorithms
 closer to their sophisticated offline counterparts. However, it leads to a higher execution time, which is limited by
-the computing resources available for HLT reconstruction. Hence, CPU timing is another major constraint faced by the HLT
+computing resources available for HLT reconstruction. Hence, the CPU timing is another major constraint faced by the HLT
 developers.
 
-This chapter covers my contribution to development and maintenance of High-Level Triggers for top physics with
+This chapter covers my contribution to development and verification of High-Level Triggers for top physics with
 semileptonic signature, where one of the W bosons decays into an electron and a neutrino. Trigger efficiency
 measurement, CPU timing studies, validation of jet energy corrections and pile-up subtraction applied at the HLT level
 are discussed in relevant sections of this chapter.
 
 \section{Level-1 triggers}
 The L1 trigger budget of \SI{\sim100}{\kilo\hertz} is shared between several L1 trigger ``seeds'', corresponding to
-different physics objects being present in the event.
+different physics objects being present in the event. For top physics with a single electron in the final state, the
+following L1 seeds are used: L1\_SingleEG\_18, L1\_SingleEG\_20 and L1\_SingleEG\_22.
+
+%mention L1_SingleEG_18, L1_SingleEG_20 and L1_SingleEG_22 paths, 4x4 ECAL crystal cells
+
+The L1 trigger decisions are used as an input to the HLT system, described in the following section.
+
+\clearpage
 
 \section{High-level triggers for top physics}
+%(perhaps) a separate section? the model of trigger trains, lumi history, etc
 
-\section{Trigger efficiency measurement}
+The High-Level Trigger \cite{HLT} is the crucial part of the CMS event selection process. As it was mentioned in
+Section~\ref{ss:trigger_daq}, it is based on software algorithms running on the Event Filter Farm, i.e.\ a large cluster
+of commercial CPUs. The HLT reconstruction, often referred to as online reconstruction, is implemented in the same
+software framework (CMSSW) which is used for offline reconstruction.
+
+The modular structure of CMSSW provides high flexibility in use of selection and reconstruction algorithms, allowing
+their continuous optimisation according to changes in physics needs and data-taking conditions. Various modules account
+for reconstruction of different physics objects and their matching with L1 objects, filtering, logging, monitoring, etc.
+All these modules are grouped into so-called trigger ``paths'', ultimately giving trigger decisions on whether to accept
+an event or not. For instance, a typical example of a trigger path used for top physics is an electron-plus-jets
+trigger, which requires the presence of isolated electron and at least three energetic jets in the event.
+
+A set of trigger paths is combined in the HLT configuration, referred to as the HLT menu or table. Since the start of
+data-taking in 2010, the CMS trigger coordination adopted a ``trigger train'' model, implying the schedule of regular
+deadlines for updates in the trigger menu. These deadlines are usually imposed according to changes in instantaneous
+luminosity or other alterations in data-taking conditions. In order for a trigger path to be included in the trigger
+menu, it has to be supported by corresponding physics analysis group, approved by the trigger studies group, implemented
+in the HLT configurations database, and finally tested for CPU timing.
+
+\cite{HLT_commissioning}.
+
+%explain top signature again
+
+%a bit of history - single electron trigger in the beginning
+
+%electron+jets triggers - how were they introduced and why
+
+%how are they constructed - describe modules
+
+%different working points
+
+%electron cleaning
+
+%scale factors (or in the next section?)
+
+%which triggers were used in which analyses
+
+\section{Trigger rate and efficiency estimate}
+%explain how rate and efficiency are calculated
+
+%Thresholds close to analysis cuts will bias distributions - must account for this
+
+\section{JEC at HLT validation}
+%a bit of history
+
+%show turn-ons and response plots
+
+%conclusions of the study - dropping down the threshold for the 3rd jets
 
 \section{CPU timing studies}
+%decent plots would be hard to reproduce
 
 \section{Summary}
 
