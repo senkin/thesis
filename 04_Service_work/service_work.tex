@@ -51,30 +51,39 @@ The L1 trigger decisions are used as an input to the HLT system, described in th
 \section{High-level triggers for top physics}
 %(perhaps) a separate section? the model of trigger trains, lumi history, etc
 
-The High-Level Trigger \cite{HLT} is the crucial part of the CMS event selection process. As it was mentioned in
+The High-Level Trigger \cite{HLT} is the crucial part of CMS event selection process. As it was mentioned in
 Section~\ref{ss:trigger_daq}, it is based on software algorithms running on the Event Filter Farm, i.e.\ a large cluster
 of commercial CPUs. The HLT reconstruction, often referred to as online reconstruction, is implemented in the same
-software framework (CMSSW) which is used for offline reconstruction.
+software framework (CMSSW) which is used for offline reconstruction, and the algorithms can be very similar. However,
+the key difference between online and offline reconstruction is the running time. Since the HLT selection has to be
+performed in real time, it imposes a significant constraint on computing resources, enforcing to compromise on
+robustness and efficiency of online algorithms. With an exception of small samples for performance monitoring, data
+rejected by the HLT is lost irrevocably. Therefore, correct and efficient operation of the HLT is of major importance
+for CMS physics programme.
 
-The modular structure of CMSSW provides high flexibility in use of selection and reconstruction algorithms, allowing
-their continuous optimisation according to changes in physics needs and data-taking conditions. Various modules account
-for reconstruction of different physics objects and their matching with L1 objects, filtering, logging, monitoring, etc.
-All these modules are grouped into so-called trigger ``paths'', ultimately giving trigger decisions on whether to accept
-an event or not. For instance, a typical example of a trigger path used for top physics is an electron-plus-jets
-trigger, which requires the presence of isolated electron and at least three energetic jets in the event.
+Modular structure of CMSSW provides high flexibility in use of selection and reconstruction algorithms, allowing their
+continuous optimisation according to changes in physics needs and data-taking conditions. Various modules account for
+reconstruction of different physics objects and their matching with L1 objects, filtering, logging, monitoring, etc. All
+these modules are grouped into so-called trigger ``paths'', ultimately giving trigger decisions on whether to accept an
+event or not. A typical example of a trigger path used for top physics is an electron-plus-jets trigger, which requires
+the presence of isolated electron and at least three energetic jets in the event.
 
-A set of trigger paths is combined in the HLT configuration, referred to as the HLT menu or table. Since the start of
-data-taking in 2010, the CMS trigger coordination adopted a ``trigger train'' model, implying the schedule of regular
-deadlines for updates in the trigger menu. These deadlines are usually imposed according to changes in instantaneous
-luminosity or other alterations in data-taking conditions. In order for a trigger path to be included in the trigger
-menu, it has to be supported by corresponding physics analysis group, approved by the trigger studies group, implemented
-in the HLT configurations database, and finally tested for CPU timing.
+A set of trigger paths is combined in the HLT configuration, referred to as the HLT menu or table
+\cite{HLT_commissioning}. Since the start of data-taking in 2010, the CMS trigger coordination adopted a ``trigger
+train'' model, implying the schedule of regular deadlines for updates in the trigger menu. These deadlines are usually
+imposed according to changes in instantaneous luminosity or other alterations in data-taking conditions. In order for a
+trigger path to be included in the trigger menu, it has to be implemented in the HLT configurations database, validated
+by measuring the trigger rate and signal efficiency, tested for CPU timing and finally approved by the trigger studies
+group.
 
-\cite{HLT_commissioning}.
-
-%explain top signature again
-
-%a bit of history - single electron trigger in the beginning
+As it was mentioned before, the top quark pair decay covered in this work has a semileptonic signature, containing an
+electron, at least four jets and a neutrino in form of \MET. Due to the nature of the decay, all these objects are
+highly energetic and can be triggered on with rather high thresholds on transverse energy. During the start-up year of
+2010 when the instantaneous luminosity went up from \SI{\sim d27}{\cm^{-2} s^{-1}} to \SI{\sim d31}{\cm^{-2} s^{-1}},
+top analyses with the signature of interest used the single electron trigger, requiring just one electron with certain
+isolation and transverse momentum criteria. However, extrapolating the trigger rates on higher luminosities foreseen in
+2011, it became obvious that the rate of single electron trigger would quickly become unmanageable unless selection is
+tightened to limits unacceptable for top physics. Therefore, a solution of electron-plus-jets trigger was exploited.
 
 %electron+jets triggers - how were they introduced and why
 
