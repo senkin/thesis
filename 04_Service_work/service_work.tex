@@ -81,15 +81,48 @@ electron, at least four jets and a neutrino in form of \MET. Due to the nature o
 highly energetic and can be triggered on with rather high thresholds on transverse energy. During the start-up year of
 2010 when the instantaneous luminosity went up from \SI{\sim d27}{\cm^{-2} s^{-1}} to \SI{\sim d31}{\cm^{-2} s^{-1}},
 top analyses with the signature of interest used the single electron trigger, requiring just one electron with certain
-isolation and transverse momentum criteria. However, extrapolating the trigger rates on higher luminosities foreseen in
-2011, it became obvious that the rate of single electron trigger would quickly become unmanageable unless selection is
-tightened to limits unacceptable for top physics. Therefore, a solution of electron-plus-jets trigger was exploited.
+isolation and transverse momentum criteria. However, by extrapolating the trigger rates on higher luminosities foreseen
+in the following years it became obvious that the single electron trigger rate would quickly become too high for the
+rate budget restrictions at the time. Therefore, alternative ways of adding other objects from the \ttbar signature were
+explored, naturally leading to electron-plus-jets trigger solution.
 
-%electron+jets triggers - how were they introduced and why
+A typical electron-plus-jets trigger consists of a standard electron module, a jet module, a cleaning module to remove
+overlap between jet and electron collections, and a jet multiplicity filter. The electron module is constructed from the
+following sub-modules:
 
-%how are they constructed - describe modules
+\begin{itemize}
+  \item L1 object and ECAL super-cluster matching;
+  \item ECAL transverse energy filter;
+  \item ECAL electron ID and isolation filter;
+  \item HCAL electron ID and isolation filter;
+  \item tracker electron ID and isolation filter.
+\end{itemize}
 
-%different working points
+To minimise the total running time, all the sub-modules are ordered by speed, starting from the fastest. The matching
+module finds the ECAL super-cluster closest to the L1 object in $\eta$ and $\phi$ dimensions. If the super-cluster is
+located within a certain $\eta$ and $\phi$ range, the event is passed to the next module, otherwise it is rejected.
+
+The following (ECAL) module calculates the super-cluster transverse energy ($E_\mathrm{T}$), and in case if it is above
+\SI{25}{\GeV}, the electron ID and isolation criteria are imposed for both ECAL and HCAL (see
+Section~\ref{ss:electron_reconstruction}). The working points of identification and isolation and their naming
+conventions are shown in Table~\ref{tab:trigger_naming}.
+
+\input{04_Service_work/tables/trigger_naming}
+% source: https://twiki.cern.ch/twiki/bin/view/CMS/EgammaWorkingPointsv3 (restricted access so no reference)
+% although, can reference Luke's thesis
+
+In the main trigger path used for signal rather than background estimation, Very Tight (VT) working point for
+calorimeter identification (CaloID) and Tight (T) working point for calorimeter isolation (CaloIso) were used. This was
+motivated by consistency with similar criteria for the single electron trigger used in 2010.
+
+For the events that pass all described criteria in the electron module, a simplified algorithm for offline iterative
+tracking is applied. This algorithm has a faster running time at the expense of worse resolution. In order to decrease
+the CPU usage, the Combinatorial Track Finder (CTF) \cite{CTF_tracking} is used instead of the GSF one, and the tracking
+is confined to a small region around the electron. The events are required to pass the tight criteria of the tracker
+electron ID (TrkId) which is calculated at this stage. Finally, the tight working point of the tracker isolation
+(TrkIso) is applied, where the track \pt is summed over all tracks within $\Delta R = 0.3$ cone around the electron
+track, excluding the electron itself. Provided that event passes all the electron sub-modules, the jet module is then
+executed.
 
 %electron cleaning
 
