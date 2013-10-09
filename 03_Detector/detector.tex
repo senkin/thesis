@@ -875,7 +875,7 @@ parton's momentum and energy, all these particles must be combined into jets.
 
 The CMS particle flow algorithm implies reconstruction of individual particles (charged and neutral hadrons, electrons,
 muons, photons) before combining (or clustering) them into jets. A few different jet clustering techniques exist, but
-the one used predominantly in CMS and exclusively in this work is anti-$k_t$ algorithm \cite{anti-kt}, which defines the
+the one used predominantly in CMS and exclusively in this work is \antikt algorithm \cite{anti-kt}, which defines the
 distance between constituent particles as:
 \begin{equation}
 d_{ij} = \min\left(\frac{1}{k^2_{t,i}},\frac{1}{k^2_{t,j}}\right) \frac{\Delta_{i,j}^2}{R^2}
@@ -888,7 +888,7 @@ formed and no particles are left. An event typically has a few well-separated ha
 amount of soft (low-\pt) particles. The distance $d_{1i}$ between a hard particle 1 and a soft particle $i$ will be
 fully determined by the transverse momentum of the hard particle and the $\Delta_{1i}$ separation. On the other hand,
 distance between soft particles with similar separation will be substantially larger. Therefore, soft particles tend to
-cluster around the hard ones before they cluster amongst themselves. On the output, the anti-$k_t$ algorithm forms
+cluster around the hard ones before they cluster amongst themselves. On the output, the \antikt algorithm forms
 conical jets with boundaries resilient to soft radiation.
 
 \subsubsection{Jet Energy Corrections}

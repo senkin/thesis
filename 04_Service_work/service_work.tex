@@ -68,8 +68,14 @@ these modules are grouped into so-called trigger ``paths'', ultimately giving tr
 event or not. A typical example of a trigger path used for top physics is an electron-plus-jets trigger, which requires
 the presence of isolated electron and at least three energetic jets in the event.
 
-A set of trigger paths is combined in the HLT configuration, referred to as the HLT menu or table
-\cite{HLT_commissioning}. Since the start of data-taking in 2010, the CMS trigger coordination adopted a ``trigger
+There are two types of trigger paths: prescaled and unprescaled. Prescaling is a method of reducing the trigger rate by
+only recording a fraction of events that pass the trigger selection. For example, if the prescale value of a particular
+trigger is 10, only one out of ten events that fire the trigger will be actually recorded. Usually prescaled triggers
+are used for backrground estimation as they can impose a much looser selection criteria yet still have manageable rate.
+However, such triggers are unfavourable for signal selection, as they greatly reduce signal acceptance.
+
+A set of trigger paths and their prescale factors is combined in the HLT configuration, referred to as the HLT menu or
+table \cite{HLT_commissioning}. Since the start of data-taking in 2010, the CMS trigger coordination adopted a ``trigger
 train'' model, implying the schedule of regular deadlines for updates in the trigger menu. These deadlines are usually
 imposed according to changes in instantaneous luminosity or other alterations in data-taking conditions. In order for a
 trigger path to be included in the trigger menu, it has to be implemented in the HLT configurations database, validated
@@ -124,14 +130,41 @@ electron ID (TrkId) which is calculated at this stage. Finally, the tight workin
 track, excluding the electron itself. Provided that event passes all the electron sub-modules, the jet module is then
 executed.
 
-%electron cleaning
+The jet reconstruction is performed with the \antikt algorithm (see Section~\ref{ss:jet_reconstruction}) with a radius
+parameter of $R = 0.5$. Historically, at the early stages of LHC operation, CMS analyses mostly used calorimeter jets,
+i.e.\ jets reconstructed using calorimeter information exclusively. Therefore, initially the trigger jet module used
+calorimeter jet collection, which provided fast reconstruction yet worse resolution hence lower trigger efficiency
+comparing to PF jets which were introduced later on during 2011 data-taking. In order to work online, PF jet
+reconstruction was modified to be compatible with the simplified tracking algorithm. Despite the fact that running the
+jet module with PF jet reconstruction is highly CPU-intensive and therefore can not be used as an unprescaled
+stand-alone trigger, it works effectively together with the electron module since it reduces the input event rate
+considerably. Both calorimeter and PF jet versions of the module impose the $\SI{30}{\GeV}$ cut on transverse momentum
+on the jets as well as the pseudorapidity cut of $|\eta| < 2.6$. Subsequently, the jet collection is passed to the
+cleaning module.
 
-%scale factors (or in the next section?)
+Within CMS, electron and jet collections are reconstructed independently, and since they often leave similar footprints
+in the detector, these collections can overlap, causing potential double-counting. The electron-jet cleaning module
+removes electron candidates found by the electron module from the collection of jet candidates found by the jet module.
+A jet is removed from the jet collection if there is an electron within a cone of $\Delta R = 0.3$ around the jet axis.
+However, occasionally a genuine jet can be incorrectly identified as an electron. In this case the fake electron can be
+removed from the jet collection, biasing the performance of the jet multiplicity filter. To tackle this issue, separate
+jet collections are created for all electrons in the event, where jets are only cleaned from auxiliary (non-signal)
+electrons. All these jet collections are passed to the following jet multiplicity filter, which accepts and event if at
+least one collection contains a desired number of cleaned jets.
 
-%which triggers were used in which analyses
+Electron-plus-jets triggers successfully functioned throughout 2011 and 2012 years of data taking. During 2011, they
+were used in the top mass analysis and differential cross section analysis with respect to missing transverse energy,
+described in this thesis. The 2012 cross section analysis used a single electron trigger with a lepton \pt threshold of
+\SI{27}{\GeV}, reasonably tight lepton isolation requirements, but no specific jet requirements. In contrast to 2011
+running, this trigger was decided to be unprescaled in the trigger menu for the whole period of data-taking in 2012,
+regardless of having a significant rate. It is favourable for many analyses as it is much more straightforward in terms
+of calculating efficiency and acceptance scale factors, also reducing the complexity of estimating the systematic errors
+associated with the triggering.
 
 \section{Trigger rate and efficiency estimate}
 %explain how rate and efficiency are calculated
+
+%scale factors
 
 %Thresholds close to analysis cuts will bias distributions - must account for this
 
