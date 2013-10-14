@@ -148,7 +148,7 @@ removes electron candidates found by the electron module from the collection of 
 A jet is removed from the jet collection if there is an electron within a cone of $\Delta R = 0.3$ around the jet axis.
 However, occasionally a genuine jet can be incorrectly identified as an electron. In this case the fake electron can be
 removed from the jet collection, biasing the performance of the jet multiplicity filter. To tackle this issue, separate
-jet collections are created for all electrons in the event, where jets are only cleaned from auxiliary (non-signal)
+jet collections are created for all electrons in the event, where jets are only cleaned from additional (non-signal)
 electrons. All these jet collections are passed to the following jet multiplicity filter, which accepts and event if at
 least one collection contains a desired number of cleaned jets.
 
@@ -161,14 +161,77 @@ regardless of having a significant rate. It is favourable for many analyses as i
 of calculating efficiency and acceptance scale factors, also reducing the complexity of estimating the systematic errors
 associated with the triggering.
 
-\section{Trigger rate and efficiency estimate}
-%explain how rate and efficiency are calculated
+\section{Trigger efficiency measurement}
+One of the most important characteristics of a trigger path is its efficiency. In a broad sense, selection efficiency
+can be defined as a conditional probability that a single event passes the selection, given all other conditions
+(detector configuration, preselection, etc) \cite{selection_efficiency}. In the context of the trigger, efficiency
+highly depends on the offline selection it is measured with respect to. As a matter of fact, different studies can apply
+different offline selections, therefore the same trigger may have different efficiencies for each of them.
+
+The trigger efficiency can be measured in both data and Monte Carlo simulation using various methods. For all of them,
+the study has to be performed on some initial preselected dataset. Ideally, this preselection needs to be unbiased with
+respect to selection imposed by the trigger and offline selection. However, in reality it implies running on vast
+amounts of data, with very little number of events satisfying the trigger selection, leading to insufficient statistics
+or non-feasible computing resources needed for the study. Therefore, some other trigger is used for preselecting the
+initial dataset, somewhat correlated to the trigger under study in order to obtain reasonable statistics. To correctly
+measure the efficiency of a trigger path, this correlation has to be taken into account.
+
+The efficiency of a trigger $A$ can be written as the following conditional probability:
+\begin{equation}
+\epsilon_{A} = P(A | \vec{x}, T, D)
+\end{equation}
+where $\vec{x}$ are reference quantities used for triggering (e.g.\ lepton \pt), and $T$ is an offline selection, and
+$D$ is a combination of all other factors like detector effects. Assuming that these factors, along with the offline
+selection and quantities used for triggering are fixed, we can denote $\epsilon_{A} = P(A)$ for brevity.
+
+If $B$ is the trigger used for preselection, then
+\begin{equation}
+P(A, B) = P(A | B) \cdot P(B) = P(B | A) \cdot P(A)
+\end{equation}
+
+Therefore, as it immediately follows from Bayes' theorem,
+\begin{equation}
+P(A) = \frac{P(A | B) \cdot P(B)}{P(B | A)}
+\end{equation}
+
+Here the conditional probability $P(A|B)$ can be estimated by taking the ratio of the numbers of events that pass the
+triggers $A$ and $B$, given that they all pass offline selection. Efficiency of the auxiliary trigger $\epsilon_{B} =
+P(B)$ can be estimated from data by using a dataset obtained with looser (``minimum bias'') selection. Unfortunately,
+conditional probability $P(B|A)$ can not be measured using real data, as by the nature of the study the trigger $A$ only
+considers events preselected by the trigger $B$. However, the trigger $B$ is usually chosen such that it is safe to
+assume that $P(B|A) = 1$ with negligible uncertainty. This is the case if the preselection trigger criteria are
+considerably looser than those of the trigger under study. To summarise, the trigger efficiency can be measured as:
+
+\begin{equation}
+\epsilon_{A} = P(A|B) \cdot P(B) = \frac{N_A}{N_B} \cdot \epsilon_{B}
+\end{equation}
+where $N_{A (B)}$ is the number of events that pass the offline selection and fire the trigger $A$ ($B$).
+
+To measure the efficiency of electron plus jets trigger, an initial sample of events was preselected using a single
+electron trigger with looser electron identification criteria.
+
+%talk about different approaches to estimate trigger efficiency
+
+%quote Ghent AN
+
+%factorisation - mention or not?
+
+%in this work, just data efficiencies sadly
+
+%can combine with the next section, in fact
+
+The trigger efficiency is calculated as:
+\begin{equation}
+\epsilon = \frac{N_{\text{fired}}}{N_{\text{selected}}}
+\end{equation}
+where $N_{\text{selected}}$ is the number of events passing the above described selection and $N_{\text{fired}}$ the
+number of events which in addition fired the electron plus three jet trigger. 
 
 %scale factors
 
 %Thresholds close to analysis cuts will bias distributions - must account for this
 
-\section{JEC at HLT validation}
+\section{Validation of jet energy corrections for top triggers}
 %a bit of history
 
 %show turn-ons and response plots
