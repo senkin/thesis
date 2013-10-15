@@ -207,25 +207,34 @@ considerably looser than those of the trigger under study. To summarise, the tri
 \end{equation}
 where $N_{A (B)}$ is the number of events that pass the offline selection and fire the trigger $A$ ($B$).
 
-To measure the efficiency of electron plus jets trigger, an initial sample of events was preselected using a single
-electron trigger with looser electron identification criteria.
 
-%talk about different approaches to estimate trigger efficiency
+In case of electron plus jets triggers, the efficiency can be factorised in contributions of leptonic and hadronic parts
+of the trigger:
+\begin{equation}
+\epsilon_{ele+jets} = \epsilon_{ele} \cdot \epsilon_{jets}
+\end{equation}
+This method can be used under assumption that the probability of finding an electron in the event is independent of the
+presence of the jets in the event, i.e. leptonic and hadronic ``legs'' of the trigger are uncorrelated. Although
+such correlations do exist, it has been shown that most of them are negligible and factorisation method provides a
+meaningful estimate of the trigger efficiency \cite{d0_note_top_trigger_efficiency}.
 
-%quote Ghent AN
+In this study, an impact of jet energy corrections and pile-up subtraction on the electron-plus-jets trigger efficiency
+was investigated. Since only hadronic part of the trigger was of interest, the efficiency was measured by using a
+``Single Electron'' primary dataset of raw 2012 data. This primary dataset is constructed by accepting events passing at
+least one of the several single electron triggers with various \pt and isolation requirements. One of the loosest
+triggers, referred to as HLT\_Ele27\_WP80, operates with working point ``WP80'' shown in Table~\ref{tab:trigger_naming},
+and electron \pt threshold of \SI{27}{\GeV}.
 
-%factorisation - mention or not?
-
-%in this work, just data efficiencies sadly
-
-%can combine with the next section, in fact
-
-The trigger efficiency is calculated as:
+Offline selection used to obtain the clean \ttbar sample is outlined in Section~\cite{ss:event_selection}, with an
+exception of the jet multiplicity requirement: here at least three jets are required. The trigger efficiency is then
+calculated as:
 \begin{equation}
 \epsilon = \frac{N_{\text{fired}}}{N_{\text{selected}}}
 \end{equation}
-where $N_{\text{selected}}$ is the number of events passing the above described selection and $N_{\text{fired}}$ the
-number of events which in addition fired the electron plus three jet trigger. 
+where $N_{\text{selected}}$ is the number of events from the primary dataset passing the described offline selection,
+and $N_{\text{fired}}$ is the number of events which in addition fired the electron plus three jet trigger.
+
+All the efficiencies are measured in bins of jet \pt and $\eta$.
 
 %scale factors
 
