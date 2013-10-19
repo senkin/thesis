@@ -214,18 +214,21 @@ of the trigger:
 \epsilon_{ele+jets} = \epsilon_{ele} \cdot \epsilon_{jets}
 \end{equation}
 This method can be used under assumption that the probability of finding an electron in the event is independent of the
-presence of the jets in the event, i.e. leptonic and hadronic ``legs'' of the trigger are uncorrelated. Although
+presence of the jets in the event, i.e.\ leptonic and hadronic ``legs'' of the trigger are uncorrelated. Although
 such correlations do exist, it has been shown that most of them are negligible and factorisation method provides a
 meaningful estimate of the trigger efficiency \cite{d0_note_top_trigger_efficiency}.
 
-In this study, an impact of jet energy corrections and pile-up subtraction on the electron-plus-jets trigger efficiency
-was investigated. Since only hadronic part of the trigger was of interest, the efficiency was measured by using a
-``Single Electron'' primary dataset of raw 2012 data. This primary dataset is constructed by accepting events passing at
-least one of the several single electron triggers with various \pt and isolation requirements. One of the loosest
-triggers, referred to as HLT\_Ele27\_WP80, operates with working point ``WP80'' shown in Table~\ref{tab:trigger_naming},
-and electron \pt threshold of \SI{27}{\GeV}.
+In this work, an impact of jet energy corrections and pile-up subtraction on the electron-plus-jets trigger efficiency
+was investigated. A rather complicated name of the main signal trigger under study (\HLTThreeCentralPFJet) suggests
+working points (see Table~\ref{tab:trigger_naming}) for tracker and calorimeter ID and isolation criteria for the signal
+electron, as well as transverse momenta requirement for both electron (\SI{25}{\GeV}) and each of the three particle
+flow jets (\SI{30}{\GeV}). Since only hadronic part of the trigger was of interest, the efficiency was measured by using
+a ``Single Electron'' primary dataset of raw 2012 data. This primary dataset is constructed by accepting events passing
+at least one of the several single electron triggers with various \pt and isolation requirements. One of the loosest
+triggers, referred to as HLT\_Ele27\_WP80, operates with working point ``WP80'', also shown in
+Table~\ref{tab:trigger_naming}, and electron \pt threshold of \SI{27}{\GeV}.
 
-Offline selection used to obtain the clean \ttbar sample is outlined in Section~\cite{ss:event_selection}, with an
+Offline selection used to obtain a clean \ttbar sample is outlined in Section~\cite{ss:event_selection}, with an
 exception of the jet multiplicity requirement: here at least three jets are required. The trigger efficiency is then
 calculated as:
 \begin{equation}
@@ -234,7 +237,79 @@ calculated as:
 where $N_{\text{selected}}$ is the number of events from the primary dataset passing the described offline selection,
 and $N_{\text{fired}}$ is the number of events which in addition fired the electron plus three jet trigger.
 
-All the efficiencies are measured in bins of jet \pt and $\eta$.
+All the efficiencies were measured in bins of jet \pt and $\eta$. For these variables, different fit functions were
+used. The efficiency in \pt was fitted with the default function describing the turn-on curve:
+\begin{equation}
+\epsilon(\pt) = A \times e^{\left(B \times e^{C \times \pt}\right)}
+\end{equation}
+while the efficiency in $\eta$ was fitted with
+\begin{equation}
+\epsilon (\eta) = A \times \eta^2 + B \times \eta + C
+\end{equation}
+where $A$, $B$ and $C$ are the fit parameters.
+
+Although the $\eta$ dependency was expected to be flat, the observed structure in the $\eta$ distribution of the PF jet
+triggers suggested the use of a parabolic fit function. In fact, this drop of the efficiency in the endcap region was
+the main motivation for the study, as it was believed to be due to the fact that the \pt- and $\eta$-dependent jet
+energy corrections were not applied online, causing inconsistency between HLT and offline reconstructed jets.
+
+\begin{figure}[hbtp]
+    \centering
+\subfloat[]{\includegraphics[width=0.48\textwidth]{trigger_eff_pt_uncorr_30.pdf}}
+\hfill
+\subfloat[]{\includegraphics[width=0.48\textwidth]{trigger_eff_eta_uncorr_30.pdf}}
+\caption[Trigger efficiency for \HLTThreeCentralPFJet as a function of jet \pt and $\eta$]{Trigger efficiency for
+\HLTThreeCentralPFJet as a function of jet \pt (a) and $\eta$ (b) for events with at least three jets}
+\label{fig:top_hlt_pt_eta_3jets} 
+ \end{figure}
+
+\begin{figure}[hbtp]
+    \centering
+\subfloat[]{\includegraphics[width=0.48\textwidth]{trigger_eff_pt_uncorr_4th_30.pdf}}
+\hfill
+\subfloat[]{\includegraphics[width=0.48\textwidth]{trigger_eff_eta_uncorr_4th_30.pdf}}
+\caption[Trigger efficiency for \HLTThreeCentralPFJet as a function of jet \pt and $\eta$]{Trigger efficiency for
+\HLTThreeCentralPFJet as a function of jet \pt (a) and $\eta$ (b) for events with at least four jets}
+\label{fig:top_hlt_pt_eta_4jets} 
+ \end{figure}
+
+
+
+
+\begin{figure}[hbtp]
+    \centering
+\subfloat[]{\includegraphics[width=0.48\textwidth]{trigger_eff_pt_JEC_30.pdf}}
+\hfill
+\subfloat[]{\includegraphics[width=0.48\textwidth]{trigger_eff_eta_JEC_30.pdf}}
+\caption[Trigger efficiency for \HLTThreeCentralPFJet as a function of jet \pt and $\eta$]{Trigger efficiency for
+\HLTThreeCentralPFJet with jet energy corrections applied online, as a function of jet \pt (a) and $\eta$ (b) for events
+with at least three jets}
+\label{fig:top_hlt_pt_eta_JEC_3jets} 
+ \end{figure}
+
+\begin{figure}[hbtp]
+    \centering
+\subfloat[]{\includegraphics[width=0.48\textwidth]{trigger_eff_pt_JEC_PFnoPU_30.pdf}}
+\hfill
+\subfloat[]{\includegraphics[width=0.48\textwidth]{trigger_eff_eta_JEC_PFnoPU_30.pdf}}
+\caption[Trigger efficiency for \HLTThreeCentralPFJet as a function of jet \pt and $\eta$]{Trigger efficiency for
+\HLTThreeCentralPFJet with jet energy corrections and charged hadron subtraction applied online, as a function of jet
+\pt (a) and $\eta$ (b) for events with at least three jets}
+\label{fig:top_hlt_pt_eta_JEC_PFnoPU_3jets} 
+ \end{figure}
+
+
+ \begin{figure}[hbtp]
+    \centering
+\subfloat[]{\includegraphics[width=0.5\textwidth]{ptRatio_pt_prof_comparison_correction_levels.pdf}}
+\hfill
+\subfloat[]{\includegraphics[width=0.5\textwidth]{ptRatio_eta_prof_comparison_correction_levels.pdf}} \\
+\subfloat[]{\includegraphics[width=0.95\textwidth]{ptRatio_eta_prof_comparison_pt_bins.pdf}}
+\caption[Jet response as a function of jet \pt and $\eta$]{Ratio of matched offline and online reconstructed jets as a
+function of offline jet \pt (a) and $\eta$ (b) for different jet corrections and in slices of offline jet \pt (c)}
+\label{fig:top_hlt_jet_response} 
+ \end{figure}
+
 
 %scale factors
 

@@ -40,6 +40,7 @@
 \usepackage{siunitx}
 \usepackage{hyphenat}
 %\usepackage{graphicx}
+\usepackage{subfig}
 \usepackage{makeidx}
 \usepackage{fancyhdr}
 \usepackage{eucal}
