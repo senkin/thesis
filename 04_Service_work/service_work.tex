@@ -49,8 +49,7 @@ The L1 trigger decisions are used as an input to the HLT system, described in th
 \clearpage
 
 \section{High-level triggers for top physics}
-%(perhaps) a separate section? the model of trigger trains, lumi history, etc
-
+\label{s:hlt_for_top_physics}
 The High-Level Trigger \cite{HLT} is the crucial part of CMS event selection process. As it was mentioned in
 Section~\ref{ss:trigger_daq}, it is based on software algorithms running on the Event Filter Farm, i.e.\ a large cluster
 of commercial CPUs. The HLT reconstruction, often referred to as online reconstruction, is implemented in the same
@@ -71,16 +70,17 @@ the presence of isolated electron and at least three energetic jets in the event
 There are two types of trigger paths: prescaled and unprescaled. Prescaling is a method of reducing the trigger rate by
 only recording a fraction of events that pass the trigger selection. For example, if the prescale value of a particular
 trigger is 10, only one out of ten events that fire the trigger will be actually recorded. Usually prescaled triggers
-are used for backrground estimation as they can impose a much looser selection criteria yet still have manageable rate.
-However, such triggers are unfavourable for signal selection, as they greatly reduce signal acceptance.
+are used for performance monitoring and background estimation as they can impose a much looser selection criteria yet
+still have manageable rate. However, such triggers are unfavourable for signal selection, as they greatly reduce signal
+acceptance.
 
 A set of trigger paths and their prescale factors is combined in the HLT configuration, referred to as the HLT menu or
 table \cite{HLT_commissioning}. Since the start of data-taking in 2010, the CMS trigger coordination adopted a ``trigger
 train'' model, implying the schedule of regular deadlines for updates in the trigger menu. These deadlines are usually
-imposed according to changes in instantaneous luminosity or other alterations in data-taking conditions. In order for a
-trigger path to be included in the trigger menu, it has to be implemented in the HLT configurations database, validated
-by measuring the trigger rate and signal efficiency, tested for CPU timing and finally approved by the trigger studies
-group.
+imposed fortnightly, according to changes in instantaneous luminosity or other alterations in data-taking conditions. In
+order for a trigger path to be included in the trigger menu, it has to be implemented in the HLT configurations
+database, validated by measuring the trigger rate and signal efficiency, tested for CPU timing and finally approved by
+the trigger studies group.
 
 As it was mentioned before, the top quark pair decay covered in this work has a semileptonic signature, containing an
 electron, at least four jets and a neutrino in form of \MET. Due to the nature of the decay, all these objects are
@@ -155,18 +155,19 @@ least one collection contains a desired number of cleaned jets.
 Electron-plus-jets triggers successfully functioned throughout 2011 and 2012 years of data taking. During 2011, they
 were used in the top mass analysis and differential cross section analysis with respect to missing transverse energy,
 described in this thesis. The 2012 cross section analysis used a single electron trigger with a lepton \pt threshold of
-\SI{27}{\GeV}, reasonably tight lepton isolation requirements, but no specific jet requirements. In contrast to 2011
-running, this trigger was decided to be unprescaled in the trigger menu for the whole period of data-taking in 2012,
-regardless of having a significant rate. It is favourable for many analyses as it is much more straightforward in terms
-of calculating efficiency and acceptance scale factors, also reducing the complexity of estimating the systematic errors
-associated with the triggering.
+\SI{27}{\GeV}, reasonably tight (WP80) lepton isolation requirements, but no specific jet requirements. In contrast to
+2011 running, this trigger was decided to be unprescaled in the trigger menu for the whole period of data-taking in
+2012, regardless of having a significant rate. It is favourable for many analyses as it is much more straightforward in
+terms of calculating efficiency and acceptance scale factors, also reducing the complexity of estimating the systematic
+errors associated with the triggering.
 
 \section{Trigger efficiency measurement}
+\label{s:trigger_efficicency_measurement}
 One of the most important characteristics of a trigger path is its efficiency. In a broad sense, selection efficiency
 can be defined as a conditional probability that a single event passes the selection, given all other conditions
-(detector configuration, preselection, etc) \cite{selection_efficiency}. In the context of the trigger, efficiency
-highly depends on the offline selection it is measured with respect to. As a matter of fact, different studies can apply
-different offline selections, therefore the same trigger may have different efficiencies for each of them.
+(detector configuration, preselection, etc). In the context of the trigger, efficiency highly depends on the offline
+selection it is measured with respect to. As a matter of fact, different studies can apply different offline selections,
+therefore the same trigger may have different efficiencies for each of them.
 
 The trigger efficiency can be measured in both data and Monte Carlo simulation using various methods. For all of them,
 the study has to be performed on some initial preselected dataset. Ideally, this preselection needs to be unbiased with
@@ -176,7 +177,7 @@ or non-feasible computing resources needed for the study. Therefore, some other 
 initial dataset, somewhat correlated to the trigger under study in order to obtain reasonable statistics. To correctly
 measure the efficiency of a trigger path, this correlation has to be taken into account.
 
-The efficiency of a trigger $A$ can be written as the following conditional probability:
+The efficiency of a trigger $A$ can be written as the following conditional probability \cite{selection_efficiency}:
 \begin{equation}
 \epsilon_{A} = P(A | \vec{x}, T, D)
 \end{equation}
@@ -198,8 +199,8 @@ Here the conditional probability $P(A|B)$ can be estimated by taking the ratio o
 triggers $A$ and $B$, given that they all pass offline selection. Efficiency of the auxiliary trigger $\epsilon_{B} =
 P(B)$ can be estimated from data by using a dataset obtained with looser (``minimum bias'') selection. Unfortunately,
 conditional probability $P(B|A)$ can not be measured using real data, as by the nature of the study the trigger $A$ only
-considers events preselected by the trigger $B$. However, the trigger $B$ is usually chosen such that it is safe to
-assume that $P(B|A) = 1$ with negligible uncertainty. This is the case if the preselection trigger criteria are
+considers events preselected by the trigger $B$. However, the trigger $B$ is usually chosen in such way that it is safe
+to assume that $P(B|A) = 1$ with negligible uncertainty. This is the case if the preselection trigger criteria are
 considerably looser than those of the trigger under study. To summarise, the trigger efficiency can be measured as:
 
 \begin{equation}
@@ -218,10 +219,19 @@ presence of the jets in the event, i.e.\ leptonic and hadronic ``legs'' of the t
 such correlations do exist, it has been shown that most of them are negligible and factorisation method provides a
 meaningful estimate of the trigger efficiency \cite{d0_note_top_trigger_efficiency}.
 
-In this work, an impact of jet energy corrections and pile-up subtraction on the electron-plus-jets trigger efficiency
-was investigated. A rather complicated name of the main signal trigger under study (\HLTThreeCentralPFJet) suggests
-working points (see Table~\ref{tab:trigger_naming}) for tracker and calorimeter ID and isolation criteria for the signal
-electron, as well as transverse momenta requirement for both electron (\SI{25}{\GeV}) and each of the three particle
+\textit{[need to add more info about the efficiency turn ons, importance of being on the plateau, and systematics
+involved]}
+
+%Thresholds close to analysis cuts will bias distributions - must account for this
+
+\subsection{Validation of jet energy corrections and charged hadron subtraction for top triggers}
+\label{ss:JEC_PFnoPU_validation}
+%a bit of history
+
+In this work, an impact of jet energy corrections and pile-up subtraction on electron-plus-jets trigger efficiency was
+investigated. A rather complicated name of the main signal trigger under study (\HLTThreeCentralPFJet) suggests working
+points (see Table~\ref{tab:trigger_naming}) of tracker and calorimeter ID and isolation criteria for the signal
+electron, as well as transverse momenta requirements for both electron (\SI{25}{\GeV}) and each of the three particle
 flow jets (\SI{30}{\GeV}). Since only hadronic part of the trigger was of interest, the efficiency was measured by using
 a ``Single Electron'' primary dataset of raw 2012 data. This primary dataset is constructed by accepting events passing
 at least one of the several single electron triggers with various \pt and isolation requirements. One of the loosest
@@ -310,17 +320,8 @@ function of offline jet \pt (a) and $\eta$ (b) for different jet corrections and
 \label{fig:top_hlt_jet_response} 
  \end{figure}
 
-
-%scale factors
-
-%Thresholds close to analysis cuts will bias distributions - must account for this
-
-\section{Validation of jet energy corrections for top triggers}
-%a bit of history
-
-%show turn-ons and response plots
-
 %conclusions of the study - dropping down the threshold for the 3rd jets
+
 
 \section{CPU timing studies}
 %decent plots would be hard to reproduce
