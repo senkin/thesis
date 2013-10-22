@@ -223,31 +223,46 @@ Trigger efficiency can be parametrised by various physical quantities of the tri
 pseudorapidity and transverse momentum. As the background spectrum and trigger rate fall down as a function of jet \pt,
 trigger efficiency can be described by a turn-on curve approaching a plateau region, where the efficiency is maximum and
 constant within the statistical uncertainty. It is important for the trigger to have a sharp turn-on, with the nominal
-\SI{95}{\percent} efficiency point being below or approximately at the cut value of offline reconstructed jet \pt. If
-this is not the case, non-flat \pt-dependent scale factors have to be applied to the total number of signal events,
-which also complicates estimation of the systematic uncertainty attributed to the trigger. As for the efficiency
-dependency on the jet angular distribution, it is expected to be flat -- however, as it can be seen from the following
-section, this is not always the case.
-
-%Thresholds close to analysis cuts will bias distributions - must account for this
+\SI{95}{\percent} efficiency point being below or approximately at the cut value of offline reconstructed jet \pt. This
+can be achieved by adjusting the online cuts to be lower than offline ones: if these thresholds are close, then the
+trigger would bias the analysis distributions. In this case, non-flat \pt-dependent scale factors have to be applied to
+the total number of signal events, which also complicates estimation of the systematic uncertainty attributed to the
+trigger. As for the efficiency dependency on the jet angular distribution, it is expected to be flat -- however, as it
+can be seen from the following section, this is not always the case.
 
 \subsection{Validation of jet energy corrections and charged hadron subtraction for top triggers}
 \label{ss:JEC_PFnoPU_validation}
-%a bit of history
+In the end of 2011, to match the jet reconstruction method used by most CMS analyses, the calorimeter-based jet module
+in electron-plus-jets was replaced with PF-based one. This was done in an attempt to improve the \pt resolution of
+online jet reconstruction, reduce the rate and obtain sharper turn-on curves of the trigger efficiency. In the first
+iteration of PF-based trigger paths, no jet energy corrections were applied to the jets online, which resulted in
+observation of a non-flat trigger efficiency with respect to jet pseudorapidity. After a few months of work, responsible
+physics object group (known as ``JetMET'') provided a series of jet energy corrections to be applied at the HLT level,
+which were tested by the author.
 
-In this work, an impact of jet energy corrections and pile-up subtraction on electron-plus-jets trigger efficiency was
-investigated. A rather complicated name of the main signal trigger under study (\HLTThreeCentralPFJet) suggests working
-points (see Table~\ref{tab:trigger_naming}) of tracker and calorimeter ID and isolation criteria for the signal
-electron, as well as transverse momenta requirements for both electron (\SI{25}{\GeV}) and each of the three particle
-flow jets (\SI{30}{\GeV}). Since only hadronic part of the trigger was of interest, the efficiency was measured by using
-a ``Single Electron'' primary dataset of raw 2012 data. This primary dataset is constructed by accepting events passing
-at least one of the several single electron triggers with various \pt and isolation requirements. One of the loosest
-triggers, referred to as HLT\_Ele27\_WP80, operates with working point ``WP80'', also shown in
-Table~\ref{tab:trigger_naming}, and electron \pt threshold of \SI{27}{\GeV}.
+Pile-up turned out to be another major issue particularly specific to 2012 data-taking period. Increased centre-of-mass
+energy and instantaneous luminosity at a bunch spacing of \SI{50}{\ns} effectively doubled the average number of pile-up
+vertices comparing to 2011 conditions. This lead to a significant increase in rate of PF-jets triggers, requiring
+implementation of pile-up mitigation techniques at the HLT level. As a result, charged hadron subtraction (CHS) for PF
+jets, also known as ``PFnoPU'', was introduced online. As the name suggests, it essentially removes the charged hadrons
+associated with secondary vertices from PF candidates, which helped to reduce the trigger rate dramatically. As top
+triggers operate with PF jets, they were greatly affected by pile-up, therefore this correction also had to be validated
+for electron-plus-jets triggers.
+
+
+In this work, an impact of both jet energy corrections and pile-up subtraction on electron-plus-jets trigger efficiency
+was investigated. A rather complicated name of the main signal trigger under study (\HLTThreeCentralPFJet) suggests
+working points of tracker and calorimeter ID and isolation criteria for the signal electron (see
+Table~\ref{tab:trigger_naming}), as well as transverse momenta requirements for both electron (\SI{25}{\GeV}) and each
+of the three particle flow jets (\SI{30}{\GeV}). Since only hadronic part of the trigger was of interest for this
+particular study, the efficiency was measured by using a ``Single Electron'' primary dataset of raw 2012 data. This
+primary dataset was constructed by accepting events passing at least one of the several single electron triggers with
+various \pt and isolation requirements. One of the loosest triggers, referred to as HLT\_Ele27\_WP80, operates with
+working point ``WP80'', also shown in Table~\ref{tab:trigger_naming}, and electron \pt threshold of \SI{27}{\GeV}.
 
 Offline selection used to obtain a clean \ttbar sample is outlined in Section~\cite{ss:event_selection}, with an
-exception of the jet multiplicity requirement: here at least three jets are required. The trigger efficiency is then
-calculated as:
+exception of the jet multiplicity requirement: here at least three jets were required. A tighter requirement of at least
+four jets was also of interest, as described below. The trigger efficiency is then calculated as:
 \begin{equation}
 \epsilon = \frac{N_{\text{fired}}}{N_{\text{selected}}}
 \end{equation}
@@ -268,7 +283,10 @@ where $A$, $B$ and $C$ are the fit parameters.
 Although the $\eta$ dependency was expected to be flat, the observed structure in the $\eta$ distribution of the PF jet
 triggers suggested the use of a parabolic fit function. In fact, this drop of the efficiency in the endcap region was
 the main motivation for the study, as it was believed to be due to the fact that the \pt- and $\eta$-dependent jet
-energy corrections were not applied online, causing inconsistency between HLT and offline reconstructed jets.
+energy corrections were not applied online, causing inconsistency between HLT and offline reconstructed jets. Efficiency
+of the main electron-plus-jets trigger with no jet energy corrections applied is shown on
+Figure~\ref{fig:top_hlt_pt_eta_3jets}. Clearly, parabolic shape is seen on the efficiency plot with respect to
+pseudorapidity of a third reconstructed jet (all the jets were sorted by the value of transverse momentum).
 
 \begin{figure}[hbtp]
     \centering
@@ -276,9 +294,16 @@ energy corrections were not applied online, causing inconsistency between HLT an
 \hfill
 \subfloat[]{\includegraphics[width=0.48\textwidth]{trigger_eff_eta_uncorr_30.pdf}}
 \caption[Trigger efficiency for \HLTThreeCentralPFJet as a function of jet \pt and $\eta$]{Trigger efficiency for
-\HLTThreeCentralPFJet as a function of jet \pt (a) and $\eta$ (b) for events with at least three jets}
+\HLTThreeCentralPFJet (uncorrected) as a function of jet \pt (a) and $\eta$ (b) for events with at least three jets}
 \label{fig:top_hlt_pt_eta_3jets} 
  \end{figure}
+
+It has to be emphasised that only efficiencies with respect to offline selection with at least three jets were affected.
+Requiring a fourth jet in the event increases the trigger efficiency to nearly \SI{100}{\percent}, as it can be seen
+on Figure~\ref{fig:top_hlt_pt_eta_4jets}. This implies that observed inefficiency in the endcap region was not
+critical for analyses requiring at least four jets in the event (including the ones in this thesis), however, it was
+still important to investigate this effect in order to better understand any possible systematic errors due to the
+triggering.
 
 \begin{figure}[hbtp]
     \centering
@@ -286,12 +311,20 @@ energy corrections were not applied online, causing inconsistency between HLT an
 \hfill
 \subfloat[]{\includegraphics[width=0.48\textwidth]{trigger_eff_eta_uncorr_4th_30.pdf}}
 \caption[Trigger efficiency for \HLTThreeCentralPFJet as a function of jet \pt and $\eta$]{Trigger efficiency for
-\HLTThreeCentralPFJet as a function of jet \pt (a) and $\eta$ (b) for events with at least four jets}
+\HLTThreeCentralPFJet (uncorrected) as a function of jet \pt (a) and $\eta$ (b) for events with at least four jets}
 \label{fig:top_hlt_pt_eta_4jets} 
  \end{figure}
 
 
+For the purpose of the study, a modified HLT menu was created, containing new versions of the main signal trigger with
+jet energy corrections and charged hadron subtraction applied. This menu was run on a \ttbar skim of a RAW dataset
+mentioned above, and resulting trigger flags as well as jet collections were used to produce the final plots.
 
+Figure~\ref{fig:top_hlt_pt_eta_JEC_3jets} presents the results for the aforementioned trigger path but with jet energy
+corrections applied, and Figure~\ref{fig:top_hlt_pt_eta_JEC_PFnoPU_3jets} shows it for the same path with both charged
+hadron subtraction and jet corrections applied. It is obvious that all these corrections haven't solved the inefficiency
+problem in the endcaps, which caused some confusion in the group that provided them and triggered additional scrutiny
+from the trigger and jet/\MET experts.
 
 \begin{figure}[hbtp]
     \centering
@@ -315,6 +348,16 @@ with at least three jets}
 \label{fig:top_hlt_pt_eta_JEC_PFnoPU_3jets} 
  \end{figure}
 
+In order to gain further understanding, jet response distributions were investigated. Jet response is a ratio of the
+transverse momenta of offline-reconstructed and HLT jets, ideally produced from the same objects in the detector. To
+find this ratio, all the HLT jets were matched with offline jets found within a cone of $\Delta R = 0.3$. Matching
+efficiency proved to be close to unity, and following distributions were produced only for the successfully matched
+jets. Figure~\ref{fig:top_hlt_jet_response} show the response plots for trigger paths with different corrections
+applied: uncorrected, only jet energy corrected (JEC) and with both jet energy corrections and charged hadron
+subtraction (JEC+CHS). It can be seen that corrections work reasonably well in the barrel region, but severely
+underestimate the energy of online jets in the endcap region. The response plot shown in slices of offline jet
+transverse momenta (c) suggests that corrections behave better for jets with higher energy, which can also be seen from
+the distribution with respect to jet \pt, however the response in the endcap region is still far from being perfect.
 
  \begin{figure}[hbtp]
     \centering
@@ -322,13 +365,17 @@ with at least three jets}
 \hfill
 \subfloat[]{\includegraphics[width=0.5\textwidth]{ptRatio_eta_prof_comparison_correction_levels.pdf}} \\
 \subfloat[]{\includegraphics[width=0.95\textwidth]{ptRatio_eta_prof_comparison_pt_bins.pdf}}
-\caption[Jet response as a function of jet \pt and $\eta$]{Ratio of matched offline and online reconstructed jets as a
-function of offline jet \pt (a) and $\eta$ (b) for different jet corrections and in slices of offline jet \pt (c)}
+\caption[Jet response as a function of jet \pt and $\eta$]{Ratio of matched offline and online reconstructed jet
+transverse momenta as a function of offline jet \pt (a) and $\eta$ (b) for different jet corrections and in slices of
+offline jet \pt (c)}
 \label{fig:top_hlt_jet_response} 
  \end{figure}
 
-%conclusions of the study - dropping down the threshold for the 3rd jets
-
+Shorty after these results were presented to the trigger coordination, they were confirmed independently by other
+experts within the JetMET group. Because of the time constraints associated with the luminosity increase schedule, a
+following workaround solution was suggested. In order to re-gain the efficiency, the threshold for the third jet was
+dropped from \SI{30}{\GeV} to \SI{20}{\GeV}, which allowed to apply jet energy corrections and charged hadron
+subtraction with minimum loss in the efficiency in the endcap region. However, this was a subject of a different study.
 
 \section{CPU timing studies}
 %decent plots would be hard to reproduce
