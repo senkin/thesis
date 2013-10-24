@@ -1,6 +1,6 @@
 %!TEX root = ../thesis.tex
 
-\chapter{High level trigger development for Top Physics}
+\chapter{High level triggers for Top Physics}
 \label{c:service_work}
 \ifpdf
     \graphicspath{{04_Service_work/plots/}}
@@ -17,7 +17,7 @@ physics analysis. As it was mentioned in Section~\ref{ss:trigger_daq}, the CMS L
 \SI{\sim100}{\kilo\hertz}. In order to meet the data recording constraints of approximately
 \SI{300}{\mega\byte\per\second}, this rate is further reduced down to \SI{\sim300}{\Hz}, which is done by the HLT
 system. The total rate budget has to be shared between various physics analysis groups (e.g.\ Top, Higgs, Exotica,
-etc.). Corresponding allocations are determined by CMS trigger coordination according to CMS physics goals, and can be a
+etc). Corresponding allocations are determined by CMS trigger coordination according to CMS physics goals, and can be a
 matter of serious debate.
 
 During the LHC operation in 2011 and 2012 under conditions of gradual increase of instantaneous luminosity and pile-up,
@@ -32,21 +32,44 @@ closer to their sophisticated offline counterparts. However, it leads to a highe
 computing resources available for HLT reconstruction. Hence, the CPU timing is another major constraint faced by the HLT
 developers.
 
-This chapter covers my contribution to development and verification of High-Level Triggers for top physics with
-semileptonic signature, where one of the W bosons decays into an electron and a neutrino. Trigger efficiency
-measurement, CPU timing studies, validation of jet energy corrections and pile-up subtraction applied at the HLT level
+This chapter covers the author's contribution to development and verification of High-Level Triggers for top physics
+with semileptonic signature, where one of the W bosons decays into an electron and a neutrino. The description of top
+triggers, efficiency measurement, validation of jet energy corrections and pile-up subtraction applied at the HLT level
 are discussed in relevant sections of this chapter.
 
 \section{Level-1 triggers}
-The L1 trigger budget of \SI{\sim100}{\kilo\hertz} is shared between several L1 trigger ``seeds'', corresponding to
-different physics objects being present in the event. For top physics with a single electron in the final state, the
-following L1 seeds are used: L1\_SingleEG\_18, L1\_SingleEG\_20 and L1\_SingleEG\_22.
+The CMS L1 trigger \cite{CMS_L1_Trigger_TDR} is built of custom electronics processing the data from the calorimeters
+and the muon system. It is the first filtering stage of any physics selection, therefore it has high requirements on
+efficiency and phase space. The input rate of events, i.e.\ the beam crossing frequency of \SI{\sim5e8}{\hertz} must be
+reduced down to \SI{\sim100}{\kilo\hertz}, being a major challenge considering a gradual increase of instantaneous
+luminosity throughout the LHC operation. The rate budget of \SI{\sim100}{\kilo\hertz} is shared between several L1
+triggers corresponding to different physics objects being present in the event. For top physics signatures with a single
+electron in the final state, the following triggers have been used:
 
-%mention L1_SingleEG_18, L1_SingleEG_20 and L1_SingleEG_22 paths, 4x4 ECAL crystal cells
+\begin{itemize}
+ \item L1\_SingleEG\_18
+ \item L1\_SingleEG\_20
+ \item L1\_SingleEG\_22
+\end{itemize}
 
-The L1 trigger decisions are used as an input to the HLT system, described in the following section.
+These triggers are referred to as electron/photon (e/$\gamma$, or EG) triggers. They scan the ECAL for groups of crystal
+cells ($4 \times 4$) with a cumulative energy above the threshold that is suggested by the name of the trigger
+(\SIlist{18;20;22}{\GeV}). The choice of threshold is determined by sustainability of the trigger rate at a given
+instantaneous luminosity.
 
-\clearpage
+\begin{figure}[!htbp]
+  \begin{center}
+    \leavevmode
+    \includegraphics[width=0.5\columnwidth]{L1_turnon}
+    \caption{Efficiency of the \SI{20}{\GeV} e/$\gamma$ trigger as a function of offline \ET, shown separately for
+    barrel and endcap regions \cite{L1_Brooke}.}
+    \label{fig:L1_seed_turn_on_curve}
+  \end{center}
+\end{figure}
+
+The efficiency of the L1\_SingleEG\_20 trigger as a function of the offline-reconstructed electron transverse momentum
+is shown on Figure~\ref{fig:L1_seed_turn_on_curve}. The L1 trigger decisions are then used as an input ``seeds'' to the
+HLT system, which is described in the following section.
 
 \section{High-level triggers for top physics}
 \label{s:hlt_for_top_physics}
@@ -242,7 +265,7 @@ which were tested by the author.
 
 Pile-up turned out to be another major issue particularly specific to 2012 data-taking period. Increased centre-of-mass
 energy and instantaneous luminosity at a bunch spacing of \SI{50}{\ns} effectively doubled the average number of pile-up
-vertices comparing to 2011 conditions. This lead to a significant increase in rate of PF-jets triggers, requiring
+vertices comparing to 2011 conditions. This led to a significant increase in rate of PF-jets triggers, requiring
 implementation of pile-up mitigation techniques at the HLT level. As a result, charged hadron subtraction (CHS) for PF
 jets, also known as ``PFnoPU'', was introduced online. As the name suggests, it essentially removes the charged hadrons
 associated with secondary vertices from PF candidates, which helped to reduce the trigger rate dramatically. As top
@@ -296,7 +319,7 @@ pseudorapidity of a third reconstructed jet (all the jets were sorted by the val
 \caption[Trigger efficiency for \HLTThreeCentralPFJet as a function of jet \pt and $\eta$]{Trigger efficiency for
 \HLTThreeCentralPFJet (uncorrected) as a function of jet \pt (a) and $\eta$ (b) for events with at least three jets}
 \label{fig:top_hlt_pt_eta_3jets} 
- \end{figure}
+\end{figure}
 
 It has to be emphasised that only efficiencies with respect to offline selection with at least three jets were affected.
 Requiring a fourth jet in the event increases the trigger efficiency to nearly \SI{100}{\percent}, as it can be seen
@@ -313,7 +336,7 @@ triggering.
 \caption[Trigger efficiency for \HLTThreeCentralPFJet as a function of jet \pt and $\eta$]{Trigger efficiency for
 \HLTThreeCentralPFJet (uncorrected) as a function of jet \pt (a) and $\eta$ (b) for events with at least four jets}
 \label{fig:top_hlt_pt_eta_4jets} 
- \end{figure}
+\end{figure}
 
 
 For the purpose of the study, a modified HLT menu was created, containing new versions of the main signal trigger with
@@ -335,7 +358,7 @@ from the trigger and jet/\MET experts.
 \HLTThreeCentralPFJet with jet energy corrections applied online, as a function of jet \pt (a) and $\eta$ (b) for events
 with at least three jets}
 \label{fig:top_hlt_pt_eta_JEC_3jets} 
- \end{figure}
+\end{figure}
 
 \begin{figure}[hbtp]
     \centering
@@ -346,18 +369,19 @@ with at least three jets}
 \HLTThreeCentralPFJet with jet energy corrections and charged hadron subtraction applied online, as a function of jet
 \pt (a) and $\eta$ (b) for events with at least three jets}
 \label{fig:top_hlt_pt_eta_JEC_PFnoPU_3jets} 
- \end{figure}
+\end{figure}
 
 In order to gain further understanding, jet response distributions were investigated. Jet response is a ratio of the
 transverse momenta of offline-reconstructed and HLT jets, ideally produced from the same objects in the detector. To
-find this ratio, all the HLT jets were matched with offline jets found within a cone of $\Delta R = 0.3$. Matching
-efficiency proved to be close to unity, and following distributions were produced only for the successfully matched
-jets. Figure~\ref{fig:top_hlt_jet_response} show the response plots for trigger paths with different corrections
-applied: uncorrected, only jet energy corrected (JEC) and with both jet energy corrections and charged hadron
-subtraction (JEC+CHS). It can be seen that corrections work reasonably well in the barrel region, but severely
-underestimate the energy of online jets in the endcap region. The response plot shown in slices of offline jet
-transverse momenta (c) suggests that corrections behave better for jets with higher energy, which can also be seen from
-the distribution with respect to jet \pt, however the response in the endcap region is still far from being perfect.
+find this ratio, all the HLT jets were matched with offline jets found within a cone of $\Delta R = 0.3$ for each online
+jet. Matching efficiency proved to be close to unity, and following distributions were produced only for the
+successfully matched jets. Figure~\ref{fig:top_hlt_jet_response} shows the response plots for trigger paths with
+different corrections: uncorrected, only jet energy corrected (JEC) and with both jet energy corrections and charged
+hadron subtraction (JEC+CHS) applied. It can be seen that corrections work reasonably well in the barrel region, but
+substantially underestimate the energy of online jets in the endcap region. The response plot shown in slices of offline
+jet transverse momenta (c) suggests that corrections work better for jets with higher energy, which can also be seen
+from the distribution with respect to jet \pt, however, the overall response in the endcap region is still far from
+being perfect.
 
  \begin{figure}[hbtp]
     \centering
@@ -369,19 +393,23 @@ the distribution with respect to jet \pt, however the response in the endcap reg
 transverse momenta as a function of offline jet \pt (a) and $\eta$ (b) for different jet corrections and in slices of
 offline jet \pt (c)}
 \label{fig:top_hlt_jet_response} 
- \end{figure}
+\end{figure}
 
 Shorty after these results were presented to the trigger coordination, they were confirmed independently by other
 experts within the JetMET group. Because of the time constraints associated with the luminosity increase schedule, a
-following workaround solution was suggested. In order to re-gain the efficiency, the threshold for the third jet was
-dropped from \SI{30}{\GeV} to \SI{20}{\GeV}, which allowed to apply jet energy corrections and charged hadron
-subtraction with minimum loss in the efficiency in the endcap region. However, this was a subject of a different study.
-
-\section{CPU timing studies}
-%decent plots would be hard to reproduce
+following workaround solution was suggested. In order to re-gain the trigger efficiency, the threshold for the third jet
+was dropped from \SI{30}{\GeV} to \SI{20}{\GeV}, which allowed to apply jet energy corrections and charged hadron
+subtraction with a minimum loss in the efficiency in the endcap region. However, this was a subject of a different
+study.
 
 \section{Summary}
-
+This chapter covered the service work performed by the author for CMS collaboration, namely development, validation and
+maintenance of high-level triggers for top quark physics, specifically for the electron channel of semi-leptonic \ttbar
+decay signature. The importance and typical challenges of trigger development has been discussed. The modular structure
+of high level triggers has been described in detail for electron-plus-jets paths. A core of author's contribution: the
+investigation of the effect of jet energy corrections applied on the HLT level to top trigger paths has been presented,
+showing how it affects trigger efficiency and jet response distributions. An impact of charged hadron subtraction
+applied online has also been studied and demonstrated.
 
 % ------------------------------------------------------------------------
 
