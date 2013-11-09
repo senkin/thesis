@@ -42,6 +42,7 @@ Philosophy in the Faculty of Science}}
 % setup the SIunits package (more info in 'texdoc siunitx')
 \sisetup{number-unit-product = \text{ }}
 \sisetup{binary-units = true}
+\sisetup{seperr, openerr=, closeerr=}
 
 % Print URLs not in Typewriter Font                                     
 \def\UrlFont{\rm}
@@ -94,9 +95,9 @@ Philosophy in the Faculty of Science}}
 %\include{06_Cross_section_analysis/cross_section_analysis}
 %\include{07_Conclusions/conclusions}
 
-\backmatter % book mode only
-%\appendix
-%\include{Appendix/appendix}
+%\backmatter % book mode only
+\appendix
+\include{Appendix/appendix}
 
 %\bibliographystyle{plainnat}
 \bibliographystyle{unsrt}

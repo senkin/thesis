@@ -51,6 +51,8 @@
 \usepackage{ifthen}
 \usepackage{ifpdf}
 \usepackage{xspace}
+\usepackage{booktabs}
+\usepackage{pbox}
 
 
 %Bibliography
