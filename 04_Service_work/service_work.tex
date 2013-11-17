@@ -38,13 +38,13 @@ triggers, efficiency measurement, validation of jet energy corrections and pile-
 are discussed in relevant sections of this chapter.
 
 \section{Level-1 triggers}
-The CMS L1 trigger \cite{CMS_L1_Trigger_TDR} is built of custom electronics processing the data from the calorimeters
-and the muon system. It is the first filtering stage of any physics selection, therefore it has high requirements on
-efficiency and phase space. The input rate of events, i.e.\ the beam crossing frequency of \SI{\sim5e8}{\hertz} must be
-reduced down to \SI{\sim100}{\kilo\hertz}, being a major challenge considering a gradual increase of instantaneous
-luminosity throughout the LHC operation. The rate budget of \SI{\sim100}{\kilo\hertz} is shared between several L1
-triggers corresponding to different physics objects being present in the event. For top physics signatures with a single
-electron in the final state, the following triggers have been used:
+The CMS L1 trigger \autocite{CMS_L1_Trigger_TDR} is built of custom electronics processing the data from the
+calorimeters and the muon system. It is the first filtering stage of any physics selection, therefore it has high
+requirements on efficiency and phase space. The input rate of events, i.e.\ the beam crossing frequency of
+\SI{\sim5e8}{\hertz} must be reduced down to \SI{\sim100}{\kilo\hertz}, being a major challenge considering a gradual
+increase of instantaneous luminosity throughout the LHC operation. The rate budget of \SI{\sim100}{\kilo\hertz} is
+shared between several L1 triggers corresponding to different physics objects being present in the event. For top
+physics signatures with a single electron in the final state, the following triggers have been used:
 
 \begin{itemize}
  \item L1\_SingleEG\_18
@@ -62,7 +62,7 @@ instantaneous luminosity.
     \leavevmode
     \includegraphics[width=0.5\columnwidth]{L1_turnon}
     \caption{Efficiency of the \SI{20}{\GeV} e/$\gamma$ trigger as a function of offline \ET, shown separately for
-    barrel and endcap regions \cite{L1_Brooke}.}
+    barrel and endcap regions \autocite{L1_Brooke}.}
     \label{fig:L1_seed_turn_on_curve}
   \end{center}
 \end{figure}
@@ -73,7 +73,7 @@ HLT system, which is described in the following section.
 
 \section{High-level triggers for top physics}
 \label{s:hlt_for_top_physics}
-The High-Level Trigger \cite{HLT} is the crucial part of CMS event selection process. As it was mentioned in
+The High-Level Trigger \autocite{HLT} is the crucial part of CMS event selection process. As it was mentioned in
 Section~\ref{ss:trigger_daq}, it is based on software algorithms running on the Event Filter Farm, i.e.\ a large cluster
 of commercial CPUs. The HLT reconstruction, often referred to as online reconstruction, is implemented in the same
 software framework (CMSSW) which is used for offline reconstruction, and the algorithms can be very similar. However,
@@ -98,12 +98,12 @@ still have manageable rate. However, such triggers are unfavourable for signal s
 acceptance.
 
 A set of trigger paths and their prescale factors is combined in the HLT configuration, referred to as the HLT menu or
-table \cite{HLT_commissioning}. Since the start of data-taking in 2010, the CMS trigger coordination adopted a ``trigger
-train'' model, implying the schedule of regular deadlines for updates in the trigger menu. These deadlines are usually
-imposed fortnightly, according to changes in instantaneous luminosity or other alterations in data-taking conditions. In
-order for a trigger path to be included in the trigger menu, it has to be implemented in the HLT configurations
-database, validated by measuring the trigger rate and signal efficiency, tested for CPU timing and finally approved by
-the trigger studies group.
+table \autocite{HLT_commissioning}. Since the start of data-taking in 2010, the CMS trigger coordination adopted a
+``trigger train'' model, implying the schedule of regular deadlines for updates in the trigger menu. These deadlines are
+usually imposed fortnightly, according to changes in instantaneous luminosity or other alterations in data-taking
+conditions. In order for a trigger path to be included in the trigger menu, it has to be implemented in the HLT
+configurations database, validated by measuring the trigger rate and signal efficiency, tested for CPU timing and
+finally approved by the trigger studies group.
 
 As it was mentioned before, the top quark pair decay covered in this work has a semileptonic signature, containing an
 electron, at least four jets and a neutrino in form of \MET. Due to the nature of the decay, all these objects are
@@ -146,9 +146,9 @@ motivated by consistency with similar criteria for the single electron trigger u
 
 For the events that pass all described criteria in the electron module, a simplified algorithm for offline iterative
 tracking is applied. This algorithm has a faster running time at the expense of worse resolution. In order to decrease
-the CPU usage, the Combinatorial Track Finder (CTF) \cite{CTF_tracking} is used instead of the GSF one, and the tracking
-is confined to a small region around the electron. The events are required to pass the tight criteria of the tracker
-electron ID (TrkId) which is calculated at this stage. Finally, the tight working point of the tracker isolation
+the CPU usage, the Combinatorial Track Finder (CTF) \autocite{CTF_tracking} is used instead of the GSF one, and the
+tracking is confined to a small region around the electron. The events are required to pass the tight criteria of the
+tracker electron ID (TrkId) which is calculated at this stage. Finally, the tight working point of the tracker isolation
 (TrkIso) is applied, where the track \pt is summed over all tracks within $\Delta R = 0.3$ cone around the electron
 track, excluding the electron itself. Provided that event passes all the electron sub-modules, the jet module is then
 executed.
@@ -200,7 +200,7 @@ or non-feasible computing resources needed for the study. Therefore, some other 
 initial dataset, somewhat correlated to the trigger under study in order to obtain reasonable statistics. To correctly
 measure the efficiency of a trigger path, this correlation has to be taken into account.
 
-The efficiency of a trigger $A$ can be written as the following conditional probability \cite{selection_efficiency}:
+The efficiency of a trigger $A$ can be written as the following conditional probability \autocite{selection_efficiency}:
 \begin{equation}
 \epsilon_{A} = P(A | \vec{x}, T, D)
 \end{equation}
@@ -240,7 +240,7 @@ of the trigger:
 This method can be used under assumption that the probability of finding an electron in the event is independent of the
 presence of the jets in the event, i.e.\ leptonic and hadronic ``legs'' of the trigger are uncorrelated. Although
 such correlations do exist, it has been shown that most of them are negligible and factorisation method provides a
-meaningful estimate of the trigger efficiency \cite{d0_note_top_trigger_efficiency}.
+meaningful estimate of the trigger efficiency \autocite{d0_note_top_trigger_efficiency}.
 
 Trigger efficiency can be parametrised by various physical quantities of the triggered objects, e.g.\ reconstructed jet
 pseudorapidity and transverse momentum. As the background spectrum and trigger rate fall down as a function of jet \pt,

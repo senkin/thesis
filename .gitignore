@@ -36,3 +36,6 @@ tmp/
 *.vrb
 *.xdy
 *.tdo
+*-blx.bib
+*.run.xml
+

@@ -50,6 +50,8 @@ Philosophy in the Faculty of Science}}
 % Put all the style files you want in the directory StyleFiles and usepackage like this:
 %\usepackage{StyleFiles/watermark}
 
+\addbibresource{References/references.bib}
+
 \begin{document}
 %roman page numbering for Title page, abstract and index
 \pagenumbering{roman}
@@ -99,11 +101,12 @@ Philosophy in the Faculty of Science}}
 \appendix
 \include{Appendix/appendix}
 
-%\bibliographystyle{plainnat}
-\bibliographystyle{unsrt}
+%\bibliographystyle{unsrtnat}
+%\bibliographystyle{unsrt}
 %\bibliographystyle{Classes/CUEDbiblio}
 %\bibliographystyle{Classes/jmb} % bibliography style
 \renewcommand{\bibname}{References} % changes default name Bibliography to References
-\bibliography{References/references} % References file
+%\bibliography{References/references} % References file
+\printbibliography
 
 \end{document}
