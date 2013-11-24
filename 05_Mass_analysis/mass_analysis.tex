@@ -273,31 +273,104 @@ required to be present in the event. These jets have to pass the loose PF jet ID
 \ref{sss:b-tagging}) is used to identify the two \cPqb-quarks from the \ttbar decay.
 
 \begin{figure}[!htp]
-	\centering
-   %\includegraphics[width=0.5\textwidth]{AN-12-010/controlPlots/cmgMuons_cmgTopMuonSel_TOPpt_Muo}
-   \subfloat[]{\includegraphics[width=0.5\textwidth]{AN-12-010/controlPlots/cmgElectrons_cmgTopElectronSel_TOPpt_Ele}}
-   %\includegraphics[width=0.5\textwidth]{AN-12-010/controlPlots/cmgMuons_cmgTopMuonSel_TOPeta_Muo}
-   \subfloat[]{\includegraphics[width=0.5\textwidth]{AN-12-010/controlPlots/cmgElectrons_cmgTopElectronSel_TOPeta_Ele}}
+   \centering
+   \subfloat[]{\includegraphics[width=0.5\textwidth]{cmg_electron_pt}}
+   \subfloat[]{\includegraphics[width=0.5\textwidth]{cmg_electron_eta}}
    \hfill
-   %\includegraphics[width=0.5\textwidth]{AN-12-010/controlPlots/cmgPFJets_cmgTopPFJetSel_TOPobjpt_Muo}
-   \subfloat[]{\includegraphics[width=0.5\textwidth]{AN-12-010/controlPlots/cmgPFJets_cmgTopPFJetSel_TOPobjpt_Ele}}
-   %\includegraphics[width=0.5\textwidth]{AN-12-010/controlPlots/cmgBaseMETs_cmgPFMET__PATpt_Muo}
-   \subfloat[]{\includegraphics[width=0.5\textwidth]{AN-12-010/controlPlots/cmgBaseMETs_cmgPFMET__PATpt_Ele}}
-   
-   \caption{\label{fig:controlplots}Control plots for a few kinematic quantities in $e$+jets channel}
+   \subfloat[]{\includegraphics[width=0.5\textwidth]{cmg_jet_pt}}
+   \subfloat[]{\includegraphics[width=0.5\textwidth]{cmg_met}}
+   \caption{\label{fig:controlplots}Kinematic variable distributions after all selection cuts. (a) electron \pt, (b)
+   electron $\eta$, (c) jet \pt for all jets passing the selection, (d) \MET.}
 \end{figure}
 
 \section{Kinematic Fit}
-In order to precisely measure the top mass, objects in the final state need to be associated with originating partons of
-the top quark pair decay. In this analysis, a kinematic fit is exploited to fully reconstruct the kinematics of the
-event under \ttbar hypothesis.
-
 \label{s_top_mass:kinematic_fit}
+In order to precisely measure the top quark mass, objects in the final state need to be associated with originating
+partons of the top quark pair decay. In this analysis, a kinematic fit is employed to fully reconstruct the event
+kinematics under the \ttbar hypothesis, thus improving the resolution of measured quantities by exploiting the knowledge
+of decay process.
+
+The \HitFit fitting package \autocite{HitFit} used in this work originates from \Dzero collaboration. Based on the SQUAW
+algorithm \autocite{SQUAW} developed in Lawrence Berkeley National Laboratory, the original \HitFit code was written by
+Scott Stuart Snyder in Fortran for Run I of the Tevatron. It was successfully used in the first direct measurement of
+the top quark mass by \Dzero for lepton plus jets \ttbar events \autocite{D0_top_mass_1998}. The package was then
+migrated to \Cplusplus for Run II of the Tevatron, and exploited in a series of \ttbar analyses including the updated
+top quark mass measurement using the ideogram method \autocite{D0_top_mass_ljets_ideogram}, first measurement of the
+forward-backward charge asymmetry in \ttbar production \autocite{D0_charge_assymetry} and some others.
+
+One of the key features of the \HitFit package is its independence of specific experiments and detector geometries. The
+only external dependence is on \textsc{CLHEP} \autocite{CLHEP}, a \Cplusplus library that provides utility classes for
+linear algebra, geometry, vector arithmetic, etc., which was specifically developed for high energy physics simulation
+and analysis software and is notably used by \GEANTfour package. In 2011 \HitFit was ported to CMSSW and later on
+successfully used in a number of CMS top quark analyses, including the top mass measurement in lepton plus jets channel
+\autocite{top_mass_ljets_CMS}.
+
+\HitFit is designed to fit lepton plus jets events under the \ttbar hypothesis. Specifically, it strives to constrain
+the event to a hypothesis of production of two heavy particles, each decaying into a \W boson and \cPqb quark. According
+to the semi-leptonic signature, one of the \W boson decays into an electron-neutrino pair, while the other decays into a
+light quark-antiquark pair.
+
+The input to the fit includes the four-momenta of the lepton, four leading jets and missing transverse energy, as well
+as their respective resolutions that were calculated using Monte Carlo samples. Since only four leading jets are used,
+there are $4!=24$ ways to associate these four reconstructed jets with the partons from the \ttbar decay. The number of
+permutations is reduced to $4!/2=12$ since the light jets from the hadronic \W decay are interchangeable. However, for
+each hypothesis the $z$ component of neutrino four-momentum needs to be determined. This is done by requiring the two
+heavy particles to have equal mass ($m_{\cPqt} = m_{\cPaqt}$), which yields to a quadratic equation which has either two
+real or two complex solutions that share the real part. If case of the two real solutions the fit is performed for each
+of them. If there are two complex solutions, the fit is performed once for the common real part of them, but the fit
+result is included in the event content twice. Therefore, each hypothesis has two possible values of the neutrino
+four-momentum, which doubles the number of permutations back to $4!=24$.
+
+The kinematic fit is performed by minimising the following $\chi^{2}$ function:
+\begin{equation}
+\chi^{2}  = (\mathbf{x} - \mathbf{x}^{m})^{T}\mathbf{G}(\mathbf{x} - \mathbf{x}^{m})
+\end{equation}
+where $\mathbf{x}^{m}$ is the vector or measured observables, $\mathbf{x}$ is the vector of fitted variables and
+$\mathbf{G}$ is the inverse of the error matrix given by the resolutions of the observables.
+
+The following kinematic constraints are imposed:
+\begin{enumerate}[topsep=\parskip, parsep=\parskip, itemsep=\parskip, leftmargin=\leftmargin]
+	\item Reconstructed top quarks from both hadronic and leptonic legs are required to have equal masses:
+	\begin{equation}
+		%m(t \to \ell \nu b) = m(\bar{t} \to q\bar{q} \bar{b}),
+		m(\cPqt \to \ell \nu \cPqb) = m(\cPaqt \to \cPq\cPaq \cPaqb),
+	\end{equation}
+	\item The \W boson masses reconstructed in both hadronic and leptonic legs are fixed:
+	\begin{equation}
+		%m(\ell \nu) = m(q \bar{q}) = m_{W} = \SI{80.4}{\GeV}.
+		m(\ell \nu) = m(\cPq\cPaq) = m_{\W} = \SI{80.4}{\GeV}.
+	\end{equation}
+\end{enumerate}
+
+Apart from exploiting the knowledge of the \W mass, the \cPqb quark mass of \SI{4.7}{\GeV} is also used. Light quarks
+and leptons are considered to be massless. The full description of the fitting algorithm can be found in the appendix of
+the \HitFit author's PhD thesis \autocite{Snyder}.
+
+% For each combination, if the fitting algorithm converges and a minimum is found, a $\chi^{2}$ value is calculated for
+% that combination. Otherwise the combination is rejected. Some variable resulting from the fit for the combination with
+% smaller $\chi^{2}$ are shown in Fig.~\ref{fig:fitplots}.
+
+\begin{figure}[!htp]
+   \centering
+   \subfloat[]{\includegraphics[width=0.5\textwidth]{hitfit_best_fitted_top_mass}}
+   \subfloat[]{\includegraphics[width=0.5\textwidth]{hitfit_best_fitted_sigma_top_mass}}
+   \hfill
+   \subfloat[]{\includegraphics[width=0.5\textwidth]{hitfit_best_fitted_chi2}}
+   \subfloat[]{\includegraphics[width=0.5\textwidth]{hitfit_best_pfit}}
+   \caption{\label{fig:fitplots}Distribution of (a) fitted top quark mass, (b) its standard deviation, (c) $\chi^{2}$
+   and (d) fit probability for the best fitted hypotheses.}
+\end{figure}
 
 
-\autocite{HitFit}, \autocite{Snyder}, \autocite{SQUAW}, \autocite{D0_top_mass_1998},
-\autocite{D0_top_mass_ljets_ideogram}
+% If an event doesn't have a combination which results in converging fit, the event is rejected. For each event which has
+% at least one converging combinations, we further impose a loose cut on the $\chi^{2}$ value, $\chi^{2} < 20$, and
+% consider only combinations which pass this cut.  Events which don't have at least one converging permutation that pass
+% this $\chi^{2}$ cut are rejected and not used in the mass extraction.
 
+% The requirement of at least a converging combination which pass the loose $\chi^{2}$ cut is considered the final
+% selection criteria in addition to the reference lepton+jets selection criteria. Table \ref{tab:chi2_eff} list the number
+% of events which pass the reference selection only, and number of events which pass both the reference selection and the
+% loose $\chi^{2}$ cut.
 
 
 
