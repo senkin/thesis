@@ -37,23 +37,23 @@
 \newcommand{\WPT}{\wpt}
 
 %particles
-\newcommand{\proton}{\ensuremath{\cmsSymbolFace{p}}}
-\newcommand{\cPqt}{\ensuremath{\cmsSymbolFace{t}}} % t for t quark
-\newcommand{\cPqb}{\ensuremath{\cmsSymbolFace{b}}} % b for b quark
-\newcommand{\cPqc}{\ensuremath{\cmsSymbolFace{c}}} % c for c quark
-\newcommand{\cPqs}{\ensuremath{\cmsSymbolFace{s}}} % s for s quark
-\newcommand{\cPqu}{\ensuremath{\cmsSymbolFace{u}}} % u for u quark
-\newcommand{\cPqd}{\ensuremath{\cmsSymbolFace{d}}} % d for d quark
-\newcommand{\cPq}{\ensuremath{\cmsSymbolFace{q}}} % generic quark
-\newcommand{\cPaqt}{\ensuremath{\overline{\cmsSymbolFace{t}}}} % t for t anti-quark
-\newcommand{\cPaqb}{\ensuremath{\overline{\cmsSymbolFace{b}}}} % b for b anti-quark
-\newcommand{\cPaqc}{\ensuremath{\overline{\cmsSymbolFace{c}}}} % c for c anti-quark
-\newcommand{\cPaqs}{\ensuremath{\overline{\cmsSymbolFace{s}}}} % s for s anti-quark
-\newcommand{\cPaqu}{\ensuremath{\overline{\cmsSymbolFace{u}}}} % u for u anti-quark
-\newcommand{\cPaqd}{\ensuremath{\overline{\cmsSymbolFace{d}}}} % d for d anti-quark
-\newcommand{\cPaq}{\ensuremath{\overline{\cmsSymbolFace{q}}}} % generic anti-quark
-\newcommand{\cPg}{\ensuremath{\cmsSymbolFace{g}}} % generic gluon
-\newcommand{\cPG}{\ensuremath{\cmsSymbolFace{G}}} % Graviton
+\newcommand{\proton}{\ensuremath{\cmsSymbolFace{p}}\xspace}
+\newcommand{\cPqt}{\ensuremath{\cmsSymbolFace{t}}\xspace} % t for t quark
+\newcommand{\cPqb}{\ensuremath{\cmsSymbolFace{b}}\xspace} % b for b quark
+\newcommand{\cPqc}{\ensuremath{\cmsSymbolFace{c}}\xspace} % c for c quark
+\newcommand{\cPqs}{\ensuremath{\cmsSymbolFace{s}}\xspace} % s for s quark
+\newcommand{\cPqu}{\ensuremath{\cmsSymbolFace{u}}\xspace} % u for u quark
+\newcommand{\cPqd}{\ensuremath{\cmsSymbolFace{d}}\xspace} % d for d quark
+\newcommand{\cPq}{\ensuremath{\cmsSymbolFace{q}}\xspace} % generic quark
+\newcommand{\cPaqt}{\ensuremath{\overline{\cmsSymbolFace{t}}}\xspace} % t for t anti-quark
+\newcommand{\cPaqb}{\ensuremath{\overline{\cmsSymbolFace{b}}}\xspace} % b for b anti-quark
+\newcommand{\cPaqc}{\ensuremath{\overline{\cmsSymbolFace{c}}}\xspace} % c for c anti-quark
+\newcommand{\cPaqs}{\ensuremath{\overline{\cmsSymbolFace{s}}}\xspace} % s for s anti-quark
+\newcommand{\cPaqu}{\ensuremath{\overline{\cmsSymbolFace{u}}}\xspace} % u for u anti-quark
+\newcommand{\cPaqd}{\ensuremath{\overline{\cmsSymbolFace{d}}}\xspace} % d for d anti-quark
+\newcommand{\cPaq}{\ensuremath{\overline{\cmsSymbolFace{q}}}\xspace} % generic anti-quark
+\newcommand{\cPg}{\ensuremath{\cmsSymbolFace{g}}\xspace} % generic gluon
+\newcommand{\cPG}{\ensuremath{\cmsSymbolFace{G}}\xspace} % Graviton
 \newcommand{\zp}{\ensuremath{\cmsSymbolFace{Z}^\prime}\xspace} % plain Z'
 \newcommand{\Z}{\ensuremath{\cmsSymbolFace{Z}}\xspace} % plain Z (no superscript 0)
 \newcommand{\ZpJets}{\ensuremath{\Z+\textrm{jets}}\xspace}
@@ -61,11 +61,11 @@
 \newcommand{\WpJets}{\ensuremath{\W+\textrm{jets}}\xspace}
 \newcommand{\VpJets}{\ensuremath{\cmsSymbolFace{V}+\textrm{jets}}\xspace}
 \providecommand{\PH}{\ensuremath{\cmsSymbolFace{H}}\xspace} % plain Higgs
-\newcommand{\cPqst}{\ensuremath{\widetilde{\cPqt}}} % t for stop quark
+\newcommand{\cPqst}{\ensuremath{\widetilde{\cPqt}}\xspace} % t for stop quark
 \newcommand{\JPsi}{\ensuremath{\cmsSymbolFace{J}\hspace{-.08em}/\hspace{-.14em}\psi}\xspace} % J/Psi (no mass)
 \newcommand{\photon}{\ensuremath{\gamma}\xspace} % plain Z (no superscript 0)
 
-\newcommand{\ttbar}{\cPqt\cPaqt\xspace} % t-tbar
+\newcommand{\ttbar}{\ensuremath{\cmsSymbolFace{t}\overline{\cmsSymbolFace{t}}}\xspace} % t-tbar
 \newcommand{\sigttbar}{\ensuremath{\sigma_{\ttbar}}}
 %from pdefs END
 \newcommand{\tquark}{\ensuremath{\cPqt\textrm{-quark}}\xspace}
@@ -109,11 +109,13 @@
 \newcommand{\AOD} {\textsc{AOD}\xspace}
 %other stuff from pdefs
 % \newcommand{\CMSSW} {\ensuremath{\textrm{\verb+CMSSW}}}
-\newcommand{\CMSSW} {\textsc{CMSSW}\xspace}
-\newcommand{\ROOT} {\textsc{ROOT}\xspace}
-\newcommand {\Lone}{Level-1\xspace}
-\newcommand{\Tevatron}{TeVatron\xspace}
-\newcommand {\DZERO}{D0\xspace}
+\newcommand{\CMSSW}{\textsc{CMSSW}\xspace}
+\newcommand{\ROOT}{\textsc{ROOT}\xspace}
+\newcommand{\Lone}{Level-1\xspace}
+\newcommand{\Tevatron}{Tevatron\xspace}
+\newcommand{\Dzero}{D{\O}\xspace}
+\newcommand{\HitFit}{\textsc{HitFit}\xspace}
+\newcommand{\Cplusplus}{\textsc{C}\texttt{++}\xspace}
 
 \newcommand {\ie}{\mbox{i.e.}\xspace}     %i.e.
 \newcommand {\eg}{\mbox{e.g.}\xspace}     %e.g.

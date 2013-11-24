@@ -461,9 +461,9 @@ institution's user analysis.
 \subsection{Event Data Model}
 \label{ss:edm}
 In the basis of the CMS Event Data Model lies the concept of an event, which is physically a result of a single
-collision in the LHC. From a software point of view, the event is a C\verb!++! object container storing raw data from a
+collision in the LHC. From a software point of view, the event is a \Cplusplus object container storing raw data from a
 single readout of detector electronics (e.g.\ hits in various sub-detectors), as well as reconstructed data which is
-based on this information, such as tracks, clusters and physics objects. All these C\verb!++! objects are stored in ROOT
+based on this information, such as tracks, clusters and physics objects. All these \Cplusplus objects are stored in ROOT
 format \autocite{ROOT}.
 
 The EDM makes use of three main data formats, based on different levels of detail and precision:
@@ -479,7 +479,7 @@ The EDM makes use of three main data formats, based on different levels of detai
 \end{itemize}
 
 The RECO and AOD data are analysis-ready data formats, produced centrally and used by many physics analysis groups.
-However, further simplification of the data is also a common practice. By transforming the C\verb!++! objects produced
+However, further simplification of the data is also a common practice. By transforming the \Cplusplus objects produced
 by CMS software into plain basic types or vectors of them, only including the analysis-specific content, the event size
 can be reduced down to \SI{\sim3}{\kilo\byte} level depending on the needs of a particular analysis. This data format is
 often referred to as private ``ntuples'', and it requires specific analysis software capable of restructuring the data
@@ -512,7 +512,7 @@ researchers from Bristol and affiliated top groups. Like CMSSW, this framework h
 falling in four main categories:
 
 \begin{itemize}
-  \item readers, for translating plain data types from ROOT files into C\verb!++! objects;
+  \item readers, for translating plain data types from ROOT files into \Cplusplus objects;
   \item RECO objects, i.e.\ output of the readers (physical objects like leptons, jets and its collections);
   \item selections, for application of event selections;
   \item analysers for creating histograms, applying selections, algorithms, and filling histograms.
