@@ -321,7 +321,7 @@ of them. If there are two complex solutions, the fit is performed once for the c
 result is included in the event content twice. Therefore, each hypothesis has two possible values of the neutrino
 four-momentum, which doubles the number of permutations back to $4!=24$.
 
-The kinematic fit is performed by minimising the following $\chi^{2}$ function:
+The kinematic fit is performed by minimising the $\chi^{2}$ function defined as
 \begin{equation}
 \chi^{2}  = (\mathbf{x} - \mathbf{x}^{m})^{T}\mathbf{G}(\mathbf{x} - \mathbf{x}^{m})
 \end{equation}
@@ -343,12 +343,15 @@ The following kinematic constraints are imposed:
 \end{enumerate}
 
 Apart from exploiting the knowledge of the \W mass, the \cPqb quark mass of \SI{4.7}{\GeV} is also used. Light quarks
-and leptons are considered to be massless. The full description of the fitting algorithm can be found in the appendix of
-the \HitFit author's PhD thesis \autocite{Snyder}.
+and leptons are considered to be massless.
 
-% For each combination, if the fitting algorithm converges and a minimum is found, a $\chi^{2}$ value is calculated for
-% that combination. Otherwise the combination is rejected. Some variable resulting from the fit for the combination with
-% smaller $\chi^{2}$ are shown in Fig.~\ref{fig:fitplots}.
+The full description of the fitting algorithm can be found in the appendix of the \HitFit author's PhD thesis
+\autocite{Snyder}. Essentially, since the constraints are non-linear, an iterative technique is used. Starting with the
+measured observables, the constraint equations are linearised by expansion in a power series around the starting point.
+The minimisation is then solved with these linearised constraints, providing the new starting value for the next
+minimisation step which is repeated until the $\chi^2$ converges or a maximum number of iterations is reached. Events
+are rejected if there is no permutation resulting in a converging fit. Some kinematic variables for permutations giving
+the best (smallest) $\chi^2$ values are shown in Figure~\ref{fig:fitplots}.
 
 \begin{figure}[!htp]
    \centering
@@ -361,6 +364,11 @@ the \HitFit author's PhD thesis \autocite{Snyder}.
    and (d) fit probability for the best fitted hypotheses.}
 \end{figure}
 
+%chi2 cut if 20. how is it connected to probability and the likelihood function?
+The compatibility of a permutation with the \ttbar hypothesis is quantified by the following fit probability:
+\begin{equation}
+	P_{\textrm{fit}} = \textrm{exp}(-\frac{1}{2}\chi^2).
+\end{equation}
 
 % If an event doesn't have a combination which results in converging fit, the event is rejected. For each event which has
 % at least one converging combinations, we further impose a loose cut on the $\chi^{2}$ value, $\chi^{2} < 20$, and
