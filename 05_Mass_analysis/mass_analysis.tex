@@ -364,22 +364,23 @@ the best (smallest) $\chi^2$ values are shown in Figure~\ref{fig:fitplots}.
    and (d) fit probability for the best fitted hypotheses.}
 \end{figure}
 
-%chi2 cut if 20. how is it connected to probability and the likelihood function?
+Typically, an event has a few permutations resulting in a converged fit. The simplest approach of picking a permutation
+with the best $\chi^2$ value is disfavoured, since the Monte Carlo studies have shown that the correct permutation
+does not necessarily have the best $\chi^2$. This value can change drastically with relatively small variations of the
+input parameters, as different permutations may obtain the smallest value of $\chi^2$. On the other hand, some solutions
+yield very large $\chi^2$ value, which typically happens for badly reconstructed or background events. Therefore, a
+loose cut of $\chi^2=20$ is applied for all permutations on the output of the converged fit. This is the final
+selection criteria on top of the reference selection mentioned in Section~\ref{s_top_mass:event_selection}.
+
+%Table \ref{tab:chi2_eff} list the number of events which pass the reference selection only, and number of events which
+% pass both the reference selection and the loose $\chi^{2}$ cut.
+
 The compatibility of a permutation with the \ttbar hypothesis is quantified by the following fit probability:
 \begin{equation}
 	P_{\textrm{fit}} = \textrm{exp}(-\frac{1}{2}\chi^2).
 \end{equation}
 
-% If an event doesn't have a combination which results in converging fit, the event is rejected. For each event which has
-% at least one converging combinations, we further impose a loose cut on the $\chi^{2}$ value, $\chi^{2} < 20$, and
-% consider only combinations which pass this cut.  Events which don't have at least one converging permutation that pass
-% this $\chi^{2}$ cut are rejected and not used in the mass extraction.
-
-% The requirement of at least a converging combination which pass the loose $\chi^{2}$ cut is considered the final
-% selection criteria in addition to the reference lepton+jets selection criteria. Table \ref{tab:chi2_eff} list the number
-% of events which pass the reference selection only, and number of events which pass both the reference selection and the
-% loose $\chi^{2}$ cut.
-
+This probability is used in the next step of the analysis, referred to as the Ideogram Method.
 
 
 \section{Ideogram Method}
