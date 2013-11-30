@@ -380,7 +380,7 @@ The compatibility of a permutation with the \ttbar hypothesis is quantified by t
 	P_{\textrm{fit}} = \textrm{exp}(-\frac{1}{2}\chi^2).
 \end{equation}
 
-This probability is used in the next step of the analysis, referred to as the Ideogram Method.
+This probability is used in the next step of the analysis, referred to as the ideogram method.
 
 
 \section{Ideogram Method}
@@ -396,85 +396,55 @@ region.
 %$P_{\textrm{fit}}$.
 
 One of the first applications of the ideogram method tracks back to the \W boson mass measurement by the \textsc{DELPHI}
-Collaboration at CERN LEP collider \autocite{DELPHI_1998, DELPHI_2008}. It was later used for a series of top quark mass
-measurements, including the \Dzero measurement in lepton plus jets channel \autocite{D0_top_mass_ljets_ideogram} and CDF
-measurement in all-hadronic channel \autocite{CDF_ideogram}.
+Collaboration at CERN LEP collider \autocite{DELPHI_1998, DELPHI_2008}. It was later on used in a series of top quark
+mass measurements, including the \Dzero measurement in lepton plus jets channel \autocite{D0_top_mass_ljets_ideogram}
+and CDF measurement in all-hadronic channel \autocite{CDF_ideogram}. The main CMS top quark mass measurement in lepton
+plus jets channel at \SI{7}{\TeV} \autocite{top_mass_ljets_CMS} which is cross-checked by this analysis is also based on
+the ideogram method, however, with \textit{in situ} JES (jet energy scale) measurement in a joint likelihood fit. As JES
+is a dominant systematics in this analysis, this approach proved to be more precise, but let us not neglect the
+importance of a cross-check.
+
 \subsection{Event likelihood}
 \label{ss_top_mass:event_likelihood}
-The basis of the ideogram method is the event likelihood, also referred to as the ideogram. For each event in the
-sample, a likelihood to observe the event is calculated as a function of the assumed top quark mass, $m_{t}$. There are
-two terms in the likelihood. One term corresponds to the probability for the event to be a $t\bar{t}$ signal, another
-term corresponds to the probability for the event to be a background event.
+In the basis of the ideogram method lies the event likelihood, also referred to as the ideogram. It is calculated for
+each event in the sample as a function of the hypothesised top quark mass \mtop in the following way:
 
 \begin{equation}
-\mathcal{L}_{event}\left(x|m_{t},f_{t\bar{t}}\right) = f_{t\bar{t}} P_{t\bar{t}}\left(x|m_{t}\right) + \left(1 -
-f_{t\bar{t}}\right)P_{bkg}\left(x\right).
-\label{eq:EventLikelihood}
+\mathcal{L}_\textrm{event} \left(\mathbf{x}|\mtop, f_{\ttbar} \right) = f_{\ttbar} P_{\ttbar}
+\left(\mathbf{x}|\mtop\right) + \left(1 - f_{\ttbar} \right)P_\textrm{bkg}\left(\mathbf{x}\right).
+\label{eq:event_likelihood}
 \end{equation}
 
-In this equation, $x$ is the set of variables which characterizes the event, $f_{t\bar{t}}$ is the fraction of
-$t\bar{t}$ event in the data sample, and $P_{t\bar{t}}$ and $P_{bkg}$ are the probability densities for $t\bar{t}$ and
-background event, respectively.  The event observables $x$ are the mass information from the kinematic fit for each
-possible jet to quark assignments and neutrino solutions: the fitted mass $m_{i}$, the estimated uncertainties for each
-fitted mass $\sigma_{i}$, and the goodness-of-fit $\chi^{2}_{i}$.
+Here $\mathbf{x}$ is the set of event observables with the top mass information from the kinematic fit, $f_{\ttbar}$ is
+the fraction of \ttbar events in the data sample, and $P_{\ttbar}$ and $P_\textrm{bkg}$ are probability densities for
+signal and background events, respectively. Essentially, by construction of the likelihood, the first term corresponds
+to the probability for the event to be signal, whilst the second term is its probability to be background. The kinematic
+information $\mathbf{x}$ includes the fitted mass $m_{i}$, the estimated standard deviation for each fitted mass
+$\sigma(m_{i})$ and the goodness-of-fit $\chi^{2}_{i}$ for each permutation, i.e.\ each possible jet-parton assignment
+and neutrino solution surviving the selection criteria on the output of the fit.
 
-The $t\bar{t}$ probability density depends on both $x$ and $m_{t}$. The background probability density only depends on
-$x$ and doesn't depend on $m_{t}$.  We assume that the background probability can be described by the probability
-density for $W+$jets events only. The contributions from $W+$ heavy flavour jets, single top, $Z+$jets, and QCD events
-are expected to be small.  Furthermore, their probability densities have similar shape to that of $W+$jets events. Note
-that in the final MC calibration we include all above backgrounds to evaluate and correct for a possible bias due to
-this (and other) approximation(s).
+The \ttbar signal probability is calculated as a weighted sum over all permutations:
+\begin{equation}
+P_{\ttbar}\left(\mathbf{x}|\mtop\right) = \sum_{i}^{24} w_{i} \left( f_{\textrm{cp}} \cdot
+\int\limits^{m_{\textrm{max}}}_{m_{\textrm{min}}} \textrm{G}\left(m'|m_{i},\sigma_{i}\right) \textrm{RBW}
+\left(m'|\mtop,\Gamma_{\textrm{t}}\right) \textrm{d}m' + (1 - f_{\textrm{cp}})\textrm{WP}(m_{i}|\mtop)\right)
+\end{equation}
 
-The probabilities are calculated as a weighted sum over all possible combinations of jet to quark assignments and
-neutrino solutions.  The relative probability for each solution to fulfil the $t\bar{t}$ lepton+jets event hypothesis
-is proportional to $\exp\left(-\frac{1}{2}\chi^{2}\right)$.  However, some solutions yield very large $\chi^{2}$ value
-from the kinematic fit. Those are mostly either badly misreconstructed events or background events which don't carry top
-quark mass information.  Therefore, we take only solutions which have $\chi^{2}$ value from the kinematic fit smaller
-than 20.
-
-\subsection{Inclusion of b-tagging information in the likelihood}
-
-This analysis uses b-tagging information to further separate
-\ttbar signal and background, and to separate \ttbar signal with correct and wrong jet permutation assignments.  We use
-the Combined Secondary Vertex (CSV) tagging algorithm at the Medium working point (requiring CSV discriminant to be
-greater than 0.679).
-%This %is the same algorithm and working point used by the reference \ttbar %cross-section with b-tagging analysis
-%\cite{CMS-PAS-TOP-11-003???}.
-
-If one or more jets in the event is b-tagged, we assign an additional relative weight, $w_{\rm btag}$, representing the
-likelihood that the observed b-tags are compatible with the jet flavour assignment hypothesis for that particular jet
-permutation.
+For each permutation, the first term expresses the probability that it has a correct jet-parton assignment (correct
+permutation). The second term shows the probability that it is a wrong permutation, i.e.\ the jet-parton assignment is
+wrong. The relative weight $w_i$ is given as:
 
 \begin{equation}
-w_{\rm btag} = \prod_{j} p^{j}
+w_i = \textrm{exp}(-\frac{1}{2}\chi^2) w_{\rm btag}
 \end{equation}
 
-where the index $j$ runs over all the jets considered in the fit.  The b tag probability $p^{j}$ can be either
-$\varepsilon_{l}$, $(1 - \varepsilon_{l})$, $\varepsilon_{b}$, or $(1 - \varepsilon_{b})$, depending on the hypothesized
-flavour of the jet (light jet or b jet), and whether the jet is b-tagged or not.  For the light jet mistag rate, we
-assume that the $W boson$ can decay into $c\bar{s}$ and $u\bar{d}$ pair, and thus take into account the higher tagging
-rate for c quark jet.
-
-\subsection{Correct and wrong permutation $t\bar{t}$ signal probability}
-
-The $t\bar{t}$ signal probability contains two terms and can be expressed as:
-\begin{equation}
-P_{t\bar{t}}\left(x|m_{t}\right) = \sum_{i}^{24} w_{i} \left( f_{cp}
-\cdot \int^{m_{max}}_{m_{min}} dm'
-G\left(m'|m_{i},\sigma_{i}\right) RBW
-\left(m' |m_{t},\Gamma_{t}\right)
-+ (1 - f_{cp})WP(m_{i}|m_{t})\right)
-\end{equation}
-The first term expresses the probability that a solution has the correct jets to quarks assignment
-(correct-permutation). The second term expresses the probability that a solution doesn't have the correct jets to quarks
-assignment (wrong-permutation).
-
-The correct-permutation probability is given as a convolution of a Gaussian resolution function $G(m'|m_{i},\sigma_{i})$
-and relativistic Breit-Wigner distribution $RBW(m'|m_{t},\Gamma_{t})$. The Gaussian is centred at the value of fitted
-mass $m_{i}$ and has a width of the estimated fitted mass uncertainty $\sigma_{i}$.  It describes the estimated mass
-resolution for each jet/neutrino solutions. The relativistic Breit-Wigner (RBW) describes the distribution of the
-invariant mass $m'$ of top quark (or antitop quark) in $t\bar{t}$ event for a given assumed top quark mass $m_{t}$ and
-top quark width $\Gamma_{t}$.  We set the value of top quark width to 2 GeV.
+The correct-permutation probability is given as a convolution of a Gaussian resolution function
+$\textrm{G}(m'|m_{i},\sigma_{i})$ and relativistic Breit-Wigner distribution
+$\textrm{RBW}(m'|\mtop,\Gamma_{\textrm{t}})$. The Gaussian is centred at the value of fitted mass $m_{i}$ and has a
+width of the estimated fitted mass uncertainty $\sigma_{i}$.  It describes the estimated mass resolution for each
+jet/neutrino solutions. The relativistic Breit-Wigner (RBW) describes the distribution of the invariant mass $m'$ of top
+quark (or antitop quark) in \ttbar event for a given assumed top quark mass $m_{t}$ and top quark width $\Gamma_{t}$.
+We set the value of top quark width to 2 GeV.
 
 We use the following form of the RBW,
 \begin{equation}
@@ -489,17 +459,17 @@ as suggested by $s-$dependence of the phase space and Standard Model electroweak
 %     \subfigure[]{\includegraphics[width=0.49\textwidth]{figs/EJetsTtLJets1665FourJetInclCpGaussFit}}
 %     \subfigure[]{\includegraphics[width=0.49\textwidth]{figs/MuJetsTtLJets1665FourJetInclCpGaussFit}}
 % 	\caption{\label{fig:WJetsDensity2}
-% 	Plots of the fitted mass for the $t\bar{t}$ events with
+% 	Plots of the fitted mass for the \ttbar events with
 %     correct-permutation.  Left is for the $e+$jets channel,
 % 	right is for the $\mu$+jets channel.}
 % \end{center}
 % \end{figure}
 
 The wrong-permutation probability density is derived by fitting analytical functions to the fitted mass distribution of
-jet/neutrino solutions which have wrong jets to quarks assignment in Monte Carlo $t\bar{t}$ event sample.  There are two
+jet/neutrino solutions which have wrong jets to quarks assignment in Monte Carlo \ttbar event sample.  There are two
 kinds of events with wrong jets to quarks assignment.  The first kind of events have the four leading jets matched to
-quarks from $t\bar{t}$ decay, but the jets are not assigned to quarks correctly.  The second kind of events have one or
-more of the four leading jets coming from radiated gluon instead of quarks from $t\bar{t}$ decay.  We found that both
+quarks from \ttbar decay, but the jets are not assigned to quarks correctly.  The second kind of events have one or
+more of the four leading jets coming from radiated gluon instead of quarks from \ttbar decay.  We found that both
 type of events have similar shape and decided to group them together as events which have the wrong-permutation jets to
 quarks assignment.
 
@@ -523,7 +493,7 @@ combinations of \ttbar events, with three different masses: 166.5, 172.5, and 17
 %     \subfigure[]{\includegraphics[width=0.41\textwidth]{figs/CbFitTagWpm4jiEJetsTtLJets1785}}
 %     \subfigure[]{\includegraphics[width=0.41\textwidth]{figs/CbFitTagWpm4jiMuJetsTtLJets1785}}
 % 	\caption{\label{fig:TtWpDensity}
-% 	Plots of the fitted mass for the $t\bar{t}$ events with
+% 	Plots of the fitted mass for the \ttbar events with
 %     wrong-permutation. Left is
 % 	for the $e+$jets channel, right is for the $\mu$+jets channel.  Top
 %     row is for $m_{t} = 166.5$ GeV, middle row is for $m_{t} = 172.5$
@@ -539,6 +509,20 @@ the $\chi^{2}$ and b-tagging weights as described before.  We found that the fit
 be described by a Landau distribution, with different parametrization for $e$+jets and $\mu$+jets channel.  Figure
 \ref{fig:WJetsDensity} shows the fitted mass spectra for the $W+$jets events.
 
+
+The background probability density only depends on $x$ and doesn't depend on $m_{t}$.  We assume that the background
+probability can be described by the probability density for $W+$jets events only. The contributions from $W+$ heavy
+flavour jets, single top, $Z+$jets, and QCD events are expected to be small.  Furthermore, their probability densities
+have similar shape to that of $W+$jets events. Note that in the final MC calibration we include all above backgrounds to
+evaluate and correct for a possible bias due to this (and other) approximation(s).
+
+The probabilities are calculated as a weighted sum over all possible combinations of jet to quark assignments and
+neutrino solutions.  The relative probability for each solution to fulfil the \ttbar lepton+jets event hypothesis
+is proportional to $\exp\left(-\frac{1}{2}\chi^{2}\right)$.  However, some solutions yield very large $\chi^{2}$ value
+from the kinematic fit. Those are mostly either badly misreconstructed events or background events which don't carry top
+quark mass information.  Therefore, we take only solutions which have $\chi^{2}$ value from the kinematic fit smaller
+than 20.
+
 % \begin{figure}[!htpb]
 % \begin{center}
 %     \subfigure[]{\includegraphics[width=0.49\textwidth]{figs/EJetsWJetsFourJetInclMass}}
@@ -548,6 +532,29 @@ be described by a Landau distribution, with different parametrization for $e$+je
 % 	for the $e+$jets channel, right is for the $\mu$+jets channel.}
 % \end{center}
 % \end{figure}
+
+\subsection{Inclusion of b-tagging information in the likelihood}
+
+This analysis uses b-tagging information to further separate
+\ttbar signal and background, and to separate \ttbar signal with correct and wrong jet permutation assignments.  We use
+the Combined Secondary Vertex (CSV) tagging algorithm at the Medium working point (requiring CSV discriminant to be
+greater than 0.679).
+%This %is the same algorithm and working point used by the reference \ttbar %cross-section with b-tagging analysis
+%\cite{CMS-PAS-TOP-11-003???}.
+
+If one or more jets in the event is b-tagged, we assign an additional relative weight, $w_{\rm btag}$, representing the
+likelihood that the observed b-tags are compatible with the jet flavour assignment hypothesis for that particular jet
+permutation.
+
+\begin{equation}
+w_{\rm btag} = \prod_{j} p^{j}
+\end{equation}
+
+where the index $j$ runs over all the jets considered in the fit.  The b tag probability $p^{j}$ can be either
+$\varepsilon_{l}$, $(1 - \varepsilon_{l})$, $\varepsilon_{b}$, or $(1 - \varepsilon_{b})$, depending on the hypothesized
+flavour of the jet (light jet or b jet), and whether the jet is b-tagged or not.  For the light jet mistag rate, we
+assume that the $W boson$ can decay into $c\bar{s}$ and $u\bar{d}$ pair, and thus take into account the higher tagging
+rate for c quark jet.
 
 
 \subsection{Combined likelihood fit}
