@@ -431,28 +431,25 @@ P_{\ttbar}\left(\mathbf{x}|\mtop\right) = \sum_{i}^{24} w_{i} \left( f_{\textrm{
 \end{equation}
 
 For each permutation, the first term expresses the probability that it has a correct jet-parton assignment (correct
-permutation). The second term shows the probability that it is a wrong permutation, i.e.\ the jet-parton assignment is
-wrong. The relative weight $w_i$ is given as:
+permutation). It is calculated as a convolution of a relativistic Breit-Wigner distribution
+$\textrm{RBW}(m'|\mtop,\Gamma_{\textrm{t}})$ and a Gaussian $\textrm{G}(m'|m_{i},\sigma_{i})$.
 
+The relativistic Breit-Wigner distribution describes the theoretical top quark mass distribution for a given
+hypothesised top quark mass value \mtop with a top quark width $\Gamma_{\textrm{t}}$ set to \SI{2}{\GeV}, according to
+the latest experimental results \autocite{top_width_D0}. As suggested by Standard Model electroweak corrections and
+$s-$dependence of the phase space \cite{aleph_Z_RBW}, the following form of RBW is used:
 \begin{equation}
-w_i = \textrm{exp}(-\frac{1}{2}\chi^2) w_{\rm btag}
+\textrm{RBW}(m'|\mtop,\Gamma_{\textrm{t}}) \propto \frac{{m'}^{2}}{\left({m'}^{2} - {\mtop}^{2}
+\right)^{2} + {m'}^{4}\frac{\Gamma_{\textrm{t}}}{{\mtop}^{2}}}
 \end{equation}
 
-The correct-permutation probability is given as a convolution of a Gaussian resolution function
-$\textrm{G}(m'|m_{i},\sigma_{i})$ and relativistic Breit-Wigner distribution
-$\textrm{RBW}(m'|\mtop,\Gamma_{\textrm{t}})$. The Gaussian is centred at the value of fitted mass $m_{i}$ and has a
-width of the estimated fitted mass uncertainty $\sigma_{i}$.  It describes the estimated mass resolution for each
-jet/neutrino solutions. The relativistic Breit-Wigner (RBW) describes the distribution of the invariant mass $m'$ of top
-quark (or antitop quark) in \ttbar event for a given assumed top quark mass $m_{t}$ and top quark width $\Gamma_{t}$.
-We set the value of top quark width to 2 GeV.
+The Gaussian in the convolution represents the detector resolution. It is centred at the fitted mass value $m_{i}$ with
+a width of the fitted mass uncertainty $\sigma_{i}$ as estimated by the fit:
 
-We use the following form of the RBW,
 \begin{equation}
-RBW(m|m_{0},\Gamma_{0}) \propto \frac{m^{2}}{\left(m^{2} - m_{0}^{2}
-\right)^{2} + m^{4}\frac{\Gamma_{0}^{2}}{m_{0}^{2}}}
+\textrm{G}(m'|m_{i},\sigma_{i}) = \frac{1}{\sigma_{i}\sqrt{2\pi}}
+\textrm{exp}\left(\frac{(m'-m_{i})^{2}}{2\sigma_{i}^2}\right)
 \end{equation}
-as suggested by $s-$dependence of the phase space and Standard Model electroweak corrections, see equations (1.35) and
-(1.40) in \cite{:2005ema}.
 
 % \begin{figure}[!htpb]
 % \begin{center}
@@ -465,13 +462,14 @@ as suggested by $s-$dependence of the phase space and Standard Model electroweak
 % \end{center}
 % \end{figure}
 
-The wrong-permutation probability density is derived by fitting analytical functions to the fitted mass distribution of
+The second term shows the probability of a wrong permutation, i.e.\ with a wrong jet-parton assignment. The
+wrong-permutation probability density is derived by fitting analytical functions to the fitted mass distribution of
 jet/neutrino solutions which have wrong jets to quarks assignment in Monte Carlo \ttbar event sample.  There are two
 kinds of events with wrong jets to quarks assignment.  The first kind of events have the four leading jets matched to
-quarks from \ttbar decay, but the jets are not assigned to quarks correctly.  The second kind of events have one or
-more of the four leading jets coming from radiated gluon instead of quarks from \ttbar decay.  We found that both
-type of events have similar shape and decided to group them together as events which have the wrong-permutation jets to
-quarks assignment.
+quarks from \ttbar decay, but the jets are not assigned to quarks correctly.  The second kind of events have one or more
+of the four leading jets coming from radiated gluon instead of quarks from \ttbar decay.  We found that both type of
+events have similar shape and decided to group them together as events which have the wrong-permutation jets to quarks
+assignment.
 
 For each event which has at least one converging jet/neutrino solutions, we removed the jet/neutrino solutions which
 have the correct jets to quarks assignment. We then plotted the fitted mass from the remaining jet/neutrino solutions.
@@ -500,6 +498,12 @@ combinations of \ttbar events, with three different masses: 166.5, 172.5, and 17
 %     GeV, bottom row is for $m_{t} = 178.5$ GeV.}
 % \end{center}
 % \end{figure}
+
+The relative weight $w_i$ is given as:
+
+\begin{equation}
+w_i = \textrm{exp}(-\frac{1}{2}\chi^2) w_{\rm btag}
+\end{equation}
 
 \subsection{Background probability}
 
