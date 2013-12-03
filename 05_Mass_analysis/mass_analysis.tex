@@ -442,6 +442,7 @@ $s-$dependence of the phase space \cite{aleph_Z_RBW}, the following form of RBW 
 \textrm{RBW}(m'|\mtop,\Gamma_{\textrm{t}}) \propto \frac{{m'}^{2}}{\left({m'}^{2} - {\mtop}^{2}
 \right)^{2} + {m'}^{4}\frac{\Gamma_{\textrm{t}}}{{\mtop}^{2}}}
 \end{equation}
+%need to properly understand
 
 The Gaussian in the convolution represents the detector resolution. It is centred at the fitted mass value $m_{i}$ with
 a width of the fitted mass uncertainty $\sigma_{i}$ as estimated by the fit:
@@ -451,19 +452,20 @@ a width of the fitted mass uncertainty $\sigma_{i}$ as estimated by the fit:
 \textrm{exp}\left(\frac{(m'-m_{i})^{2}}{2\sigma_{i}^2}\right)
 \end{equation}
 
-% \begin{figure}[!htpb]
-% \begin{center}
-%     \subfigure[]{\includegraphics[width=0.49\textwidth]{figs/EJetsTtLJets1665FourJetInclCpGaussFit}}
-%     \subfigure[]{\includegraphics[width=0.49\textwidth]{figs/MuJetsTtLJets1665FourJetInclCpGaussFit}}
-% 	\caption{\label{fig:WJetsDensity2}
-% 	Plots of the fitted mass for the \ttbar events with
-%     correct-permutation.  Left is for the $e+$jets channel,
-% 	right is for the $\mu$+jets channel.}
-% \end{center}
-% \end{figure}
+The resulting probability density is shown in Figure~\ref{fig:fitted_ttbar_cp_density}
 
-The second term shows the probability of a wrong permutation, i.e.\ with a wrong jet-parton assignment. The
-wrong-permutation probability density is derived by fitting analytical functions to the fitted mass distribution of
+\begin{figure}[!htpb]
+\begin{center}
+    \includegraphics[width=0.65\textwidth]{correct_permutations_fitted_top_mass}
+	\caption{\label{fig:fitted_ttbar_cp_density}
+	The fitted top quark mass distribution for \ttbar events with correct permutations (MC truth).}
+\end{center}
+\end{figure}
+
+The second term shows the probability of a wrong permutation, i.e.\ with a wrong jet-parton assignment. This
+probability density, denoted $\textrm{WP}(m_i|\mtop)$, is calculated by fitting analytical functions...
+
+The wrong-permutation probability density is derived by fitting analytical functions to the fitted mass distribution of
 jet/neutrino solutions which have wrong jets to quarks assignment in Monte Carlo \ttbar event sample.  There are two
 kinds of events with wrong jets to quarks assignment.  The first kind of events have the four leading jets matched to
 quarks from \ttbar decay, but the jets are not assigned to quarks correctly.  The second kind of events have one or more
@@ -477,27 +479,20 @@ Each entry is weighed by the same weight used in the event likelihood.
 
 We found that the fitted mass distribution for the wrong-permutation \ttbar can be described very well by the Crystal
 Ball functions with exponential order 5, with their parameters $\mu$, $\sigma$, and $\alpha$ can be parametrized as
-functions of top quark mass.  Figure \ref{fig:TtWpDensity} shows the fitted mass spectra for the wrong-permutation
-combinations of \ttbar events, with three different masses: 166.5, 172.5, and 178.5 GeV.
+functions of top quark mass.  Figure \ref{fig:fitted_ttbar_wp_density} shows the fitted mass spectra for the
+wrong-permutation combinations of \ttbar events, with three different masses: 166.5, 172.5, and 178.5 GeV.
 
-% \begin{figure}[!htpb]
-% \begin{center}
-%     \subfigure[]{\includegraphics[width=0.41\textwidth]{figs/CbFitTagWpm4jiEJetsTtLJets1665}}
-%     \subfigure[]{\includegraphics[width=0.41\textwidth]{figs/CbFitTagWpm4jiMuJetsTtLJets1665}}
-
-%     \subfigure[]{\includegraphics[width=0.41\textwidth]{figs/CbFitTagWpm4jiEJetsTtLJets1725}}
-%     \subfigure[]{\includegraphics[width=0.41\textwidth]{figs/CbFitTagWpm4jiMuJetsTtLJets1725}}
-
-%     \subfigure[]{\includegraphics[width=0.41\textwidth]{figs/CbFitTagWpm4jiEJetsTtLJets1785}}
-%     \subfigure[]{\includegraphics[width=0.41\textwidth]{figs/CbFitTagWpm4jiMuJetsTtLJets1785}}
-% 	\caption{\label{fig:TtWpDensity}
-% 	Plots of the fitted mass for the \ttbar events with
-%     wrong-permutation. Left is
-% 	for the $e+$jets channel, right is for the $\mu$+jets channel.  Top
-%     row is for $m_{t} = 166.5$ GeV, middle row is for $m_{t} = 172.5$
-%     GeV, bottom row is for $m_{t} = 178.5$ GeV.}
-% \end{center}
-% \end{figure}
+\begin{figure}[!htpb]
+\begin{center}
+    \subfloat[]{\includegraphics[width=0.50\textwidth]{wrong_permutations_fitted_top_mass_166}}
+    \subfloat[]{\includegraphics[width=0.50\textwidth]{wrong_permutations_fitted_top_mass_172}}
+    \hfill
+    \subfloat[]{\includegraphics[width=0.50\textwidth]{wrong_permutations_fitted_top_mass_178}}
+	\caption{\label{fig:fitted_ttbar_wp_density}
+    The fitted top quark mass distribution for \ttbar events with wrong permutations (MC truth) for (a)
+    $\mtop=\SI{166.5}{\GeV}$, (b) $\mtop=\SI{172.5}{\GeV}$, (c) $\mtop=\SI{178.5}{\GeV}$.}
+\end{center}
+\end{figure}
 
 The relative weight $w_i$ is given as:
 
