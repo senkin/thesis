@@ -473,8 +473,8 @@ distribution for permutations with wrong jet-parton assignment, estimated purely
 wrong permutations fall in two categories: the first one corresponds to events where the four leading jets come from the
 \ttbar decay, but are not assigned to the partons correctly; the second one are events with one ore more of the four
 leading jets coming from the soft gluon radiation (ISR or FSR). It was found that the fitted top quark mass
-distributions have very similar shapes for both categories, therefore they were combined for the purpose of fitting.
-The Crystal Ball function has the form of:
+distributions have similar shapes for both categories, therefore they were combined for the purpose of fitting. The
+Crystal Ball function has the form of:
 
 \begin{equation}
 \textrm{CB}(x;\mu,\sigma,\alpha,n) = N \times
@@ -503,50 +503,41 @@ functions of the top quark mass. The fitted distributions of wrong permutations 
 \end{center}
 \end{figure}
 
-The relative weight $w_i$ is given as:
+\subsubsection*{Background probability}
 
+The shape of the background probability density in Equation~\ref{eq:event_likelihood} is estimated from background Monte
+Carlo samples. Since the dominant background is \WpJets, it was used exclusively for extracting the fitted top quark
+mass distribution by running the kinematic fit. The contribution from single top, \ZpJets and QCD was expected to be
+small, and it was confirmed that their probability density distributions have similar shapes to that of the \WpJets
+sample. Moreover, the Monte Carlo calibration described later on in Section~\ref{s_top_mass:calibration} takes all
+mentioned backgrounds sources into account, therefore any possible bias due to this approximation is corrected for.
+
+The fitted top quark mass spectrum for background events as estimated from \WpJets MC sample is shown in
+Figure~\ref{fig:background_wjets_fitted_top_mass}. The distribution is described by the Landau function, fitted by the 
+\ROOT package \autocite{Landau}.
+% \begin{equation}
+% \textrm{L}(x) = \frac{1}{\sqrt{2\pi}}\exp\left(-\frac{1}{2}(x+e^{-x})\right).
+% \label{eq:landau}
+% \end{equation}
+
+\begin{figure}[!htpb]
+\begin{center}
+	\includegraphics[width=0.65\textwidth]{background_wjets_fitted_top_mass}
+	\caption{\label{fig:background_wjets_fitted_top_mass}
+	The fitted top quark mass distribution for \ttbar events in \WpJets Monte Carlo sample.}
+\end{center}
+\end{figure}
+
+
+\subsubsection*{Permutation weights}
+For each permutation, the relative weight $w_i$ is given as:
 \begin{equation}
 w_i = \textrm{exp}(-\frac{1}{2}\chi^2) w_{\rm btag}
 \end{equation}
 
-\subsubsection*{Background probability}
-
-The shapes of the background probability are taken from the fitted mass spectrum in $W+$jets Monte Carlo samples. We
-perform the kinematic fit to $W+$jets Monte Carlo events and plot all fitted mass for all jet permutations, weighted by
-the $\chi^{2}$ and b-tagging weights as described before.  We found that the fitted mass spectra of $W+$jets events can
-be described by a Landau distribution, with different parametrization for $e$+jets and $\mu$+jets channel.  Figure
-\ref{fig:WJetsDensity} shows the fitted mass spectra for the $W+$jets events.
-
-
-The background probability density only depends on $x$ and doesn't depend on $m_{t}$.  We assume that the background
-probability can be described by the probability density for $W+$jets events only. The contributions from $W+$ heavy
-flavour jets, single top, $Z+$jets, and QCD events are expected to be small.  Furthermore, their probability densities
-have similar shape to that of $W+$jets events. Note that in the final MC calibration we include all above backgrounds to
-evaluate and correct for a possible bias due to this (and other) approximation(s).
-
-The probabilities are calculated as a weighted sum over all possible combinations of jet to quark assignments and
-neutrino solutions.  The relative probability for each solution to fulfil the \ttbar lepton+jets event hypothesis
-is proportional to $\exp\left(-\frac{1}{2}\chi^{2}\right)$.  However, some solutions yield very large $\chi^{2}$ value
-from the kinematic fit. Those are mostly either badly misreconstructed events or background events which don't carry top
-quark mass information.  Therefore, we take only solutions which have $\chi^{2}$ value from the kinematic fit smaller
-than 20.
-
-% \begin{figure}[!htpb]
-% \begin{center}
-%     \subfigure[]{\includegraphics[width=0.49\textwidth]{figs/EJetsWJetsFourJetInclMass}}
-%     \subfigure[]{\includegraphics[width=0.49\textwidth]{figs/MuJetsWJetsFourJetInclMass}}
-% 	\caption{\label{fig:WJetsDensity}
-% 	Plots of the fitted mass in $W+$jets sample.  Left is
-% 	for the $e+$jets channel, right is for the $\mu$+jets channel.}
-% \end{center}
-% \end{figure}
-
-\subsection{Inclusion of b-tagging information in the likelihood}
-
-This analysis uses b-tagging information to further separate
-\ttbar signal and background, and to separate \ttbar signal with correct and wrong jet permutation assignments.  We use
-the Combined Secondary Vertex (CSV) tagging algorithm at the Medium working point (requiring CSV discriminant to be
-greater than 0.679).
+This analysis uses b-tagging information to further separate \ttbar signal and background, and to separate \ttbar signal
+with correct and wrong jet permutation assignments.  We use the Combined Secondary Vertex (CSV) tagging algorithm at the
+Medium working point (requiring CSV discriminant to be greater than 0.679).
 %This %is the same algorithm and working point used by the reference \ttbar %cross-section with b-tagging analysis
 %\cite{CMS-PAS-TOP-11-003???}.
 
