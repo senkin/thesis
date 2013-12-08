@@ -378,10 +378,10 @@ selection criteria on top of the reference selection mentioned in Section~\ref{s
 The compatibility of a permutation with the \ttbar hypothesis is quantified by the following fit probability:
 \begin{equation}
 	P_{\textrm{fit}} = \textrm{exp}(-\frac{1}{2}\chi^2).
+	\label{eq:fit_probability}
 \end{equation}
 
 This probability is used in the next step of the analysis, referred to as the ideogram method.
-
 
 \section{The Ideogram Method}
 \label{s_top_mass:ideogram_method}
@@ -420,12 +420,40 @@ the fraction of \ttbar events in the data sample, and $P_{\ttbar}$ and $P_\textr
 signal and background events, respectively. Essentially, by construction of the likelihood, the first term corresponds
 to the probability for the event to be signal, whilst the second term is its probability to be background. The kinematic
 information $\mathbf{x}$ includes the fitted mass $m_{i}$, the estimated standard deviation for each fitted mass
-$\sigma(m_{i})$ and the goodness-of-fit $\chi^{2}_{i}$ for each permutation, i.e.\ each possible jet-parton assignment
-and neutrino solution surviving the selection criteria on the output of the fit.
+$\sigma(m_{i})$ and the goodness-of-fit $\chi^{2}_{i}$ for all permutations, i.e.\ all possible jet-parton assignments
+and neutrino solutions surviving the selection criteria on the output of the fit.
+
+\subsubsection*{Jet-parton assignment weight}
+The signal and background probabilities forming the event likelihood are calculated as a weighted sum over jet-parton
+assignments and neutrino solutions coming from the kinematic fit. Each permutation is weighted by the probability that
+it is correct, which is essentially the fit probability $P_{\textrm{fit}}$ introduced in
+Equation~\ref{eq:fit_probability}. However, this particular implementation of the ideogram method also exploits the
+b-tagging information, thus the fit probability is multiplied by an additional term $p_{\rm btags}$, which is the
+probability that the particular jet-parton assignment is compatible with the observed b-tags:
+
+\begin{equation}
+p_{\rm btags} = \prod_{j=1}^{4} p^{j}
+\end{equation}
+
+Here the index $j$ runs over all four jets in the kinematic fit, and the probability $p^{j}$ can be either
+$\varepsilon_{l}$, $(1 - \varepsilon_{l})$, $\varepsilon_{b}$, or $(1 - \varepsilon_{b})$, depending on the flavour of
+the jet as derived by the fit (light jet or \cPqb-jet), and whether the jet is b-tagged or not. As a recap from
+Section~\ref{sss:b-tagging}, for the medium working point of CSV b-tagging algorithm used in this analysis, b-tagging
+efficiency is approximately \SI{\sim70}{\percent}, whilst the mis-tag rate (or $(1 - \varepsilon_{l})$) is approximately
+\SI{1}{\percent}.
+
+Therefore, for each such permutation the relative weight is $w_i$ is calculated as:
+
+\begin{equation}
+w_i = p_{\rm fit} \cdot p_{\rm btags} = \textrm{exp}(-\frac{1}{2}\chi^2) \cdot \prod_{j=1}^{4} p^{j}
+\label{eq:permutation_weight}
+\end{equation}
+
 
 \subsubsection*{Signal probability}
 
-The \ttbar signal probability is calculated as a weighted sum over all permutations:
+The \ttbar signal probability in the event likelihood shown in Equation~\ref{eq:event_likelihood} is calculated as a
+weighted sum over all permutations:
 \begin{equation}
 P_{\ttbar}\left(\mathbf{x}|\mtop\right) = \sum_{i}^{24} w_{i} \left( f_{\textrm{cp}} \cdot
 \int\limits^{m_{\textrm{max}}}_{m_{\textrm{min}}} \textrm{G}\left(m'|m_{i},\sigma_{i}\right) \textrm{RBW}
@@ -527,34 +555,6 @@ Figure~\ref{fig:background_wjets_fitted_top_mass}. The distribution is described
 	The fitted top quark mass distribution for \ttbar events in \WpJets Monte Carlo sample.}
 \end{center}
 \end{figure}
-
-
-\subsubsection*{Permutation weights}
-For each permutation, the relative weight $w_i$ is given as:
-\begin{equation}
-w_i = \textrm{exp}(-\frac{1}{2}\chi^2) w_{\rm btag}
-\end{equation}
-
-This analysis uses b-tagging information to further separate \ttbar signal and background, and to separate \ttbar signal
-with correct and wrong jet permutation assignments.  We use the Combined Secondary Vertex (CSV) tagging algorithm at the
-Medium working point (requiring CSV discriminant to be greater than 0.679).
-%This %is the same algorithm and working point used by the reference \ttbar %cross-section with b-tagging analysis
-%\cite{CMS-PAS-TOP-11-003???}.
-
-If one or more jets in the event is b-tagged, we assign an additional relative weight, $w_{\rm btag}$, representing the
-likelihood that the observed b-tags are compatible with the jet flavour assignment hypothesis for that particular jet
-permutation.
-
-\begin{equation}
-w_{\rm btag} = \prod_{j} p^{j}
-\end{equation}
-
-where the index $j$ runs over all the jets considered in the fit.  The b tag probability $p^{j}$ can be either
-$\varepsilon_{l}$, $(1 - \varepsilon_{l})$, $\varepsilon_{b}$, or $(1 - \varepsilon_{b})$, depending on the hypothesized
-flavour of the jet (light jet or b jet), and whether the jet is b-tagged or not.  For the light jet mistag rate, we
-assume that the $W boson$ can decay into $c\bar{s}$ and $u\bar{d}$ pair, and thus take into account the higher tagging
-rate for c quark jet.
-
 
 \subsection{Combined likelihood fit}
 \label{ss_top_mass:likelihood_fit}
