@@ -449,6 +449,7 @@ w_i = p_{\rm fit} \cdot p_{\rm btags} = \textrm{exp}(-\frac{1}{2}\chi^2) \cdot \
 \label{eq:permutation_weight}
 \end{equation}
 
+These weights are used in the calculation of signal and background probability densities, described hereafter.
 
 \subsubsection*{Signal probability}
 
@@ -460,9 +461,10 @@ P_{\ttbar}\left(\mathbf{x}|\mtop\right) = \sum_{i}^{24} w_{i} \left( f_{\textrm{
 \left(m'|\mtop,\Gamma_{\textrm{t}}\right) \textrm{d}m' + (1 - f_{\textrm{cp}})\textrm{WP}(m_{i}|\mtop)\right)
 \end{equation}
 
-For each permutation, the first term expresses the probability that it has a correct jet-parton assignment (correct
-permutation). It is calculated as a convolution of a relativistic Breit-Wigner distribution
-$\textrm{RBW}(m'|\mtop,\Gamma_{\textrm{t}})$ and a Gaussian $\textrm{G}(m'|m_{i},\sigma_{i})$.
+Here $f_{\textrm{cp}}$ is the fraction of events in which the maximum weight is assigned to the correct permutation,
+estimated from simulated \ttbar events. For each permutation, the first term expresses the probability that it has a
+correct jet-parton assignment (correct permutation). It is calculated as a convolution of a relativistic Breit-Wigner
+distribution $\textrm{RBW}(m'|\mtop,\Gamma_{\textrm{t}})$ and a Gaussian $\textrm{G}(m'|m_{i},\sigma_{i})$.
 
 The relativistic Breit-Wigner distribution describes the theoretical top quark mass distribution for a given
 hypothesised top quark mass value \mtop with a top quark width $\Gamma_{\textrm{t}}$ set to \SI{2}{\GeV}, according to
@@ -541,7 +543,7 @@ sample. Moreover, the Monte Carlo calibration described later on in Section~\ref
 mentioned backgrounds sources into account, therefore any possible bias due to this approximation is corrected for.
 
 The fitted top quark mass spectrum for background events as estimated from \WpJets MC sample is shown in
-Figure~\ref{fig:background_wjets_fitted_top_mass}. The distribution is described by the Landau function, fitted by the 
+Figure~\ref{fig:background_wjets_fitted_top_mass}. This distribution is described by the Landau function, fitted by the 
 \ROOT package \autocite{Landau}.
 % \begin{equation}
 % \textrm{L}(x) = \frac{1}{\sqrt{2\pi}}\exp\left(-\frac{1}{2}(x+e^{-x})\right).
@@ -558,22 +560,100 @@ Figure~\ref{fig:background_wjets_fitted_top_mass}. The distribution is described
 
 \subsection{Combined likelihood fit}
 \label{ss_top_mass:likelihood_fit}
-
-The likelihood for the entire lepton+jets sample is calculated as the product of each event likelihood curve,
+Finally, the total likelihood for the entire data sample is calculated as the product of all the event likelihoods:
 \begin{equation}
-\mathcal{L}_{sample} = \prod_{\rm all~event}
-\mathcal{L}_{event}\left(x|m_{t},f_{t\bar{t}}\right).
+\mathcal{L}_{\rm sample} = \prod_{\rm all~events}
+\mathcal{L}_\textrm{event} \left(\mathbf{x}|\mtop, f_{\ttbar} \right).
 \label{eq:CombinedLikelihood}
 \end{equation}
-Difference in sample composition between subsamples ($e$+jets and $\mu$+jets, 0-tag and 1-tag and 2-tag) are taken into
-account in the likelihood.
 
-In practice, what is done is summing over the negative likelihood for all events in the sample.  For each event, the
-likelihood is evaluated as a function of top quark mass.  The minima of the sum of log likelihood curve is then taken as
-the most probable value of top quark mass.
+To extract the most probable top quark mass, this likelihood needs to be maximised. In practice, this is performed by
+minimising the negative log-likelihood:
+
+\begin{equation}
+ -2\log{\mathcal{L}_{\rm sample}} = -2 \sum_{\rm all~events} \log{\mathcal{L}_\textrm{event} \left(\mathbf{x}|\mtop,
+ f_{\ttbar} \right)}
+\label{eq:CombinedLogLikelihood}
+\end{equation}
+
+%How do we extract the minimum? Is the parabolic fit performed for a given assumed top quark mass, or a whole set of MC
+% masses? Which plot to show? The standard deviation -> top mass error? 3 lowest points? Logically mention the
+% necessity of calibration.
 
 \section{Mass calibration}
 \label{s_top_mass:calibration}
+The event likelihood that is calculated for each event is a simplified representation designed to capture the key
+ambiguities and experimental uncertainties of the reconstructed event, relevant for the top mass measurement. The
+resulting likelihood is an approximation, and needs to be calibrated using Monte Carlo simulation.
+
+Pseudo experiments are performed to determine a possible bias in the fitted mass, and to evaluate the correctness of the
+estimated statistical uncertainties. In each pseudo experiment, events are represented by their full event likelihood,
+and an overall sample likelihood is formed by adding the log likelihoods in the same way as in the real measurement.
+
+Events are picked from Monte Carlo samples representing the different sources of events (ttbar, single top, W+jets, QCD,
+Z+jets), including Poissonian fluctuations around the estimated sample composition in real data. The calibration is
+performed using observed values of 23727 $e+$jets events, 31172 $\mu$+jets events, with an average signal fraction of 76
+\% ($e+$jets), 83\% ($\mu+$jets), and 80\% (combined lepton+jets). In the pseudo experiments the background is
+represented by $W+$jets.  The influence of other sources of backgrounds are evaluated separately, and accounted for as
+systematic uncertainty.
+
+Nine samples of ttbar events with generated top mass betwen 161.5 and 184.5~GeV were used to produce pseudo experiments.
+
+%Figure~\ref{fig:mass} shows the fitted massed for $e+$jets
+%and $\mu$+jets combined, for 100k pseudo experiments at each of the mass values. The fitted
+%mass distributions are nicely gaussian. 
+
+%\begin{figure}[!htp]
+%   \centering
+%   \subfigure[]{\includegraphics[width=0.49\textwidth]{fig/massplot}}
+%   \subfigure[]{\includegraphics[width=0.49\textwidth]{fig/logmassplot}}
+%   \caption{ Fitted pseudo experiment masses, for three values of the generated top mass,
+%            with linear (a) and logarithmic (b) scale (\bf TO BE UPDATED).
+%   \label{fig:mass}}
+%\end{figure}
+%\begin{figure}[!htp]
+%   \centering
+%   \subfigure[]{\includegraphics[width=0.49\textwidth]{fig/pullplot}}
+%   \subfigure[]{\includegraphics[width=0.49\textwidth]{fig/logpullplot}}
+%   \caption{Pull distribution of the fitted pseudo experiment masses, for the central sample with
+%            top mass of 172.5 GeV,
+%            with linear (a) and logarithmic (b) scale (\bf TO BE UPDATED).
+%   \label{fig:pull}}
+%\end{figure}
+
+
+The same procedure is repeated for the $e+$jets channel only, the $\mu$+jets channel only, and the two channels
+combined. The difference between the average fitted mass and the true top mass as a function of the top mass is shown in
+Fig.~\ref{fig:bias_pull_vs_mass}. The width of the pull distribution (sigma from a gaussian fit) as a function of the
+top mass before any further calibration is plotted in Fig.~\ref{fig:bias_pull_vs_mass}. It is encouraging to see that
+even before calibration the behaviour of the e+jets and $\mu$+jets channels is very similar, and that out-of-the-box the
+analysis has a mass bias of less than 1\% on the top mass. The width of the pull is approximately 15\% larger than unity
+in the top mass region of interest. There is however a clear dependence of the mass bias on the top mass, and it is
+important to correct both the fitted mass and the estimated uncertainty for the calibration bias, slope and deviation of
+the pull width from unity.
+
+\begin{figure}[!htp]
+   \hspace{-1.cm}
+   \subfloat[]{\includegraphics[width=0.485\textwidth]{bias}}
+   \subfloat[]{\includegraphics[width=0.515\textwidth]{pull}}
+   \caption{Average mass bias (a) and width of the pull (b) as a function of the true top quark mass.
+   \label{fig:bias_pull_vs_mass}}
+\end{figure}
+ 
+Finally, as a closure test we show the mass bias and pull width as a function of the top mass {\em after applying the
+full calibration}, in Fig~\ref{fig:calibrated_bias_pull_vs_mass}. The closure tests confirm that after calibration both
+the mass and uncertainty on the mass are unbiased.
+
+\begin{figure}[!htp]
+   \hspace{-1.cm}
+   \subfloat[]{\includegraphics[width=0.485\textwidth]{bias_calibrated}}
+   \subfloat[]{\includegraphics[width=0.515\textwidth]{pull_calibrated}}
+   \caption{Closure test, showing the average mass bias (a) and width of the pull (b) {\em after calibration} as a
+            function of the true top quark mass.
+   \label{fig:calibrated_bias_pull_vs_mass}}
+\end{figure}
+ 
+
 
 \section{Systematic Uncertainties}
 \label{s_top_mass:systematics}
