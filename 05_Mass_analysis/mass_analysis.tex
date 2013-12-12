@@ -423,7 +423,7 @@ information $\mathbf{x}$ includes the fitted mass $m_{i}$, the estimated standar
 $\sigma(m_{i})$ and the goodness-of-fit $\chi^{2}_{i}$ for all permutations, i.e.\ all possible jet-parton assignments
 and neutrino solutions surviving the selection criteria on the output of the fit.
 
-\subsubsection*{Jet-parton assignment weight}
+\subsubsection*{Jet-parton assignment weights}
 The signal and background probabilities forming the event likelihood are calculated as a weighted sum over jet-parton
 assignments and neutrino solutions coming from the kinematic fit. Each permutation is weighted by the probability that
 it is correct, which is essentially the fit probability $P_{\textrm{fit}}$ introduced in
@@ -499,12 +499,12 @@ illustration.
 
 The second term shows the probability of a wrong permutation in the signal event. This probability density, denoted
 $\textrm{WP}(m_i|\mtop)$, is calculated by fitting the Crystal Ball analytical function to the fitted top quark mass
-distribution for permutations with wrong jet-parton assignment, estimated purely from Monte Carlo \ttbar sample. The
-wrong permutations fall in two categories: the first one corresponds to events where the four leading jets come from the
-\ttbar decay, but are not assigned to the partons correctly; the second one are events with one ore more of the four
-leading jets coming from the soft gluon radiation (ISR or FSR). It was found that the fitted top quark mass
-distributions have similar shapes for both categories, therefore they were combined for the purpose of fitting. The
-Crystal Ball function has the form of:
+distribution for permutations with wrong jet-parton assignment, estimated purely from Monte Carlo \ttbar sample whilst
+taking the permutation weights (Equation~\ref{eq:permutation_weight}) into account. The wrong permutations fall in two
+categories: the first one corresponds to events where the four leading jets come from the \ttbar decay, but are not
+assigned to the partons correctly; the second one are events with one ore more of the four leading jets coming from the
+soft gluon radiation (ISR or FSR). It was found that the fitted top quark mass distributions have similar shapes for
+both categories, therefore they were combined for the purpose of fitting. The Crystal Ball function has the form of:
 
 \begin{equation}
 \textrm{CB}(x;\mu,\sigma,\alpha,n) = N \times
@@ -536,12 +536,13 @@ functions of the top quark mass. The fitted distributions of wrong permutations 
 \subsubsection*{Background probability}
 
 The shape of the background probability density in Equation~\ref{eq:event_likelihood} is assumed not to depend on the
-top quark mass, and is estimated from the background Monte Carlo samples. Since the dominant background is \WpJets, it
-was used exclusively for extracting the fitted top quark mass distribution by running the kinematic fit. The
-contribution from single top, \ZpJets and QCD was expected to be small, and it was confirmed that their probability
-density distributions have similar shapes to that of the \WpJets sample. Moreover, the Monte Carlo calibration described
-later on in Section~\ref{s_top_mass:calibration} takes all mentioned backgrounds sources into account, therefore any
-possible bias due to this approximation is corrected for.
+top quark mass, and is estimated from the background Monte Carlo samples. The procedure is done in a similar way to the
+wrong permutations probability, and the jet-parton assignment weights (Equation~\ref{eq:permutation_weight}) are also
+taken into account. Since the dominant background is \WpJets, it was used exclusively for extracting the fitted top
+quark mass distribution by running the kinematic fit. The contribution from single top, \ZpJets and QCD was expected to
+be small, and it was confirmed that their probability density distributions have similar shapes to that of the \WpJets
+sample. Moreover, the Monte Carlo calibration described later on in Section~\ref{s_top_mass:calibration} takes all
+mentioned backgrounds sources into account, therefore any possible bias due to this approximation is corrected for.
 
 The fitted top quark mass spectrum for background events as estimated from \WpJets MC sample is shown in
 Figure~\ref{fig:background_wjets_fitted_top_mass}. This distribution is described by the Landau function, fitted by the 
@@ -561,15 +562,16 @@ Figure~\ref{fig:background_wjets_fitted_top_mass}. This distribution is describe
 
 \subsection{Combined likelihood fit}
 \label{ss_top_mass:likelihood_fit}
-Finally, the total likelihood for the entire data sample is calculated as the product of all the event likelihoods:
+Finally, for the extraction of the top quark mass the total likelihood for the entire data sample is calculated as the
+product of all the event likelihoods:
 \begin{equation}
 \mathcal{L}_{\rm sample} = \prod_{\rm all~events}
-\mathcal{L}_\textrm{event} \left(\mathbf{x}|\mtop \right).
+\mathcal{L}_\textrm{event} \left(\mathbf{x}|\mtop \right)
 \label{eq:CombinedLikelihood}
 \end{equation}
 
-To extract the most probable top quark mass, this likelihood needs to be maximised. In practice, this is performed by
-minimising the negative log-likelihood:
+To extract the most probable top quark mass, this likelihood needs to be maximised. In practice, it is simplified by
+performing the minimisation of the summed negative log-likelihoods:
 
 \begin{equation}
  -2\log{\mathcal{L}_{\rm sample}} = -2 \sum_{\rm all~events} \log{\mathcal{L}_\textrm{event} \left(\mathbf{x}|\mtop
@@ -577,9 +579,18 @@ minimising the negative log-likelihood:
 \label{eq:CombinedLogLikelihood}
 \end{equation}
 
-%How do we extract the minimum? Is the parabolic fit performed for a given assumed top quark mass, or a whole set of MC
-% masses? Which plot to show? The standard deviation -> top mass error? 3 lowest points? Logically mention the
-% necessity of calibration.
+The result with the full dataset is shown in Figure~\ref{fig:LogLikelihood}. The top quark mass and its statistical
+uncertainty are calculated by using the parabolic interpolation with three lowest points in the log-likelihood curve.
+However, this result can not be regarded as the final measurement, as it does not take into account the possible mass
+bias of the ideogram method. The mass calibration technique is described in the next section.
+
+\begin{figure}[!htpb]
+\begin{center}
+	\includegraphics[width=0.65\textwidth]{Likelihood}
+	\caption{\label{fig:LogLikelihood}
+	Log-likelihood curve as a function of top quark mass for e+jets dataset before calibration.}
+\end{center}
+\end{figure}
 
 \section{Mass calibration}
 \label{s_top_mass:calibration}
@@ -622,11 +633,11 @@ larger than unity, suggesting that the ideogram method underestimates the statis
    \label{fig:bias_pull_vs_mass}}
 \end{figure}
 
-Therefore, the fitted linear calibration curves in both distributions are used to correct the final measurement of the
-top quark mass. As a closure test, the mass bias and pull width as a function of true top quark mass are calculated
-after applying the full calibration. The distributions are shown in Figure~\ref{fig:calibrated_bias_pull_vs_mass}.
-Evidently, the closure tests confirm that the top quark mass and its statistical uncertainty are unbiased after
-calibration.
+Due to the apparent bias, the fitted linear calibration curves in both distributions are used to correct the final
+measurement of the top quark mass. As a closure test, the mass bias and pull width as a function of true top quark mass
+are calculated after applying the full calibration. The distributions are shown in
+Figure~\ref{fig:calibrated_bias_pull_vs_mass}. Evidently, the closure tests confirm that the top quark mass and its
+statistical uncertainty are unbiased after calibration.
 
 \begin{figure}[!htp]
    \subfloat[]{\includegraphics[width=0.485\textwidth]{bias_calibrated}}
@@ -637,9 +648,11 @@ calibration.
 \end{figure}
  
 
-
 \section{Systematic Uncertainties}
 \label{s_top_mass:systematics}
+
+\input{05_Mass_analysis/tables/top_mass_systematics}
+
 
 \section{Results}
 \label{s_top_mass:results}
