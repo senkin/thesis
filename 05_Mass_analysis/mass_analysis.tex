@@ -535,12 +535,13 @@ functions of the top quark mass. The fitted distributions of wrong permutations 
 
 \subsubsection*{Background probability}
 
-The shape of the background probability density in Equation~\ref{eq:event_likelihood} is estimated from background Monte
-Carlo samples. Since the dominant background is \WpJets, it was used exclusively for extracting the fitted top quark
-mass distribution by running the kinematic fit. The contribution from single top, \ZpJets and QCD was expected to be
-small, and it was confirmed that their probability density distributions have similar shapes to that of the \WpJets
-sample. Moreover, the Monte Carlo calibration described later on in Section~\ref{s_top_mass:calibration} takes all
-mentioned backgrounds sources into account, therefore any possible bias due to this approximation is corrected for.
+The shape of the background probability density in Equation~\ref{eq:event_likelihood} is assumed not to depend on the
+top quark mass, and is estimated from the background Monte Carlo samples. Since the dominant background is \WpJets, it
+was used exclusively for extracting the fitted top quark mass distribution by running the kinematic fit. The
+contribution from single top, \ZpJets and QCD was expected to be small, and it was confirmed that their probability
+density distributions have similar shapes to that of the \WpJets sample. Moreover, the Monte Carlo calibration described
+later on in Section~\ref{s_top_mass:calibration} takes all mentioned backgrounds sources into account, therefore any
+possible bias due to this approximation is corrected for.
 
 The fitted top quark mass spectrum for background events as estimated from \WpJets MC sample is shown in
 Figure~\ref{fig:background_wjets_fitted_top_mass}. This distribution is described by the Landau function, fitted by the 
@@ -563,7 +564,7 @@ Figure~\ref{fig:background_wjets_fitted_top_mass}. This distribution is describe
 Finally, the total likelihood for the entire data sample is calculated as the product of all the event likelihoods:
 \begin{equation}
 \mathcal{L}_{\rm sample} = \prod_{\rm all~events}
-\mathcal{L}_\textrm{event} \left(\mathbf{x}|\mtop, f_{\ttbar} \right).
+\mathcal{L}_\textrm{event} \left(\mathbf{x}|\mtop \right).
 \label{eq:CombinedLikelihood}
 \end{equation}
 
@@ -571,8 +572,8 @@ To extract the most probable top quark mass, this likelihood needs to be maximis
 minimising the negative log-likelihood:
 
 \begin{equation}
- -2\log{\mathcal{L}_{\rm sample}} = -2 \sum_{\rm all~events} \log{\mathcal{L}_\textrm{event} \left(\mathbf{x}|\mtop,
- f_{\ttbar} \right)}
+ -2\log{\mathcal{L}_{\rm sample}} = -2 \sum_{\rm all~events} \log{\mathcal{L}_\textrm{event} \left(\mathbf{x}|\mtop
+ \right)}
 \label{eq:CombinedLogLikelihood}
 \end{equation}
 
@@ -588,26 +589,31 @@ with known true top quark mass. Pseudo-experiments are used to measure the bias 
 calibrate the statistical uncertainty of the measurement.
 
 For each of the nine generated \ttbar samples with mass points between \SI{161.5}{\GeV} and \SI{184.5}{\GeV},
-\num{10000} pseudo-experiments were performed with events picked from Monte Carlo samples representing different sources
+\num{5000} pseudo-experiments were performed with events picked from Monte Carlo samples representing different sources
 of events, so that the numbers of events follow a Poisson distribution centred around the corresponding numbers observed
 in real data. The observed value of \num{23727} electron plus jets events with an average signal fraction of
 \SI{76}{\pc} was used in each pseudo-experiment. The background was estimated by using events from \WpJets MC sample,
 whereas the impact of other background sources was accounted for separately as a systematic uncertainty
 (Section~\ref{s_top_mass:systematics}). For every pseudo-experiment all the event likelihoods are calculated, the total
-log-likelihood is formed and the top quark mass is extracted in the same way as in the real measurement described
-above.
+log-likelihood is formed and the top quark mass ($m_i$) with its statistical uncertainty ($\sigma_i$) are extracted in
+the same way as in the real measurement described above. These results are used to derive the bias and pull
+distributions, defined as follows:
 
-The mass bias, defined as the difference between the average measured mass and the true (generated) top quark mass, is
-shown in Figure~\ref{fig:bias_pull_vs_mass} as a function of the generated top quark mass. Clearly, by using the
-ideogram method out of the box, there is a significant mass bias which needs to be corrected for. Additionally, the
-width of the pull distribution (standard deviation of a Gaussian fit) as a function of the generated top quark mass
-before any calibration is also shown. The pull here is defined as the mass bias divided by the statistical uncertainty
-of the measured top quark mass, and the pull width is the standard deviation of a Gaussian fit to the pull distribution.
-Essentially, it suggests whether the ideogram method evaluates the statistical uncertainty correctly. It can be seen
-that the width of the pull is approximately \SI{12}{\pc} larger than unity, which means that this effect also needs to
-be corrected for.
+\begin{equation}
+ \textrm{bias} = \mtop^{\rm meas} - \mtop^{\rm gen} \quad \text{and} \quad
+ \textrm{pull}_i = \frac{m_i - \mtop^{\rm meas}}{\sigma_i},
+\label{eq:bias_pull}
+\end{equation}
 
-%why is the mass bias linear with the true top mass?
+where $\mtop^{\rm meas}$ is the mean top quark mass over all pseudo-experiments, for a given generated mass point. The
+width of the pull is defined as the standard deviation ($\sigma$) of a Gaussian fitted to the pull distribution.
+
+The mass bias and the width of the pull as a function of the generated top quark mass are shown in
+Figure~\ref{fig:bias_pull_vs_mass}. Clearly, using the ideogram method out of the box reveals a significant bias which
+needs to be corrected for. It can also be seen that the width of the pull distribution is approximately \SI{11}{\pc}
+larger than unity, suggesting that the ideogram method underestimates the statistical uncertainty.
+
+%why is the mass bias linear with the true top mass? How exactly is calibration applied?
 
 \begin{figure}[!htp]
    \subfloat[]{\includegraphics[width=0.485\textwidth]{bias}}
@@ -615,10 +621,12 @@ be corrected for.
    \caption{Average mass bias (a) and width of the pull (b) as a function of true top quark mass.
    \label{fig:bias_pull_vs_mass}}
 \end{figure}
- 
-As a closure test, the mass bias and pull width as a function of true top quark mass are calculated after applying the
-full calibration. The distributions are shown in Figure~\ref{fig:calibrated_bias_pull_vs_mass}. Evidently, the closure
-tests confirm that the top quark mass and its statistical uncertainty are unbiased after calibration.
+
+Therefore, the fitted linear calibration curves in both distributions are used to correct the final measurement of the
+top quark mass. As a closure test, the mass bias and pull width as a function of true top quark mass are calculated
+after applying the full calibration. The distributions are shown in Figure~\ref{fig:calibrated_bias_pull_vs_mass}.
+Evidently, the closure tests confirm that the top quark mass and its statistical uncertainty are unbiased after
+calibration.
 
 \begin{figure}[!htp]
    \subfloat[]{\includegraphics[width=0.485\textwidth]{bias_calibrated}}
