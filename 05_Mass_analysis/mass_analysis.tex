@@ -650,8 +650,170 @@ statistical uncertainty are unbiased after calibration.
 
 \section{Systematic Uncertainties}
 \label{s_top_mass:systematics}
+Like any measurement, the top quark mass measurement is prone to various systematic errors. In attempt to evaluate them,
+several sources of systematic effects are considered in this analysis. These include theoretical uncertainties on Monte
+Carlo modelling, assumptions made within the ideogram method, as well as imperfect understanding of detector effects and
+reconstruction algorithms.
+
+Systematic uncertainties are calculated by running the analysis with tuned MC samples where systematic effects are
+varied by $\pm 1$ standard deviation, and comparing the result with the nominal one. The obtained difference in fitted
+$\Delta \mtop$ is regarded as an uncertainty due to a given systematic effect. The total systematic error is calculated
+as a sum of all components in quadrature, under assumption that all the effects are uncorrelated. Summary of all
+systematic uncertainties is given in Table~\ref{tab:top_mass_systematics}, whereas all corresponding sources are
+described below.
+
+% Since some of these systematic effects introduce very small shifts on the estimated top-quark mass, the statistical
+% uncertainty of these induced shifts is calculated for every systematic effect.
 
 \input{05_Mass_analysis/tables/top_mass_systematics}
+
+\begin{description}[wide=\parindent]
+\item [Fit calibration statistics.] To estimate the systematic effect of the calibration with pseudo-experiments
+described in Section~\ref{s_top_mass:calibration}, the statistical uncertainty of this calibration is propagated to the
+final measurement by regarding it as a systematic error. This uncertainty was evaluated with the central \ttbar MC
+sample with the top quark mass of \SI{172.5}{\GeV}.
+
+\item [b-tagging.] The nominal (``medium'') working point of the CSVM algorithm is varied in order to reflect the
+uncertainty of the b-tagging efficiency of \SI{\sim4}{\pc} \autocite{b-tagging_CMS}. The average effect of this change
+on the mass measurement is quoted as a systematic uncertainty.
+
+\item [Overall Jet Energy Scale.] We vary the jet energy of all jets within the ($p_T$ and $\eta$-dependent) 1-sigma
+uncertainty band obtained from independent jet energy scale and resolution studies~\autocite{JEC_7TeV}. The
+uncertainties used for data and MC can are shown in Fig.~\ref{fig:jes}.
+
+The uncertainty contains various contributions, for pile-up corrections, absolute energy calibration, the relative scale
+between data and MC, and a 1-2\% term covering possible discrepancies between data and the simulation in the modelling
+of jet flavour dependence of the jet energy response.
+
+As in the kinematic fit the light-quark jet pair is constrained to the W boson mass, the sensitivity of the top mass
+measurement to the light-jet quark scale is reduced. When applying the asymmetric up (or down) 1-sigma uncertainty 
+(about 1-2\% in the region of interest) to all jets, an effect of $\pm$ 1.2~GeV of the fitted mass is observed. 
+
+%When only applying this variation to b-quark jets, the shift corresponds to about 2/3 of this value. Applying the
+%variation only to all non-b jets, yields 1/3 of the overall shift. We quote the value obtained by applying the
+%variations fully correlated to all jets, which is believed to provide proper coverage for the current systematic
+%uncertainty due to the Jet Energy Scale.
+
+To obtain even better understanding for future measurements of the top mass, it will be useful to propagate individual
+sources contributing to the jet energy scale calibration to the final top mass measurement.
+
+As the uncertainty due to a possible difference between light and b-jet energy scale is already included in the overall
+jet energy scale uncertainty, no separate uncertainty is quoted for the b-jet energy scale.
+
+
+\item [Jet energy resolution.]
+Jet asymmetry measurements indicate that the jet energy resolution (JER) in data is about 7-20\% worse compared to the
+current Monte Carlo simulation~\autocite{JEC_7TeV, JER_7TeV}. To account for this in the calculation of
+our central values, the jet energy resolution in simulation is shifted up by 7-20\%, depending on $\eta$. To account for
+the resolution uncertainty, two additional shifts according to $\pm$1 $\sigma$s are evaluated. The largest resulting
+shifts in top mass with respect to the default are quoted as systematic uncertainties. Due to lack of time, this study
+is not yet available and the result obtained in~\cite{TOP-10-009} is quoted.
+%To estimate the effect of the $\pm 10\%$ uncertainty, we perform pseudo-experiments with $t \bar t$ and W+jets and
+%compare the fitted mass in the nominal sample with 10\% smearing to the sample without JER rescaling and to jets with a
+%sample with JER increased by 20\% with respect to the original simulation. We find that a 10\% change in JER
+%corresponds to a 5\% change in top mass resolution, 3\% change in the width of the pull, and no significant change in
+%mean fitted mass. We quote the largest of the up and down variation, 0.07 GeV, as a systematic uncertainty.
+
+%\item \textbf{MET scale}
+  
+%The missing transverse energy is used as input to the constrained fit. We vary the unclustered energy by 10\% to
+%evaluate the effect on the mass measurement. For practical reasons, we define everything in the event except the 4
+%leading jets as the unclustered energy, which means that our observed bias is probably overestimating the real
+%uncertainty. The observed shift in fitted mass is +0.41~GeV when scaling the unclustered energy up by 10\%, and
+%-0.39~GeV when scaling the unclustered energy down by 10\%. We quote 0.4~GeV as uncertainty.
+
+\item [Factorization scale.]
+The $Q^2$ scale in the production of the simulated events is varied by a factor of 0.5 and 2.0 with respect to the
+default dynamic scale value used in the event generation. The factorization scales in $t \bar t$ and W+jets are
+considered uncorrelated and therefore varied independently. For the combined factorization scale uncertainties, we add
+in quadrature the average absolute size of the up and down effect seen for $t \bar t$ and for W+jets. The individual
+variations are shown in Table~\ref{tab:systematicsScale}.
+
+  
+\item [ME-PS matching threshold.]
+To estimate the effect of variations of the threshold used for the matching between the matrix-element level (ME) and
+parton showers (PS) in the Monte Carlo simulation, the corresponding parameter is varied by a factor of 0.5 and 2.0.
+Again, the matching thresholds in $t \bar t$ and W+jets are varied independently and we add in quadrature the average
+absolute size of the effect seen for $t \bar t$ and for W+jets for the combined matching threshold uncertainties on
+$m_{\textrm{top}}$. The individual variations are shown in Table~\ref{tab:systematicsMatching}.
+
+%\item \textbf{Initial- and final-state radiation:}
+%  To estimate the effect of variations in the amount of initial-state radiation (ISR)
+%  and final-state radiation (FSR),
+%  a $t \bar t$ Monte Carlo sample with increased ISR and FSR and another one with reduced ISR and FSR are analyzed.
+%  The larger of the two shifts is quoted as a systematic uncertainty.
+%  \emph{An additional cross-check we can do would be to look at the top mass as a function of the number of jets in the event.}  
+\item [Colour reconnection.] The uncertainties that arise from different modelling of colour
+reconnections~\cite{Wicke:2008iz} are estimated by varying the underlying event tune (P11 vs. P11noCR) in simulation.
+The resulting shifts in top mass is quoted as systematic uncertainty.
+
+\item [Underlying event.] Non-perturbative QCD effects are taken into account by tuning $\textsc {pythia}$ to
+measurements of the underlying event~\cite{Chatrchyan:2011id}. The uncertainties are estimated by comparing in
+simulation two tunes with increased and decreased underlying event activity to a central tune (the Perugia 2011 tune to
+the Perugia 2011 mpiHi and Perugia 2011 Tevatron tunes described in~\cite{Skands:2010ak}).
+
+%To estimate the effect of differences in the underlying event simulation,
+%$t \bar t$ and W+jets samples produced with the underlying event tunes D6T and Z2 are compared.
+The individual variarions are shown in Table~\ref{tab:systematicsUE}. The largest difference in the mass offset,
+0.08 GeV, is quoted as systematic uncertainty. 
+%\emph{Still to be updated for the new analysis with b-tagging; this uncertainty in principle double-counts 
+% with the overall JES systematic, so in a future analysis it may disappear or be strongly reduced.}  
+
+\item [Pileup.]
+%The Monte Carlo samples used in this measurement were all produced without any pileup events. To estimate the impact of
+%pileup on our measurement, the samples without pileup are compared to samples that include the simulation of a pileup
+%scenario ($\approx 2.2$ pile-up events on average) roughly corresponding to the data taken at the end of the 2010 LHC
+%pp running. Thanks to new Jet Energy Corrections which correct for the average expected additional energy from pile-up
+%based on the the number of reconstructed primary vertices on event-by-event basis, the full difference is reduced from
+%+1.4~GeV to +0.4~GeV. We apply this difference as a -0.4 GeV correction and quote 25\% of the correction as a
+%systematic uncertainty.
+
+The effect of pile up has been evaluated by scaling the pile up weight of the signal simulated events up and down,
+corresponding to a shift of the average vertex multiplicities by $\pm$0.6. The largest shifts in top mass is quoted as
+systematic uncertainties.
+
+\item [PDF.]
+The Monte Carlo samples were generated using the CTEQ 6.6 parton distribution functions (PDFs).
+The uncertainties of these PDFs can be described by 22 orthogonal parameters.
+Up and down variations of these parameters result in $2 \cdot 22$ additional PDFs, which we employ
+to evaluate the impact of the PDF uncertainties on our measurement, re-weighting the events according
+to the deviation of the respective PDF from the original one.
+
+The resulting changes in the reconstructed top mass offset are determined using the  $t \bar t$ sample at the central
+value of the top mass. The observed shift in mass (in the lepton+jets channel) for each of the PDF variations is
+listed in Table~\ref{tab:pdfs}. In general the shifts are very small and in many cases the ``up'' and ``down''
+variation lead to an opposite shift in the mass, approximately equal is size. Taking the sum in quadrature of the
+average absolute value of the shift (``up'' or ``down'') of each variation yields an estimated combined PDF
+uncertainty of 140~MeV on the calibration offset. Correcting for a calibration slope of 0.87 gives an effect of 161
+MeV, and we thus quote 0.16~GeV as potential systematic effect due to the PDF uncertainties. The corresponding results
+for e+jets and mu+jets are and 160 MeV respectively.
+
+
+\item [Background modelling.]
+Thanks to the use of b-tagging information in the likelihood, the effect of most non-$t \bar t$ backgrounds is reduced.
+To study the remaining uncertainty due to the exact sample composition, we did various checks. Changing the signal
+fraction in the pseudo experiments from 0.8 to 0.85 or 0.75 has a small effect on the calibration curve: the average
+variations is 0.28~GeV.
+
+The difference between the calibration using only WJets to model the backgrounds and using a precise mix of background
+processes as listed in Table~\ref{tab:event_yields} is 0.27 GeV. Completely removing QCD from the mix yields a shift of
+0.152 GeV. When removing 30\% of the other components one-by-one from the mix, the effects are 0.08 GeV for WJets, 0.012
+GeV for ZJets and 0.009 GeV for Single Top. To estimate the possible effect of uncertainties in the BG shape, all these
+numbers are added in quadrature, given a total BG uncertainty of 0.32 GeV
+
+%Changing the background composition from 100\% inclusive W+jets, used to derive
+%the MC calibration curve, to the expected sample composition 
+%listed in Table~\ref{tab:event_yields} based on ~\cite{CMS-PAS-TOP-10-002}, the
+%mass bias goes up by 0.41~GeV. This shift is mostly due to the statistically
+%limited QCD sample (for which only 53 events from simulation pass the event selection). 
+%Without adding QCD go the mix, the mass difference is 0.11~GeV.
+
+%We add 0.2~GeV for the signal fraction, and 0.41~GeV for the signal composition in quadrature and quote 0.5~GeV.
+%\emph{it could be argued that we should apply a 0.41 +- 0.41 GeV downward correction on the measured top mass for the BG composition}
+
+\end{description}
+
+The overall systematic uncertainty is taken to be the quadratic sum of all its components.
 
 
 \section{Results}
