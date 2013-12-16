@@ -8,19 +8,18 @@
     \graphicspath{{05_Mass_analysis/plots/EPS/}{05_Mass_analysis/plots/}}
 \fi
 
-In this chapter the top mass measurement using 2011 LHC data recorded by the CMS detector at a centre of mass energy of
-$\sqrt s =$ \SI{7}{\TeV} is presented. This analysis was a cross-check of the official CMS top mass measurement at
-\SI{7}{\TeV} in lepton plus jets channel published in 2012 \autocite{top_mass_ljets_CMS}. Only the electron channel is
-described here, as the muon side of this analysis was performed by a different group at CERN, although in close
-collaboration.
+The top mass measurement using 2011 LHC data recorded by the CMS detector at a centre of mass energy of $\sqrt s =$
+\SI{7}{\TeV} is presented in this chapter. The analysis was a cross-check of the official CMS top mass measurement at
+\SI{7}{\TeV} in lepton plus jets channel published in 2012 \autocite{top_mass_ljets_CMS} in Journal of High Energy
+Physics. Only the electron channel is described in this thesis, as the muon side of this analysis was performed by a
+different group at CERN, although in close collaboration.
 
-The mass extraction method used in this analysis is essentially the same to one used in the CMS measurement of the mass
-difference between top and antitop quarks \autocite{mass_difference_CMS} and top mass measurement in 2010
-\autocite{top_mass_ljets_CMS_2010}.
-
-%talk about JES limiting factor, why the analysis is a cross check, why is it important, cite the main CMS paper, a
-%couple of words about the ideogram method... anything else? theory motivation should be in the first chapter,
-%reference it.
+The mass extraction technique used in this analysis, referred to as the ideogram method, is essentially the same to one
+used in the CMS measurement of the mass difference between top and antitop quarks \autocite{mass_difference_CMS} and the
+top quark mass measurement in 2010 \autocite{top_mass_ljets_CMS_2010}. This technique is described in detail in this
+chapter. Additionally, data and Monte Carlo samples, event selection process, the kinematic fit used for \ttbar
+reconstruction, as well as the calibration of the ideogram method, systematic uncertainties and the final result are
+presented in relevant sections of the chapter.
 
 \section{Data and Simulation}
 \label{s_top_mass:data_and_simulation}
@@ -675,54 +674,33 @@ sample with the top quark mass of \SI{172.5}{\GeV}.
 
 \item [b-tagging.] The nominal (``medium'') working point of the CSVM algorithm is varied in order to reflect the
 uncertainty of the b-tagging efficiency of \SI{\sim4}{\pc} \autocite{b-tagging_CMS}. The average effect of this change
-on the mass measurement is quoted as a systematic uncertainty.
+on the mass measurement (approximately \SI{0.1}{\GeV}) is quoted as a systematic uncertainty.
 
-\item [Overall Jet Energy Scale.] We vary the jet energy of all jets within the ($p_T$ and $\eta$-dependent) 1-sigma
-uncertainty band obtained from independent jet energy scale and resolution studies~\autocite{JEC_7TeV}. The
-uncertainties used for data and MC can are shown in Fig.~\ref{fig:jes}.
+\item [Jet energy scale.] Since the top quark mass measurement is based on knowledge about at least four energetic jets
+in semi-leptonic \ttbar decay, it is very sensitive to any uncertainties in jet energies. Hence, the jet energy scale is
+a dominant systematic in this analysis, particularly depending on our understanding of the CMS detector. To quantify
+this systematic effect, the jet energies are varied within $\pm1\sigma$ uncertainty of the over jet energy correction,
+obtained from a designated jet energy calibration and resolution study~\autocite{JEC_7TeV}. This \pt- and
+$\eta$-dependent uncertainty incorporates various contributions, including an offset due to noise and pile-up, absolute
+and relative discrepancies between data and MC, flavour-dependent corrections, etc. After applying asymmetric
+$\pm1\sigma$ uncertainties, an average systematic effect of \SI{1.21}{\GeV} on the fitted top mass was observed.
 
-The uncertainty contains various contributions, for pile-up corrections, absolute energy calibration, the relative scale
-between data and MC, and a 1-2\% term covering possible discrepancies between data and the simulation in the modelling
-of jet flavour dependence of the jet energy response.
+% As the uncertainty due to a possible difference between light and b-jet energy scale is already included in the overall
+% jet energy scale uncertainty, no separate uncertainty is quoted for the b-jet energy scale.
 
-As in the kinematic fit the light-quark jet pair is constrained to the W boson mass, the sensitivity of the top mass
-measurement to the light-jet quark scale is reduced. When applying the asymmetric up (or down) 1-sigma uncertainty 
-(about 1-2\% in the region of interest) to all jets, an effect of $\pm$ 1.2~GeV of the fitted mass is observed. 
+% \item [Jet energy resolution.] was never measured...
+% Jet asymmetry measurements indicate that the jet energy resolution (JER) in data is about 7-20\% worse compared to the
+% current Monte Carlo simulation~\autocite{JEC_7TeV, JER_7TeV}. To account for this in the calculation of our central
+% values, the jet energy resolution in simulation is shifted up by 7-20\%, depending on $\eta$. To account for the
+% resolution uncertainty, two additional shifts according to $\pm$1 $\sigma$s are evaluated. The largest resulting
+% shifts in top mass with respect to the default are quoted as systematic uncertainties. To estimate the effect of the
+% $\pm 10\%$ uncertainty, we perform pseudo-experiments with $t \bar t$ and W+jets and compare the fitted mass in the
+% nominal sample with 10\% smearing to the sample without JER rescaling and to jets with a sample with JER increased by
+% 20\% with respect to the original simulation. We find that a 10\% change in JER corresponds to a 5\% change in top
+% mass resolution, 3\% change in the width of the pull, and no significant change in mean fitted mass. We quote the
+% largest of the up and down variation, 0.07 GeV, as a systematic uncertainty.
 
-%When only applying this variation to b-quark jets, the shift corresponds to about 2/3 of this value. Applying the
-%variation only to all non-b jets, yields 1/3 of the overall shift. We quote the value obtained by applying the
-%variations fully correlated to all jets, which is believed to provide proper coverage for the current systematic
-%uncertainty due to the Jet Energy Scale.
-
-To obtain even better understanding for future measurements of the top mass, it will be useful to propagate individual
-sources contributing to the jet energy scale calibration to the final top mass measurement.
-
-As the uncertainty due to a possible difference between light and b-jet energy scale is already included in the overall
-jet energy scale uncertainty, no separate uncertainty is quoted for the b-jet energy scale.
-
-
-\item [Jet energy resolution.]
-Jet asymmetry measurements indicate that the jet energy resolution (JER) in data is about 7-20\% worse compared to the
-current Monte Carlo simulation~\autocite{JEC_7TeV, JER_7TeV}. To account for this in the calculation of
-our central values, the jet energy resolution in simulation is shifted up by 7-20\%, depending on $\eta$. To account for
-the resolution uncertainty, two additional shifts according to $\pm$1 $\sigma$s are evaluated. The largest resulting
-shifts in top mass with respect to the default are quoted as systematic uncertainties. Due to lack of time, this study
-is not yet available and the result obtained in~\cite{TOP-10-009} is quoted.
-%To estimate the effect of the $\pm 10\%$ uncertainty, we perform pseudo-experiments with $t \bar t$ and W+jets and
-%compare the fitted mass in the nominal sample with 10\% smearing to the sample without JER rescaling and to jets with a
-%sample with JER increased by 20\% with respect to the original simulation. We find that a 10\% change in JER
-%corresponds to a 5\% change in top mass resolution, 3\% change in the width of the pull, and no significant change in
-%mean fitted mass. We quote the largest of the up and down variation, 0.07 GeV, as a systematic uncertainty.
-
-%\item \textbf{MET scale}
-  
-%The missing transverse energy is used as input to the constrained fit. We vary the unclustered energy by 10\% to
-%evaluate the effect on the mass measurement. For practical reasons, we define everything in the event except the 4
-%leading jets as the unclustered energy, which means that our observed bias is probably overestimating the real
-%uncertainty. The observed shift in fitted mass is +0.41~GeV when scaling the unclustered energy up by 10\%, and
-%-0.39~GeV when scaling the unclustered energy down by 10\%. We quote 0.4~GeV as uncertainty.
-
-\item [Factorization scale.]
+\item [Factorisation scale.]
 The $Q^2$ scale in the production of the simulated events is varied by a factor of 0.5 and 2.0 with respect to the
 default dynamic scale value used in the event generation. The factorization scales in $t \bar t$ and W+jets are
 considered uncorrelated and therefore varied independently. For the combined factorization scale uncertainties, we add
