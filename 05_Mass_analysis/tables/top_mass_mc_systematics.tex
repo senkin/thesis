@@ -1,21 +1,22 @@
-\begin{table}[!hbp] \centering
-\begin{tabular}{lrr}
+\begin{table}[!htbp] \centering
+\begin{tabular}{l|r|r}
 \toprule
-parameter & nominal value & variations considered\\ 
+parameter & factorisation scale & matching threshold \\ 
 \midrule
 \multicolumn{3}{c}{\ttbar events} \\
 \midrule
-factorisation scale & $Q^2 = m(\cPqt)^2 + \sum \pt(\text{jet})^2$ & $\left(2*Q\right)^2, \left(0.5*Q\right)^2$\\
-matching threshold &\SI{20}{\GeV} &\SIlist{10;40}{\GeV}\\
+central value & $Q^2 = \mtop^2 + \sum\limits_{\rm jets} \pt^2$ & \SI{20}{\GeV} \\[2.5ex]
+variations  &$\left(0.5 \cdot Q\right)^2, \left(2 \cdot Q\right)^2$ &\SIlist{10;40}{\GeV}\\
 \midrule
 \multicolumn{3}{c}{\WpJets and \ZpJets events} \\
 \midrule
-factorisation scale & $Q^2 = m(\W/\Z)^2 + \sum \pt(\text{jet})^2$ & $\left(2*Q\right)^2, \left(0.5*Q\right)^2$\\
-matching threshold &\SI{10}{\GeV} &\SIlist{5;20}{\GeV}\\
+central value & $Q^2 = m_{\W/\Z}^2 + \sum\limits_{\rm jets} \pt^2$ & \SI{10}{\GeV} \\[2.5ex]
+variations &$\left(0.5 \cdot Q\right)^2, \left(2 \cdot Q\right)^2$&\SIlist{5;20}{\GeV}\\
 \bottomrule
 \end{tabular}
-\caption{Nominal values and the variations used to estimate the systematic uncertainties for the matrix element - parton shower matching and 
-factorisation/renormalisation scale in \MADGRAPH.}
+\caption{Central values and variations used for systematic uncertainties of
+ factorisation/renormalisation scale ($Q^2$) and matrix element -- parton shower
+ (ME-PS) matching in \MADGRAPH MC generator.}
 \label{tab:systematic_mc_variations} 
 %https://twiki.cern.ch/twiki/bin/view/CMS/MadGraphStandardModel
 \end{table}

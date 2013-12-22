@@ -59,7 +59,7 @@ detector simulation is mentioned, and eventually Monte Carlo samples for all pro
 
 Simulation of \ttbar signal and background processes, described in Section~\ref{s:top_quak_physics}, is performed using
 several Monte Carlo event generators. The process of simulating a hadron collision event is rather complicated, and
-usually comprises generation of the following steps:
+usually includes generation of the following steps:
 
 \begin{enumerate}[label=\textbullet]
 	\item incoming hadrons (protons);
@@ -101,30 +101,47 @@ giving a major advantage for heavy flavour physics.
 difference to \MCATNLO generator lies in the order of process generation: \POWHEG initially generates the hardest
 radiation. This technique allows to avoid double-counting coming from subsequent radiation which may happen with
 \MCATNLO method when matching QCD NLO calculations with parton showers.
+%http://theory.fnal.gov/seminars/slides/2008/COleari.pdf
 
 \end{description}
 
-\subsubsection{Factorisation Scale and Matching Threshold}
-\label{ss:factorisation_and_matching}
+\subsubsection{Matching Threshold and Factorisation Scale}
+\label{ss:matching_and_factorisation}
 %https://twiki.cern.ch/twiki/bin/view/CMS/MadGraphStandardModel
 
-As previously described, the matching between the partons from the matrix-element calculations and the parton showers is
-performed only for partons which exceed a transverse energy threshold. The systematic uncertainty resulting from the
-choice of this threshold is estimated by using samples that have been produced with half and double the chosen
-threshold. A similar procedure is deployed for the choice of the factorisation scale, which determines the scale at
-which $\alpS$ is evaluated. A summary of the used values for the uncertainty calculation is shown in table
-\ref{tab:systematic_mc_variations}.
+As described above with the example of \MADGRAPH generator, there is a certain threshold for partons transverse momenta
+from matrix element calculations to be matched with parton showers, often referred to as ME-PS threshold. To estimate
+the systematic uncertainty arising from it, additional MC samples were generated with either halved or doubled value of
+the threshold. Similarly, the systematic effect of the choice if factorisation scale $Q^2$ (described in
+Section~\ref{ss:top_production}) is determined. A summary of central values and variations used to estimate these
+systematic uncertainties is shown in Table~\ref{tab:systematic_mc_variations}.
 
 \input{05_Mass_analysis/tables/top_mass_mc_systematics}
 
 \subsubsection{CMS detector simulation}
-After the full physics simulation the last important step of the simulation process is the simulation of the detector
-and its interaction with the generated particles. This process is performed in the detector simulation package
-\GEANTfour (GEometry ANd Tracking) \autocite{GEANT4}. \GEANTfour recreates the geometry of the detector, describes the
-material in the detector and particle interactions within it such as tracking and detector response.
+
+Detector simulation is an essential final step on top of the full physics simulation of proton-proton collisions. All
+generated particles resulting from these collisions are propagated to the simulated layers of the detector so that their
+interaction with the detector material and detector response can also be modelled. The CMS simulation is based on the
+\GEANTfour (GEometry ANd Tracking \autocite{GEANT4}) package, which is implemented in the CMS software
+\CMSSW \autocite{CMSSW}. This package fully recreates the geometry of the detector, including all its subsystems as
+well as a detailed map of the magnetic field.
+
+In general, the simulation procedure includes modelling of the following steps:
+\begin{enumerate}[label=\textbullet]
+	\item interaction region;
+	\item particles traversing all the layers of the detector and the interaction processes;
+	\item multiple interactions per beam crossing (pile-up) and event overlay effects;
+	\item digital readout of the detector (digitisation).
+\end{enumerate}
+%https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideSimulation
+
+The data stream generated with this process is very similar to the output of the real detector, although naturally in
+addition to reconstructed objects, generated events also include collections of generated objects allowing to access the
+MC truth, which is essential for any particle physics analysis.
 
 \subsubsection{Monte Carlo samples}
-The simulated MC events are generated at the center of mass energy of \SI{7}{\TeV}, using the CTEQ6L Parton Distribution
+The simulated MC events are generated at the centre of mass energy of \SI{7}{\TeV}, using the CTEQ6L Parton Distribution
 Functions (PDF) \autocite{CTEQ}. They are produced separately for each process. The \zp signal as well as the main
 background processes are simulated in \MADGRAPH. Signal samples are produced with various masses and widths of the \zp
 boson (see table \ref{tab:top_mass_signal_mc}). To extend the available statistics for the \WpJets sample four
