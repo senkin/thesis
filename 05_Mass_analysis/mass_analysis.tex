@@ -57,7 +57,7 @@ detector simulation is mentioned, and eventually Monte Carlo samples for all pro
 \subsubsection{Monte Carlo event generators}
 \label{ss_top_mass:MC_generators}
 
-Simulation of \ttbar signal and background processes, described in Section~\ref{s:top_quak_physics}, is performed using
+Simulation of \ttbar signal and background processes, described in Section~\ref{s:top_quak_physics}, was performed using
 several Monte Carlo event generators. The process of simulating a hadron collision event is rather complicated, and
 usually includes generation of the following steps:
 
@@ -112,9 +112,11 @@ radiation. This technique allows to avoid double-counting coming from subsequent
 As described above with the example of \MADGRAPH generator, there is a certain threshold for partons transverse momenta
 from matrix element calculations to be matched with parton showers, often referred to as ME-PS threshold. To estimate
 the systematic uncertainty arising from it, additional MC samples were generated with either halved or doubled value of
-the threshold. Similarly, the systematic effect of the choice if factorisation scale $Q^2$ (described in
-Section~\ref{ss:top_production}) is determined. A summary of central values and variations used to estimate these
-systematic uncertainties is shown in Table~\ref{tab:systematic_mc_variations}.
+the threshold. This procedure was performed for signal \ttjets and background \WpJets and \ZpJets samples. Similarly,
+the systematic effect of the choice if factorisation scale $Q^2$ (described in Section~\ref{ss:top_production}) is
+determined. A summary of central values and variations used to estimate these systematic uncertainties is shown in
+Table~\ref{tab:systematic_mc_variations}, whereas the list of systematic MC samples is shown in
+Table~\ref{tab:top_mass_systematic_samples}.
 
 \input{05_Mass_analysis/tables/top_mass_mc_systematics}
 
@@ -123,9 +125,9 @@ systematic uncertainties is shown in Table~\ref{tab:systematic_mc_variations}.
 Detector simulation is an essential final step on top of the full physics simulation of proton-proton collisions. All
 generated particles resulting from these collisions are propagated to the simulated layers of the detector so that their
 interaction with the detector material and detector response can also be modelled. The CMS simulation is based on the
-\GEANTfour (GEometry ANd Tracking \autocite{GEANT4}) package, which is implemented in the CMS software
-\CMSSW \autocite{CMSSW}. This package fully recreates the geometry of the detector, including all its subsystems as
-well as a detailed map of the magnetic field.
+\GEANTfour (GEometry ANd Tracking \autocite{GEANT4}) package, which is implemented in CMS software \CMSSW
+\autocite{CMSSW}. This package fully recreates the geometry of the detector, including all its subsystems as well as a
+detailed map of the magnetic field.
 
 In general, the simulation procedure includes modelling of the following steps:
 \begin{enumerate}[label=\textbullet]
@@ -141,67 +143,31 @@ addition to reconstructed objects, generated events also include collections of 
 MC truth, which is essential for any particle physics analysis.
 
 \subsubsection{Monte Carlo samples}
-The simulated MC events are generated at the centre of mass energy of \SI{7}{\TeV}, using the CTEQ6L Parton Distribution
-Functions (PDF) \autocite{CTEQ}. They are produced separately for each process. The \zp signal as well as the main
-background processes are simulated in \MADGRAPH. Signal samples are produced with various masses and widths of the \zp
-boson (see table \ref{tab:top_mass_signal_mc}). To extend the available statistics for the \WpJets sample four
-additional \WpJets samples are included. These samples are generated in exclusive jet multiplicity bins: \W boson
-production plus with one/two/three and at least four jets.
+The nominal signal \ttbar MC sample used in this analysis had been generated using \MADGRAPH generator with a top quark
+mass of \mtop = \SI{172.5}{\GeV}. To calibrate the mass extraction technique as it will be explained in
+Section~\ref{s_top_mass:calibration}, 8 additional \ttbar samples were used with different top quark masses ranged
+between \SIlist{161.5;184.5}{\GeV}. The \WpJets and \ZpJets background processes (see Section~\ref{ss:backgrounds}) were
+also generated with \MADGRAPH, whereas single top background was generated with \POWHEG generator. Full list of signal
+\ttbar and background MC samples with values of cross section, numbers of generated events and corresponding integrated
+luminosities is shown in Table~\ref{tab:top_mass_mc_samples}.
 
-The QCD background samples are generated in \PYTHIA while the \photon + jets samples are generated with \MADGRAPH (table
-\ref{tab:top_mass_background_qcd}). Since only a small fraction of the QCD \multijet events is of use in this analysis,
-samples with generator level cuts are used to enhance the available statistics after the selection. These samples either
-contain jets with high electromagnetic content (EM-enriched) or contain heavy flavour quarks (b or c) which decay into
-electron plus neutrino ($\cPqb/\cPqc \rightarrow \cPq e\nu$). These two sets of QCD samples are generated in different
-bins of $\hat\pt$ where most events surviving the selection come from the high bins. $\hat\pt$ denotes the transverse
-momentum of the partons produced. The \photon plus jets samples are generated in different bins of \HT, defined as the
-sum of transverse momenta of all particles.
+%using the CTEQ6L Parton Distribution Functions (PDF) \autocite{CTEQ}.
 
+% To extend the available statistics for the \WpJets sample four additional \WpJets samples are included. These samples
+% are generated in exclusive jet multiplicity bins: \W boson production plus with one/two/three and at least four jets.
 
-% The \ttbar signal is available with 9 different generated top quark masses and
-% systematic variations. Pile up reweighting is used to match the simulation to the vertex multiplicity in data. The
-% MC/data differences of b-tagging efficiencies and trigger efficiencies are taken into account by additional MC scale
-% factors. The jet energy resolution is scaled to match the resolution in data.
+The QCD background samples are available in two different sets, one of which is pre-filtered to contain jets with high
+electromagnetic content ($e/\gamma$ enriched), and the second one is enriched with electrons coming from decays of heavy
+flavour quarks ($\cPqb/\cPqc \rightarrow e\nu$). This pre-selection is performed on generator level to ensure reasonable
+statistics after the \ttbar selection imposed in top quark analyses with electrons in the final state. Both sets of QCD
+samples are generated with \PYTHIA generator in different exclusive bins of \pthat (i.e.\ transverse momentum of the
+outgoing partons defined in the rest frame of the hard process). The $\gamma$+jets MC samples were produced with
+\MADGRAPH in different bins of \HT at generator level, which denotes the sum of transverse momenta of all high-\pt
+objects. Table~\ref{tab:top_mass_background_qcd} gives a list of QCD and $\gamma$+jets samples with values of production
+cross sections, pre-selection efficiencies, numbers of generated events and corresponding integrated luminosities.
 
-% Signal:
-% \begin{itemize}
-% \item {\footnotesize /TTJets\_TuneZ2\_mass161\_5\_7TeV-madgraph-tauola/Fall11-PU\_S6\_START42\_V14B-v3/AODSIM}
-% \item {\footnotesize /TTJets\_TuneZ2\_mass163\_5\_7TeV-madgraph-tauola/Summer11-PU\_S4\_START42\_V11-v3/AODSIM}
-% \item {\footnotesize /TTJets\_TuneZ2\_mass166\_5\_7TeV-madgraph-tauola/Summer11-PU\_S4\_START42\_V11-v3/AODSIM}
-% \item {\footnotesize /TTJets\_TuneZ2\_mass169\_5\_7TeV-madgraph-tauola/Summer11-PU\_S4\_START42\_V11-v3/AODSIM}
-% \item {\footnotesize /TTJets\_TuneZ2\_7TeV-madgraph-tauola/Fall11-PU\_S6\_START42\_V14B-v2/AODSIM}
-% \item {\footnotesize /TTJets\_TuneZ2\_mass175\_5\_7TeV-madgraph-tauola/Summer11-PU\_S4\_START42\_V11-v3/AODSIM}
-% \item {\footnotesize /TTJets\_TuneZ2\_mass178\_5\_7TeV-madgraph-tauola/Summer11-PU\_S4\_START42\_V11-v3/AODSIM}
-% \item {\footnotesize /TTJets\_TuneZ2\_mass181\_5\_7TeV-madgraph-tauola/Summer11-PU\_S4\_START42\_V11-v3/AODSIM}
-% \item {\footnotesize /TTJets\_TuneZ2\_mass184\_5\_7TeV-madgraph-tauola/Fall11-PU\_S6\_START42\_V14B-v1/AODSIM}
-% \end{itemize}
-% Background:
-% \begin{itemize}
-% \item {\footnotesize /QCD\_Pt-20\_MuEnrichedPt-15\_TuneZ2\_7TeV-pythia6/Fall11-PU\_S6\_START42\_V14B-v1/AODSIM}
-% \item {\footnotesize /QCD\_Pt-20to30\_EMEnriched\_TuneZ2\_7TeV-pythia6/Fall11-PU\_S6\_START42\_V14B-v1/AODSIM}
-% \item {\footnotesize /QCD\_Pt-30to80\_EMEnriched\_TuneZ2\_7TeV-pythia/Fall11-PU\_S6\_START42\_V14B-v1/AODSIM}
-% \item {\footnotesize /QCD\_Pt-80to170\_EMEnriched\_TuneZ2\_7TeV-pythia6/Fall11-PU\_S6\_START42\_V14B-v2/AODSIM}
-% \item {\footnotesize /QCD\_Pt-20to30\_BCtoE\_TuneZ2\_7TeV-pythia6/Fall11-PU\_S6\_START42\_V14B-v1/AODSIM}
-% \item {\footnotesize /QCD\_Pt-30to80\_BCtoE\_TuneZ2\_7TeV-pythia6/Fall11-PU\_S6\_START42\_V14B-v1/AODSIM}
-% \item {\footnotesize /QCD\_Pt-80to170\_BCtoE\_TuneZ2\_7TeV-pythia/Fall11-PU\_S6\_START42\_V14B-v1/AODSIM}
-% \item {\footnotesize /WJetsToLNu\_TuneZ2\_7TeV-madgraph-tauola/Fall11-PU\_S6\_START42\_V14B-v1/AODSIM}
-% \item {\footnotesize /DYJetsToLL\_TuneZ2\_M-50\_7TeV-madgraph-tauola/Fall11-PU\_S6\_START42\_V14B-v1/AODSIM}
-% \item {\footnotesize /Tbar\_TuneZ2\_s-channel\_7TeV-powheg-tauola/Summer11-PU\_S4\_START42\_V11-v1/AODSIM}
-% \item {\footnotesize /Tbar\_TuneZ2\_t-channel\_7TeV-powheg-tauola/Summer11-PU\_S4\_START42\_V11-v1/AODSIM}
-% \item {\footnotesize /Tbar\_TuneZ2\_tW-channel-DR\_7TeV-powheg-tauola/Summer11-PU\_S4\_START42\_V11-v1/AODSIM}
-% \item {\footnotesize /T\_TuneZ2\_s-channel\_7TeV-powheg-tauola/Summer11-PU\_S4\_START42\_V11-v1/AODSIM}
-% \item {\footnotesize /T\_TuneZ2\_t-channel\_7TeV-powheg-tauola/Summer11-PU\_S4\_START42\_V11-v1/AODSIM}
-% \item {\footnotesize /T\_TuneZ2\_tW-channel-DR\_7TeV-powheg-tauola/Summer11-PU\_S4\_START42\_V11-v1/AODSIM}
-% \end{itemize}
-% Systematic variations:
-% \begin{itemize}
-% \item {\footnotesize (/TTjets\_TuneZ2\_matchingdown\_7TeV-madgraph-tauola/Fall11-PU\_S4\_START42\_V11-v1/AODSIM)}
-% \item {\footnotesize /TTjets\_TuneZ2\_matchingup\_7TeV-madgraph-tauola/Fall11-PU\_S6\_START42\_V14B-v2/AODSIM}
-% \item {\footnotesize /TTjets\_TuneZ2\_scaledown\_7TeV-madgraph-tauola/Fall11-PU\_S6\_START42\_V14B-v2/AODSIM}
-% \item {\footnotesize /TTjets\_TuneZ2\_scaleup\_7TeV-madgraph-tauola/Fall11-PU\_S6\_START42\_V14B-v1/AODSIM}
-% \item {\footnotesize /TTJets\_TuneP11\_7TeV-madgraph-tauola/Fall11-PU\_S6\_START42\_V14B-v1/AODSIM}
-% \item {\footnotesize (/TTJets\_TuneP11noCR\_7TeV-madgraph-tauola/Fall11-PU\_S6\_START42\_V14B-v1/AODSIM)}
-% \end{itemize}
+%http://cms.pd.infn.it/software/meetings/MultiMuon/doc/pthat-firstlook-v3.pdf
+%gamma plus jets samples were not even used?
 
 \input{05_Mass_analysis/tables/top_mass_mc_samples}
 

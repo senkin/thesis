@@ -1,127 +1,129 @@
 \begin{table}[!htbp]
 \centering
-\begin{tabular}{lrrr}
+\begin{tabular}{|l|l|r|r|r|}
 \toprule
-process & \xsect & \# events & equiv. $\int\lumi dt$\\
+Process & Generator & $\sigma$ (\pb) & \# events & $\int\lumi dt$ (\fbinv)\\
 \midrule
-\ttbar \SI{161.5}{\GeV} & \SI{157.5}{\pb} & 1620072 & \SI{10.3}{\fbinv}\\
-\ttbar \SI{163.5}{\GeV} & \SI{157.5}{\pb} & 1633197 & \SI{10.4}{\fbinv}\\
-\ttbar \SI{166.5}{\GeV} & \SI{157.5}{\pb} & 1669034 & \SI{10.6}{\fbinv}\\
-\ttbar \SI{169.5}{\GeV} & \SI{157.5}{\pb} & 1606570 & \SI{10.2}{\fbinv}\\
-\ttbar \SI{172.5}{\GeV} & \SI{157.5}{\pb} & 7490162 & \SI{47.6}{\fbinv}\\
-\ttbar \SI{175.5}{\GeV} & \SI{157.5}{\pb} & 1538301 & \SI{9.8}{\fbinv}\\
-\ttbar \SI{178.5}{\GeV} & \SI{157.5}{\pb} & 1648519 & \SI{10.5}{\fbinv}\\
-\ttbar \SI{181.5}{\GeV} & \SI{157.5}{\pb} & 1665350 & \SI{10.6}{\fbinv}\\
-\ttbar \SI{184.5}{\GeV} & \SI{157.5}{\pb} & 1671859 & \SI{10.6}{\fbinv}\\
+\ttjets & \MADGRAPH & & & \\
+\hspace{5 mm}\mtop = \SI{161.5}{\GeV} & & 157.5 & 1620072 & 10.3\\
+\hspace{5 mm}\mtop = \SI{163.5}{\GeV} & & 157.5 & 1633197 & 10.4\\
+\hspace{5 mm}\mtop = \SI{166.5}{\GeV} & & 157.5 & 1669034 & 10.6\\
+\hspace{5 mm}\mtop = \SI{169.5}{\GeV} & & 157.5 & 1606570 & 10.2\\
+\hspace{5 mm}\mtop = \SI{172.5}{\GeV} & & 157.5 & 7490162 & 47.6\\
+\hspace{5 mm}\mtop = \SI{175.5}{\GeV} & & 157.5 & 1538301 & 9.8\\
+\hspace{5 mm}\mtop = \SI{178.5}{\GeV} & & 157.5 & 1648519 & 10.5\\
+\hspace{5 mm}\mtop = \SI{181.5}{\GeV} & & 157.5 & 1665350 & 10.6\\
+\hspace{5 mm}\mtop = \SI{184.5}{\GeV} & & 157.5 & 1671859 & 10.6\\
+\midrule
+\WpJets ($\W \rightarrow l\nu$) & \MADGRAPH & 31314 & 81345381 & 2.6 \\
+% \hspace{5 mm}\W + 1 jet & & 4480 & 76051609 & 17.0 \\
+% \hspace{5 mm}\W + 2 jet & & 1674 & 25400546 & 15.2 \\
+% \hspace{5 mm}\W + 3 jet & & 484.7 & 7541595 & 15.6 \\
+% \hspace{5 mm}\W + 4 jet & & 211.7 & 13133738 & 62.0 \\
+\midrule
+$\Z/\gamma^* \rightarrow l^+l^- $ + jets, $m(ll) > \SI{50}{\GeV}$ & \MADGRAPH & 3048 & 36222153 & 11.9 \\
+\midrule
+Single top & \POWHEG & & & \\
+\hspace{5 mm} top t-channel & & 42.6 & 3814228 & 89.5 \\
+\hspace{5 mm} anti-top t-channel & & 22.0 & 1944822 & 88.4 \\
+\hspace{5 mm} top s-channel & & 2.72 & 259971 & 92.6 \\
+\hspace{5 mm} anti-top s-channel & & 1.49 & 137980 & 92.6 \\
+\hspace{5 mm} top tW-channel & & 5.3 & 814390 & 153.7 \\
+\hspace{5 mm} anti-top tW-channel & & 5.3 & 809984 & 152.8 \\
 \bottomrule
 \end{tabular}
-\caption{Signal \ttbar Monte Carlo samples (\MADGRAPH) with different values
-of top quark mass, numbers of generated events and corresponding integrated
+\caption{Signal and background Monte Carlo samples with cross sections at $\sqrt s =
+\SI{7}{\TeV}$, numbers of generated events and corresponding integrated
 luminosities.}
-\label{tab:top_mass_signal_mc}
+\label{tab:top_mass_mc_samples}
 \end{table}
 
-\begin{table}[!hbth] \centering
-\begin{tabular}{lrrr}
-\toprule
-process & \xsect & \# events & equiv. $\int\lumi dt$\\
-\midrule
-\WpJets ($\W \rightarrow l\nu$) & \SI{31314}{\pb} & 81345381 & \SI{2.6}{\fbinv} \\
-\W + 1 jet ($\W \rightarrow l\nu$) & \SI{4480}{\pb} & 76051609 & \SI{17.0}{\fbinv} \\
-\W + 2 jet ($\W \rightarrow l\nu$) & \SI{1674}{\pb} & 25400546& \SI{15.2}{\fbinv} \\
-\W + 3 jet ($\W \rightarrow l\nu$) & \SI{484.7}{\pb} & 7541595 & \SI{15.6}{\fbinv} \\
-\W + 4 jet ($\W \rightarrow l\nu$) & \SI{211.7}{\pb} & 13133738 & \SI{62.0}{\fbinv} \\
-$\Z/\gamma^* \rightarrow l^+l^-, m(ll) > \SI{50}{\GeV}$ + jets & \SI{3048}{\pb} & 36222153 & \SI{11.9}{\fbinv} \\
-Single top t-channel & \SI{42.6}{\pb} & 3814228 & \SI{89.5}{\fbinv} \\
-Single anti-top t-channel & \SI{22.0}{\pb} & 1944822 &\SI{88.4}{\fbinv} \\
-Single top s-channel & \SI{2.72}{\pb} & 259971 & \SI{92.6}{\fbinv} \\
-Single anti-top s-channel & \SI{1.49}{\pb} & 137980 & \SI{92.6}{\fbinv} \\
-Single top tW-channel & \SI{5.3}{\pb} & 814390 & \SI{153.7}{\fbinv} \\
-Single anti-top tW-channel & \SI{5.3}{\pb} & 809984 & \SI{152.8}{\fbinv} \\
-\bottomrule
-\end{tabular}
-\caption{Background Monte Carlo samples, their cross sections at a \CoM energy
-of \SI{7}{\TeV}, numbers of generated events and corresponding integrated
-luminosities.}
-\label{tab:top_mass_background_mc}
-\end{table}
+% \begin{table}[!hbth] \centering
+% \begin{tabular}{lrrr}
+% \toprule
+% process & $\sigma$ (\pb) & \# events & $\int\lumi dt$ \fbinv\\
+% \midrule
+% \WpJets ($\W \rightarrow l\nu$) & 31314 & 81345381 & 2.6 \\
+% \W + 1 jet ($\W \rightarrow l\nu$) & 4480 & 76051609 & 17.0 \\
+% \W + 2 jet ($\W \rightarrow l\nu$) & 1674 & 25400546& 15.2 \\
+% \W + 3 jet ($\W \rightarrow l\nu$) & 484.7 & 7541595 & 15.6 \\
+% \W + 4 jet ($\W \rightarrow l\nu$) & 211.7 & 13133738 & 62.0 \\
+% $\Z/\gamma^* \rightarrow l^+l^-, m(ll) > \SI{50}{\GeV}$ + jets & 3048 & 36222153 & 11.9 \\
+% Single top t-channel & 42.6 & 3814228 & 89.5 \\
+% Single anti-top t-channel & 22.0 & 1944822 & 88.4 \\
+% Single top s-channel & 2.72 & 259971 & 92.6 \\
+% Single anti-top s-channel & 1.49 & 137980 & 92.6 \\
+% Single top tW-channel & 5.3 & 814390 & 153.7 \\
+% Single anti-top tW-channel & 5.3 & 809984 & 152.8 \\
+% \bottomrule
+% \end{tabular}
+% \caption{Background Monte Carlo samples, their cross sections at a \CoM energy
+% of \SI{7}{\TeV}, numbers of generated events and corresponding integrated
+% luminosities.}
+% \label{tab:top_mass_background_mc}
+% \end{table}
 
 \begin{table}[!htbp] 
 \centering
 \resizebox{\textwidth}{!}{
-\begin{tabular}{lrrrr}
+\begin{tabular}{|l|l|r|r|r|r|}
 \toprule
-process & \pbox{2cm}{\xsect} & \pbox{1.5cm}{filter\\ efficiency} & \# events & equiv. $\int\lumi dt$\\
+Process & Generator & $\sigma$ (\pb) & filter efficiency & \# events & $\int\lumi dt$ (\fbinv)\\
 \midrule
-EM-enriched  & \SI{2.355d8}{\pb} & \num{7.3d-3} & 34720808 & \SI{2.0d-2}{\fbinv} \\
-($\hat{\pt}$ \SIrange{20}{30}{\GeV}) & & & & \\
-\addlinespace
-EM-enriched & \SI{5.93d7}{\pb}& \num{0.059} &  70375915 & \SI{2.0d-2}{\fbinv} \\
-($\hat{\pt}$ \SIrange{30}{80}{\GeV})  & & & & \\
-\addlinespace
-EM-enriched  & \SI{9.06d5}{\pb} & \num{0.148} &  8150669& \SI{6.1d-2}{\fbinv} \\
-($\hat{\pt}$ \SIrange{80}{170}{\GeV}) & & & & \\
-\addlinespace
-$\cPqb/\cPqc \rightarrow e\nu$  & \SI{2.355d8}{\pb} & \num{4.6d-4} & 2002588 & \SI{1.8d-2}{\fbinv} \\
-($\hat{\pt}$ \SIrange{20}{30}{\GeV}) & & & & \\
-\addlinespace
-$\cPqb/\cPqc \rightarrow e\nu$  & \SI{5.93d7}{\pb}& \num{2.34d-3} & 2030030 & \SI{1.5d-2}{\fbinv} \\
-($\hat{\pt}$ \SIrange{30}{80}{\GeV}) & & & & \\
-\addlinespace
-$\cPqb/\cPqc \rightarrow e\nu$ & \SI{9.06d5}{\pb} & \num{0.0104} & 1082690 & \SI{0.1}{\fbinv} \\
- ($\hat{\pt}$ \SIrange{80}{170}{\GeV}) & & & & \\
- \addlinespace
-$\gamma$ + jets& \SI{23620}{\pb} & 1 & 12730863 & \SI{0.5}{\fbinv} \\
- (\HT \SIrange{40}{100}{\GeV})  & & & & \\
- \addlinespace
-$\gamma$ + jets & \SI{3476}{\pb}& 1 & 1536287 & \SI{0.4}{\fbinv} \\
- (\HT \SIrange{100}{200}{\GeV}) & & & & \\
- \addlinespace
-$\gamma$ + jets  & \SI{485}{\pb} & 1 & 9377168 & \SI{19.3}{\fbinv} \\
-($\HT >$ \SI{200}{\GeV}) & & & & \\
+QCD ($e/\gamma$ enriched)  & \PYTHIA & & & & \\
+\hspace{5 mm}\SIrange[range-phrase = $~<\pthat<~$]{20}{30}{\GeV} & & \num{2.355d8} & \num{7.3d-3} & 34720808 & \num{2.0d-2} \\
+\hspace{5 mm}\SIrange[range-phrase = $~<\pthat<~$]{30}{80}{\GeV}  & & \num{5.93d7}& \num{0.059} &  70375915 & \num{2.0d-2} \\
+\hspace{5 mm}\SIrange[range-phrase = $~<\pthat<~$]{80}{170}{\GeV} & & \num{9.06d5} & \num{0.148} &  8150669& \num{6.1d-2} \\
+\midrule
+QCD ($\cPqb/\cPqc \rightarrow e\nu$) & \PYTHIA & & & & \\
+\hspace{5 mm}\SIrange[range-phrase = $~<\pthat<~$]{20}{30}{\GeV} & & \num{2.355d8} & \num{4.6d-4} & 2002588 & \num{1.8d-2} \\
+\hspace{5 mm}\SIrange[range-phrase = $~<\pthat<~$]{30}{80}{\GeV} & & \num{5.93d7}& \num{2.34d-3} & 2030030 & \num{1.5d-2} \\
+\hspace{5 mm}\SIrange[range-phrase = $~<\pthat<~$]{80}{170}{\GeV} & & \num{9.06d5} & \num{0.0104} & 1082690 & \num{0.1} \\
+\midrule
+$\gamma$ + jets & \MADGRAPH & & & & \\
+\hspace{5 mm}\SIrange[range-phrase = $~<\HT<~$]{40}{100}{\GeV} & & \num{23620} & 1 & 12730863 & \num{0.5} \\
+\hspace{5 mm}\SIrange[range-phrase = $~<\HT<~$]{100}{200}{\GeV} & & \num{3476} & 1 & 1536287 & \num{0.4} \\
+\hspace{5 mm}$\HT >$ \SI{200}{\GeV} & & \num{485} & 1 & 9377168 & \num{19.3} \\
 \bottomrule
 \end{tabular}
 }
-\caption[QCD multi-jet background Monte Carlo samples, cross sections at a \CoM energy of
-\SI{7}{\TeV}, numbers of generated events and corresponding integrated
-luminosities.]{QCD multi-jet background samples, cross sections at a \CoM energy
-of \SI{7}{\TeV}, numbers of generated events and corresponding integrated
-luminosities. EM-enriched samples are preselected to include jets with higher electromagnetic
-content; $\cPqb/\cPqc \rightarrow e\nu$ samples are preselected to include leptonic
-($e\nu$) in-flight decays of b- and c-quarks.}
+\caption{QCD multi-jet background and $\gamma$ + jets MC samples with cross sections at $\sqrt s =
+\SI{7}{\TeV}$, numbers of generated events and corresponding integrated luminosities.
+% EM-enriched samples are preselected to include jets with higher electromagnetic content;
+% $\cPqb/\cPqc \rightarrow e\nu$ samples are preselected to include leptonic ($e\nu$) in-flight decays of b- and c-quarks.
+}
 \label{tab:top_mass_background_qcd}
 \end{table}
 
 \begin{table}[!htbp]
 \centering
-\begin{tabular}{lrrr}
+\begin{tabular}{|l|l|r|r|r|}
 \toprule
-process & \xsect & \# events & equiv. $\int\lumi dt$\\
+Process & Generator & $\sigma$ (\pb) & \# events & $\int\lumi dt$ (\fbinv)\\
 \midrule
-\ttbar ($0.5 \times$ matching threshold) & \SI{157.5}{\pb} & 1607808& \SI{19.3}{\fbinv} \\
-\ttbar ($2 \times$ matching threshold)  & \SI{157.5}{\pb} & 4029823& \SI{19.3}{\fbinv} \\
-\ttbar ($0.5 \times Q$)  & \SI{157.5}{\pb} & 4004587&\SI{19.3}{\fbinv} \\
-\ttbar ($2 \times Q$) & \SI{157.5}{\pb} &3696269 & \SI{19.3}{\fbinv} \\
-\WpJets ($\W \rightarrow l\nu$)  & \SI{29690}{\pb} & 9956679& \SI{0.3}{\fbinv} \\
-($0.5 \times$ matching threshold) &  & & \\
-\WpJets ($\W \rightarrow l\nu$) & \SI{30290}{\pb} & 10461655 & \SI{0.3}{\fbinv} \\
-($2 \times$ matching threshold) &  & & \\
-\WpJets ($\W \rightarrow l\nu$) ($0.5 \times Q$)  & \SI{33300}{\pb} &10092532 & \SI{0.3}{\fbinv} \\
-\WpJets ($\W \rightarrow l\nu$) ($2 \times Q$) & \SI{32000}{\pb} &9784907 &\SI{0.3}{\fbinv} \\
-\ZpJets ($\Z \rightarrow ll$)& \SI{2888}{\pb} & 1614808& \SI{0.6}{\fbinv} \\
-($0.5 \times$ matching threshold) &  & & \\
-\ZpJets ($\Z \rightarrow ll$)  & \SI{2915}{\pb} & 1641121& \SI{0.6}{\fbinv} \\
-($2 \times$ matching threshold) &  & & \\
-\ZpJets ($\Z \rightarrow ll$) ($0.5 \times Q$)  & \SI{3312}{\pb} & 1658855& \SI{0.5}{\fbinv} \\
-\ZpJets ($\Z \rightarrow ll$) ($2 \times Q$) & \SI{2954}{\pb} & 1592742& \SI{0.5}{\fbinv} \\
+\ttjets & \MADGRAPH & & & \\
+\hspace{5 mm}$0.5~\times$ matching threshold & & 157.5 & 1607808& 10.2 \\
+\hspace{5 mm}$2~\times$ matching threshold  & & 157.5 & 4029823& 25.5 \\
+\hspace{5 mm}$0.5\times Q$  & & 157.5 & 4004587 & 25.4 \\
+\hspace{5 mm}$2\times Q$ & & 157.5 & 3696269 & 23.4 \\
+\midrule
+\WpJets ($\W \rightarrow l\nu$) & \MADGRAPH & & & \\
+\hspace{5 mm}$0.5~\times$ matching threshold & & 29690 & 9956679 & 0.3 \\
+\hspace{5 mm}$2~\times$ matching threshold & & 30290 & 10461655 & 0.3 \\
+\hspace{5 mm}$0.5 \times Q$ & & 33300 &10092532 & 0.3 \\
+\hspace{5 mm}$2 \times Q$ & & 32000 &9784907 &0.3 \\
+\midrule
+\ZpJets ($\Z \rightarrow ll$) & \MADGRAPH & & & \\
+\hspace{5 mm}$0.5~\times$ matching threshold & & 2888 & 1614808& 0.6 \\
+\hspace{5 mm}$2~\times$ matching threshold & & 2915 & 1641121 & 0.6 \\
+\hspace{5 mm}$0.5 \times Q$ & & 3312 & 1658855 & 0.5 \\
+\hspace{5 mm}$2 \times Q$ & & 2954 & 1592742 & 0.5 \\
 \bottomrule
 \end{tabular}
-\caption[Systematic Monte Carlo samples, their cross sections at a \CoM energy
-of \SI{7}{\TeV}, numbers of generated events and corresponding integrated
-luminosities.]{Systematic Monte Carlo samples, their cross sections at a \CoM
-energy of \SI{7}{\TeV}, numbers of generated events and corresponding
-integrated luminosities. These samples are used for the estimation of
-systematic uncertainties such as normalisation and factorisation scale $Q$ and
-matching threshold (see Section \ref{ss:matching_and_factorisation}).}
-\label{tab:top_mass_background_systematics}
+\caption{Systematic MC samples with cross sections at $\sqrt s =
+\SI{7}{\TeV}$, numbers of generated events and corresponding
+integrated luminosities. Factorisation scale $Q$ and matching threshold
+systematic uncertainties (see Section \ref{ss:matching_and_factorisation}) are
+estimated with variations of \ttjets, \WpJets and \ZpJets samples.}
+\label{tab:top_mass_systematic_samples}
 \end{table}
