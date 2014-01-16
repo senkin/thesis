@@ -56,6 +56,7 @@
 \usepackage{booktabs}
 \usepackage{pbox}
 \usepackage{enumitem}
+\usepackage[T1]{fontenc}
 
 
 %Bibliography
