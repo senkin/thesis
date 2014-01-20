@@ -55,7 +55,7 @@ evaluation of systematic uncertainties are briefly described. Additionally, \GEA
 detector simulation is mentioned, and eventually Monte Carlo samples for all processes are presented.
 
 \subsubsection{Monte Carlo event generators}
-\label{ss_top_mass:MC_generators}
+\label{sss_top_mass:MC_generators}
 
 Simulation of \ttbar signal and background processes, described in Section~\ref{s:top_quak_physics}, was performed using
 several Monte Carlo event generators. The process of simulating a hadron collision event is rather complicated, and
@@ -106,7 +106,7 @@ radiation. This technique allows to avoid double-counting coming from subsequent
 \end{description}
 
 \subsubsection{Matching Threshold and Factorisation Scale}
-\label{ss:matching_and_factorisation}
+\label{sss_top_mass:matching_and_factorisation}
 %https://twiki.cern.ch/twiki/bin/view/CMS/MadGraphStandardModel
 
 As described above with the example of \MADGRAPH generator, there is a certain threshold for partons transverse momenta
@@ -121,6 +121,7 @@ Table~\ref{tab:top_mass_systematic_samples}.
 \input{05_Mass_analysis/tables/top_mass_mc_systematics}
 
 \subsubsection{CMS detector simulation}
+\label{sss_top_mass:detector_simulation}
 
 Detector simulation is an essential final step on top of the full physics simulation of proton-proton collisions. All
 generated particles resulting from these collisions are propagated to the simulated layers of the detector so that their
@@ -143,6 +144,8 @@ addition to reconstructed objects, generated events also include collections of 
 MC truth, which is essential for any particle physics analysis.
 
 \subsubsection{Monte Carlo samples}
+\label{sss_top_mass:mc_samples}
+
 The nominal signal \ttbar MC sample used in this analysis had been generated using \MADGRAPH generator with a top quark
 mass of \mtop = \SI{172.5}{\GeV}. To calibrate the mass extraction technique as it will be explained in
 Section~\ref{s_top_mass:calibration}, 8 additional \ttbar samples were used with different top quark masses ranged
@@ -176,13 +179,17 @@ cross sections, pre-selection efficiencies, numbers of generated events and corr
 % \label{ss_top_mass:pileup_reweithing}
 % Since the number of pile-up vertices in data can be only known after the data-taking, the simulated number of pile-up
 % interactions in Monte Carlo may not correspond to the one observed in data. To account for this disagreement between
-% data and Monte Carlo, pile-up reweighting procedure is applied to simulated events.
+% data and Monte Carlo, pile-up reweighting procedure is applied to simulated events. don't have the plots for
+
+% electrons. here are some for muons:
+% https://indico.cern.ch/getFile.py/access?contribId=1&resId=0&materialId=slides&confId=168447
 
 % \subsection{b-tagging corrections}
 % \label{ss_top_mass:btagging_corrections}
 
 \section{Event Selection}
 \label{s_top_mass:event_selection}
+
 Event selection applied in this analysis essentially follows the top quark group reference selection that is recommended
 as a standard CMS top analyses selection optimised for SM \ttbar production. It is designed to select the semi-leptonic
 signature of a \ttbar decay with an isolated lepton, four jets (including two jets from \cPqb-quarks) and a neutrino in
@@ -282,6 +289,7 @@ required to be present in the event. These jets have to pass the loose PF jet ID
 
 \section{Kinematic Fit}
 \label{s_top_mass:kinematic_fit}
+
 In order to precisely measure the top quark mass, objects in the final state need to be associated with originating
 partons of the top quark pair decay. In this analysis, a kinematic fit is employed to fully reconstruct the event
 kinematics under the \ttbar hypothesis, thus improving the resolution of measured quantities by exploiting the knowledge
@@ -382,6 +390,7 @@ This probability is used in the next step of the analysis, referred to as the id
 
 \section{The Ideogram Method}
 \label{s_top_mass:ideogram_method}
+
 The ideogram method is a powerful mass extraction technique. Its main idea lies in finding the likelihood distribution
 of the particle mass given the particular data sample, which is performed by evaluating the likelihood of measured
 observables given a generated particle mass for each event in the sample. The signal likelihood is evaluated from the
@@ -403,6 +412,7 @@ importance of a cross-check.
 
 \subsection{Event likelihood}
 \label{ss_top_mass:event_likelihood}
+
 In the basis of the ideogram method lies the event likelihood, also referred to as the ideogram. It is calculated for
 each event in the sample as a function of the hypothesised top quark mass \mtop in the following way:
 
@@ -559,6 +569,7 @@ Figure~\ref{fig:background_wjets_fitted_top_mass}. This distribution is describe
 
 \subsection{Combined likelihood fit}
 \label{ss_top_mass:likelihood_fit}
+
 Finally, for the extraction of the top quark mass the total likelihood for the entire data sample is calculated as the
 product of all the event likelihoods:
 \begin{equation}
@@ -589,8 +600,9 @@ bias of the ideogram method. The mass calibration technique is described in the 
 \end{center}
 \end{figure}
 
-\section{Mass calibration}
+\section{Mass Calibration}
 \label{s_top_mass:calibration}
+
 By construction of the ideogram method, it has approximations which can lead to possible bias in the top quark mass
 measurement. To account for this bias, a calibration is performed by running the measurement on Monte Carlo simulation
 with known true top quark mass. Pseudo-experiments are used to measure the bias in the fitted mass, as well as to
@@ -647,6 +659,7 @@ statistical uncertainty are unbiased after calibration.
 
 \section{Systematic Uncertainties}
 \label{s_top_mass:systematics}
+
 Like any measurement, the top quark mass measurement is prone to various systematic errors. In attempt to evaluate them,
 several sources of systematic effects are considered in this analysis. These include theoretical uncertainties on Monte
 Carlo modelling, assumptions made within the ideogram method, as well as imperfect understanding of detector effects and
@@ -661,6 +674,8 @@ described below.
 
 % Since some of these systematic effects introduce very small shifts on the estimated top-quark mass, the statistical
 % uncertainty of these induced shifts is calculated for every systematic effect.
+% https://indico.cern.ch/getFile.py/access?subContId=1&contribId=1&resId=0&materialId=slides&confId=191766
+% https://indico.cern.ch/getFile.py/access?subContId=0&contribId=2&resId=0&materialId=slides&confId=200007
 
 \input{05_Mass_analysis/tables/top_mass_systematics}
 
@@ -683,8 +698,8 @@ $\eta$-dependent uncertainty incorporates various contributions, including an of
 and relative discrepancies between data and MC, flavour-dependent corrections, etc. After applying asymmetric
 $\pm1\sigma$ uncertainties, an average systematic effect of \SI{1.21}{\GeV} on the fitted top mass was observed.
 
-% As the uncertainty due to a possible difference between light and b-jet energy scale is already included in the overall
-% jet energy scale uncertainty, no separate uncertainty is quoted for the b-jet energy scale.
+% As the uncertainty due to a possible difference between light and b-jet energy scale is already included in the
+% overall jet energy scale uncertainty, no separate uncertainty is quoted for the b-jet energy scale.
 
 % \item [Jet energy resolution.] was never measured...
 % Jet asymmetry measurements indicate that the jet energy resolution (JER) in data is about 7-20\% worse compared to the
@@ -699,21 +714,21 @@ $\pm1\sigma$ uncertainties, an average systematic effect of \SI{1.21}{\GeV} on t
 % largest of the up and down variation, 0.07 GeV, as a systematic uncertainty.
 
 \item [Factorisation scale.]
-As mentioned in Section~\ref{ss:matching_and_factorisation}, the factorisation scale is varied by factors of 0.5 and 2
-with respect to the nominal value used in the central generated samples. The procedure is performed for \ttjets, \WpJets
-and \ZpJets Monte Carlo samples independently as the factorisation scales are considered uncorrelated. To combine the
-systematic uncertainty, the average absolute size of the up and down effects are added in quadrature. Due to the lack of
-statistics available in variations of \WpJets and \ZpJets samples, this systematic uncertainty is one of the largest in
-the top quark mass measurement.
+As mentioned in Section~\ref{sss_top_mass:matching_and_factorisation}, the factorisation scale is varied by factors of
+0.5 and 2 with respect to the nominal value used in the central generated samples. The procedure is performed for
+\ttjets, \WpJets and \ZpJets Monte Carlo samples independently as the factorisation scales are considered uncorrelated.
+To combine the systematic uncertainty, the average absolute size of the up and down effects are added in quadrature. Due
+to the lack of statistics available in variations of \WpJets and \ZpJets samples, this systematic uncertainty is one of
+the largest in the top quark mass measurement.
 
 %The individual variations are shown in Table~\ref{tab:systematicsScale}.
 
 \item [ME-PS matching threshold.]
-The systematic effect of choice of ME-PS threshold, also mentioned in Section~\ref{ss:matching_and_factorisation}, is
-estimated by varying the default value of \SI{20}{\GeV} by factors of 0.5 and 2. Similarly to factorisation scale
-systematic uncertainty, the matching thresholds are varied independently for \ttjets, \WpJets and \ZpJets Monte Carlo
-samples and then added in quadrature. The same issue with the lack of statistics appears here, although to a lesser
-extent.
+The systematic effect of choice of ME-PS threshold, also mentioned in
+Section~\ref{sss_top_mass:matching_and_factorisation}, is estimated by varying the default value of \SI{20}{\GeV} by
+factors of 0.5 and 2. Similarly to factorisation scale systematic uncertainty, the matching thresholds are varied
+independently for \ttjets, \WpJets and \ZpJets Monte Carlo samples and then added in quadrature. The same issue with the
+lack of statistics appears here, although to a lesser extent.
 
 %The individual variations are shown in Table~\ref{tab:systematicsMatching}.
 
@@ -722,7 +737,8 @@ extent.
 %  and final-state radiation (FSR),
 %  a $t \bar t$ Monte Carlo sample with increased ISR and FSR and another one with reduced ISR and FSR are analyzed.
 %  The larger of the two shifts is quoted as a systematic uncertainty.
-%  \emph{An additional cross-check we can do would be to look at the top mass as a function of the number of jets in the event.}  
+%  \emph{An additional cross-check we can do would be to look at the top mass as a function of the number of jets in the
+%  event.}
 
 \item [Colour reconnection.] Different modelling of colour reconnections \autocite{colour_reconnection} result in a
 systematic uncertainty that is estimated by varying the underlying event tune in simulation. The observed shifts in top
@@ -734,10 +750,10 @@ different \PYTHIA tunes with increased and decreased underlying event activity. 
 activity, respectively. The largest mass shift (\SI{\approx0.08}{\GeV}) represents the systematic uncertainty due to
 underlying event modelling.
 
-% Non-perturbative QCD effects are taken into account by tuning $\textsc {pythia}$ to
-% measurements of the underlying event~\cite{Chatrchyan:2011id}. The uncertainties are estimated by comparing in
-% simulation two tunes with increased and decreased underlying event activity to a central tune (the Perugia 2011 tune to
-% the Perugia 2011 mpiHi and Perugia 2011 Tevatron tunes described in~\cite{Skands:2010ak}).
+% Non-perturbative QCD effects are taken into account by tuning $\textsc {pythia}$ to measurements of the underlying
+% event~\cite{Chatrchyan:2011id}. The uncertainties are estimated by comparing in simulation two tunes with increased
+% and decreased underlying event activity to a central tune (the Perugia 2011 tune to the Perugia 2011 mpiHi and Perugia
+% 2011 Tevatron tunes described in~\cite{Skands:2010ak}).
 
 % The individual variarions are shown in Table~\ref{tab:systematicsUE}. The largest difference in the mass offset,
 % 0.08 GeV, is quoted as systematic uncertainty. 
@@ -756,10 +772,10 @@ composition.
 % variations is 0.28~GeV.
 
 % The difference between the calibration using only WJets to model the backgrounds and using a precise mix of background
-% processes as listed in Table~\ref{tab:event_yields} is 0.27 GeV. Completely removing QCD from the mix yields a shift of
-% 0.152 GeV. When removing 30\% of the other components one-by-one from the mix, the effects are 0.08 GeV for WJets, 0.012
-% GeV for ZJets and 0.009 GeV for Single Top. To estimate the possible effect of uncertainties in the BG shape, all these
-% numbers are added in quadrature, given a total BG uncertainty of 0.32 GeV
+% processes as listed in Table~\ref{tab:event_yields} is 0.27 GeV. Completely removing QCD from the mix yields a shift
+% of 0.152 GeV. When removing 30\% of the other components one-by-one from the mix, the effects are 0.08 GeV for WJets,
+% 0.012 GeV for ZJets and 0.009 GeV for Single Top. To estimate the possible effect of uncertainties in the BG shape,
+% all these numbers are added in quadrature, given a total BG uncertainty of 0.32 GeV
 
 %Changing the background composition from 100\% inclusive W+jets, used to derive
 %the MC calibration curve, to the expected sample composition 
@@ -769,7 +785,8 @@ composition.
 %Without adding QCD go the mix, the mass difference is 0.11~GeV.
 
 %We add 0.2~GeV for the signal fraction, and 0.41~GeV for the signal composition in quadrature and quote 0.5~GeV.
-%\emph{it could be argued that we should apply a 0.41 +- 0.41 GeV downward correction on the measured top mass for the BG composition}
+%\emph{it could be argued that we should apply a 0.41 +- 0.41 GeV downward correction on the measured top mass for the
+%BG composition}
 
 \item [Pile-up.]
 Since the number of pile-up vertices in data can only be known after data-taking process, it does not usually match the
@@ -801,6 +818,7 @@ which we quote as a PDF systematic uncertainty.
 
 \section{Results}
 \label{s_top_mass:results}
+
 After extracting the top quark mass using combined likelihood fit, performing mass calibration and estimating systematic
 uncertainties as shown in previous sections, the following result was obtained in the electron plus jets channel:
 
@@ -844,6 +862,7 @@ of $\mtop = 173.29\ \pm\ 0.23\ \textrm{(stat.)}\ \pm 0.92\ \textrm{(syst.)}\ \te
 \newpage
 \section{Summary}
 \label{s_top_mass:summary}
+
 In this chapter, a top quark mass measurement in the electron plus jets channel was presented using full 2011 dataset
 recorded by the CMS detector with a total integrated luminosity of \SI{5.0}{\fbinv}. The mass extraction technique
 called ideogram method was described in detail, as well other technicalities of the analysis. The result is consistent
