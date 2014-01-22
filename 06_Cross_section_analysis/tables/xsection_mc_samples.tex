@@ -64,12 +64,40 @@ $\gamma$ + jets & \MADGRAPH & & & & \\
 \bottomrule
 \end{tabular}
 }
-\caption{QCD multi-jet background and $\gamma$ + jets MC samples with cross sections at $\sqrt s =
-\SI{8}{\TeV}$, numbers of generated events and corresponding integrated luminosities.
+\caption{QCD multi-jet background and $\gamma$ + jets MC samples used in the electron plus jets channel
+with cross sections at $\sqrt s = \SI{8}{\TeV}$, numbers of generated events and corresponding integrated luminosities.
 % EM-enriched samples are preselected to include jets with higher electromagnetic content;
 % $\cPqb/\cPqc \rightarrow e\nu$ samples are preselected to include leptonic ($e\nu$) in-flight decays of b- and c-quarks.
 }
-\label{tab:xsection_background_qcd}
+\label{tab:xsection_electron_qcd_samples}
+\end{table}
+
+\begin{table}[!htbp] 
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{|l|l|r|r|r|r|}
+\toprule
+Process & Generator & $\sigma$ (\pb) & filter efficiency & \# events & $\int\lumi dt$ (\fbinv)\\
+\midrule
+QCD ($\mu$ enriched)  & \PYTHIA & & & & \\
+\hspace{5 mm}\SIrange[range-phrase = $~<\pthat<~$]{15}{20}{\GeV} 	& & \num{7.022d8} 	& \num{3.9d-3}	& 1722681	& \num{6.3d-4} \\
+\hspace{5 mm}\SIrange[range-phrase = $~<\pthat<~$]{20}{30}{\GeV} 	& & \num{2.87d8} 	& \num{6.5d-3}	& 8486904	& \num{4.5d-3} \\
+\hspace{5 mm}\SIrange[range-phrase = $~<\pthat<~$]{30}{50}{\GeV} 	& & \num{6.609d7} 	& \num{1.22d-2}	& 9560265	& \num{1.2d-2} \\
+\hspace{5 mm}\SIrange[range-phrase = $~<\pthat<~$]{50}{80}{\GeV} 	& & \num{8.082d6} 	& \num{2.18d-2}	& 10365230	& \num{5.9d-2} \\
+\hspace{5 mm}\SIrange[range-phrase = $~<\pthat<~$]{80}{120}{\GeV} 	& & \num{1.024d6}	& \num{3.95d-2}	& 9238642	& \num{0.23} \\
+\hspace{5 mm}\SIrange[range-phrase = $~<\pthat<~$]{120}{170}{\GeV} 	& & \num{1.578d5}	& \num{4.73d-2}	& 8501935	& \num{1.1} \\
+\hspace{5 mm}\SIrange[range-phrase = $~<\pthat<~$]{170}{300}{\GeV} 	& & \num{34020.0}	& \num{6.76d-2}	& 7669947	& \num{3.3} \\
+\hspace{5 mm}\SIrange[range-phrase = $~<\pthat<~$]{300}{470}{\GeV} 	& & \num{1757.0}	& \num{8.64d-2}	& 7832261	& \num{51.6} \\
+\hspace{5 mm}\SIrange[range-phrase = $~<\pthat<~$]{470}{600}{\GeV} 	& & \num{115.2}		& \num{0.102}	& 3783069	& \num{322.0} \\
+\hspace{5 mm}\SIrange[range-phrase = $~<\pthat<~$]{600}{800}{\GeV} 	& & \num{27.01}		& \num{0.0996}	& 4119000	& \num{1531.1} \\
+\hspace{5 mm}\SIrange[range-phrase = $~<\pthat<~$]{800}{1000}{\GeV} & & \num{3.57}		& \num{0.1033}	& 4107853	& \num{11139.0} \\
+\hspace{5 mm}$\pthat >$ \SI{1000}{\GeV}  							& &	\num{0.774}		& \num{0.1097}	& 3873970	& \num{45625.6} \\
+\bottomrule
+\end{tabular}
+}
+\caption{QCD multi-jet background MC samples used in the muon plus jets channel with cross sections at $\sqrt s =
+\SI{8}{\TeV}$, numbers of generated events and corresponding integrated luminosities.}
+\label{tab:xsection_muon_qcd_samples}
 \end{table}
 
 \begin{table}[!htbp]
@@ -85,23 +113,23 @@ Process & Generator & $\sigma$ (\pb) & \# events & $\int\lumi dt$ (\fbinv)\\
 \hspace{5 mm}$2\times Q$ 						& & 245.8 & 5009488 & 23.4 \\
 \midrule
 \WpJets ($\W \rightarrow l\nu$) & \MADGRAPH & & & \\
-\hspace{5 mm}$0.5~\times$ matching threshold 	& & 29690 & 21364637 & 0.3 \\
-\hspace{5 mm}$2~\times$ matching threshold 		& & 30290 & 20976082 & 0.3 \\
-\hspace{5 mm}$0.5 \times Q$ 					& & 33300 & 20719363 & 0.3 \\
-\hspace{5 mm}$2 \times Q$ 						& & 32000 & 20784770 & 0.3 \\
+\hspace{5 mm}$0.5~\times$ matching threshold 	& & 29690 & 21364637 & 0.7 \\
+\hspace{5 mm}$2~\times$ matching threshold 		& & 30290 & 20976082 & 0.7 \\
+\hspace{5 mm}$0.5 \times Q$ 					& & 33300 & 20719363 & 0.6 \\
+\hspace{5 mm}$2 \times Q$ 						& & 32000 & 20784770 & 0.6 \\
 \midrule
 \ZpJets ($\Z \rightarrow ll$) & \MADGRAPH & & & \\
 \hspace{5 mm}$0.5~\times$ matching threshold 	& & 2888 & 2112387 & 0.6 \\
-\hspace{5 mm}$2~\times$ matching threshold 		& & 2915 & 1985529 & 0.6 \\
-\hspace{5 mm}$0.5 \times Q$ 					& & 3312 & 1934901 & 0.5 \\
-\hspace{5 mm}$2 \times Q$ 						& & 2954 & 2170270 & 0.5 \\
+\hspace{5 mm}$2~\times$ matching threshold 		& & 2915 & 1985529 & 0.7 \\
+\hspace{5 mm}$0.5 \times Q$ 					& & 3312 & 1934901 & 0.6 \\
+\hspace{5 mm}$2 \times Q$ 						& & 2954 & 2170270 & 0.7 \\
 \bottomrule
 \end{tabular}
 \caption{Systematic MC samples with cross sections at $\sqrt s =
-\SI{8}{\TeV}$, numbers of generated events and corresponding
-integrated luminosities. Factorisation scale $Q$ and matching threshold
-systematic uncertainties (see Section \ref{sss_top_mass:matching_and_factorisation}) are
-estimated with variations of \ttjets, \WpJets and \ZpJets samples.}
+\SI{8}{\TeV}$, numbers of generated events and corresponding integrated
+luminosities. Factorisation scale $Q$ and matching threshold systematic
+uncertainties are estimated with variations of \ttjets, \WpJets and \ZpJets
+samples.}
 \label{tab:xsection_systematic_samples}
 \end{table}
 

@@ -20,24 +20,41 @@ precision measurement, but it can also give hints of new physics. For example, m
 \label{ss_xsection:data}
 This analysis uses the full 2012 dataset collected by the CMS detector at a centre of mass energy of \SI{8}{\TeV}, with
 a total integrated luminosity of \SI{19.7}{\fbinv}. Only certified events were used in the data, i.e.\ from such
-preriods of data-taking when all of the detector subsystems were functioning with no errors.
+preriods of data-taking when all of the detector subsystems were functioning with no errors. Depending on the channel,
+the data were preselected with the single electron or single muon trigger. The preselection procedure as well as full
+event selection will be described in Section~\ref{s_xsection:event_selection}.
 
-\subsection{Simulation of signal and background processes}
-\label{ss_xsection:signal_and_background}
+\subsection{Monte Carlo samples}
+\label{ss_xsection:MC_samples}
+The Monte Carlo generators used in this work were presented in Section~\ref{sss_top_mass:MC_generators}. The list of
+signal and background MC samples is shown in Table~\ref{tab:xsection_mc_samples}, and is largely similar to that from
+the top quark mass analysis. In addition, the signal \ttjets sample is also available with \POWHEG and \MCATNLO
+generators in order to be able to differentiate between them. Moreover, to extend the statistics of the \W/\ZpJets
+samples, they were generated in four exclusive jet multiplicity bins: \W/\Z boson plus one/two/three and at least four
+jets.
 
-\subsubsection{Monte Carlo samples}
-\label{sss_xsection:MC_samples}
+
+Table~\ref{tab:xsection_electron_qcd_samples} presents the list of QCD multi-jet background and $\gamma$ + jets samples
+used in the estimation of the QCD background in the electron plus jets channel. The analogous set of muon-enriched QCD
+samples used in the muon plus jets channel is shown in Table~\ref{tab:xsection_muon_qcd_samples}. Although the QCD
+background is estimated using data-driven techniques in both channels (see Section~\ref{s_xsection:data_driven_QCD}),
+the MC simulation is still used for normalisation purposes.
+% a bit of an overkill?
+% Mention the systematic samples (Table~\ref{tab:xsection_systematic_samples})
 
 \input{06_Cross_section_analysis/tables/xsection_mc_samples}
 
-\subsubsection{Pile-up reweighting}
+\subsection{Pile-up reweighting}
 \label{sss_xsection:pileup_reweighting}
 
-\subsubsection{b-tagging corrections}
-\label{sss_xsection:btagging_corrections}
+\subsection{b-tagging corrections}
+\label{ss_xsection:btagging_corrections}
 
 \section{Event Selection}
 \label{s_xsection:event_selection}
+
+\section{Data-driven QCD estimation}
+\label{s_xsection:data_driven_QCD}
 
 \section{Choice of binning}
 \label{s_xsection:binning}
