@@ -61,18 +61,31 @@ the MC simulation is still used for normalisation purposes.
 
 \begin{figure}[!htpb]
 \begin{center}
-	\subfloat[]{\includegraphics[width=0.50\textwidth]{vertices/EPlusJets_nVertex_reweighted_PU_up.pdf}}\hfill
-	\subfloat[]{\includegraphics[width=0.50\textwidth]{vertices/MuPlusJets_nVertex_reweighted_PU_up.pdf}} \\
 	\subfloat[]{\includegraphics[width=0.50\textwidth]{vertices/EPlusJets_nVertex_reweighted_PU_down.pdf}}\hfill
-	\subfloat[]{\includegraphics[width=0.50\textwidth]{vertices/MuPlusJets_nVertex_reweighted_PU_down.pdf}}
+	\subfloat[]{\includegraphics[width=0.50\textwidth]{vertices/EPlusJets_nVertex_reweighted_PU_up.pdf}} \\
+	\subfloat[]{\includegraphics[width=0.50\textwidth]{vertices/MuPlusJets_nVertex_reweighted_PU_down.pdf}}\hfill
+	\subfloat[]{\includegraphics[width=0.50\textwidth]{vertices/MuPlusJets_nVertex_reweighted_PU_up.pdf}}
 	\caption{\label{fig:pileup_vertices_variations}
-    Number of reconstructed vertices per event for the $+\sigma$ (top) and the $-\sigma$ variations (bottom) of
-    the pile-up reweighting procedure for the electron channel (left) and the muon channel (right).}
+    Number of reconstructed vertices per event for the $-\sigma$ (left) and the $+\sigma$ variations (right) of
+    the pile-up reweighting procedure for the electron channel (top) and the muon channel (bottom).}
 \end{center}
 \end{figure}
 
+
 \subsection{b-tagging corrections}
 \label{ss_xsection:btagging_corrections}
+
+\begin{figure}[!htpb]
+\begin{center}
+	\subfloat[]{\includegraphics[width=0.50\textwidth]{bjets_multiplicity/EPlusJets_N_BJets.pdf}}\hfill
+	\subfloat[]{\includegraphics[width=0.50\textwidth]{bjets_multiplicity/EPlusJets_N_BJets_reweighted.pdf}} \\
+	\subfloat[]{\includegraphics[width=0.50\textwidth]{bjets_multiplicity/MuPlusJets_N_BJets.pdf}}\hfill
+	\subfloat[]{\includegraphics[width=0.50\textwidth]{bjets_multiplicity/MuPlusJets_N_BJets_reweighted.pdf}}
+	\caption{\label{fig:bjet_weights}
+    b-tag multiplicity before (left) and after applying b-tag scale factors (right) in the electron channel (top) and
+    the muon channel (bottom).}
+\end{center}
+\end{figure}
 
 \section{Event Selection}
 \label{s_xsection:event_selection}
