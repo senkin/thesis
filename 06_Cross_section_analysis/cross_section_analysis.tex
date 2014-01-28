@@ -39,13 +39,37 @@ used in the estimation of the QCD background in the electron plus jets channel. 
 samples used in the muon plus jets channel is shown in Table~\ref{tab:xsection_muon_qcd_samples}. Although the QCD
 background is estimated using data-driven techniques in both channels (see Section~\ref{s_xsection:data_driven_QCD}),
 the MC simulation is still used for normalisation purposes.
-% a bit of an overkill?
 % Mention the systematic samples (Table~\ref{tab:xsection_systematic_samples})
 
 \input{06_Cross_section_analysis/tables/xsection_mc_samples}
 
 \subsection{Pile-up reweighting}
 \label{sss_xsection:pileup_reweighting}
+
+\begin{figure}[!htpb]
+\begin{center}
+	\subfloat[]{\includegraphics[width=0.50\textwidth]{vertices/EPlusJets_nVertex.pdf}}\hfill
+	\subfloat[]{\includegraphics[width=0.50\textwidth]{vertices/EPlusJets_nVertex_reweighted.pdf}} \\
+	\subfloat[]{\includegraphics[width=0.50\textwidth]{vertices/MuPlusJets_nVertex.pdf}}\hfill
+	\subfloat[]{\includegraphics[width=0.50\textwidth]{vertices/MuPlusJets_nVertex_reweighted.pdf}}
+	\caption{\label{fig:pileup_vertices}
+    Number of reconstructed vertices per event before (left) and after pile-up reweighting (right) in the electron
+    channel (top) and in the muon channel (bottom). Both data and sum of the MC samples are normalised to unit area.}
+    %QCD is estimated from MC here. Possible to fix/remove?
+\end{center}
+\end{figure}
+
+\begin{figure}[!htpb]
+\begin{center}
+	\subfloat[]{\includegraphics[width=0.50\textwidth]{vertices/EPlusJets_nVertex_reweighted_PU_up.pdf}}\hfill
+	\subfloat[]{\includegraphics[width=0.50\textwidth]{vertices/MuPlusJets_nVertex_reweighted_PU_up.pdf}} \\
+	\subfloat[]{\includegraphics[width=0.50\textwidth]{vertices/EPlusJets_nVertex_reweighted_PU_down.pdf}}\hfill
+	\subfloat[]{\includegraphics[width=0.50\textwidth]{vertices/MuPlusJets_nVertex_reweighted_PU_down.pdf}}
+	\caption{\label{fig:pileup_vertices_variations}
+    Number of reconstructed vertices per event for the $+\sigma$ (top) and the $-\sigma$ variations (bottom) of
+    the pile-up reweighting procedure for the electron channel (left) and the muon channel (right).}
+\end{center}
+\end{figure}
 
 \subsection{b-tagging corrections}
 \label{ss_xsection:btagging_corrections}
