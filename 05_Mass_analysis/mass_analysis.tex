@@ -10,11 +10,11 @@
 
 The top quark mass measurement using 2011 LHC data recorded by the CMS detector at a centre of mass energy of $\sqrt s
 =$ \SI{7}{\TeV} is presented in this chapter. The analysis was a cross-check to the official CMS top quark mass
-measurement at \SI{7}{\TeV} in lepton plus jets channel published in 2012 \autocite{top_mass_ljets_CMS} in Journal of
-High Energy Physics. Only electron plus jets channel is described in this thesis, as the muon side of the analysis was
-performed by a different group at CERN, although in close collaboration.
+measurement at \SI{7}{\TeV} in the lepton plus jets channel published in 2012 \autocite{top_mass_ljets_CMS}. Only the
+electron plus jets channel is described in this thesis, as the muon side of the analysis was performed by a different
+group at CERN, although in close collaboration.
 
-The mass extraction technique used in this analysis, referred to as the ideogram method, is essentially the same to one
+The mass extraction technique used in this analysis, referred to as the ideogram method, is essentially the same as one
 used in the CMS measurement of the mass difference between top and antitop quarks \autocite{mass_difference_CMS} and the
 top quark mass measurement in 2010 \autocite{top_mass_ljets_CMS_2010}. In this chapter, this technique is described in
 detail. Additionally, data and Monte Carlo samples, event selection process, the kinematic fit used for \ttbar
@@ -27,8 +27,8 @@ presented in relevant sections of the chapter.
 \subsection{Data}
 \label{ss_top_mass:data}
 The data used in this work is the full 2011 dataset recorded by the CMS detector with a total integrated luminosity of
-\SI{5.0 \pm 0.1}{\fbinv}. As only the electron channel is covered by this particular analysis, all data was pre-selected
-by single electron plus jets high level triggers, described in detail in Chapter \ref{c:service_work}.
+\SI{5.0 \pm 0.1}{\fbinv}. As only the electron channel is covered by this particular analysis, all data were
+pre-selected by single electron plus jets high level triggers, described in detail in Chapter \ref{c:service_work}.
 
 % \begin{itemize}
 %   \item electron + 3 (PF)jets
@@ -47,12 +47,13 @@ by single electron plus jets high level triggers, described in detail in Chapter
 \label{ss_top_mass:signal_and_background}
 
 To develop and test any analysis technique in particle physics, simulated events from Monte Carlo (MC) generators as
-well as a working simulated model of the detector are inevitably needed. In this analysis, \ttbar signal decays and
+well as a working simulation model of the detector are inevitably needed. In this analysis, \ttbar signal decays and
 background processes were generated with a set of different MC generators including \MADGRAPH \autocite{MadGraph},
-\PYTHIA \autocite{Pythia,Pythia6.4} and \POWHEG \autocite{POWHEG}. Supplementary package (\TAUOLA \autocite{TAUOLA}) was
-used for tau lepton decay description. In this section, all the event generators as well as different MC tunes used for
-evaluation of systematic uncertainties are briefly described. Additionally, \GEANTfour-based \autocite{GEANT4} CMS
-detector simulation is mentioned, and eventually Monte Carlo samples for all processes are presented.
+\PYTHIA \autocite{Pythia,Pythia6.4} and \POWHEG \autocite{POWHEG}. A supplementary package (\TAUOLA \autocite{TAUOLA})
+was used for the tau lepton decay description. In this section, all the event generators as well as the different MC
+tunes used for evaluation of systematic uncertainties are briefly described. Additionally, the \GEANTfour-based
+\autocite{GEANT4} CMS detector simulation is mentioned, and finally Monte Carlo samples for all processes are
+presented.
 
 \subsubsection{Monte Carlo event generators}
 \label{sss_top_mass:MC_generators}
@@ -69,30 +70,31 @@ usually includes generation of the following steps:
 	\item hadronisation of partons.
 \end{enumerate}
 
-The performance of MC generators is usually optimised for one or more of these steps, therefore they are often used
-in combination, e.g.\ \ttbar signal is modelled with \MADGRAPH and \PYTHIA. Standalone generators can also be used for
-modelling the theory systematic effects, which is also exploited in this thesis. %(\MCATNLO, \POWHEG + \PYTHIA).
+The performance of MC generators is usually optimised for one or more of these steps, therefore they two or more
+generators often used in combination, e.g.\ \ttbar signal is modelled with \MADGRAPH and \PYTHIA. Standalone generators
+can also be used for modelling theory systematic effects, which is also exploited in this thesis.
+%(\MCATNLO, \POWHEG + \PYTHIA).
 
 \begin{description}[wide=\parindent, style=standard, labelsep=0pt]
 \item [\MADGRAPH] \autocite{MadGraph} is a matrix-element Monte Carlo event generator. For any renormalisable
 Lagrangian-based model it produces all possible Feynman diagrams and automatically generates its matrix elements at the
-tree-level, performing the integration over all phase-space. This calculation is then used to produce the \xsect of
+tree level, performing the integration over all phase-space. This calculation is then used to produce the \xsect of
 various processes and subprocesses as well as partons and kinematics of an event, including decays that are described
 using spin correlations. Partons from matrix element calculations are then matched to parton showers from hadronisation
 of quarks and gluons, which is simulated in \PYTHIA (see below) along with the fragmentation of initial protons and the
-soft scattering of underlying event (mentioned in Section~\ref{sss:JEC}). The matching is done according to so-called
-MLM prescription \autocite{MLM} if a parton-jet pair satisfies a certain $\Delta R$ separation criteria. If no or more
-than one matched jets are found, events are rejected. There is also a certain transverse energy threshold requirement
-for the partons to be considered in the matching. Default values as well as variations used to estimate the systematic
-effect of the matching threshold are shown in Table~\ref{tab:systematic_mc_variations}.
+soft scattering of underlying event (mentioned in Section~\ref{sss:JEC}). The matching is done according to the
+so-called MLM prescription \autocite{MLM} if a parton-jet pair satisfies a certain $\Delta R$ separation criterion. If
+no or more than one matched jets are found, events are rejected. There is also a certain transverse energy threshold
+requirement for the partons to be considered in the matching. Default values as well as variations used to estimate the
+systematic effect of the matching threshold are shown in Table~\ref{tab:systematic_mc_variations}.
 
-\item [\PYTHIA] \autocite{Pythia,Pythia6.4} is one of the most widely used MC generator in high energy physics. It is a
+\item [\PYTHIA] \autocite{Pythia,Pythia6.4} is one of the most widely used MC generators in high energy physics. It is a
 standard tool used for simulation of quark and gluon hadronisation, multi-particle production, beam remnants, initial
-protons fragmentation, etc. In this work, \PYTHIA is used to generate QCD multi-jet production and underlying event on
-top of other generators providing partons from hard processes.
+protons fragmentation, etc. In this work, \PYTHIA is used to generate QCD multi-jet production, and to simulate the
+underlying event on top of other generators providing partons from hard processes.
 
-\item [\MCATNLO] \autocite{MCatNLO} is a parton shower MC generator providing next-to-leading (NLO) order corrections
-for a simulated process. It represents a major improvement in precision and accuracy of physics simulation comparing to
+\item [\MCATNLO] \autocite{MCatNLO} is a parton shower MC generator providing next-to-leading order (NLO) corrections
+for a simulated process. It represents a major improvement in precision and accuracy of physics simulations comparing to
 leading order (LO) generators like \PYTHIA. NLO implementation can handle additional partons in the final state coming
 from the hard scattering, which is not possible with LO calculations. Therefore it includes additional dynamic features,
 giving a major advantage for heavy flavour physics.
@@ -111,12 +113,12 @@ radiation. This technique allows to avoid double-counting coming from subsequent
 
 As described above with the example of \MADGRAPH generator, there is a certain threshold for partons transverse momenta
 from matrix element calculations to be matched with parton showers, often referred to as ME-PS threshold. To estimate
-the systematic uncertainty arising from it, additional MC samples were generated with either halved or doubled value of
-the threshold. This procedure was performed for signal \ttjets and background \WpJets and \ZpJets samples. Similarly,
-the systematic effect of the choice if factorisation scale $Q^2$ (described in Section~\ref{ss:top_production}) is
-determined. A summary of central values and variations used to estimate these systematic uncertainties is shown in
-Table~\ref{tab:systematic_mc_variations}, whereas the list of systematic MC samples is shown in
-Table~\ref{tab:top_mass_systematic_samples}.
+the systematic uncertainty arising from it, additional MC samples were generated with the value of the threshold either
+halved or doubled. This procedure was performed for signal \ttjets and background \WpJets and \ZpJets samples.
+Similarly, the systematic effect of the choice of factorisation scale $Q^2$ (described in
+Section~\ref{ss:top_production}) is determined. A summary of central values and variations used to estimate these
+systematic uncertainties is shown in Table~\ref{tab:systematic_mc_variations}, whereas the list of systematic MC samples
+is shown in Table~\ref{tab:top_mass_systematic_samples}.
 
 \input{05_Mass_analysis/tables/top_mass_mc_systematics}
 
@@ -140,36 +142,40 @@ In general, the simulation procedure includes modelling of the following steps:
 %https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideSimulation
 
 The data stream generated with this process is very similar to the output of the real detector, although naturally in
-addition to reconstructed objects, generated events also include collections of generated objects allowing to access the
-MC truth, which is essential for any particle physics analysis.
+addition to reconstructed objects, generated events also include collections of generated objects, allowing users to
+access the Monte Carlo truth information, which is essential for any particle physics analysis.
 
 \subsubsection{Monte Carlo samples}
 \label{sss_top_mass:mc_samples}
 
-The nominal signal \ttbar MC sample used in this analysis had been generated using \MADGRAPH generator with a top quark
-mass of \mtop = \SI{172.5}{\GeV}. To calibrate the mass extraction technique as it will be explained in
-Section~\ref{s_top_mass:calibration}, 8 additional \ttbar samples were used with different top quark masses ranged
+The nominal signal \ttbar MC sample used in this analysis was generated using the \MADGRAPH generator with a top quark
+mass of \mtop = \SI{172.5}{\GeV}. To calibrate the mass extraction technique, as explained in
+Section~\ref{s_top_mass:calibration}, 8 additional \ttbar samples were used with different top quark masses ranging
 between \SIlist{161.5;184.5}{\GeV}. The \WpJets and \ZpJets background processes (see Section~\ref{ss:backgrounds}) were
-also generated with \MADGRAPH, whereas single top background was generated with \POWHEG generator. Full list of signal
-\ttbar and background MC samples with values of cross section, numbers of generated events and corresponding integrated
-luminosities is shown in Table~\ref{tab:top_mass_mc_samples}. All samples were produced using the CTEQ6L Parton
-Distribution Functions (PDF) \autocite{CTEQ}.
-
-% To extend the available statistics for the \WpJets sample four additional \WpJets samples are included. These samples
-% are generated in exclusive jet multiplicity bins: \W boson production plus with one/two/three and at least four jets.
+also generated with \MADGRAPH, whereas the single top background was generated with \POWHEG generator. A full list of
+signal \ttbar and background MC samples with values of cross section, numbers of generated events and corresponding
+integrated luminosities is shown in Table~\ref{tab:top_mass_mc_samples}. All samples were produced using the CTEQ6L
+Parton Distribution Functions (PDF) \autocite{CTEQ}.
 
 The QCD background samples are available in two different sets, one of which is pre-filtered to contain jets with high
 electromagnetic content ($e/\gamma$ enriched), and the second one is enriched with electrons coming from decays of heavy
-flavour quarks ($\cPqb/\cPqc \rightarrow e\nu$). This pre-selection is performed on generator level to ensure reasonable
-statistics after the \ttbar selection imposed in top quark analyses with electrons in the final state. Both sets of QCD
-samples are generated with \PYTHIA generator in different exclusive bins of \pthat (i.e.\ transverse momentum of the
-outgoing partons defined in the rest frame of the hard process). The $\gamma$+jets MC samples were produced with
-\MADGRAPH in different bins of \HT at generator level, which denotes the sum of transverse momenta of all high-\pt
-objects. Table~\ref{tab:top_mass_background_qcd} gives a list of QCD and $\gamma$+jets samples with values of production
-cross sections, pre-selection efficiencies, numbers of generated events and corresponding integrated luminosities.
+flavour quarks ($\cPqb/\cPqc \rightarrow \cPq e\nu$). This pre-selection is performed at generator level, to ensure
+reasonable statistics after the \ttbar selection imposed in top quark analyses with electrons in the final state. Both
+sets of QCD samples are generated with \PYTHIA generator in different exclusive bins of \pthat (i.e.\ transverse
+momentum of the outgoing partons defined in the rest frame of the hard process). The $\gamma$+jets MC samples were
+produced with \MADGRAPH in different bins of \HT at generator level, which denotes the sum of transverse momenta of all
+high-\pt objects. Table~\ref{tab:top_mass_background_qcd} gives a list of QCD and $\gamma$+jets samples with values of
+production cross sections, pre-selection efficiencies, numbers of generated events and corresponding integrated
+luminosities.
 
 %http://cms.pd.infn.it/software/meetings/MultiMuon/doc/pthat-firstlook-v3.pdf
 %gamma plus jets samples were not even used?
+
+Finally, Table~\ref{tab:top_mass_systematic_samples} lists the additional samples generated to allow estimation of the
+systematic uncertainties due to factorisation scale and matching threshold choices, as discussed earlier.
+
+%in Section~\ref{sss_top_mass:matching_and_factorisation}.
+
 
 \input{05_Mass_analysis/tables/top_mass_mc_samples}
 
@@ -190,11 +196,11 @@ cross sections, pre-selection efficiencies, numbers of generated events and corr
 \section{Event Selection}
 \label{s_top_mass:event_selection}
 
-Event selection applied in this analysis essentially follows the top quark group reference selection that is recommended
-as a standard CMS top analyses selection optimised for SM \ttbar production. It is designed to select the semi-leptonic
-signature of a \ttbar decay with an isolated lepton, four jets (including two jets from \cPqb-quarks) and a neutrino in
-the form of missing transverse energy. All objects are reconstructed using the particle flow method as described in
-Section~\ref{s:object_reconstruction}.
+The event selection applied in this analysis essentially follows the top quark group reference selection that is
+recommended as a standard CMS top analyses selection optimised for SM \ttbar production. It is designed to select the
+semi-leptonic signature of a \ttbar decay with an isolated lepton, four jets (including two jets from \cPqb-quarks) and
+a neutrino in the form of missing transverse energy. All objects are reconstructed using the particle flow method as
+described in Section~\ref{s:object_reconstruction}.
 
 % and use the pile-up subtraction techniques for charged particles (no neutral particle correction) as described in
 % Section %\ref{ss:pileup_subtraction}.
@@ -216,39 +222,41 @@ As this analysis focuses on the electron channel, the event selection proceeds a
 Preselection is performed in order to reduce the number of events stored for local analysis. All events are required to
 have at least one electron with a \pt above \SI{30}{\GeV} or at least one muon with a \pt above \SI{20}{\GeV}.
 Additional event cleaning is performed at this stage to decrease the number of events with substantial detector noise. A
-small fraction of events with anomalous HCAL noise is removed by HCAL noise filter. Furthermore, beam scraping is
+small fraction of events with anomalous HCAL noise is removed by an HCAL noise filter. Furthermore, beam scraping is
 mitigated by the appropriate filter requiring at least \SI{25}{\percent} tracks with high purity if there are more than
-\num{10} tracks in the event. Finally, preselection stage includes the requirement of at least one good primary vertex
-in the event which has to be located within \SI{24}{\cm} in $z$-direction from the centre of CMS and within a radial
-distance of \SI{2}{\cm}. The primary vertex is also required to have at least four degrees of freedom which is
+\num{10} tracks in the event. Finally, the preselection stage includes the requirement of at least one good primary
+vertex in the event which has to be located within \SI{24}{\cm} in the $z$-direction from the centre of CMS and within a
+radial distance of \SI{2}{\cm}. The primary vertex is also required to have at least four degrees of freedom which is
 determined from the vertex fit and is strongly correlated with the number of tracks compatible with the primary
 interaction region \autocite{Tacking_PV_results_7TeV}.
+
 %https://twiki.cern.ch/twiki/bin/view/CMS/TWikiTop2011DataMCTrig
 
 \subsubsection*{Trigger}
-The trigger requirement is imposed in a way it has been described in Chapter~\ref{c:service_work}. Essentially, all the
-events are required to fire the electron-plus-three-jets trigger in its available version. A full list of triggers can
-be found in the appendix \ref{s:full_trigger_list_electron}.
+The trigger requirement is imposed as described in Chapter~\ref{c:service_work}. Essentially, all the events are
+required to fire the electron-plus-three-jets trigger in the version current at the time of data-taking. A full list of
+triggers can be found in appendix \ref{s:full_trigger_list_electron}.
 
 \subsubsection*{Electron candidate selection}
-Exactly one electron candidate satisfying all following criteria is required to be present in the event. As soon as the
-electron-plus-jets trigger has the lepton \pt threshold of \SI{25}{\GeV}, the electron candidate transverse momentum is
-required to be above \SI{30}{\GeV} (in order to be in the trigger efficiency plateau region). Furthermore, the electron
+Exactly one electron candidate satisfying all the following criteria is required to be present in the event. As the
+electron-plus-jets trigger has a lepton \pt threshold of \SI{25}{\GeV}, the electron candidate transverse momentum is
+required to be above \SI{30}{\GeV}, in order to be in the trigger efficiency plateau region. Furthermore, the electron
 has to be within the tracker region of $|\eta| < 2.5$ excluding the ECAL barrel-endcap transition regions of $1.4442 <
 |\eta| < 1.566$. The CiC electron ID (see Section~\ref{ss:electron_reconstruction}) with the tightest working point
-(``HyperTight'') is used for electron identification purposes. This working point provides the misidentification rate of
+(``HyperTight'') is used for electron identification purposes. This working point provides a misidentification rate of
 less than \SI{1}{\pc}, and overall identification efficiency of \SI{75}{\pc} \autocite{CiC_ID}.
 
-In order to only select electrons originating at the interaction vertex, the $x$-$y$-distance ($d_{xy}$) between the
-electron track and the interaction point (2D impact parameter) is required to be less than \SI{0.02}{\cm}. Contribution
-of electrons inside the jets from QCD background events, as well as fake electrons is reduced by imposing the PF-based
-relative isolation cut of \reliso $< 0.1$. A $\Delta R$-cone with size of \num{0.3} is used in calculation of the
-\reliso variable (Section~\ref{sss:electron_isolation}).
+In order to only select electrons originating at the interaction vertex, the $x$-$y$ distance ($d_{xy}$) between the
+electron track and the interaction point (2D impact parameter) is required to be less than \SI{0.02}{\cm}. The
+contribution of electrons inside jets from QCD background events, as well as fake electrons, is reduced by imposing the
+PF-based relative isolation cut on the variable \reliso defined in Section~\ref{sss:electron_isolation}. A $\Delta
+R$-cone with size of \num{0.3} is used in calculation of the \reliso variable, and events with \reliso $< 0.1$ are
+accepted.
 
 \subsubsection*{Dilepton veto}
-A veto requirement on a second electron candidate (or dilepton veto) is used to reject events with any additional loose
-electrons. Namely, event is rejected if there is a second electron satisfying looser electron candidate criteria: a
-lower \ET threshold of \SI{15}{\GeV} and a looser cut on \reliso ($<0.2$).
+A veto requirement on a second electron candidate (or dilepton veto) is used to reject events with any additional
+electrons. Looser criteria are used to identify the second electron in an event. Namely, the event is rejected if there
+is a second electron satisfying a lower \ET threshold of \SI{15}{\GeV} and a looser cut on \reliso ($<0.2$).
 
 Additionally, in order to reduce \ZpJets background, the following veto is applied. If the event contains a second
 electron with $\ET > \SI{30}{\GeV}$ and $\reliso < 1.0$ that forms such an invariant mass with the signal electron
@@ -258,15 +266,15 @@ chosen to be $\SI{76}{\GeV} < m_{ee} < \SI{106}{\GeV}$.
 %^^not sure if it's actually in reference selection! but looks like I applied it...
 
 \subsubsection*{Conversion veto}
-As it was mentioned in Section~\ref{sss:photon_conversions}, two methods are used in this analysis to remove the
-electrons coming from photon conversions: missing pixel layers method and partner track matching method. If missing
-pixel layer hits or a matching partner track are present in the event, it is rejected.
+As mentioned in Section~\ref{sss:photon_conversions}, two methods are used in this analysis to remove electrons coming
+from photon conversions: missing pixel layers method and partner track matching method. If missing pixel layer hits or a
+matching partner track are present in the event, it is rejected.
 
 \subsubsection*{Muon veto}
 Other \ttbar channels, including muon and dilepton decay modes, can contaminate events passing the electron plus jets
-selection. To reduce this contamination, events containing a global (see Section \ref{ss:muon_reconstruction}) isolated
-muon are rejected. The muon is required to have a \pt above \SI{10}{\GeV}, $|\eta| < 2.5$ and $\reliso < 0.2$ with a
-$\Delta R$ cone of \num{0.4}.
+selection. To reduce this contamination, events containing an isolated global muon (see Section
+\ref{ss:muon_reconstruction}) are rejected. The muon is required to have a \pt above \SI{10}{\GeV}, $|\eta| < 2.5$ and
+$\reliso < 0.2$ with a $\Delta R$ cone of \num{0.4}.
 
 \subsubsection*{Jet selection and b-tagging}
 Final steps in the selection help to further reduce the background by imposing constraints on the number of jets. This
@@ -290,25 +298,25 @@ required to be present in the event. These jets have to pass the loose PF jet ID
 \section{Kinematic Fit}
 \label{s_top_mass:kinematic_fit}
 
-In order to precisely measure the top quark mass, objects in the final state need to be associated with originating
+In order to precisely measure the top quark mass, objects in the final state need to be associated with the originating
 partons of the top quark pair decay. In this analysis, a kinematic fit is employed to fully reconstruct the event
 kinematics under the \ttbar hypothesis, thus improving the resolution of measured quantities by exploiting the knowledge
 of decay process.
 
-The \HitFit fitting package \autocite{HitFit} used in this work originates from \Dzero collaboration. Based on the SQUAW
-algorithm \autocite{SQUAW} developed in Lawrence Berkeley National Laboratory, the original \HitFit code was written by
-Scott Stuart Snyder in Fortran for Run I of the Tevatron. It was successfully used in the first direct measurement of
-the top quark mass by \Dzero for lepton plus jets \ttbar events \autocite{D0_top_mass_1998}. The package was then
-migrated to \Cplusplus for Run II of the Tevatron, and exploited in a series of \ttbar analyses including the updated
-top quark mass measurement using the ideogram method \autocite{D0_top_mass_ljets_ideogram}, first measurement of the
-forward-backward charge asymmetry in \ttbar production \autocite{D0_charge_assymetry} and some others.
+The \HitFit fitting package \autocite{HitFit} used in this work originates from the \Dzero collaboration. Based on the
+SQUAW algorithm \autocite{SQUAW} developed in Lawrence Berkeley National Laboratory, the original \HitFit code was
+written by Scott Stuart Snyder in Fortran for Run I of the Tevatron. It was successfully used in the first direct
+measurement of the top quark mass by \Dzero for lepton plus jets \ttbar events \autocite{D0_top_mass_1998}. The package
+was then migrated to \Cplusplus for Run II of the Tevatron, and exploited in a series of \ttbar analyses including the
+updated top quark mass measurement using the ideogram method \autocite{D0_top_mass_ljets_ideogram}, first measurement of
+the forward-backward charge asymmetry in \ttbar production \autocite{D0_charge_assymetry} and some others.
 
 One of the key features of the \HitFit package is its independence of specific experiments and detector geometries. The
 only external dependence is on \textsc{CLHEP} \autocite{CLHEP}, a \Cplusplus library that provides utility classes for
 linear algebra, geometry, vector arithmetic, etc., which was specifically developed for high energy physics simulation
 and analysis software and is notably used by \GEANTfour package. In 2011 \HitFit was ported to CMSSW and later on
-successfully used in a number of CMS top quark analyses, including the top mass measurement in lepton plus jets channel
-\autocite{top_mass_ljets_CMS}.
+successfully used in a number of CMS top quark analyses, including the top mass measurement in the lepton plus jets
+channel \autocite{top_mass_ljets_CMS}.
 
 \HitFit is designed to fit lepton plus jets events under the \ttbar hypothesis. Specifically, it strives to constrain
 the event to a hypothesis of production of two heavy particles, each decaying into a \W boson and \cPqb quark. According
@@ -320,11 +328,11 @@ as their respective resolutions that were calculated using Monte Carlo samples. 
 there are $4!=24$ ways to associate these four reconstructed jets with the partons from the \ttbar decay. The number of
 permutations is reduced to $4!/2=12$ since the light jets from the hadronic \W decay are interchangeable. However, for
 each hypothesis the $z$ component of neutrino four-momentum needs to be determined. This is done by requiring the two
-heavy particles to have equal mass ($m_{\cPqt} = m_{\cPaqt}$), which yields to a quadratic equation which has either two
-real or two complex solutions that share the real part. If case of the two real solutions the fit is performed for each
-of them. If there are two complex solutions, the fit is performed once for the common real part of them, but the fit
-result is included in the event content twice. Therefore, each hypothesis has two possible values of the neutrino
-four-momentum, which doubles the number of permutations back to $4!=24$.
+heavy particles to have equal mass ($m_{\cPqt} = m_{\cPaqt}$), which yields a quadratic equation which has either two
+real solutions, or two complex solutions that share the real part. In the case of the two real solutions, the fit is
+performed for each of them. If there are two complex solutions, the fit is performed once for the common real part of
+them, but the fit result is included in the event content twice. Therefore, each hypothesis has two possible values of
+the neutrino four-momentum, which doubles the number of permutations back to $4!=24$.
 
 The kinematic fit is performed by minimising the $\chi^{2}$ function defined as
 \begin{equation}
@@ -370,12 +378,12 @@ the best (smallest) $\chi^2$ values are shown in Figure~\ref{fig:fitplots}.
 \end{figure}
 
 Typically, an event has a few permutations resulting in a converged fit. The simplest approach of picking a permutation
-with the best $\chi^2$ value is disfavoured, since the Monte Carlo studies have shown that the correct permutation
-does not necessarily have the best $\chi^2$. This value can change drastically with relatively small variations of the
-input parameters, as different permutations may obtain the smallest value of $\chi^2$. On the other hand, some solutions
-yield very large $\chi^2$ value, which typically happens for badly reconstructed or background events. Therefore, a
-loose cut of $\chi^2=20$ is applied for all permutations on the output of the converged fit. This is the final
-selection criteria on top of the reference selection mentioned in Section~\ref{s_top_mass:event_selection}.
+with the best $\chi^2$ value is disfavoured, since Monte Carlo studies have shown that the correct permutation does not
+necessarily have the best $\chi^2$ \autocite{Snyder}. This value can change drastically with relatively small variations
+of the input parameters, as different permutations may obtain the smallest value of $\chi^2$. On the other hand, some
+solutions yield very large $\chi^2$ value, which typically happens for badly reconstructed or background events.
+Therefore, a loose cut of $\chi^2=20$ is applied for all permutations on the output of the converged fit. This is the
+final selection criterion on top of the reference selection mentioned in Section~\ref{s_top_mass:event_selection}.
 
 %Table \ref{tab:chi2_eff} list the number of events which pass the reference selection only, and number of events which
 % pass both the reference selection and the loose $\chi^{2}$ cut.
@@ -402,12 +410,12 @@ region.
 %$P_{\textrm{fit}}$.
 
 One of the first applications of the ideogram method tracks back to the \W boson mass measurement by the \textsc{DELPHI}
-Collaboration at CERN LEP collider \autocite{DELPHI_1998, DELPHI_2008}. It was later on used in a series of top quark
-mass measurements, including the \Dzero measurement in lepton plus jets channel \autocite{D0_top_mass_ljets_ideogram}
-and CDF measurement in all-hadronic channel \autocite{CDF_ideogram}. The main CMS top quark mass measurement in lepton
+Collaboration at CERN LEP collider \autocite{DELPHI_1998, DELPHI_2008}. It was later used in a series of top quark mass
+measurements, including the \Dzero measurement in the lepton plus jets channel \autocite{D0_top_mass_ljets_ideogram} and
+CDF measurement in the all-hadronic channel \autocite{CDF_ideogram}. The main CMS top quark mass measurement in lepton
 plus jets channel at \SI{7}{\TeV} \autocite{top_mass_ljets_CMS} which is cross-checked by this analysis is also based on
-the ideogram method, however, with \textit{in situ} JES (jet energy scale) measurement in a joint likelihood fit. As JES
-is a dominant systematics in this analysis, this approach proved to be more precise, but let us not neglect the
+the ideogram method with, however, \textit{in situ} JES (jet energy scale) measurement in a joint likelihood fit. As JES
+is a dominant systematic in this analysis, this approach proved to be more precise, but let us not neglect the
 importance of a cross-check.
 
 \subsection{Event likelihood}
@@ -508,10 +516,10 @@ The second term shows the probability of a wrong permutation in the signal event
 $\textrm{WP}(m_i|\mtop)$, is calculated by fitting the Crystal Ball analytical function to the fitted top quark mass
 distribution for permutations with wrong jet-parton assignment, estimated purely from Monte Carlo \ttbar sample whilst
 taking the permutation weights (Equation~\ref{eq:permutation_weight}) into account. The wrong permutations fall in two
-categories: the first one corresponds to events where the four leading jets come from the \ttbar decay, but are not
-assigned to the partons correctly; the second one are events with one ore more of the four leading jets coming from the
-soft gluon radiation (ISR or FSR). It was found that the fitted top quark mass distributions have similar shapes for
-both categories, therefore they were combined for the purpose of fitting. The Crystal Ball function has the form of:
+categories: the first one corresponds to events where the four leading jets come from \ttbar decay, but are not assigned
+to the partons correctly; the second one are events with one ore more of the four leading jets coming from soft gluon
+radiation (ISR or FSR). It was found that the fitted top quark mass distributions have similar shapes for both
+categories, therefore they were combined for the purpose of fitting. The Crystal Ball function has the form of:
 
 \begin{equation}
 \textrm{CB}(x;\mu,\sigma,\alpha,n) = N \times
@@ -549,10 +557,10 @@ taken into account. Since the dominant background is \WpJets, it was used exclus
 quark mass distribution by running the kinematic fit. The contribution from single top, \ZpJets and QCD was expected to
 be small, and it was confirmed that their probability density distributions have similar shapes to that of the \WpJets
 sample. Moreover, the Monte Carlo calibration described later on in Section~\ref{s_top_mass:calibration} takes all
-mentioned backgrounds sources into account, therefore any possible bias due to this approximation is corrected for.
+mentioned background sources into account, therefore any possible bias due to this approximation is corrected for.
 
-The fitted top quark mass spectrum for background events as estimated from \WpJets MC sample is shown in
-Figure~\ref{fig:background_wjets_fitted_top_mass}. This distribution is described by the Landau function, fitted by the 
+The fitted top quark mass spectrum for background events as estimated from the \WpJets MC sample is shown in
+Figure~\ref{fig:background_wjets_fitted_top_mass}. This distribution is described by the Landau function, fitted by the
 \ROOT package \autocite{Landau}.
 % \begin{equation}
 % \textrm{L}(x) = \frac{1}{\sqrt{2\pi}}\exp\left(-\frac{1}{2}(x+e^{-x})\right).
@@ -612,21 +620,19 @@ For each of the nine generated \ttbar samples with mass points between \SI{161.5
 \num{5000} pseudo-experiments were performed with events picked from Monte Carlo samples representing different sources
 of events, so that the numbers of events follow a Poisson distribution centred around the corresponding numbers observed
 in real data. The observed value of \num{23727} electron plus jets events with an average signal fraction of
-\SI{76}{\pc} was used in each pseudo-experiment. The background was estimated by using events from \WpJets MC sample,
-whereas the impact of other background sources was accounted for separately as a systematic uncertainty
+\SI{76}{\pc} was used in each pseudo-experiment. The background was estimated by using events from the \WpJets MC
+sample, whereas the impact of other background sources was accounted for separately as a systematic uncertainty
 (Section~\ref{s_top_mass:systematics}). For every pseudo-experiment all the event likelihoods are calculated, the total
 log-likelihood is formed and the top quark mass ($m_i$) with its statistical uncertainty ($\sigma_i$) are extracted in
 the same way as in the real measurement described above. These results are used to derive the bias and pull
 distributions, defined as follows:
-
 \begin{equation}
  \textrm{bias} = \mtop^{\rm meas} - \mtop^{\rm gen} \quad \text{and} \quad
  \textrm{pull}_i = \frac{m_i - \mtop^{\rm meas}}{\sigma_i},
 \label{eq:bias_pull}
 \end{equation}
-
 where $\mtop^{\rm meas}$ is the mean top quark mass over all pseudo-experiments, for a given generated mass point. The
-width of the pull is defined as the standard deviation ($\sigma$) of a Gaussian fitted to the pull distribution.
+width of the pull is defined as the standard deviation of a Gaussian fitted to the pull distribution.
 
 The mass bias and the width of the pull as a function of the generated top quark mass are shown in
 Figure~\ref{fig:bias_pull_vs_mass}. Clearly, using the ideogram method out of the box reveals a significant bias which
@@ -668,7 +674,7 @@ reconstruction algorithms.
 Systematic uncertainties are calculated by running the analysis with tuned MC samples where systematic effects are
 varied by $\pm 1$ standard deviation, and comparing the result with the nominal one. The obtained difference in fitted
 $\Delta \mtop$ is regarded as an uncertainty due to a given systematic effect. The total systematic error is calculated
-as a sum of all components in quadrature, under assumption that all the effects are uncorrelated. Summary of all
+as a sum of all components in quadrature, under the assumption that all the effects are uncorrelated. A summary of all
 systematic uncertainties is given in Table~\ref{tab:top_mass_systematics}, whereas all corresponding sources are
 described below.
 
@@ -692,8 +698,8 @@ on the mass measurement (approximately \SI{0.1}{\GeV}) is quoted as a systematic
 \item [Jet energy scale.] Since the top quark mass measurement is based on knowledge about at least four energetic jets
 in semi-leptonic \ttbar decay, it is very sensitive to any uncertainties in jet energies. Hence, the jet energy scale is
 a dominant systematic in this analysis, particularly depending on our understanding of the CMS detector. To quantify
-this systematic effect, the jet energies are varied within $\pm1\sigma$ uncertainty of the over jet energy correction,
-obtained from a designated jet energy calibration and resolution study~\autocite{JEC_7TeV}. This \pt- and
+this systematic effect, the jet energies are varied within $\pm1\sigma$ uncertainty of the overall jet energy
+correction, obtained from a dedicated jet energy calibration and resolution study~\autocite{JEC_7TeV}. This \pt- and
 $\eta$-dependent uncertainty incorporates various contributions, including an offset due to noise and pile-up, absolute
 and relative discrepancies between data and MC, flavour-dependent corrections, etc. After applying asymmetric
 $\pm1\sigma$ uncertainties, an average systematic effect of \SI{1.21}{\GeV} on the fitted top mass was observed.
@@ -759,7 +765,7 @@ underlying event modelling.
 % 0.08 GeV, is quoted as systematic uncertainty. 
 
 \item [Background modelling.]
-As it was mentioned in the description of mass calibration (Section~\ref{s_top_mass:calibration}), the background in
+As mentioned in the description of mass calibration (Section~\ref{s_top_mass:calibration}), the background in
 pseudo-experiments was estimated by using only \WpJets MC sample. The impact of other background sources was studied
 separately and accounted for as a systematic uncertainty. Implementing the \ZpJets, single top and QCD backgrounds in
 the calibration and separately varying their contributions by \SI{30}{\pc} yielded the shifts in the measurement, the
@@ -797,7 +803,7 @@ scaling the pile-up weights up and down, leading to shifts in top quark mass mea
 
 \item [Parton distribution functions.]
 The CTEQ parton distribution functions (PDFs) \autocite{CTEQ} used in the simulation of Monte Carlo samples can be
-described by 22 orthogonal parameters. To estimate the systematic uncertainty do to the choice of PDFs, the up and down
+described by 22 orthogonal parameters. To estimate the systematic uncertainty due to the choice of PDFs, the up and down
 variations of these parameters were employed to calculate the impact on the measurement. Events in nominal \ttjets
 sample were re-weighted according to the deviation of each PDF parameter from the central value. The average absolute
 values of the up and down shifts for each variation are then summed in quadrature, yielding the value of \SI{0.15}{\GeV}
@@ -828,7 +834,7 @@ uncertainties as shown in previous sections, the following result was obtained i
 \end{equation}
 
 Being a cross-check result, this measurement is consistent with the official CMS top quark mass measurement at
-\SI{7}{\TeV} in lepton plus jets channel \autocite{top_mass_ljets_CMS}:
+\SI{7}{\TeV} in the lepton plus jets channel \autocite{top_mass_ljets_CMS}:
 
 \begin{equation}
 \begin{split}
@@ -863,11 +869,11 @@ of $\mtop = 173.29\ \pm\ 0.23\ \textrm{(stat.)}\ \pm 0.92\ \textrm{(syst.)}\ \te
 \section{Summary}
 \label{s_top_mass:summary}
 
-In this chapter, a top quark mass measurement in the electron plus jets channel was presented using full 2011 dataset
-recorded by the CMS detector with a total integrated luminosity of \SI{5.0}{\fbinv}. The mass extraction technique
-called ideogram method was described in detail, as well other technicalities of the analysis. The result is consistent
-with the official CMS top quark mass measurement in the lepton plus jets channel at \SI{7}{\TeV}, as well as latest
-combination results from the Tevatron and the LHC experiments.
+In this chapter, a top quark mass measurement in the electron plus jets channel was presented using the full 2011
+dataset recorded by the CMS detector with a total integrated luminosity of \SI{5.0}{\fbinv}. The mass extraction
+technique called ideogram method was described in detail, as well other technicalities of the analysis. The result is
+consistent with the official CMS top quark mass measurement in the lepton plus jets channel at \SI{7}{\TeV}, as well as
+latest combination results from the Tevatron and the LHC experiments.
 
 
 
