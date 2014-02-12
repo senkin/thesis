@@ -10,9 +10,10 @@
 
 The top quark mass measurement using 2011 LHC data recorded by the CMS detector at a centre of mass energy of $\sqrt s
 =$ \SI{7}{\TeV} is presented in this chapter. The analysis was a cross-check to the official CMS top quark mass
-measurement at \SI{7}{\TeV} in the lepton plus jets channel published in 2012 \autocite{top_mass_ljets_CMS}. Only the
-electron plus jets channel is described in this thesis, as the muon side of the analysis was performed by a different
-group at CERN, although in close collaboration.
+measurement at \SI{7}{\TeV} in the lepton plus jets channel published in 2012 \autocite{top_mass_ljets_CMS}, which
+currently remains the most precise single measurement of the top quark mass. Only the electron plus jets channel is
+described in this thesis, as the muon side of the analysis was performed by a different group at CERN, although in close
+collaboration.
 
 The mass extraction technique used in this analysis, referred to as the ideogram method, is essentially the same as one
 used in the CMS measurement of the mass difference between top and antitop quarks \autocite{mass_difference_CMS} and the
@@ -196,8 +197,8 @@ systematic uncertainties due to factorisation scale and matching threshold choic
 \section{Event Selection}
 \label{s_top_mass:event_selection}
 
-The event selection applied in this analysis essentially follows the top quark group reference selection that is
-recommended as a standard CMS top analyses selection optimised for SM \ttbar production. It is designed to select the
+The event selection applied in this analysis essentially follows the so-called reference selection, i.e.\ the one
+recommended by the CMS Top Quark Physics Analysis Group for SM top quark measurements. It is designed to select the
 semi-leptonic signature of a \ttbar decay with an isolated lepton, four jets (including two jets from \cPqb-quarks) and
 a neutrino in the form of missing transverse energy. All objects are reconstructed using the particle flow method as
 described in Section~\ref{s:object_reconstruction}.
@@ -220,15 +221,15 @@ As this analysis focuses on the electron channel, the event selection proceeds a
 
 \subsubsection*{Preselection}
 Preselection is performed in order to reduce the number of events stored for local analysis. All events are required to
-have at least one electron with a \pt above \SI{30}{\GeV} or at least one muon with a \pt above \SI{20}{\GeV}.
-Additional event cleaning is performed at this stage to decrease the number of events with substantial detector noise. A
-small fraction of events with anomalous HCAL noise is removed by an HCAL noise filter. Furthermore, beam scraping is
-mitigated by the appropriate filter requiring at least \SI{25}{\percent} tracks with high purity if there are more than
-\num{10} tracks in the event. Finally, the preselection stage includes the requirement of at least one good primary
-vertex in the event which has to be located within \SI{24}{\cm} in the $z$-direction from the centre of CMS and within a
-radial distance of \SI{2}{\cm}. The primary vertex is also required to have at least four degrees of freedom which is
-determined from the vertex fit and is strongly correlated with the number of tracks compatible with the primary
-interaction region \autocite{Tacking_PV_results_7TeV}.
+have at least one electron with \pt above \SI{30}{\GeV} within pseudorapidity region of $\abs \eta < 2.5$, or at least
+one muon with \pt above \SI{20}{\GeV} and $\abs \eta < 2.1$. Additional event cleaning is performed at this stage to
+decrease the number of events with substantial detector noise. A small fraction of events with anomalous HCAL noise is
+removed by an HCAL noise filter. Furthermore, beam scraping is mitigated by the appropriate filter requiring at least
+\SI{25}{\percent} tracks with high purity if there are more than \num{10} tracks in the event. Finally, the preselection
+stage includes the requirement of at least one good primary vertex in the event which has to be located within
+\SI{24}{\cm} in the $z$-direction from the centre of CMS and within a radial distance of \SI{2}{\cm}. The primary vertex
+is also required to have at least four degrees of freedom which is determined from the vertex fit and is strongly
+correlated with the number of tracks compatible with the primary interaction region \autocite{Tacking_PV_results_7TeV}.
 
 %https://twiki.cern.ch/twiki/bin/view/CMS/TWikiTop2011DataMCTrig
 
