@@ -33,7 +33,6 @@ generators in order to be able to differentiate between them. Moreover, to exten
 samples, they were generated in four exclusive jet multiplicity bins: \W/\Z boson plus one/two/three and at least four
 jets.
 
-
 Table~\ref{tab:xsection_electron_qcd_samples} presents the list of QCD multi-jet background and $\gamma$ + jets samples
 used in the estimation of the QCD background in the electron plus jets channel. The analogous set of muon-enriched QCD
 samples used in the muon plus jets channel is shown in Table~\ref{tab:xsection_muon_qcd_samples}. Although the QCD
@@ -45,6 +44,13 @@ the MC simulation is still used for normalisation purposes.
 
 \subsection{Pile-up reweighting}
 \label{sss_xsection:pileup_reweighting}
+%EDIT%
+% The number of simulated pile-up interactions does not represent the distribution of the number of pile-up events in data
+% and therefore a reweighting is performed using the estimated number of in-time interactions per luminosity block. A
+% centrally provided tool uses the estimated instantaneous luminosity to produce a distribution of the expected number of
+% pile-up interactions. This is done for the used runs of the 2012 data taking. A weight for each number of pile-up
+% interactions in the simulation are produced, taking into account the true number of pile-up interactions at the nominal
+% bunch crossing.
 
 \begin{figure}[!htpb]
 \begin{center}
@@ -59,6 +65,13 @@ the MC simulation is still used for normalisation purposes.
 \end{center}
 \end{figure}
 
+ \begin{figure}[hbtp]
+   \centering
+     \includegraphics[width=\textwidth]{vertices/PileUp_2012_truth_data.pdf}
+     \caption{Number of expected vertices per event for different inelastic cross sections for the 2012 data.}
+     \label{fig:pileup_truth}
+ \end{figure}
+
 \begin{figure}[!htpb]
 \begin{center}
 	\subfloat[]{\includegraphics[width=0.50\textwidth]{vertices/EPlusJets_nVertex_reweighted_PU_down.pdf}}\hfill
@@ -71,9 +84,39 @@ the MC simulation is still used for normalisation purposes.
 \end{center}
 \end{figure}
 
+%EDIT%
+% The number of interactions in the data is estimated from the measured luminosity in each bunch crossing multiplied by an
+% average total inelastic cross section. The two sources of error here are the luminosity uncertainty, which is currently
+% 4.4\% \cite{CMS-PAS-LUM-12-001} and the uncertainty on the total inelastic cross section. A total inelastic cross
+% section of $68 \pm 4.5$~mb using forward calorimetry in 2011 data \cite{CMS-FWD-11-002} has been extrapolated to the
+% 2012 value of 69.3~mb which has been used.
+
+% In order to cover all of the modelling and physics aspects of the pileup simulation that have not been properly studied
+% an additional uncertainty is recommended leading to a total uncertainty of $\pm 5\%$.
+
+% %This method is chosen to allow for different vertex reconstruction efficiencies in data compared to the simulation.
+% Figure~\ref{fig:pileup_vertices} shows the number of reconstructed vertices before and after reweighting. One can see
+% that after performing the reweighting the distributions agree reasonably well for the signal region of this analysis.
+% The effect of the $5\%$ change of the inelastic cross section that is used to calculate the true vertex multiplicity in
+% data (fig. \ref{fig:pileup_truth}) can be seen in figure~\ref{fig:pileup_vertices_variations}. The pile-up distribution
+% using the $-5\%$ value of the cross section has the best agreement between data and simulation.
 
 \subsection{b-tagging corrections}
 \label{ss_xsection:btagging_corrections}
+%EDIT
+% In this analysis $b$ tagging is used in the event reconstruction to associate reconstructed jets to partons in the decay
+% chain and to select events in the final analysis. Here, the \emph{combined secondary vertex} tagger with the medium
+% operation point  (cut value~0.679, CSVM) is used which results in a $1\%$ light-jet mistag rate ~\cite{CMSbAlgo}.
+
+% We apply \pt dependent b-tag efficiency corrections to each $b$ tag for simulated events to account for the differences
+% between data and simulation seen in 2012 data~\cite{bTagResultsPaper}. Simulated events passing the $b$ tagging
+% requirements are given a weight (following the prescription from the BTag POG~\cite{bTagWeight}) to ensure that the
+% probability of selecting a simulated event matches the probability of a data event with the same jet flavour composition
+% being selected.
+
+% The results of the reweighting can be seen in fig. \ref{fig:bjet_weights}. The number of MC events in the 0 and 1 b-tag
+% is scaled up while the number of MC events with b-tag multiplicity higher than 2 are scaled down.
+
 
 \begin{figure}[!htpb]
 \begin{center}
@@ -87,8 +130,175 @@ the MC simulation is still used for normalisation purposes.
 \end{center}
 \end{figure}
 
+% The systematic variations of the uncertainties due to the $b$ tag efficiency are applied by varying the efficiency scale
+% factor $SF$ by the according $\pm 1 \sigma$ variations in the event reweighting procedure.
+
 \section{Event Selection}
 \label{s_xsection:event_selection}
+As in the top quark mass analysis, the event selection in this work is based on the standard CMS selection optimised for
+the Standard Model \ttbar production. It also exploits the semi-leptonic signature of a \ttbar decay with exactly one
+isolated lepton and at least four jets, two of which are b-tagged. One of the main goals of the analysis is the
+measurement of the missing transverse energy distribution represented by a neutrino from the leptonic decay of the \W
+boson, however, there is no specific requirement on the \MET in the selection.
+
+Comparing to the 2011 event selection described in Section~\ref{s_top_mass:event_selection}, enhanced pile-up
+subtraction and lepton identification techniques are used. Improved understanding of the detector in form of updated
+alignment and calibration constants resulted in better resolution of jets and \MET. The preselection (or skimming) step
+used in order to reduce the number of events for local analysis processing is identical to that of 2011 analysis.
+However, additional filters are used to reject the events with artificial \MET caused by noise or known problems with
+one of the detector subsystems. These filters are discussed in Section~\ref{ss_xsection:met_filters}.
+
+Two semi-leptonic \ttbar decay modes are explored in this analysis: the electron plus jets and the muon plus jets
+channels. The event selection for each of these decay modes is described below.
+
+\subsection{Electron plus jets channel}
+\label{ss_xsection:ejets}
+
+Similarly to the electron plus jets channel in the top quark mass analysis, the selection consists of the following
+steps:
+
+\begin{enumerate}[topsep=\parskip, parsep=\parskip, itemsep=\parskip, leftmargin=\leftmargin]
+	\item preselection;
+	\item trigger;
+	\item electron candidate selection;
+	\item dilepton veto;
+	\item conversion veto;
+	\item muon veto;
+	\item jet selection;
+	\item b-tagging.
+\end{enumerate}
+
+%https://twiki.cern.ch/twiki/bin/view/CMS/TWikiTop2011DataMCTrig
+
+\subsubsection*{Trigger}
+As opposed to 2011 analysis using cross triggers, here a single electron trigger is used. Referred to as
+HLT\_Ele27\_WP80, this trigger has a lepton \pt threshold of \SI{27}{\GeV} and ``WP80'' lepton isolation requirement
+(see Table~\ref{tab:trigger_naming}), but no specific jet requirements. In contrast to 2011 data-taking, the single
+electron trigger was unprescaled for the whole period of 2012 running, despite a comparatively large rate. This decision
+was made due to simplicity of the trigger selection, requiring flat efficiency corrections.
+
+% \subsubsection*{Electron candidate selection}
+% Exactly one electron candidate satisfying all the following criteria is required to be present in the event. As the
+% electron-plus-jets trigger has a lepton \pt threshold of \SI{25}{\GeV}, the electron candidate transverse momentum is
+% required to be above \SI{30}{\GeV}, in order to be in the trigger efficiency plateau region. Furthermore, the electron
+% has to be within the tracker region of $|\eta| < 2.5$ excluding the ECAL barrel-endcap transition regions of $1.4442 <
+% |\eta| < 1.566$. The CiC electron ID (see Section~\ref{ss:electron_reconstruction}) with the tightest working point
+% (``HyperTight'') is used for electron identification purposes. This working point provides a misidentification rate of
+% less than \SI{1}{\pc}, and overall identification efficiency of \SI{75}{\pc} \autocite{CiC_ID}.
+
+% In order to only select electrons originating at the interaction vertex, the $x$-$y$ distance ($d_{xy}$) between the
+% electron track and the interaction point (2D impact parameter) is required to be less than \SI{0.02}{\cm}. The
+% contribution of electrons inside jets from QCD background events, as well as fake electrons, is reduced by imposing the
+% PF-based relative isolation cut on the variable \reliso defined in Section~\ref{sss:electron_isolation}. A $\Delta
+% R$-cone with size of \num{0.3} is used in calculation of the \reliso variable, and events with \reliso $< 0.1$ are
+% accepted.
+
+% \subsubsection*{Dilepton veto}
+% A veto requirement on a second electron candidate (or dilepton veto) is used to reject events with any additional
+% electrons. Looser criteria are used to identify the second electron in an event. Namely, the event is rejected if there
+% is a second electron satisfying a lower \ET threshold of \SI{15}{\GeV} and a looser cut on \reliso ($<0.2$).
+
+% Additionally, in order to reduce \ZpJets background, the following veto is applied. If the event contains a second
+% electron with $\ET > \SI{30}{\GeV}$ and $\reliso < 1.0$ that forms such an invariant mass with the signal electron
+% candidate that it is close to the \Z mass peak, it is also rejected. The invariant mass window around the \Z peak is
+% chosen to be $\SI{76}{\GeV} < m_{ee} < \SI{106}{\GeV}$.
+
+
+% \subsubsection*{Conversion veto}
+% As mentioned in Section~\ref{sss:photon_conversions}, two methods are used in this analysis to remove electrons coming
+% from photon conversions: missing pixel layers method and partner track matching method. If missing pixel layer hits or a
+% matching partner track are present in the event, it is rejected.
+
+% \subsubsection*{Muon veto}
+% Other \ttbar channels, including muon and dilepton decay modes, can contaminate events passing the electron plus jets
+% selection. To reduce this contamination, events containing an isolated global muon (see Section
+% \ref{ss:muon_reconstruction}) are rejected. The muon is required to have a \pt above \SI{10}{\GeV}, $|\eta| < 2.5$ and
+% $\reliso < 0.2$ with a $\Delta R$ cone of \num{0.4}.
+
+% \subsubsection*{Jet selection and b-tagging}
+% Final steps in the selection help to further reduce the background by imposing constraints on the number of jets. This
+% is particularly effective to mitigate the \WpJets contamination, as the number of \WpJets events decreases exponentially
+% with increasing number of jets. In this analysis, at least four jets with $\pt > \SI{30}{\GeV}$ and $|\eta| < 2.4$ are
+% required to be present in the event. These jets have to pass the loose PF jet ID (see Section
+% \ref{ss:jet_reconstruction}). Finally, the CSV b-tagging algorithm with medium working point (Section
+% \ref{sss:b-tagging}) is used to identify the two \cPqb-quarks from the \ttbar decay.
+
+\subsection{Muon plus jets channel}
+\label{ss_xsection:mujets}
+
+% \begin{figure}[!htp]
+%    \centering
+%    \subfloat[]{\includegraphics[width=0.5\textwidth]{placeholder}}
+%    \subfloat[]{\includegraphics[width=0.5\textwidth]{placeholder}}
+%    \hfill
+%    \subfloat[]{\includegraphics[width=0.5\textwidth]{placeholder}}
+%    \subfloat[]{\includegraphics[width=0.5\textwidth]{placeholder}}
+%    \caption{\label{fig:controlplots}Kinematic variable distributions after all selection cuts. (a) electron \pt, (b)
+%    electron $\eta$, (c) jet \pt for all jets passing the selection, (d) \MET.}
+% \end{figure}
+
+\subsection{Additional filters}
+\label{ss_xsection:met_filters}
+%https://twiki.cern.ch/twiki/bin/viewauth/CMS/MissingETOptionalFilters
+
+A set of optional filters, prescribed for analyses with high sensitivity to missing transverse energy, was applied in
+the selection for both electron and muon channels. Most of these filters were put in place after discovering events with
+anomalously high \MET. A short description of each filter is given below.
+
+\begin{description}[wide=\parindent]
+	\item[CSC beam halo filter.]
+	Protons in the LHC beams can interact with residual particles of beam collimators, which produces secondary particle
+	showers refered to as beam halo \autocite{beam_halo_CMS}. This machine-induced background can significantly
+	contaminate collision events, particularly affecting the \MET observable due to specific trajectories of halo muons.
+	A dedicated algorithm based on exploiting the halo signatures in the Cathode Strip Chambers (CSCs) helps to mitigate
+	this background.
+
+	\item[HCAL laser filter.] The HCAL laser system is used for calibration and monitoring the detector response
+	\autocite{CMS_TDR1}. During the 2012 data-taking, laser pulses were accidentally fired and consequently polluted a
+	small fraction of the recorded physics dataset. Using the fact that unlike physics events, laser pulses produce hits
+	in calibration channels of the HCAL, the dataset is filtered from this contamination.
+	%https://indico.cern.ch/event/169318/contribution/1/material/slides/0.pdf
+
+	\item[ECAL dead cell filter.] Both ECAL endcap and barrel regions are known to have faulty crystals producing too
+	much noise in detector readouts. There are also crystals corresponding to front-end cards with defective data link.
+	All these channels are masked in reconstruction and constitute to about \SI{1}{\pc} of the total amount. However,
+	they can still cause a significant amount of energy deposits to be lost, therefore contributing to fake \MET. One of
+	the approaches to tackle this issue uses the so-called trigger primitive information, i.e.\ digital quantities
+	produced by the Level 1 trigger electronics \autocite{CMS_L1_Trigger_TDR}. Another approach uses the energy deposits
+	surrounding the masked channels (boundary energy). These methods allow to filter events with the estimated energy
+	leakage above certain threshold (\SI{\sim10}{\GeV}).
+	%https://twiki.cern.ch/twiki/bin/viewauth/CMS/SusyEcalMaskedCellSummary
+
+	\item[Tracking failure filter.] Some events have been observed to have a lack of tracks corresponding to standard or
+	large calorimeter deposits. There are two understood sources of this misreconstruction: in a first type of such
+	events, the tracking algorithm (explained in Section~\ref{ss:electron_reconstruction}) halts for some of its
+	iterations due to an exceeding number of calorimeter clusters. In a second type the hard collision happens at a
+	distance of approximately \SI{75}{\cm} from the nominal interaction point. A cut on the summed \pt of the tracks
+	originating from the primary vertices passing the preselection criteria, divided by the summed \pt of all jets in
+	the event, was found to clearly distinguish between pathological and unaffected events. A cut value of \SI{10}{\pc}
+	is imposed.
+	%https://twiki.cern.ch/twiki/bin/viewauth/CMS/SusyRA2NJetsInData2010#Tracking_failure
+
+	\item[Bad ECAL endcap super-cluster filter.] In 2012, two $5\times5$ super-clusters in the ECAL endcap regions were
+	observed to occasionally produce anomalous pulses, leading to artificially high \MET. The source of this issue can
+	be related to the High-Voltage system, but is subject to further investigation. A filter removing the problematic
+	events is used, configured to cut on the total energy of reconstructed hits not passing the nominal quality criteria
+	in the two super-clusters, with the cut value of \SI{1}{\TeV}.
+	%https://twiki.cern.ch/twiki/bin/viewauth/CMS/MissingETOptionalFilters#Bad_EE_Supercrystal_filter_added
+
+	\item[ECAL laser correction filter.] Lead tungstate crystals of the ECAL naturally lose their transparency with
+	radiation exposure. To maintain high precision, this effect is corrected for by frequently injecting laser pulses
+	and reading out the response in order to calibrate each crystal \autocite{CMS_TDR1}. During 2012 data-taking, a
+	handful of crystals unphysically large values of laser corrections, resulting in anomalously high \MET in recorded
+	events. The filter removes such events from the dataset.
+	%https://twiki.cern.ch/twiki/bin/viewauth/CMS/PdmVKnowFeatures#Filter_to_reject_events_with_ano
+
+	\item[Strip tracker noise filter.] A few events were affected by a large coherent noise in the silicon strip
+	tracker, which resulted in a much larger number of the strip clusters compared to according pixel cluster
+	multiplicity in the tracking algorithm. A dedicated filter rejects events with this anomaly.
+	%https://twiki.cern.ch/twiki/bin/viewauth/CMS/TrackingPOGFilters#Filters
+
+\end{description}
 
 \section{Data-driven QCD estimation}
 \label{s_xsection:data_driven_QCD}
