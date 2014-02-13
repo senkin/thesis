@@ -171,57 +171,48 @@ steps:
 %https://twiki.cern.ch/twiki/bin/view/CMS/TWikiTop2011DataMCTrig
 
 \subsubsection*{Trigger}
-As opposed to 2011 analysis using cross triggers, here a single electron trigger is used. Referred to as
+As opposed to 2011 analysis using cross triggers, a single electron trigger is used in this analysis. Referred to as
 HLT\_Ele27\_WP80, this trigger has a lepton \pt threshold of \SI{27}{\GeV} and ``WP80'' lepton isolation requirement
 (see Table~\ref{tab:trigger_naming}), but no specific jet requirements. In contrast to 2011 data-taking, the single
 electron trigger was unprescaled for the whole period of 2012 running, despite a comparatively large rate. This decision
 was made due to simplicity of the trigger selection, requiring flat efficiency corrections.
 
-% \subsubsection*{Electron candidate selection}
-% Exactly one electron candidate satisfying all the following criteria is required to be present in the event. As the
-% electron-plus-jets trigger has a lepton \pt threshold of \SI{25}{\GeV}, the electron candidate transverse momentum is
-% required to be above \SI{30}{\GeV}, in order to be in the trigger efficiency plateau region. Furthermore, the electron
-% has to be within the tracker region of $|\eta| < 2.5$ excluding the ECAL barrel-endcap transition regions of $1.4442 <
-% |\eta| < 1.566$. The CiC electron ID (see Section~\ref{ss:electron_reconstruction}) with the tightest working point
-% (``HyperTight'') is used for electron identification purposes. This working point provides a misidentification rate of
-% less than \SI{1}{\pc}, and overall identification efficiency of \SI{75}{\pc} \autocite{CiC_ID}.
+\subsubsection*{Electron candidate selection}
+Similarly to 2011 selection, exactly one electron candidate passing is required in the event, passing the following
+criteria:
 
-% In order to only select electrons originating at the interaction vertex, the $x$-$y$ distance ($d_{xy}$) between the
-% electron track and the interaction point (2D impact parameter) is required to be less than \SI{0.02}{\cm}. The
-% contribution of electrons inside jets from QCD background events, as well as fake electrons, is reduced by imposing the
-% PF-based relative isolation cut on the variable \reliso defined in Section~\ref{sss:electron_isolation}. A $\Delta
-% R$-cone with size of \num{0.3} is used in calculation of the \reliso variable, and events with \reliso $< 0.1$ are
-% accepted.
+\begin{itemize}
+	\item $\ET > \SI{30}{\GeV}$;
+	\item $|\eta| < 2.5$, excluding the ECAL barrel-endcap transition regions of $1.4442 < |\eta| < 1.566$;
+	\item MVA electron ID (Section~\ref{ss:electron_reconstruction}) with a discriminator cut of $>0.5$;
+	\item transverse impact parameter with respect to the primary vertex $d_{xy} < \SI{0.02}{\cm}$;
+	\item PF-based relative isolation (Section~\ref{sss:electron_isolation}) \reliso $< 0.1$ with a $\Delta
+R$-cone of \num{0.3}.
+\end{itemize}
 
-% \subsubsection*{Dilepton veto}
-% A veto requirement on a second electron candidate (or dilepton veto) is used to reject events with any additional
-% electrons. Looser criteria are used to identify the second electron in an event. Namely, the event is rejected if there
-% is a second electron satisfying a lower \ET threshold of \SI{15}{\GeV} and a looser cut on \reliso ($<0.2$).
+\subsubsection*{Dilepton veto}
+To reject events with additional electrons, dilepton veto is applied. Events are rejected if they contain a second
+electron candidate with looser \ET and \reliso criteria ($>\SI{20}{\GeV}$ and $<0.15$, respectively).
 
-% Additionally, in order to reduce \ZpJets background, the following veto is applied. If the event contains a second
-% electron with $\ET > \SI{30}{\GeV}$ and $\reliso < 1.0$ that forms such an invariant mass with the signal electron
-% candidate that it is close to the \Z mass peak, it is also rejected. The invariant mass window around the \Z peak is
-% chosen to be $\SI{76}{\GeV} < m_{ee} < \SI{106}{\GeV}$.
+\subsubsection*{Conversion veto}
+As described in Section~\ref{sss:photon_conversions}, a vertex fit technique combined with the number of missing hits
+in the tracker is used for photon conversion rejection.
 
+\subsubsection*{Muon veto}
+To reduce contamination from other \ttbar decay modes (i.e.\ muon and dilepton channels), events containing a global or
+a tracker muon (see Section \ref{ss:muon_reconstruction}) are rejected. The requirements on the muon are identical to
+those of 2011 selection: $\pt > \SI{10}{\GeV}$, $|\eta| < 2.5$ and $\reliso < 0.2$ with a $\Delta R$ cone of \num{0.4}.
 
-% \subsubsection*{Conversion veto}
-% As mentioned in Section~\ref{sss:photon_conversions}, two methods are used in this analysis to remove electrons coming
-% from photon conversions: missing pixel layers method and partner track matching method. If missing pixel layer hits or a
-% matching partner track are present in the event, it is rejected.
-
-% \subsubsection*{Muon veto}
-% Other \ttbar channels, including muon and dilepton decay modes, can contaminate events passing the electron plus jets
-% selection. To reduce this contamination, events containing an isolated global muon (see Section
-% \ref{ss:muon_reconstruction}) are rejected. The muon is required to have a \pt above \SI{10}{\GeV}, $|\eta| < 2.5$ and
-% $\reliso < 0.2$ with a $\Delta R$ cone of \num{0.4}.
-
-% \subsubsection*{Jet selection and b-tagging}
-% Final steps in the selection help to further reduce the background by imposing constraints on the number of jets. This
-% is particularly effective to mitigate the \WpJets contamination, as the number of \WpJets events decreases exponentially
-% with increasing number of jets. In this analysis, at least four jets with $\pt > \SI{30}{\GeV}$ and $|\eta| < 2.4$ are
-% required to be present in the event. These jets have to pass the loose PF jet ID (see Section
-% \ref{ss:jet_reconstruction}). Finally, the CSV b-tagging algorithm with medium working point (Section
-% \ref{sss:b-tagging}) is used to identify the two \cPqb-quarks from the \ttbar decay.
+\subsubsection*{Jet selection and b-tagging}
+To help further reduce the background, at least four jets with $\pt > \SI{30}{\GeV}$ and $|\eta| < 2.5$ are required in
+the event. These jets are required to pass the loose PF jet ID (see Section \ref{ss:jet_reconstruction}). Before the
+multiplicity and identification requirements, the collection of jets is cleaned against the signal electron, i.e.\ any
+jet within a $\Delta R$ cone of \num{0.3} around the signal lepton is excluded from the analysis. This is done due to
+the fact that an electron may be reconstructed as a jet by leaving a characteristic signature in calorimeters. Any
+additional jets with $\pt > \SI{20}{\GeV}$ and the same cleaning and ID requirements are also used for calculation of
+\HT and \ST variables. Finally, the combined secondary vertex (CSV) b-tagging algorithm with the medium working point
+(Section \ref{sss:b-tagging}) is used to identify the jets originating from \cPqb-quarks in the
+\ttbar decay. At least two b-tagged jets are required in this analysis.
 
 \subsection{Muon plus jets channel}
 \label{ss_xsection:mujets}
