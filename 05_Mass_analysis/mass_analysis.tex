@@ -221,7 +221,7 @@ As this analysis focuses on the electron channel, the event selection proceeds a
 
 \subsubsection*{Preselection}
 Preselection is performed in order to reduce the number of events stored for local analysis. All events are required to
-have at least one electron with \pt above \SI{30}{\GeV} within pseudorapidity region of $\abs \eta < 2.5$, or at least
+have at least one electron with \ET above \SI{30}{\GeV} within pseudorapidity region of $\abs \eta < 2.5$, or at least
 one muon with \pt above \SI{20}{\GeV} and $\abs \eta < 2.1$. Additional event cleaning is performed at this stage to
 decrease the number of events with substantial detector noise. A small fraction of events with anomalous HCAL noise is
 removed by an HCAL noise filter. Furthermore, beam scraping is mitigated by the appropriate filter requiring at least
@@ -257,7 +257,7 @@ accepted.
 \subsubsection*{Dilepton veto}
 A veto requirement on a second electron candidate (or dilepton veto) is used to reject events with any additional
 electrons. Looser criteria are used to identify the second electron in an event. Namely, the event is rejected if there
-is a second electron satisfying a lower \ET threshold of \SI{15}{\GeV} and a looser cut on \reliso ($<0.2$).
+is a second electron satisfying a lower \ET threshold of \SI{20}{\GeV} and a looser cut on \reliso ($<0.2$).
 
 Additionally, in order to reduce \ZpJets background, the following veto is applied. If the event contains a second
 electron with $\ET > \SI{30}{\GeV}$ and $\reliso < 1.0$ that forms such an invariant mass with the signal electron
