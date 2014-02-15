@@ -187,12 +187,13 @@ criteria:
 	\item MVA electron ID (Section~\ref{ss:electron_reconstruction}) with a discriminator cut of $>0.5$;
 	\item transverse impact parameter with respect to the primary vertex $d_{xy} < \SI{0.02}{\cm}$;
 	\item PF-based relative isolation (Section~\ref{sss:electron_isolation}) \reliso $< 0.1$ with a $\Delta
-R$-cone of \num{0.3}.
+R$ cone of \num{0.3}.
 \end{itemize}
 
 \subsubsection*{Dilepton veto}
 To reject events with additional electrons, dilepton veto is applied. Events are rejected if they contain a second
-electron candidate with looser \ET and \reliso criteria ($>\SI{20}{\GeV}$ and $<0.15$, respectively).
+electron candidate with the same ID and $\eta$ requirements, but looser \ET and \reliso criteria ($>\SI{20}{\GeV}$ and
+$<0.15$, respectively).
 
 \subsubsection*{Conversion veto}
 As described in Section~\ref{sss:photon_conversions}, a vertex fit technique combined with the number of missing hits
@@ -216,6 +217,73 @@ additional jets with $\pt > \SI{20}{\GeV}$ and the same cleaning and ID requirem
 
 \subsection{Muon plus jets channel}
 \label{ss_xsection:mujets}
+The muon channel event selection follows similar strategy as that of the electron channel:
+
+\begin{enumerate}[topsep=\parskip, parsep=\parskip, itemsep=\parskip, leftmargin=\leftmargin]
+	\item preselection;
+	\item trigger;
+	\item muon candidate selection;
+	\item second muon veto;
+	\item electron veto;
+	\item jet selection;
+	\item b-tagging.
+\end{enumerate}
+
+\subsubsection*{Trigger}
+An isolated single muon trigger, referred to as HLT\_IsoMu24\_eta2p1, is used in this channel. Partially suggested by
+the name of the trigger path, the following criteria on the muon are imposed at the HLT level:
+
+\begin{itemize}
+	\item $\pt > \SI{24}{\GeV}$;
+	\item $\abs \eta < 2.1$;
+	\item Combined tracker and calorimeter-based relative isolation (Section~\ref{sss:electron_isolation}) \reliso $<
+0.15$ with a $\Delta R$ cone of 0.3.
+
+% according to https://twiki.cern.ch/twiki/bin/viewauth/CMS/MuonHLT isolation used to be 0.1, dR=0.24 in RunA
+\end{itemize}
+
+\subsubsection*{Muon candidate selection}
+For selection of a muon candidate, exactly one muon satisfying the following requirements is required:
+
+\begin{itemize}
+	\item $\pt > \SI{26}{\GeV}$;
+	\item $|\eta| < 2.1$;
+	\item PF-based relative isolation (Section~\ref{sss:electron_isolation}) \reliso $< 0.12$ with a $\Delta
+R$ cone of \num{0.4};
+	\item PF-muon ID criteria (Section \ref{ss:muon_reconstruction}):
+	\begin{itemize}
+		\item identified as a particle flow muon and as a global muon;
+		\item a normalised of the global muon fit $\chi^2<10$;
+		\item number of muon chamber hits $>0$;
+		\item number of muon stations with muon segments $>1$;
+		\item transverse impact parameter w.r.t. the primary vertex $d_{xy} < \SI{0.02}{\cm}$;
+		\item longitudinal distance of the tracker track w.r.t. the primary vertex $d_z < \SI{0.5}{\cm}$;
+		\item number of hits in the pixel detector $>0$;
+		\item number of hits in the tracker layers $>5$.
+	\end{itemize}
+\end{itemize}
+
+\subsubsection*{Second muon veto}
+Events containing an additional loose muon are rejected, with loose ID requirements as follows:
+
+\begin{itemize}
+	\item $\pt > \SI{10}{\GeV}$;
+	\item $|\eta| < 2.5$;
+	\item PF-based relative isolation (Section~\ref{sss:electron_isolation}) \reliso $< 0.2$ with a $\Delta
+R$ cone of \num{0.4}; %PU corrections!
+	\item identified as a particle flow muon, and either global or tracker muon.
+\end{itemize}
+
+These criteria are identical to the muon veto requirements in the electron channel.
+
+\subsubsection*{Electron veto}
+To further reduce background contamination, events with electrons are rejected. The requirements on additional loose
+electron are the same to the dilepton veto in the electron channel.
+
+\subsubsection*{Jet selection and b-tagging}
+Finally, the jet requirements are applied. These are also identical to those of the electron channel, mentioned above.
+
+
 
 % \begin{figure}[!htp]
 %    \centering
