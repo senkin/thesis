@@ -13,6 +13,13 @@ Measurement of the differential cross section of the top quark pairs with respec
 precision measurement, but it can also give hints of new physics. For example, measurement of the missing energy in
 \ttbar events can represent a search for invisible particles produced in association with top quarks.
 
+The analysis presented in this chapter represents the top quark differential cross section measurement with respect to
+event-level (or global) distributions, including the missing transverse energy, the scalar sum of jet transverse momenta
+($H_T$) and other variables \autocite{xsection_PAS_7TeV, xsection_PAS_8TeV}. This measurement is used to validate
+different Monte Carlo models and generator tunes. Moreover, it provides a sensitive probe for new physics: for instance,
+deviations in the tail of the missing transverse energy distribution could signal new resonances with invisible
+particles in the final state.
+
 \section{Data and Simulation}
 \label{s_xsection:data_and_simulation}
 
@@ -44,13 +51,13 @@ the MC simulation is still used for normalisation purposes.
 
 \subsection{Pile-up reweighting}
 \label{sss_xsection:pileup_reweighting}
-%EDIT%
-% The number of simulated pile-up interactions does not represent the distribution of the number of pile-up events in data
-% and therefore a reweighting is performed using the estimated number of in-time interactions per luminosity block. A
-% centrally provided tool uses the estimated instantaneous luminosity to produce a distribution of the expected number of
-% pile-up interactions. This is done for the used runs of the 2012 data taking. A weight for each number of pile-up
-% interactions in the simulation are produced, taking into account the true number of pile-up interactions at the nominal
-% bunch crossing.
+Since the number of simulated pile-up interactions does not necessarily represent the same distribution in data, a
+reweighting procedure for MC events is required. To produce the weights, measured instantaneous luminosity is used to
+obtain a distribution of true pile-up vertices in data, i.e.\ before any vertex reconstruction inefficiencies. This
+distribution is then divided by the simulated one, and for each number of pile-up interactions, the weight is
+calculated. Figure~\ref{fig:pileup_vertices} shows the number of interactions before and after reweighting for both
+electron an muon channels. Evidently, the reweighting procedure helps to achieve a good agreement between data and
+simulation.
 
 \begin{figure}[!htpb]
 \begin{center}
@@ -65,10 +72,25 @@ the MC simulation is still used for normalisation purposes.
 \end{center}
 \end{figure}
 
+To estimate the number of pile-up vertices in data, the measured instantaneous luminosity in each bunch crossing is
+multiplied by an average total inelastic proton-proton cross section. Therefore, two sources of uncertainty arise from
+these factors: the luminosity uncertainty, measured to be \SI{4.4}{\pc} by a dedicated study \autocite{CMS_lumi_2012},
+and the uncertainty on the total inelastic cross section. To obtain the total cross section value, the CMS measurement
+of \SI{68\pm4.5}{\milli\barn} based on \SI{7}{\TeV} data \autocite{CMS_total_inelastic_7TeV} was extrapolated to the
+\SI{8}{\TeV} value of \SI{69.3}{\milli\barn}. The recommended uncertainty on this value, set to be \SI{5}{\pc}, covers
+the modelling and physics aspects of pile-up simulation that have not been fully studied up to date.
+
+%https://twiki.cern.ch/twiki/bin/viewauth/CMS/PileupSystematicErrors (this has been updated to 69.4mb!)
+
+The effect of the \SI{\pm5}{\pc} variations in total inelastic cross section on the estimate of the true number of
+vertices in data is shown in Figure~\ref{fig:pileup_truth}, whereas its effect on the simulated distributions is shown
+in Figure~\ref{fig:pileup_vertices_variations} for both electron and muon channels.
+
  \begin{figure}[hbtp]
    \centering
      \includegraphics[width=\textwidth]{vertices/PileUp_2012_truth_data.pdf}
-     \caption{Number of expected vertices per event for different inelastic cross sections for the 2012 data.}
+     \caption{Number of expected vertices per event for central and $\pm \sigma$ variations of the total inelastic cross
+     section for the 2012 data.}
      \label{fig:pileup_truth}
  \end{figure}
 
@@ -84,22 +106,6 @@ the MC simulation is still used for normalisation purposes.
 \end{center}
 \end{figure}
 
-%EDIT%
-% The number of interactions in the data is estimated from the measured luminosity in each bunch crossing multiplied by an
-% average total inelastic cross section. The two sources of error here are the luminosity uncertainty, which is currently
-% 4.4\% \cite{CMS-PAS-LUM-12-001} and the uncertainty on the total inelastic cross section. A total inelastic cross
-% section of $68 \pm 4.5$~mb using forward calorimetry in 2011 data \cite{CMS-FWD-11-002} has been extrapolated to the
-% 2012 value of 69.3~mb which has been used.
-
-% In order to cover all of the modelling and physics aspects of the pileup simulation that have not been properly studied
-% an additional uncertainty is recommended leading to a total uncertainty of $\pm 5\%$.
-
-% %This method is chosen to allow for different vertex reconstruction efficiencies in data compared to the simulation.
-% Figure~\ref{fig:pileup_vertices} shows the number of reconstructed vertices before and after reweighting. One can see
-% that after performing the reweighting the distributions agree reasonably well for the signal region of this analysis.
-% The effect of the $5\%$ change of the inelastic cross section that is used to calculate the true vertex multiplicity in
-% data (fig. \ref{fig:pileup_truth}) can be seen in figure~\ref{fig:pileup_vertices_variations}. The pile-up distribution
-% using the $-5\%$ value of the cross section has the best agreement between data and simulation.
 
 \subsection{b-tagging corrections}
 \label{ss_xsection:btagging_corrections}
