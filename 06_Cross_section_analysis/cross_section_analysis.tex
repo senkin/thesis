@@ -109,20 +109,15 @@ in Figure~\ref{fig:pileup_vertices_variations} for both electron and muon channe
 
 \subsection{b-tagging corrections}
 \label{ss_xsection:btagging_corrections}
-%EDIT
-% In this analysis $b$ tagging is used in the event reconstruction to associate reconstructed jets to partons in the decay
-% chain and to select events in the final analysis. Here, the \emph{combined secondary vertex} tagger with the medium
-% operation point  (cut value~0.679, CSVM) is used which results in a $1\%$ light-jet mistag rate ~\cite{CMSbAlgo}.
-
-% We apply \pt dependent b-tag efficiency corrections to each $b$ tag for simulated events to account for the differences
-% between data and simulation seen in 2012 data~\cite{bTagResultsPaper}. Simulated events passing the $b$ tagging
-% requirements are given a weight (following the prescription from the BTag POG~\cite{bTagWeight}) to ensure that the
-% probability of selecting a simulated event matches the probability of a data event with the same jet flavour composition
-% being selected.
-
-% The results of the reweighting can be seen in fig. \ref{fig:bjet_weights}. The number of MC events in the 0 and 1 b-tag
-% is scaled up while the number of MC events with b-tag multiplicity higher than 2 are scaled down.
-
+In order to mitigate the background (QCD in particular), the b-tagging is applied in the event selection of this
+analysis. Similarly to the top quark mass analysis, the CSV algorithm with the medium working point providing
+\SI{\sim70}{\percent} efficiency and \SI{\sim1}{\percent} mis-tag rate (Section~\ref{sss:b-tagging}) was used. However,
+in contrast with the 2011 analysis where the b-tagging corrections were implemented in the construction of the event
+likelihood, in this work the scale factors are applied to Monte Carlo events. This is done in order to correct for the
+mismatch between the algorithm efficiency seen in data and MC \autocite{btagging_CMS_8TeV_results}. \pt and
+$\eta$-dependent scale factors were derived by the CMS b-tag Physics Object Group \autocite{btag_weights_2011} and are
+used to reweight the simulated events. The overall jet content of the event is taken into account, such as the number of
+jets originating from light and heavy quarks.
 
 \begin{figure}[!htpb]
 \begin{center}
@@ -136,8 +131,10 @@ in Figure~\ref{fig:pileup_vertices_variations} for both electron and muon channe
 \end{center}
 \end{figure}
 
-% The systematic variations of the uncertainties due to the $b$ tag efficiency are applied by varying the efficiency scale
-% factor $SF$ by the according $\pm 1 \sigma$ variations in the event reweighting procedure.
+Figure \ref{fig:bjet_weights} shows the results of the reweighting procedure for electron and muon channels. It can be
+seen that the numbers of simulated events in b-tag multiplicity bins of \num{0} and \num{1} are scaled up, whereas for
+other bins the number of MC events is scaled down. The systematic uncertainty due to b-tagging corrections is calculated
+by applying $\pm 1 \sigma$ variations of the scale factors in the reweighting procedure.
 
 \section{Event Selection}
 \label{s_xsection:event_selection}
