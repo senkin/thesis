@@ -287,7 +287,6 @@ electron are the same to the dilepton veto in the electron channel.
 Finally, the jet requirements are applied. These are also identical to those of the electron channel, mentioned above.
 
 
-
 % \begin{figure}[!htp]
 %    \centering
 %    \subfloat[]{\includegraphics[width=0.5\textwidth]{placeholder}}
@@ -299,13 +298,17 @@ Finally, the jet requirements are applied. These are also identical to those of 
 %    electron $\eta$, (c) jet \pt for all jets passing the selection, (d) \MET.}
 % \end{figure}
 
-\subsection{Additional filters}
+\subsection{Additional filters for missing transverse energy}
 \label{ss_xsection:met_filters}
 %https://twiki.cern.ch/twiki/bin/viewauth/CMS/MissingETOptionalFilters
 
-A set of optional filters, prescribed for analyses with high sensitivity to missing transverse energy, was applied in
-the selection for both electron and muon channels. Most of these filters were put in place after discovering events with
-anomalously high \MET. A short description of each filter is given below.
+There is no specific requirement on missing transverse energy in the selection, however, a set of corrections is applied
+to \MET. As described in Section~\ref{ss:MET_reconstruction}, jet energy corrections are propagated to \MET, and it is
+also corrected for pile-up and various detector effects causing $\phi$ modulation.
+
+Additionally, a set of optional filters, prescribed for analyses with high sensitivity to \MET, was applied in the
+selection for both electron and muon channels. Most of these filters were put in place after discovering events with
+anomalously high missing transverse energy. A short description of each filter is given below.
 
 \begin{description}[wide=\parindent]
 	\item[CSC beam halo filter.]
@@ -364,6 +367,73 @@ anomalously high \MET. A short description of each filter is given below.
 
 \section{Data-driven QCD estimation}
 \label{s_xsection:data_driven_QCD}
+The QCD multi-jet events constitute an important background to semi-leptonic \ttbar decays, and one of the most
+difficult to model (Section~\ref{ss:backgrounds}). The two b-tagged jets requirement in the event selection is mainly
+motivated by the necessity to mitigate the effect of this particular background. In this analysis, the final QCD yield
+is obtained from the fitting process as explained in Section~\ref{s_xsection:measurement}. However, the initial estimate
+is performed using the data-driven techniques. Only the shape of the distribution is of importance here as the
+normalisation is determined in the fitting process. The QCD estimation methods for both electron and muon channel are
+described in detail hereafter.
+
+\subsection{QCD multi-jet events with electrons}
+Two control regions have been investigated in the electron channel:
+
+\begin{itemize}
+\item conversion control region: conversion veto is inverted in the full event selection;
+\item non-isolated electron control region: the electron isolation requirement is changed from $\reliso < 0.1$ to
+$\reliso > 0.2$.
+\end{itemize}
+
+Additionally, only events with no b-tagged jets are taken into account to increase the statistics and QCD purity in both
+control regions. Both control regions are presented on Figure~\ref{fig:qcd_control_regions_eta}, and the QCD shapes are
+compared for the electron absolute pseudorapidity distribution as this observable is used in the fitting procedure. It
+can be seen that the distributions are not well described by the Monte Carlo, e.g.\ occasional high peaks in the QCD MC
+represent the lack of statistics in simulation. Moreover, the two control regions have considerably different shapes in
+the electron $\abs \eta$ distributions. For the conversion control region, the shape is mostly flat in the barrel region
+($\abs \eta < 1.5$) and peaks in the endcap region ($\abs \eta > 1.5$), which is expected as the conversions are more
+likely to happen in the region with higher material budget. In contrast, the non-isolated control region peaks in the
+pseudorapidity region of $1.0 < \abs \eta < 1.5$. Such behaviour is correlated with the jet $\abs \eta$ distribution,
+since this control region favours non-isolated electrons coming from heavy quark decays.
+
+\begin{figure}[hbtp]
+  \begin{center}
+  	\subfloat[]{\includegraphics[width=0.50\textwidth]{QCD/QCD_conversion_control_region_electron_AbsEta_0btag}}\hfill
+	\subfloat[]{\includegraphics[width=0.50\textwidth]{QCD/QCD_non_iso_control_region_electron_AbsEta_0btag}} \\
+	\subfloat[]{\includegraphics[width=0.50\textwidth]{QCD/QCD_control_region_comparison_electron_AbsEta_0btag}}
+    \caption{Distribution of the electron $\abs \eta$ for conversion selection (a), non-isolated electron selection
+    (b) and the shape comparison of both QCD control region in data (c) in electron plus jets events with at least
+    four jets and 0 b-tagged jets.}
+    \label{fig:qcd_control_regions_eta}
+  \end{center}
+\end{figure}
+
+Due to the fact that the non-isolated control region has a significant contamination from signal and \W/\ZpJets events,
+the conversion region was chosen to produce the QCD template for the electron channel. However, since the relative
+contributions of the QCD events from both control regions in the final selected sample are not known, the real QCD shape
+can differ considerably from the prediction. Therefore, the non-isolated region is used to estimate the systematic
+uncertainty due to the QCD shape choice.
+
+\subsection{QCD multijet events with muons}
+For the QCD shape extraction in the muon plus jets channel, the inverted isolation cut is applied in the event
+selection: at least one muon with $\reliso>0.3$ is required, and events with isolated muons with $\reliso<0.3$ are
+vetoed. Similarly to the electron channel, only events with no b-tagged jets are taken into account. Additionally, to
+increase the available statistics, events with only three jets are also considered ($\geq 3$ jet bin).
+
+The relative isolation distribution with the cut value and the muon $\abs \eta$ for the non-isolated region are shown on
+Figure~\ref{fig:qcd_muon_plots}. Clearly, the control region is dominated by QCD events and generally there is a
+reasonable agreement between data and simulation. The contamination from other processes is subtracted using Monte
+Carlo.
+
+\begin{figure}[hbtp]
+  \begin{center}
+  	\subfloat[]{\includegraphics[width=0.50\textwidth]{QCD/QCD_muon_pfIsolation_0btag}}\hfill
+  	\subfloat[]{\includegraphics[width=0.50\textwidth]{QCD/QCD_non_iso_control_region_muon_AbsEta_0btag}}
+    \caption{Muon relative isolation with no isolation cut (a) and muon $\abs \eta$ (b) for non-isolated ($\reliso >
+    0.3$) selection in muon plus jets events with at least three jets and 0 b-tagged jets. The vertical red line on plot
+    (a) shows the \reliso cut value of \num{0.3}.}
+    \label{fig:qcd_muon_plots}
+  \end{center}
+\end{figure}
 
 \section{Choice of binning}
 \label{s_xsection:binning}
