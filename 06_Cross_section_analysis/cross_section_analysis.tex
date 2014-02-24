@@ -164,9 +164,9 @@ steps:
 	\item preselection;
 	\item trigger;
 	\item electron candidate selection;
+	\item muon veto;
 	\item dilepton veto;
 	\item conversion veto;
-	\item muon veto;
 	\item jet selection;
 	\item b-tagging.
 \end{enumerate}
@@ -193,6 +193,11 @@ criteria:
 R$ cone of \num{0.3}.
 \end{itemize}
 
+\subsubsection*{Muon veto}
+To reduce contamination from other \ttbar decay modes (i.e.\ muon and dilepton channels), events containing a global or
+a tracker muon (see Section \ref{ss:muon_reconstruction}) are rejected. The requirements on the muon are identical to
+those of 2011 selection: $\pt > \SI{10}{\GeV}$, $|\eta| < 2.5$ and $\reliso < 0.2$ with a $\Delta R$ cone of \num{0.4}.
+
 \subsubsection*{Dilepton veto}
 To reject events with additional electrons, dilepton veto is applied. Events are rejected if they contain a second
 electron candidate with the same ID and $\eta$ requirements, but looser \ET and \reliso criteria ($>\SI{20}{\GeV}$ and
@@ -201,11 +206,6 @@ $<0.15$, respectively).
 \subsubsection*{Conversion veto}
 As described in Section~\ref{sss:photon_conversions}, a vertex fit technique combined with the number of missing hits
 in the tracker is used for photon conversion rejection.
-
-\subsubsection*{Muon veto}
-To reduce contamination from other \ttbar decay modes (i.e.\ muon and dilepton channels), events containing a global or
-a tracker muon (see Section \ref{ss:muon_reconstruction}) are rejected. The requirements on the muon are identical to
-those of 2011 selection: $\pt > \SI{10}{\GeV}$, $|\eta| < 2.5$ and $\reliso < 0.2$ with a $\Delta R$ cone of \num{0.4}.
 
 \subsubsection*{Jet selection and b-tagging}
 To help further reduce the background, at least four jets with $\pt > \SI{30}{\GeV}$ and $|\eta| < 2.5$ are required in
@@ -434,6 +434,38 @@ Carlo.
     \label{fig:qcd_muon_plots}
   \end{center}
 \end{figure}
+
+\section{Data/MC comparison}
+\label{s_xsection:data_mc_comparison}
+%explain the MC error on the plots. explain the yields.
+\begin{figure}[hbtp]
+  \begin{center}
+  	%\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/EPlusJets_N_Jets_2orMoreBtags}} \\
+  	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/EPlusJets_patType1CorrectedPFMet_2orMoreBtags_with_ratio}}\hfill
+  	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/EPlusJets_patType1CorrectedPFMet_log_2orMoreBtags_with_ratio}} \\
+  	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/EPlusJets_patType1CorrectedPFMet_phi_2orMoreBtags_with_ratio}}\hfill
+  	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/electron_AbsEta_2orMoreBtags_with_ratio}}
+    \caption{Data/MC comparison plots for the electron channel after the final event selection: \MET (a, b), $\phi(\MET)$
+    (c), electron $|\eta|$ (d).}
+    \label{fig:contol_plots_ejets}
+  \end{center}
+\end{figure}
+
+\begin{figure}[hbtp]
+  \begin{center}
+  	%\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/MuPlusJets_N_Jets_2orMoreBtags}} \\
+  	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/MuPlusJets_patType1CorrectedPFMet_2orMoreBtags_with_ratio}}
+  	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/MuPlusJets_patType1CorrectedPFMet_log_2orMoreBtags_with_ratio}} \\
+  	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/MuPlusJets_patType1CorrectedPFMet_phi_2orMoreBtags_with_ratio}}\hfill
+  	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/muon_AbsEta_2orMoreBtags_with_ratio}}
+    \caption{Data/MC comparison plots for the muon channel after the final event selection: \MET (a, b), $\phi(\MET)$
+    (c), muon $|\eta|$ (d).}
+    \label{fig:contol_plots_mujets}
+  \end{center}
+\end{figure}
+
+
+\input{06_Cross_section_analysis/tables/xsection_event_yields}
 
 \section{Choice of binning}
 \label{s_xsection:binning}
