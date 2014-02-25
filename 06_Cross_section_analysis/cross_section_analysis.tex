@@ -438,34 +438,63 @@ Carlo.
 \section{Data/MC comparison}
 \label{s_xsection:data_mc_comparison}
 %explain the MC error on the plots. explain the yields.
-\begin{figure}[hbtp]
-  \begin{center}
-  	%\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/EPlusJets_N_Jets_2orMoreBtags}} \\
-  	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/EPlusJets_patType1CorrectedPFMet_2orMoreBtags_with_ratio}}\hfill
-  	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/EPlusJets_patType1CorrectedPFMet_log_2orMoreBtags_with_ratio}} \\
-  	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/EPlusJets_patType1CorrectedPFMet_phi_2orMoreBtags_with_ratio}}\hfill
-  	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/electron_AbsEta_2orMoreBtags_with_ratio}}
-    \caption{Data/MC comparison plots for the electron channel after the final event selection: \MET (a, b), $\phi(\MET)$
-    (c), electron $|\eta|$ (d).}
-    \label{fig:contol_plots_ejets}
-  \end{center}
-\end{figure}
 
-\begin{figure}[hbtp]
-  \begin{center}
-  	%\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/MuPlusJets_N_Jets_2orMoreBtags}} \\
-  	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/MuPlusJets_patType1CorrectedPFMet_2orMoreBtags_with_ratio}}
-  	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/MuPlusJets_patType1CorrectedPFMet_log_2orMoreBtags_with_ratio}} \\
-  	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/MuPlusJets_patType1CorrectedPFMet_phi_2orMoreBtags_with_ratio}}\hfill
-  	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/muon_AbsEta_2orMoreBtags_with_ratio}}
-    \caption{Data/MC comparison plots for the muon channel after the final event selection: \MET (a, b), $\phi(\MET)$
-    (c), muon $|\eta|$ (d).}
-    \label{fig:contol_plots_mujets}
-  \end{center}
-\end{figure}
+In this section, the agreement between simulation and data for various kinematic distributions is reviewed after the
+final event selection. The event yields for all selection steps described in Section~\ref{s_xsection:event_selection}
+are shown in Tables~\ref{tab:event_yields_ejets} and \ref{tab:event_yields_mujets} for the electron and muon channels,
+respectively. All background events are normalised to the number of expected events for the total integrated luminosity
+of \SI{19.7}{\fbinv}.
 
+The QCD multi-jet background events shown in plots are derived using the data-driven methods explained previously.
+Figure~\ref{fig:contol_plots_leptons} shows the lepton \pt and $\abs \eta$ distributions for both electrons and muons.
+In Figure~\ref{fig:contol_plots_METs}, missing transverse energy distributions are shown, also including the
+logarithmic scale for higher values of \MET. Figure~\ref{fig:contol_plots_phiMET_NJets} shows the azimuthal angle of
+\MET ($\phi(\MET)$) and jet multiplicity distributions for both channels. The \ttbar uncertainty shown in the plots
+refers to the theoretical uncertainty on the NNLO calculation of the total \ttbar cross section at \SI{8}{\TeV}
+\autocite{NNLO_ttbar} used in this analysis.
+
+Overall, good agreement is found between data and Monte Carlo simulation in all kinematic distributions. One should note
+that the comparison shown is made before the fitting process, which is described in
+Section~\ref{s_xsection:measurement}.
 
 \input{06_Cross_section_analysis/tables/xsection_event_yields}
+
+
+\begin{figure}[hbtp]
+  \begin{center}
+  	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/electron_pT_2orMoreBtags_with_ratio}}\hfill
+  	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/muon_pT_2orMoreBtags_with_ratio}} \\
+  	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/electron_AbsEta_2orMoreBtags_with_ratio}}\hfill
+  	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/muon_AbsEta_2orMoreBtags_with_ratio}}
+    \caption{Data/MC comparison plots after the final event selection: electron \pt (a), muon \pt (b), electron $\abs
+    \eta$ (c) and muon $\eta$ (d). Left plots: electron+jets selection, right plots: muon+jets selection.}
+    \label{fig:contol_plots_leptons}
+  \end{center}
+\end{figure}
+
+\begin{figure}[hbtp]
+  \begin{center}
+  	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/EPlusJets_patType1CorrectedPFMet_2orMoreBtags_with_ratio}}\hfill
+  	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/MuPlusJets_patType1CorrectedPFMet_2orMoreBtags_with_ratio}} \\
+  	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/EPlusJets_patType1CorrectedPFMet_log_2orMoreBtags_with_ratio}}\hfill
+  	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/MuPlusJets_patType1CorrectedPFMet_log_2orMoreBtags_with_ratio}} \\
+    \caption{Data/MC comparison plots of \MET (a, b) and logarithmic view of \MET (c, d) after the final event
+    selection. Left plots: electron+jets selection, right plots: muon+jets selection.}
+    \label{fig:contol_plots_METs}
+  \end{center}
+\end{figure}
+
+\begin{figure}[hbtp]
+  \begin{center}
+  	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/EPlusJets_patType1CorrectedPFMet_phi_2orMoreBtags_with_ratio}}\hfill
+	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/MuPlusJets_patType1CorrectedPFMet_phi_2orMoreBtags_with_ratio}} \\
+  	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/EPlusJets_N_Jets_2orMoreBtags_with_ratio}}\hfill
+  	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/MuPlusJets_N_Jets_2orMoreBtags_with_ratio}} \\
+    \caption{Data/MC comparison plots of $\phi(\MET)$ (a, b) and jet multiplicity (c, d) after the final event
+    selection. Left plots: electron+jets selection, right plots: muon+jets selection.}
+    \label{fig:contol_plots_phiMET_NJets}
+  \end{center}
+\end{figure}
 
 \section{Choice of binning}
 \label{s_xsection:binning}
