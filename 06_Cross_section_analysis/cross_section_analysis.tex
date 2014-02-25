@@ -498,6 +498,54 @@ Section~\ref{s_xsection:measurement}.
 
 \section{Choice of binning}
 \label{s_xsection:binning}
+% to edit
+% In order to improve the differential cross section measurement, the binning of the variables must be chosen carefully so
+% as to minimise migration between neighbouring bins. The event statistics within a bin must also be substantial such that
+% the likelihood fit can be performed. In order to quantify the effect of bin migration, two parameters, bin purity, $p^k$
+% and stability, $s^k$, are defined:
+
+% \begin{eqnarray}
+% p^k = \frac{N_{\rec\&\gen}^k}{N_{\rec}^k} \\
+% s^k = \frac{N_{\rec\&\gen}^k}{N_{\gen}^k}
+% \end{eqnarray}
+
+% where $N_{\rec\&\gen}^k$ is the number of events both generated and reconstructed in the same bin and
+% $N_{\rec}^k$/$N_{\gen}^k$ is the number of events reconstructed/generated within a bin. The purity parameter is
+% sensitive to migration into a bin while the stability parameter is sensitive to migration out of a bin. Binning is
+% chosen such that the $p^k$ and $s^k$ values do not fall far below 0.5. We can see that the values for all the variables
+% are consistent between the electron and muon channels in tables...
+
+
+\begin{figure}[hbtp]
+	\centering
+	%MET
+	\subfloat[]{\includegraphics[width=0.5\textwidth]{binning_choice/EPlusJets/MET}}\hfill
+	\subfloat[]{\includegraphics[width=0.5\textwidth]{binning_choice/MuPlusJets/MET}}\\
+	%HT
+	\subfloat[]{\includegraphics[width=0.5\textwidth]{binning_choice/EPlusJets/HT}}\hfill
+	\subfloat[]{\includegraphics[width=0.5\textwidth]{binning_choice/MuPlusJets/HT}}\\ 
+	%ST
+	\subfloat[]{\includegraphics[width=0.5\textwidth]{binning_choice/EPlusJets/ST}}\hfill
+	\subfloat[]{\includegraphics[width=0.5\textwidth]{binning_choice/MuPlusJets/ST}}\\ 
+
+	\caption{Reconstructed versus generated \MET (a, b), \HT (c, d) and \ST (e, f) for electron plus jets (left) and
+	muon plus jets events (right).}
+	\label{fig:choice_of_metbins_1}
+ \end{figure}
+
+\begin{figure}[hbtp]
+	\centering
+	%WPT
+	\subfloat[]{\includegraphics[width=0.5\textwidth]{binning_choice/EPlusJets/WPT}}\hfill
+	\subfloat[]{\includegraphics[width=0.5\textwidth]{binning_choice/MuPlusJets/WPT}}\\
+	%MT
+	\subfloat[]{\includegraphics[width=0.5\textwidth]{binning_choice/EPlusJets/MT}}\hfill
+	\subfloat[]{\includegraphics[width=0.5\textwidth]{binning_choice/MuPlusJets/MT}}\\
+
+	\caption{Reconstructed versus generated \WPT (a, b), \MT (c, d) for electron plus jets (left) and muon plus jets
+	events (right).}
+	\label{fig:choice_of_metbins_2}
+ \end{figure}
 
 \section{Differential cross section measurement}
 \label{s_xsection:measurement}
