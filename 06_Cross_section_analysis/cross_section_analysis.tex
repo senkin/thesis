@@ -14,11 +14,12 @@ precision measurement, but it can also give hints of new physics. For example, m
 \ttbar events can represent a search for invisible particles produced in association with top quarks.
 
 The analysis presented in this chapter represents the top quark differential cross section measurement with respect to
-event-level (or global) distributions, including the missing transverse energy, the scalar sum of jet transverse momenta
-($H_T$) and other variables \autocite{xsection_PAS_7TeV, xsection_PAS_8TeV}. This measurement is used to validate
-different Monte Carlo models and generator tunes. Moreover, it provides a sensitive probe for new physics: for instance,
-deviations in the tail of the missing transverse energy distribution could signal new resonances with invisible
-particles in the final state.
+event-level (or global) distributions, including the missing transverse momentum (\MET), the scalar sum of jet
+transverse momenta (\HT), the scalar sum of the transverse momenta of all objects in the event (\ST), and both the
+transverse mass (\MT) and transverse momentum (\WPT) of the leptonically decaying \W boson produced in the top quark
+decay \autocite{xsection_PAS_7TeV, xsection_PAS_8TeV}. This measurement is used to validate different Monte Carlo models
+and generator tunes. Moreover, it provides a sensitive probe for new physics: for instance, deviations in the tail of
+the missing transverse energy distribution could signal new resonances with invisible particles in the final state.
 
 \section{Data and Simulation}
 \label{s_xsection:data_and_simulation}
@@ -214,9 +215,9 @@ multiplicity and identification requirements, the collection of jets is cleaned 
 jet within a $\Delta R$ cone of \num{0.3} around the signal lepton is excluded from the analysis. This is done due to
 the fact that an electron may be reconstructed as a jet by leaving a characteristic signature in calorimeters. Any
 additional jets with $\pt > \SI{20}{\GeV}$ and the same cleaning and ID requirements are also used for calculation of
-\HT and \ST variables. Finally, the combined secondary vertex (CSV) b-tagging algorithm with the medium working point
-(Section \ref{sss:b-tagging}) is used to identify the jets originating from \cPqb-quarks in the
-\ttbar decay. At least two b-tagged jets are required in this analysis.
+\HT and \ST variables (Section~\ref{ss_xsection:variables}). Finally, the combined secondary vertex (CSV) b-tagging
+algorithm with the medium working point (Section \ref{sss:b-tagging}) is used to identify the jets originating from
+\cPqb-quarks in the \ttbar decay. At least two b-tagged jets are required in this analysis.
 
 \subsection{Muon plus jets channel}
 \label{ss_xsection:mujets}
@@ -272,8 +273,8 @@ Events containing an additional loose muon are rejected, with loose ID requireme
 \begin{itemize}
 	\item $\pt > \SI{10}{\GeV}$;
 	\item $|\eta| < 2.5$;
-	\item PF-based relative isolation (Section~\ref{sss:electron_isolation}) \reliso $< 0.2$ with a $\Delta
-R$ cone of \num{0.4}; %PU corrections!
+	\item PF-based relative isolation (Section~\ref{sss:electron_isolation}) \reliso $< 0.2$ with a $\Delta R$ cone of
+	\num{0.4}; %PU corrections!
 	\item identified as a particle flow muon, and either global or tracker muon.
 \end{itemize}
 
@@ -459,7 +460,6 @@ Section~\ref{s_xsection:measurement}.
 
 \input{06_Cross_section_analysis/tables/xsection_event_yields}
 
-
 \begin{figure}[hbtp]
   \begin{center}
   	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/electron_pT_2orMoreBtags_with_ratio}}\hfill
@@ -467,7 +467,7 @@ Section~\ref{s_xsection:measurement}.
   	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/electron_AbsEta_2orMoreBtags_with_ratio}}\hfill
   	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/muon_AbsEta_2orMoreBtags_with_ratio}}
     \caption{Data/MC comparison plots after the final event selection: electron \pt (a), muon \pt (b), electron $\abs
-    \eta$ (c) and muon $\eta$ (d). Left plots: electron+jets selection, right plots: muon+jets selection.}
+    \eta$ (c) and muon $\abs \eta$ (d). Left plots: electron+jets selection, right plots: muon+jets selection.}
     \label{fig:contol_plots_leptons}
   \end{center}
 \end{figure}
@@ -496,9 +496,60 @@ Section~\ref{s_xsection:measurement}.
   \end{center}
 \end{figure}
 
-\section{Choice of binning}
-\label{s_xsection:binning}
-% to edit
+\newpage
+
+\section{Differential cross section measurement}
+\label{s_xsection:measurement}
+
+\subsection{Primary variables}
+\label{ss_xsection:variables}
+
+In this analysis, the normalised differential cross section of \ttbar production is studied with respect to five primary
+variables:
+
+\begin{itemize}
+	\item \MET, or missing transverse momentum;
+	\item \HT, or scalar sum of jet transverse momenta;
+	\item \ST, or scalar sum of the transverse momenta of all objects in the event;
+	\item \MT, or transverse mass of the leptonically decaying \W boson;
+	\item \WPT, or transverse momentum of the leptonically decaying \W boson.
+\end{itemize}
+
+These observables are often called event-level (or global) variables due to the fact that no high-level kinematic
+reconstruction (e.g.\ that of a \ttbar pair) is required to calculate them. A lower level of complexity makes these
+variables less prone to inefficiencies, systematic errors or biases arising from various kinematic reconstruction
+techniques. Hence, global variables can provide better sensitivity in comparison of different theoretical models or
+generator tunes.
+
+\MET is commonly referred to as the missing transverse energy, which is equivalent to missing transverse momentum under
+assumption that the missing particles contributing to \MET are massless. It is defined as the negative of the vector sum
+of the transverse momenta of all reconstructed particles in an event. Therefore, its direction is opposite to the
+observed sum of transverse momentum, with the magnitude of
+\[ \MET = - \left[ \left(\sum_i{p_{x}^i}\right)^2 + \left(\sum_i{p_{y}^i}\right)^2 \right]^{\frac{1}{2}}\]
+where the sums are calculated over all measured particles in the event.
+
+\HT is defined as the scalar sum of the transverse momenta of all reconstructed jets in the event:
+\[\HT = \sum_{\mathrm{all~jets}}\pt^{\mathrm{jet}}\]
+Here all jets are required to have a \pt $>$ \SI{20}{\GeV} as described in Section~\ref{s_xsection:event_selection}.
+
+\ST represents the sum of \HT, \MET and the \pt of the single isolated lepton: 
+\[\ST = \HT + \MET + p_\mathrm{T}^\mathrm{lepton}\]
+
+\WPT refers to the transverse momentum of the leptonically decaying \W boson, which is calculated from the single
+isolated lepton and \MET assumed to originate from the \ttbar decay:
+\[\WPT = \sqrt{(p_x^{\mathrm{lepton}} + p_x^{\mathrm{miss}})^2 + (p_y^{\mathrm{lepton}} + p_y^{\mathrm{miss}})^2}\]
+
+Finally, \MT is defined as the transverse mass of the leptonically decaying \W boson, also using the single isolated
+lepton and \MET:
+\[\MT = \sqrt{(\ET {}^{\mathrm{lepton}} +\met)^2 - \wpt {}^2}\]
+where $\ET {}^{\mathrm{lepton}}$ denotes the transverse energy of the lepton.
+
+\subsection{Fitting procedure}
+\label{ss_xsection:fitting}
+
+\subsection{Choice of binning}
+\label{ss_xsection:binning}
+
 % In order to improve the differential cross section measurement, the binning of the variables must be chosen carefully so
 % as to minimise migration between neighbouring bins. The event statistics within a bin must also be substantial such that
 % the likelihood fit can be performed. In order to quantify the effect of bin migration, two parameters, bin purity, $p^k$
@@ -547,11 +598,8 @@ Section~\ref{s_xsection:measurement}.
 	\label{fig:choice_of_metbins_2}
  \end{figure}
 
-\section{Differential cross section measurement}
-\label{s_xsection:measurement}
-
-\section{Unfolding}
-\label{s_xsection:unfolding}
+\subsection{Unfolding}
+\label{ss_xsection:unfolding}
 
 \section{Systematic Uncertainties}
 \label{s_xsection:systematics}
