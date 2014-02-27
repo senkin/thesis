@@ -54,6 +54,7 @@
 \usepackage{ifpdf}
 \usepackage{xspace}
 \usepackage{booktabs}
+\usepackage{multirow}
 \usepackage{pbox}
 \usepackage{enumitem}
 \usepackage[T1]{fontenc}

@@ -544,31 +544,41 @@ lepton and \MET:
 \[\MT = \sqrt{(\ET {}^{\mathrm{lepton}} +\met)^2 - \wpt {}^2}\]
 where $\ET {}^{\mathrm{lepton}}$ denotes the transverse energy of the lepton.
 
-\subsection{Fitting procedure}
-\label{ss_xsection:fitting}
-
 \subsection{Choice of binning}
 \label{ss_xsection:binning}
 
-% In order to improve the differential cross section measurement, the binning of the variables must be chosen carefully so
-% as to minimise migration between neighbouring bins. The event statistics within a bin must also be substantial such that
-% the likelihood fit can be performed. In order to quantify the effect of bin migration, two parameters, bin purity, $p^k$
-% and stability, $s^k$, are defined:
+The choice of binning for primary variables is an important part of differential cross section measurement. It is
+directly influenced by available statistics and detector resolution. An ideal measurement would benefit from the cross
+section calculation in as many bins as possible. However, insufficient statistics leads to high statistical uncertainty
+in a particular bin, whereas limited detector resolution causes substantial migration effects between bins. Bin
+migration happens if an event originating from one bin appears in a different bin after reconstruction. Unreasonable
+binning choice would lead to a high number of such events, which can compromise the cross section measurement.
 
-% \begin{eqnarray}
-% p^k = \frac{N_{\rec\&\gen}^k}{N_{\rec}^k} \\
-% s^k = \frac{N_{\rec\&\gen}^k}{N_{\gen}^k}
-% \end{eqnarray}
+To quantify the bin migration, purity and stability variables are introduced, defined as:
+\begin{align}
+p_i = \frac{N^{\rec\&\gen}_i}{N^{\rec}_i} \\
+s_i = \frac{N^{\rec\&\gen}_i}{N^{\gen}_i}
+\end{align}
+where $N^{\rec\&\gen}_i$ is the number of events both generated and reconstructed in the same bin, and
+$N^{\rec}_k$ ($N^{\gen}_i$) is the number of reconstructed (generated) events within a bin.
 
-% where $N_{\rec\&\gen}^k$ is the number of events both generated and reconstructed in the same bin and
-% $N_{\rec}^k$/$N_{\gen}^k$ is the number of events reconstructed/generated within a bin. The purity parameter is
-% sensitive to migration into a bin while the stability parameter is sensitive to migration out of a bin. Binning is
-% chosen such that the $p^k$ and $s^k$ values do not fall far below 0.5. We can see that the values for all the variables
-% are consistent between the electron and muon channels in tables...
+The purity $p_i$ quantifies migration into a bin $i$, whereas the stability $s_i$ is sensitive to migration out of a
+bin. The binning is chosen in such way that both purity and stability are above \num{0.5}, or do not fall far below this
+value. This process is performed for both electron and muon channels, and common binning is derived in order to be able
+to combine both channels in the final cross section measurement.
 
+Figures~\ref{fig:choice_of_bins_1} and \ref{fig:choice_of_bins_2} show the two-dimensional distributions of
+reconstructed versus generated primary variables, which were used to calculate purity and stability. The distributions
+were obtained with the central signal \ttbar sample. Red lines represent the bin edges for the chosen binning.
+Tables~\ref{tab:binning_MET_electron} and \ref{tab:binning_MET_muon} show the numerical values of purity and stability,
+as well as the selected binning for \MET variable. Results for other primary variables can be found in
+Appendix~\ref{a:binning}.
+
+\input{06_Cross_section_analysis/tables/xsection_binning}
 
 \begin{figure}[hbtp]
 	\centering
+	\vspace*{-1cm}
 	%MET
 	\subfloat[]{\includegraphics[width=0.5\textwidth]{binning/EPlusJets_MET}}\hfill
 	\subfloat[]{\includegraphics[width=0.5\textwidth]{binning/MuPlusJets_MET}}\\
@@ -581,7 +591,7 @@ where $\ET {}^{\mathrm{lepton}}$ denotes the transverse energy of the lepton.
 
 	\caption{Reconstructed versus generated \MET (a, b), \HT (c, d) and \ST (e, f) for electron plus jets (left) and
 	muon plus jets events (right).}
-	\label{fig:choice_of_metbins_1}
+	\label{fig:choice_of_bins_1}
  \end{figure}
 
 \begin{figure}[hbtp]
@@ -595,8 +605,11 @@ where $\ET {}^{\mathrm{lepton}}$ denotes the transverse energy of the lepton.
 
 	\caption{Reconstructed versus generated \WPT (a, b), \MT (c, d) for electron plus jets (left) and muon plus jets
 	events (right).}
-	\label{fig:choice_of_metbins_2}
+	\label{fig:choice_of_bins_2}
  \end{figure}
+
+\subsection{Fitting procedure}
+\label{ss_xsection:fitting}
 
 \subsection{Unfolding}
 \label{ss_xsection:unfolding}
