@@ -86,7 +86,7 @@ The effect of the \SI{\pm5}{\pc} variations in total inelastic cross section on 
 vertices in data is shown in Figure~\ref{fig:pileup_truth}, whereas its effect on the simulated distributions is shown
 in Figure~\ref{fig:pileup_vertices_variations} for both electron and muon channels.
 
- \begin{figure}[hbtp]
+ \begin{figure}[htbp]
    	\centering
     \includegraphics[width=\textwidth]{vertices/PileUp_2012_truth_data.pdf}
     \caption{Number of expected vertices per event for central and $\pm \sigma$ variations of the total inelastic cross
@@ -393,7 +393,7 @@ likely to happen in the region with higher material budget. In contrast, the non
 pseudorapidity region of $1.0 < \abs \eta < 1.5$. Such behaviour is correlated with the jet $\abs \eta$ distribution,
 since this control region favours non-isolated electrons coming from heavy quark decays.
 
-\begin{figure}[hbtp]
+\begin{figure}[htbp]
 	\centering
   	\subfloat[]{\includegraphics[width=0.50\textwidth]{QCD/QCD_conversion_control_region_electron_AbsEta_0btag}}\hfill
 	\subfloat[]{\includegraphics[width=0.50\textwidth]{QCD/QCD_non_iso_control_region_electron_AbsEta_0btag}} \\
@@ -421,7 +421,7 @@ Figure~\ref{fig:qcd_muon_plots}. Clearly, the control region is dominated by QCD
 reasonable agreement between data and simulation. The contamination from other processes is subtracted using Monte
 Carlo.
 
-\begin{figure}[hbtp]
+\begin{figure}[htbp]
 	\centering
   	\subfloat[]{\includegraphics[width=0.50\textwidth]{QCD/QCD_muon_pfIsolation_0btag}}\hfill
   	\subfloat[]{\includegraphics[width=0.50\textwidth]{QCD/QCD_non_iso_control_region_muon_AbsEta_0btag}}
@@ -455,7 +455,7 @@ Section~\ref{s_xsection:measurement}.
 
 \input{06_Cross_section_analysis/tables/xsection_event_yields}
 
-\begin{figure}[hbtp]
+\begin{figure}[htbp]
 	\centering
   	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/electron_pT_2orMoreBtags_with_ratio}}\hfill
   	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/muon_pT_2orMoreBtags_with_ratio}} \\
@@ -466,7 +466,7 @@ Section~\ref{s_xsection:measurement}.
     \label{fig:contol_plots_leptons}
 \end{figure}
 
-\begin{figure}[hbtp]
+\begin{figure}[htbp]
 	\centering
   	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/EPlusJets_patType1CorrectedPFMet_2orMoreBtags_with_ratio}}\hfill
   	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/MuPlusJets_patType1CorrectedPFMet_2orMoreBtags_with_ratio}} \\
@@ -477,7 +477,7 @@ Section~\ref{s_xsection:measurement}.
     \label{fig:contol_plots_METs}
 \end{figure}
 
-\begin{figure}[hbtp]
+\begin{figure}[htbp]
 	\centering
   	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/EPlusJets_patType1CorrectedPFMet_phi_2orMoreBtags_with_ratio}}\hfill
 	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/MuPlusJets_patType1CorrectedPFMet_phi_2orMoreBtags_with_ratio}} \\
@@ -567,9 +567,8 @@ variable. Results for other primary variables can be found in Appendix~\ref{a:bi
 
 \input{06_Cross_section_analysis/tables/xsection_binning}
 
-\begin{figure}[hbtp]
+\begin{figure}[!htbp]
 	\centering
-	%MET
 	\subfloat[]{\includegraphics[width=0.5\textwidth]{binning/EPlusJets_MET}}\hfill
 	\subfloat[]{\includegraphics[width=0.5\textwidth]{binning/MuPlusJets_MET}}\\
 	\caption{Reconstructed versus generated \MET for electron plus jets (a) and muon plus jets events (b).}
@@ -578,6 +577,181 @@ variable. Results for other primary variables can be found in Appendix~\ref{a:bi
 
 \subsection{Fitting procedure}
 \label{ss_xsection:fitting}
+
+% The first step in the measurement of the differential cross sections $\frac{\mathrm{d} \sigma_{t\bar{t}}}{\mathrm{d}
+% \met}$, $\frac{\mathrm{d} \sigma_{t\bar{t}}}{\mathrm{d} \HT}$, $\frac{\mathrm{d} \sigma_{t\bar{t}}}{\mathrm{d} \st}$,
+% $\frac{\mathrm{d} \sigma_{t\bar{t}}} {\mathrm{d} \wpt}$ and $\frac{\mathrm{d} \sigma_{t\bar{t}}}{\mathrm{d} \mt}$ is to
+% extract the number of \ttbar\ events in each bin for each of the variables under investigation using a binned likelihood
+% fit of the observed absolute lepton rapidity distribution $|\eta_{\ell}|$ after the event selection described in
+% section~\ref{s_xsection:event_selection}. In the course of the fit, we minimise the logarithm of the likelihood ($LL$)
+% defined as
+
+% \begin{equation}\label{eq:finll}
+% LL(\{\lambda_i,d_i\})=-2\,\log{\left(\prod\limits_{i}\frac{\lambda_i^{d_i}\cdot
+% e^{-\lambda_i}}{d_i!}\right)}=-2\sum\limits_{i}\log{\left(\frac{\lambda_i^{d_i}\cdot e^{-\lambda_i}}{d_i!}\right)},
+% \end{equation}
+
+% where we run over all $\left|\eta_{\ell}\right|$ bins $i$ of the distribution and $\lambda_i$ ($d_i$) are the expected
+% (observed) number of events in each bin $i$. We model the expected rapidity distribution $\{\lambda_i\}$ by process
+% dependent normalised templates $\theta_j:=\{\theta_{i\,j}\}$ and normalisation factors $N_j$, such that
+
+% \begin{equation}
+% \lambda_i=\sum\limits_{j}N_j\theta_{i\,j},\;\mathrm{with}\;\sum\limits_{i}\theta_{i\,j}=1\;\forall\,\mathrm{process}\,j.
+% \end{equation}
+
+% The template fit is performed separately for each bin of the variable in question, as explained in section
+% \ref{ss_xsection:binning}. Introducing the superscript $k$ to distinguish the bins of a given variable, there are three
+% separate templates $\theta_j^k$ in the fit: $\theta_\mathrm{top}^k$ for the top processes \ttbar and single-top
+% production; $\theta_\mathrm{WZ}^k$ for the combination of W+jets and Z+jets and $\theta_\mathrm{QCD}^k$ for the QCD
+% background. The first two templates are taken from simulation and the QCD templates from data as discussed in
+% section~\ref{s_xsection:data_driven_QCD}. The fit parameters are then the three normalisation factors $N_\mathrm{top}^k$
+% and $N_{\mathrm{WZ}}^k$ and $N_{\mathrm{QCD}}^k$.
+
+% The templates used for the \MET variable are shown in Figure \ref{fig:fit_templates_MET_electron} for
+% electron-plus-jets events and in Figure \ref{fig:fit_templates_MET_muon} for muon-plus-jets events.
+
+% A single fit parameter $N_\mathrm{top}^k$ is used to account for the combined contribution of \ttbar and single-top
+% events, since the $\left|\eta_\ell\right|$ distribution is similar for the two processes. The contribution from
+% single-top is around 20\% of the total in all bins. The Monte Carlo estimate for single-top is subtracted from the
+% fitted total number of top-like (signal) events to arrive at the number of \ttbar events:
+
+
+% \begin{equation}\label{eq:finll_2}
+% \Nttbar^k = N_{\mathrm{top}}^k - N_{\textrm{single-top}}^k.
+% \end{equation}
+
+% The total normalisation value is obtained by summing $\Nttbar^k$ over all bins, k, for each variable. The fit results
+% compared to the MC prediction for each process (without constraints) in each \MET bin can be seen in
+% Tables~\ref{tab:fit_met_consts_e} and~\ref{tab:fit_met_consts_mu}. Without constraints there are quite large bin-to-bin
+% fluctuations in the fitted results. It is therefore useful to add constraints to the fitted background normalisation
+% values. This can be done by adding extra terms to the likelihood function. The following gaussian constraints have been
+% added: $(N_\mathrm{QCD}^\mathrm{fit}-N_\mathrm{QCD}^\mathrm{MC})^2/(2\times N_\mathrm{QCD}^\mathrm{MC})^2$ for QCD and
+% $(N_\mathrm{V+Jets}^\mathrm{fit}-N_\mathrm{V+Jets}^\mathrm{MC})^2/(0.5 \times N_\mathrm{V+Jets}^\mathrm{MC})^2$. Using
+% these constraints helps to stabilise the fit and the results can be seen in Tables~\ref{tab:fit_met_consts_e}
+% and~\ref{tab:fit_met_consts_mu}. The total number of fitted events for each process (taken from the final column in
+% Tables~\ref{tab:fit_met_consts_e} and~\ref{tab:fit_met_consts_mu}) is used as the normalisation for the control plots
+% for each variable as can be seen in Figures~\ref{fig:control_postfit_e} and ~\ref{fig:control_postfit_mu}.
+
+\sisetup{range-phrase = --}
+\sisetup{range-units = single}
+
+\begin{figure}[!htbp]
+	\centering
+	\vspace*{-0.5cm}
+	\hspace*{\fill}
+  	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_templates/electron_templates_bin_0-25}}\hfill
+  	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_templates/electron_templates_bin_25-45}}
+  	\hspace*{\fill} \\
+  	\hspace*{\fill}
+  	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_templates/electron_templates_bin_45-70}}\hfill
+  	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_templates/electron_templates_bin_70-100}}
+  	\hspace*{\fill} \\
+  	\hspace*{\fill}
+  	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_templates/electron_templates_bin_100-150}}\hfill
+  	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_templates/electron_templates_bin_150-inf}}
+  	\hspace*{\fill}
+    \caption{Electron $\abs \eta$ templates for the fit in different bins of \MET, from top left to bottom right:
+    \SIrange{0}{25}{\GeV}, \SIrange{25}{45}{\GeV}, \SIrange{45}{70}{\GeV}, \SIrange{70}{100}{\GeV},
+    \SIrange{100}{150}{\GeV} and $\geq \SI{150}{\GeV}$.}
+    \label{fig:fit_templates_MET_electron}
+\end{figure}
+
+\begin{figure}[!htbp]
+	\centering
+	\vspace*{-0.5cm}
+	\hspace*{\fill}
+  	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_templates/muon_templates_bin_0-25}}\hfill
+  	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_templates/muon_templates_bin_25-45}}
+  	\hspace*{\fill} \\
+  	\hspace*{\fill}
+  	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_templates/muon_templates_bin_45-70}}\hfill
+  	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_templates/muon_templates_bin_70-100}}
+  	\hspace*{\fill} \\
+  	\hspace*{\fill}
+  	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_templates/muon_templates_bin_100-150}}\hfill
+  	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_templates/muon_templates_bin_150-inf}}
+  	\hspace*{\fill}
+    \caption{Muon $\abs \eta$ templates for the fit in different bins of \MET, from top left to bottom right:
+    \SIrange{0}{25}{\GeV}, \SIrange{25}{45}{\GeV}, \SIrange{45}{70}{\GeV}, \SIrange{70}{100}{\GeV},
+    \SIrange{100}{150}{\GeV} and $\geq \SI{150}{\GeV}$.}
+    \label{fig:fit_templates_MET_muon}
+\end{figure}
+
+% \begin{figure}[!htbp]
+% 	\centering
+% 	\vspace*{-0.66cm}
+% 	\hspace*{\fill}
+%   	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_results/electron_bin_0-25}}\hfill
+%   	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_results/electron_bin_25-45}}
+%   	\hspace*{\fill} \\
+%   	\hspace*{\fill}
+%   	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_results/electron_bin_45-70}}\hfill
+%   	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_results/electron_bin_70-100}}
+%   	\hspace*{\fill} \\
+%   	\hspace*{\fill}
+%   	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_results/electron_bin_100-150}}\hfill
+%   	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_results/electron_bin_150-inf}}
+%   	\hspace*{\fill}
+%     \caption{Distributions of electron $\abs \eta$ with the results of the template fit in
+%     different bins of \MET, from top left to bottom right: \SIrange{0}{25}{\GeV}, \SIrange{25}{45}{\GeV},
+%     \SIrange{45}{70}{\GeV}, \SIrange{70}{100}{\GeV}, \SIrange{100}{150}{\GeV} and $\geq \SI{150}{\GeV}$.}
+%     \label{fig:fit_results_MET_electron}
+% \end{figure}
+
+% \begin{figure}[!htbp]
+% 	\centering
+% 	\vspace*{-0.66cm}
+% 	\hspace*{\fill}
+%   	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_results/muon_bin_0-25}}\hfill
+%   	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_results/muon_bin_25-45}}
+%   	\hspace*{\fill} \\
+%   	\hspace*{\fill}
+%   	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_results/muon_bin_45-70}}\hfill
+%   	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_results/muon_bin_70-100}}
+%   	\hspace*{\fill} \\
+%   	\hspace*{\fill}
+%   	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_results/muon_bin_100-150}}\hfill
+%   	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_results/muon_bin_150-inf}}
+%   	\hspace*{\fill}
+%     \caption{Distributions of muon $\abs \eta$ with the results of the template fit in different
+%     bins of \MET, from top left to bottom right: \SIrange{0}{25}{\GeV}, \SIrange{25}{45}{\GeV},
+%     \SIrange{45}{70}{\GeV}, \SIrange{70}{100}{\GeV}, \SIrange{100}{150}{\GeV} and $\geq \SI{150}{\GeV}$.}
+%     \label{fig:fit_results_MET_muon}
+% \end{figure}
+
+\sisetup{range-phrase = {~to~}}
+\sisetup{range-units = repeat}
+
+\begin{figure}[!htbp]
+	\centering
+  	\subfloat[]{\includegraphics[width=0.5\textwidth]{fitted_primary_variables/EPlusJets_patType1CorrectedPFMet_2orMoreBtags_with_ratio}}\hfill
+  	\subfloat[]{\includegraphics[width=0.5\textwidth]{fitted_primary_variables/MuPlusJets_patType1CorrectedPFMet_2orMoreBtags_with_ratio}}
+    \caption{}
+    \label{fig:fitted_MET}
+\end{figure}
+
+\begin{figure}[!htbp]
+	\centering
+  	\subfloat[]{\includegraphics[width=0.5\textwidth]{fitted_primary_variables/EPlusJets_HT_2orMoreBtags_with_ratio}}\hfill
+  	\subfloat[]{\includegraphics[width=0.5\textwidth]{fitted_primary_variables/MuPlusJets_HT_2orMoreBtags_with_ratio}} \\
+  	\subfloat[]{\includegraphics[width=0.5\textwidth]{fitted_primary_variables/EPlusJets_patType1CorrectedPFMet_ST_2orMoreBtags_with_ratio}}\hfill
+  	\subfloat[]{\includegraphics[width=0.5\textwidth]{fitted_primary_variables/MuPlusJets_patType1CorrectedPFMet_ST_2orMoreBtags_with_ratio}}
+    \caption{}
+    \label{fig:fitted_HT_ST}
+\end{figure}
+
+\begin{figure}[!htbp]
+	\centering
+	%\vspace*{-0.66cm}
+  	\subfloat[]{\includegraphics[width=0.5\textwidth]{fitted_primary_variables/EPlusJets_patType1CorrectedPFMet_WPT_2orMoreBtags_with_ratio}}\hfill
+  	\subfloat[]{\includegraphics[width=0.5\textwidth]{fitted_primary_variables/MuPlusJets_patType1CorrectedPFMet_WPT_2orMoreBtags_with_ratio}} \\
+  	\subfloat[]{\includegraphics[width=0.5\textwidth]{fitted_primary_variables/EPlusJets_patType1CorrectedPFMet_MT_2orMoreBtags_with_ratio}}\hfill
+  	\subfloat[]{\includegraphics[width=0.5\textwidth]{fitted_primary_variables/MuPlusJets_patType1CorrectedPFMet_MT_2orMoreBtags_with_ratio}}
+    \caption{}
+    \label{fig:fitted_WPT_MT}
+\end{figure}
+
+
 
 \subsection{Unfolding}
 \label{ss_xsection:unfolding}
