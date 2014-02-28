@@ -24,15 +24,14 @@ independent rings. Therefore, a twin-bore magnet design was adopted \autocite{Bl
 cost savings.
 
 \begin{figure}[!htbp]
-  \begin{center}
-    \leavevmode
-    \includegraphics[width=\columnwidth]{LHC}
-    \caption{CERN accelerator complex.}
-    \label{LHC}
-  \end{center}
+  \centering
+  \leavevmode
+  \includegraphics[width=\columnwidth]{LHC}
+  \caption{CERN accelerator complex.}
+  \label{fig:LHC}
 \end{figure}
 
-A schematic view of the LHC accelerator chain is shown in Figure~\ref{LHC}. Initially, the protons are obtained by
+A schematic view of the LHC accelerator chain is shown in Figure~\ref{fig:LHC}. Initially, the protons are obtained by
 stripping orbiting electrons from hydrogen atoms. Then they are injected into the linear accelerator LINAC2 to reach the
 energy of \SI{50}{\MeV} and enter the Proton Synchrotron Booster (PSB). The booster accelerates them to \SI{1.4}{\GeV}
 and passes the beam to the Proton Synchrotron (PS) where the energy rises to \SI{25}{\GeV}. In the next step, protons
@@ -40,7 +39,7 @@ enter the Super Proton Synchrotron (SPS) where they are accelerated to \SI{450}{
 to the LHC in both clockwise and anti-clockwise directions where it takes about 20 minutes to reach the design
 \SI{7}{\TeV} energy (per beam).
 
-\textit{[add the number of magnets, total energy stored, number of bunches, bunch spacing etc.?]}
+%\textit{[add the number of magnets, total energy stored, number of bunches, bunch spacing etc.?]}
 
 The LHC has four interaction points, providing collisions to four major experiments. Two of them, CMS and ATLAS, are
 multi-purpose high-luminosity experiments with a peak luminosity of $L = $ \SI{d34}{\cm^{-2} s^{-1}}. The other two
@@ -61,7 +60,7 @@ The number of events generated in the collisions per second is given by
 
 where $\sigma$ is the cross section of the process under study.
 
-\textit{[add the plots with cross sections and production rates?]}
+%\textit{[add the plots with cross sections and production rates?]}
 
 The LHC started operating on the 10th of September 2008, with the first beams fully circulating in both rings. However,
 only 9 days later a magnet quench occurred in two sectors of the tunnel, which was caused by an electrical fault due to
@@ -80,7 +79,7 @@ approximately \SI{21.8}{\invfb} of data recorded until early 2013. A long shut-d
 years with various upgrades scheduled. The next physics run is expected in 2015 with the beam energy increased up to 6
 or \SI{7}{\TeV}.
 
-\textit{[add any upgrade details and distant future plans, like SLHC?]}
+%\textit{[add any upgrade details and distant future plans, like SLHC?]}
 
 \section{The CMS Detector}
 \label{s:CMS}
@@ -95,18 +94,17 @@ French village of Cessy, between the Jura mountains and Lake Geneva. The overall
 length of \SI{21.6}{\metre}, a diameter of \SI{14.6}{\metre} and a total weight of \SI{12500}{\tonne}.
 
 \begin{figure}[htbp]
-  \begin{center}
-    \leavevmode
-    \includegraphics[width=\columnwidth]{CMS}
-    \caption{Sectional view of the CMS detector.}
-    \label{CMS}
-  \end{center}
+  \centering
+  \leavevmode
+  \includegraphics[width=\columnwidth]{CMS}
+  \caption{Sectional view of the CMS detector.}
+  \label{fig:CMS}
 \end{figure}
 
-The sectional view of CMS is shown in Figure~\ref{CMS}. In the centre of the detector, tracking and calorimetry systems
-are surrounded by the superconducting solenoid. On the outermost part of it the magnetic flux is returned through the
-iron yoke in which the muon system is also integrated. All the sub-systems are discussed in the following sections in
-more detail.
+The sectional view of CMS is shown in Figure~\ref{fig:CMS}. In the centre of the detector, tracking and calorimetry
+systems are surrounded by the superconducting solenoid. On the outermost part of it the magnetic flux is returned
+through the iron yoke in which the muon system is also integrated. All the sub-systems are discussed in the following
+sections in more detail.
 
 The cylindrical shape of the CMS detector dictates using a cylindrical coordinate system, with the origin centred at the
 interaction point, the $x$-axis pointing towards the centre of the LHC ring, the $y$-axis pointing upwards and the
@@ -144,18 +142,18 @@ meaning some loss of efficiency and precision. This will be discussed in detail 
 section.
 
 \begin{figure}[htbp]
-  \begin{center}
-    \leavevmode
-    \includegraphics[width=\columnwidth]{tracker}
-    \caption{Cross-section of the CMS tracker system \autocite{CMS}.}
-    \label{Tracker}
-  \end{center}
+  \centering
+  \leavevmode
+  \includegraphics[width=\columnwidth]{tracker}
+  \caption{Cross-section of the CMS tracker system \autocite{CMS}.}
+  \label{fig:tracker}
 \end{figure}
 
-Figure~\ref{Tracker} shows the overall layout of the tracking system. It consists of the inner pixel detector, located
-in the vicinity of the interaction point, and silicon strip tracker detectors: inner barrel and disks (TIB and TID),
-outer barrel (TOB) and endcaps (TEC). The geometrical acceptance of the tracker system goes up to \abs\eta \num{<2.5}.
-The outer radius of the CMS tracker reaches approximately \SI{110}{\cm}, and its total length is about \SI{540}{\cm}.
+Figure~\ref{fig:tracker} shows the overall layout of the tracking system. It consists of the inner pixel detector,
+located in the vicinity of the interaction point, and silicon strip tracker detectors: inner barrel and disks (TIB and
+TID), outer barrel (TOB) and endcaps (TEC). The geometrical acceptance of the tracker system goes up to \abs\eta
+\num{<2.5}. The outer radius of the CMS tracker reaches approximately \SI{110}{\cm}, and its total length is about
+\SI{540}{\cm}.
 
 The pixel detector consists of three layers of pixel sensors at radii of \SIlist{4.4;7.3;10.2}{\cm} from the beamline in
 the barrel region. In addition there are two endcap disks on each side at \abs z $=$ \SIlist{34.5;46.5}{\cm}. The pixel
@@ -166,32 +164,31 @@ The silicon strip tracker consists of several layers of silicon microstrip detec
 \SIrange{20}{110}{\cm} in radius and extends up to \SI{+-280}{\cm} in the z direction. The Tracker Inner Barrel (TIB) is
 made out of 4 layers and the Tracker Outer Barrel (TOB) has 6 layers in it. The tracker endcaps (TEC) comprise 9 disks,
 and there are also the tracker inner disks (TID) that consist of 3 disks filling the gap between TIB and TEC as shown in
-Figure~\ref{Tracker}. There are \num{9.3} million silicon strips covering the area of about \SI{200}{\m\squared}. The
-silicon sensors' thickness varies between \num{320} and \SI{500}{\micron} and the strip pitch varies from
+Figure~\ref{fig:tracker}. There are \num{9.3} million silicon strips covering the area of about \SI{200}{\m\squared}.
+The silicon sensors' thickness varies between \num{320} and \SI{500}{\micron} and the strip pitch varies from
 \SI{80}{\micron} in the TIB to \SI{180}{\micron} in TOB and TEC.
 
 \begin{figure}[!htbp]
-  \begin{center}
-    \leavevmode
-    \includegraphics[width=\columnwidth]{tracker_material_budget}
-    \caption{Material budget as a function of pseudorapidity $\eta$ for the different sub-detectors of the tracker
-    (left) and broken down into the functional contributions (right), in units of radiation length \autocite{CMS}.}
-    \label{tracker_material_budget}
-  \end{center}
+  \centering
+  \leavevmode
+  \includegraphics[width=\columnwidth]{tracker_material_budget}
+  \caption{Material budget as a function of pseudorapidity $\eta$ for the different sub-detectors of the tracker
+  (left) and broken down into the functional contributions (right), in units of radiation length \autocite{CMS}.}
+  \label{fig:tracker_material_budget}
 \end{figure}
 
 %update with http://cms.cern.ch/iCMS/jsp/analysis/admin/analysismanagement.jsp?awg=TRK&dataset=All&awgyear=2011
 
 The silicon detectors of the tracker, the readout electronics and support structure form a considerable amount of
-material for the particles traversing from the interaction point. Figure~\ref{tracker_material_budget} \autocite{CMS}
-shows the material budget of the CMS tracker in units of radiation lengths\footnote{A material's radiation length is the
-mean distance over which a high-energy electron loses all but $1/e$ of its energy by bremsstrahlung; this is equal to
-\num{7/9} of the mean free path for pair production by a high-energy photon.} ($X_0$). It grows from about \num{0.4}
-$X_0$ to \num{1.8} $X_0$ in the barrel region, and then decreases to about \num{1} $X_0$ in the endcaps. This causes a
-substantial conversion rate for photons and electrons in the tracker material; it also will be discussed in more detail
-in the electron reconstruction section.
+material for the particles traversing from the interaction point. Figure~\ref{fig:tracker_material_budget}
+\autocite{CMS} shows the material budget of the CMS tracker in units of radiation lengths\footnote{A material's
+radiation length is the mean distance over which a high-energy electron loses all but $1/e$ of its energy by
+bremsstrahlung; this is equal to \num{7/9} of the mean free path for pair production by a high-energy photon.} ($X_0$).
+It grows from about \num{0.4} $X_0$ to \num{1.8} $X_0$ in the barrel region, and then decreases to about \num{1} $X_0$
+in the endcaps. This causes a substantial conversion rate for photons and electrons in the tracker material; it also
+will be discussed in more detail in the electron reconstruction section.
 
-\textit{[perhaps need to add the $p_T$ resolution plots]}
+%\textit{[perhaps need to add the $p_T$ resolution plots]}
 
 \subsection{Electromagnetic Calorimeter}
 The next detector subsystem which is surrounding the tracker is the electromagnetic calorimeter, or ECAL. It is of a
@@ -209,38 +206,36 @@ used in the endcaps. These different choices were caused by the configuration of
 level of radiation.
 
 \begin{figure}[!htbp]
-  \begin{center}
-    \leavevmode
-    \includegraphics[width=\columnwidth]{ECAL}
-    \caption{Layout of the CMS electromagnetic calorimeter \autocite{CMS}.}
-    \label{ECAL}
-  \end{center}
+  \centering
+  \leavevmode
+  \includegraphics[width=\columnwidth]{ECAL}
+  \caption{Layout of the CMS electromagnetic calorimeter \autocite{CMS}.}
+  \label{fig:ECAL}
 \end{figure}
 
-The layout of the ECAL sub-detector is shown in Figure~\ref{ECAL}. An additional preshower detector is used in the
+The layout of the ECAL sub-detector is shown in Figure~\ref{fig:ECAL}. An additional preshower detector is used in the
 endcap region to lower the required detector depth. Its principal aim is to identify neutral pions in the endcaps, but
 it also helps to distinguish neutral pions and electrons from minimum ionising particles and improves the position
 determination of electrons and photons with high granularity.
 
 \begin{table}[htbp]
 \caption{ECAL crystal characteristics}
-\label{ECAL_crystals}
-\begin{center}
-\begin{tabular}{|l|l|l|}
-  \hline             
+\label{tab:ECAL_crystals}
+\centering
+\begin{tabular}{|l|r|r|}
+  \toprule
    & Barrel & Endcaps \\
-  \hline
+  \midrule
   number of crystals & \num{61200} & \num{14648} \\
   crystal cross-section in ($\eta$, $\phi$) & \num{0.0174 x 0.0174} & varies \\
   crystal cross-section at the front & \num{22x22} \si{\mm\squared} & \num{28.62x28.62} \si{\mm\squared} \\
   crystal cross-section at the rear & \num{26x26} \si{\mm\squared} & \num{30x30} \si{\mm\squared} \\
   crystal length & \SI{230}{\mm} (\num{25.8}$X_0$) & \SI{220}{\mm} (\num{24.7}$X_0$) \\
-  \hline  
+  \bottomrule  
 \end{tabular}
-\end{center}
 \end{table}
 
-The main geometrical characteristics of the ECAL crystals are shown in Table~\ref{ECAL_crystals}. The choice of lead
+The main geometrical characteristics of the ECAL crystals are shown in Table~\ref{tab:ECAL_crystals}. The choice of lead
 tungstate was driven by the constraints of the CMS design. It is a very dense material (\SI{8.28}{g\per\cm\cubed}) with
 a short radiation length of $X_0 = \SI{0.89}{\cm}$, which allows the calorimeter to fit inside the compact magnet. Lead
 tungstate also has a small Moli\`ere radius\footnote{The Moli\`ere radius $R_\mu$ is a characteristic constant of a
@@ -253,20 +248,19 @@ dependence of the light yield on temperature requires a cooling system capable o
 within \SI{+-0.05}{\degreeCelsius} to preserve energy resolution \autocite{CMS_TDR1}.
 
 \begin{figure}[htbp]
-  \begin{center}
-    \leavevmode
-    \includegraphics[width=0.7\columnwidth]{ECAL_resolution}
-    \caption{ECAL energy resolution derived from the test beam measurements as a function of deposited energy. The
-    stochastic, noise, and constant contributions are shown \autocite{CMS}.}
-    \label{ECAL_resolution}
-  \end{center}
+  \centering
+  \leavevmode
+  \includegraphics[width=0.7\columnwidth]{ECAL_resolution}
+  \caption{ECAL energy resolution derived from the test beam measurements as a function of deposited energy. The
+  stochastic, noise, and constant contributions are shown \autocite{CMS}.}
+  \label{fig:ECAL_resolution}
 \end{figure}
 
 The energy-dependent resolution of the calorimeter can be parameterised as follows \autocite{CMS}:
 \begin{equation}
   \left(\frac{\sigma}{E}\right)^2 = \left(\frac{S}{\sqrt E}\right)^2 + \left(\frac{N}{E}\right)^2 + C^2.
 \end{equation}
-where $S$ is the stochastic term, $N$ is the noise term, and $C$ is the constant term. Figure~\ref{ECAL_resolution}
+where $S$ is the stochastic term, $N$ is the noise term, and $C$ is the constant term. Figure~\ref{fig:ECAL_resolution}
 shows the energy resolution measured using incident electrons, during the beam tests in 2004.
 
 \subsection{Hadron Calorimeter}
@@ -275,22 +269,22 @@ The hadron calorimeter (HCAL) is the next sub-detector located mostly inside the
 calorimetry system. It is essential for the measurement of hadron jets and missing transverse energy.
 
 \begin{figure}[htbp]
-  \begin{center}
-    \leavevmode
-    \includegraphics[width=\columnwidth]{HCAL}
-    \caption{Longitudinal view of the CMS detector showing the locations of the hadron barrel (HB), endcap (HE), outer
-    (HO) and forward (HF) calorimeters \autocite{CMS}.}
-    \label{HCAL}
-  \end{center}
+  \centering
+  \leavevmode
+  \includegraphics[width=\columnwidth]{HCAL}
+  \caption{Longitudinal view of the CMS detector showing the locations of the hadron barrel (HB), endcap (HE), outer
+  (HO) and forward (HF) calorimeters \autocite{CMS}.}
+  \label{fig:HCAL}
 \end{figure}
 
-As shown in Figure~\ref{HCAL}, HCAL consists of four subsystems: the hadron barrel calorimeter (HB), the hadron endcap
-calorimeter (HE), the hadron outer calorimeter (HO) and the hadron forward calorimeter (HF). The barrel and endcap parts
-(HB, HE) cover the pseudorapidity range up to \abs\eta \num{<3.0}, and the forward part (HF) extends it to a total
-coverage of \abs\eta \num{<5.0}. HCAL surrounds ECAL from its outer limit of \SI{1.77}{\metre} from the beamline, to the
-inner limit of the magnet coil at \SI{2.95}{\metre} from the beamline. However, due to space limitations the barrel
-calorimeters do not contain complete hadronic showers, therefore an outer calorimeter (HO) was designed to measure the
-energy leakage. It is placed in the muon system just outside of the solenoid in the barrel region.
+As shown in Figure~\ref{fig:HCAL}, HCAL consists of four subsystems: the hadron barrel calorimeter (HB), the hadron
+endcap calorimeter (HE), the hadron outer calorimeter (HO) and the hadron forward calorimeter (HF). The barrel and
+endcap parts (HB, HE) cover the pseudorapidity range up to \abs\eta \num{<3.0}, and the forward part (HF) extends it to
+a total coverage of \abs\eta \num{<5.0}. HCAL surrounds ECAL from its outer limit of \SI{1.77}{\metre} from the
+beamline, to the inner limit of the magnet coil at \SI{2.95}{\metre} from the beamline. However, due to space
+limitations the barrel calorimeters do not contain complete hadronic showers, therefore an outer calorimeter (HO) was
+designed to measure the energy leakage. It is placed in the muon system just outside of the solenoid in the barrel
+region.
 
 HCAL is a sampling calorimeter consisting of alternating layers of brass and stainless steel absorbers, and plastic
 scintillators as active elements. The choice of the absorber material was caused by its short hadronic interaction
@@ -306,35 +300,34 @@ from the interaction point, and is essential to reconstruct very forward hadron 
 hermeticity of the calorimetry system, making it possible to measure the transverse missing energy to a reasonable
 precision.
 
-\textit{[perhaps need to add the energy resolution plots]}
+%\textit{[perhaps need to add the energy resolution plots]}
 
 \subsection{Superconducting Magnet}
 The superconducting solenoid is a central feature of the CMS apparatus, essentially giving it its name. The magnet
 has a length of \SI{12.5}{\metre}, diameter of \SI{6.3}{\metre} and mass of \SI{220}{\tonne}. Although it was initially
 designed to sustain a uniform magnetic field of \SI{4}{\tesla} within the \SI{5.9}{\metre} diameter free bore, operation
 at \SI{3.8}{\tesla} was chosen in order to increase the lifetime. The magnetic field is returned by a massive iron yoke.
-The main parameters of the CMS magnet are shown in Table~\ref{solenoid_parameters}.
+The main parameters of the CMS magnet are shown in Table~\ref{tab:solenoid_parameters}.
 
 \begin{table}[htbp]
-\caption{Parameters of the CMS superconducting solenoid \autocite{CMS_TDR1} \autocite{CMS_Solenoid}.}
-\label{solenoid_parameters}
-\begin{center}
-\begin{tabular}{|l|l|}
-  \hline             
+\caption{Parameters of the CMS superconducting solenoid \autocite{CMS_TDR1, CMS_Solenoid}.}
+\label{tab:solenoid_parameters}
+\centering
+\begin{tabular}{|l|r|}
+  \toprule             
   Field & \SI{3.8}{\tesla} \\
-  \hline
+  \midrule
   Inner Bore & \SI{5.9}{\metre} \\
-  \hline
+  \midrule
   Length & \SI{12.5}{\metre} \\
-  \hline
+  \midrule
   Number of Turns & \num{2168} \\
-  \hline
+  \midrule
   Current & \SI{18160}{\kilo\ampere} \\
-  \hline
+  \midrule
   Stored energy & \SI{2.3}{\giga\joule} \\
-  \hline
+  \bottomrule
 \end{tabular}
-\end{center}
 \end{table}
 
 The large bending power of the solenoid is required to bend the tracks of high energy charged particles to an extent
@@ -353,18 +346,17 @@ to their ability to travel through the many layers of the calorimeters, muons ar
 separate from the background.
 
 \begin{figure}[htbp]
-  \begin{center}
-    \leavevmode
-    \includegraphics[width=\columnwidth]{muon_system}
-    \caption{Layout of one quarter of the CMS muon system. Four drift tube (DT, in light orange) stations are labeled MB
-    (“muon barrel”) and the cathode strip chambers (CSC, in green) are labeled ME (“muon endcap”). Resistive plate
-    chambers (RPC, in blue) are in both the barrel and the endcaps of CMS, where they are labeled RB and RE,
-    respectively.}
-    \label{muon_system}
-  \end{center}
+  \centering
+  \leavevmode
+  \includegraphics[width=\columnwidth]{muon_system}
+  \caption{Layout of one quarter of the CMS muon system. Four drift tube (DT, in light orange) stations are labeled MB
+  (“muon barrel”) and the cathode strip chambers (CSC, in green) are labeled ME (“muon endcap”). Resistive plate
+  chambers (RPC, in blue) are in both the barrel and the endcaps of CMS, where they are labeled RB and RE,
+  respectively.}
+  \label{fig:muon_system}
 \end{figure}
 
-The layout of the CMS muon system is shown in Figure~\ref{muon_system}. It consists of the drift tubes (DT), cathode
+The layout of the CMS muon system is shown in Figure~\ref{fig:muon_system}. It consists of the drift tubes (DT), cathode
 strip chambers (CSC) and resistive plate chambers (RPC). The entire system surrounds the solenoid and covers the
 pseudorapidity region of \abs\eta \num{<2.4}.
 
@@ -389,18 +381,17 @@ information for triggering. The spacial resolution is, however, quite limited (\
 \SI{\approx 100}{\micron} for DTs and CSCs). %http://arxiv.org/abs/1306.6905
 
 \begin{figure}[htbp]
-  \begin{center}
-    \leavevmode
-    \includegraphics[width=\columnwidth]{muon_resolution}
-    \caption{The muon transverse momentum resolution as a function of the transverse momentum (\pt) using the muon
-    system only (black), the inner tracking only (blue), and both (red), in regions of \abs\eta \num{<0.8} (left) and
-    \num{1.2} $<$\abs\eta\num{<2.4} (right) \autocite{CMS}.}
-    \label{muon_resolution}
-  \end{center}
+  \centering
+  \leavevmode
+  \includegraphics[width=\columnwidth]{muon_resolution}
+  \caption{The muon transverse momentum resolution as a function of the transverse momentum (\pt) using the muon
+  system only (black), the inner tracking only (blue), and both (red), in regions of \abs\eta \num{<0.8} (left) and
+  \num{1.2} $<$\abs\eta\num{<2.4} (right) \autocite{CMS}.}
+  \label{fig:muon_resolution}
 \end{figure}
 
 The muon momentum is measured in both the tracker and the muon system.  As it can be seen on
-Figure~\ref{muon_resolution}, both sub-systems contribute to the momentum resolution at different \pt values. This
+Figure~\ref{fig:muon_resolution}, both sub-systems contribute to the momentum resolution at different \pt values. This
 happens due to the difference in the magnetic field and detector technology. For low-\pt muons, the best momentum
 resolution is obtained in the tracker, whereas in the high-\pt region the muon system provides a significant
 improvement. Therefore, by using information from both the silicon tracker and the muon chambers (i.e.\ reconstructing
@@ -553,7 +544,7 @@ account the kinks in the electron trajectory caused by photon emissions.
 Electron reconstruction in CMS has following distinct stages: seeding, track finding, pre-identification, Bremsstrahlung
 recovery, track-cluster linking and final identification. Historically, the original seeding algorithm was designed and
 optimised for isolated high-\pt electrons. This approach starts from ECAL clusters, and therefore is called the
-'ECAL-driven' seeding. It is based on the property of the ECAL energy deposits to have narrow width in the $\eta$
+``ECAL-driven'' seeding. It is based on the property of the ECAL energy deposits to have narrow width in the $\eta$
 coordinate, and to be widely spread in $\phi$ (azimuthal direction) like it was mentioned above. The electron and all
 the associated Bremsstrahlung energy deposits form a single ``super-cluster'', and the ability to correctly determine it
 affects the overall performance of this method. Only super-clusters with transverse energy above \SI{4}{\GeV} are taken
@@ -583,12 +574,12 @@ non-linear generalisation of the Kalman Filter. In this method, Bremsstrahlung e
 mixture, therefore GSF track fit provides a better estimate for the inner and outer track momentum comparing to the KF
 algorithm. The downside of this approach is its high CPU usage, which means it can be run on a limited number of seeds.
 
-The GSF tracks are reconstructed upon all ECAL-driven seeds. In case of the 'tracker-driven' seeds, a pre-identification
-based on high-purity KF tracks has been adopted. This procedure starts with the tracks reconstructed with very tight
-criteria, thus decreasing the fake rate yet compromising on tracking efficiency. Then an iterative-tracking strategy is
-carried out by means of removing hits unambiguously assigned to tracks from the previous iteration, and also
-progressively relaxing track seeding criteria. This approach leads to both high efficiency and low fake rate, which is
-crucial for low-\pt and non-isolated electrons.
+The GSF tracks are reconstructed upon all ECAL-driven seeds. In case of the ``tracker-driven'' seeds, a
+pre-identification based on high-purity KF tracks has been adopted. This procedure starts with the tracks reconstructed
+with very tight criteria, thus decreasing the fake rate yet compromising on tracking efficiency. Then an
+iterative-tracking strategy is carried out by means of removing hits unambiguously assigned to tracks from the previous
+iteration, and also progressively relaxing track seeding criteria. This approach leads to both high efficiency and low
+fake rate, which is crucial for low-\pt and non-isolated electrons.
 
 In the next step, track-cluster matching has to be performed. In case if electron has negligible Bremsstrahlung
 emission, the track is well reconstructed with the KF algorithm all the way to the ECAL internal surface, where the
@@ -787,12 +778,12 @@ be used for both electrons and muons throughout this thesis.
 \subsubsection{Identification of photon conversions}
 \label{sss:photon_conversions}
 Interacting with detector material, photons can convert into electron-positron pairs. Due to the large amount of
-material budget in the tracker (Figure~\ref{tracker_material_budget}), especially in the endcap region, there is a high
-chance of conversions to happen. The resulting electrons can successfully fake prompt signal electrons, passing all the
-identification criteria and appearing isolated if the initial photon was isolated, too. Therefore conversions constitute
-a large proportion of the QCD background to top signal. The electron-positron pair may not be symmetrical in transverse
-momenta, therefore a veto on a second electron is not sufficient to reject such electrons and other conversion
-identification criteria are necessary.
+material budget in the tracker (Figure~\ref{fig:tracker_material_budget}), especially in the endcap region, there is a
+high chance of conversions to happen. The resulting electrons can successfully fake prompt signal electrons, passing all
+the identification criteria and appearing isolated if the initial photon was isolated, too. Therefore conversions
+constitute a large proportion of the QCD background to top signal. The electron-positron pair may not be symmetrical in
+transverse momenta, therefore a veto on a second electron is not sufficient to reject such electrons and other
+conversion identification criteria are necessary.
 
 The simplest method is based on counting the number of missing hits in the tracker. Conversions are most likely to
 happen at some distance from the interaction point, essentially anywhere between the point of photon production and the
@@ -845,7 +836,7 @@ the contrary, tracker muon reconstruction is more efficient for low-\pt muons (\
 just a single muon segment. Since the \ttbar analyses described in this thesis have a semileptonic signature with
 exactly one energetic muon in the final state (in case of the muon channel), only the global muon reconstruction method
 is used, as its momentum resolution at high transverse momenta benefits from both the tracker and the muon system
-(Figure~\ref{muon_resolution}).
+(Figure~\ref{fig:muon_resolution}).
 
 Following the reconstruction, the quality of the muon objects is verified by applying identification criteria. This is
 done in order to suppress hadronic punch-through, muons from decays in flight and cosmic muons. Selection is applied on

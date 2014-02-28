@@ -61,7 +61,7 @@ electron an muon channels. Evidently, the reweighting procedure helps to achieve
 simulation.
 
 \begin{figure}[!htpb]
-\begin{center}
+	\centering
 	\subfloat[]{\includegraphics[width=0.50\textwidth]{vertices/EPlusJets_nVertex.pdf}}\hfill
 	\subfloat[]{\includegraphics[width=0.50\textwidth]{vertices/EPlusJets_nVertex_reweighted.pdf}} \\
 	\subfloat[]{\includegraphics[width=0.50\textwidth]{vertices/MuPlusJets_nVertex.pdf}}\hfill
@@ -70,7 +70,6 @@ simulation.
     Number of reconstructed vertices per event before (left) and after pile-up reweighting (right) in the electron
     channel (top) and in the muon channel (bottom). Both data and sum of the MC samples are normalised to unit area.}
     %QCD is estimated from MC here. Possible to fix/remove?
-\end{center}
 \end{figure}
 
 To estimate the number of pile-up vertices in data, the measured instantaneous luminosity in each bunch crossing is
@@ -88,15 +87,15 @@ vertices in data is shown in Figure~\ref{fig:pileup_truth}, whereas its effect o
 in Figure~\ref{fig:pileup_vertices_variations} for both electron and muon channels.
 
  \begin{figure}[hbtp]
-   \centering
-     \includegraphics[width=\textwidth]{vertices/PileUp_2012_truth_data.pdf}
-     \caption{Number of expected vertices per event for central and $\pm \sigma$ variations of the total inelastic cross
-     section for the 2012 data.}
-     \label{fig:pileup_truth}
+   	\centering
+    \includegraphics[width=\textwidth]{vertices/PileUp_2012_truth_data.pdf}
+    \caption{Number of expected vertices per event for central and $\pm \sigma$ variations of the total inelastic cross
+    section for the 2012 data.}
+    \label{fig:pileup_truth}
  \end{figure}
 
 \begin{figure}[!htpb]
-\begin{center}
+	\centering
 	\subfloat[]{\includegraphics[width=0.50\textwidth]{vertices/EPlusJets_nVertex_reweighted_PU_down.pdf}}\hfill
 	\subfloat[]{\includegraphics[width=0.50\textwidth]{vertices/EPlusJets_nVertex_reweighted_PU_up.pdf}} \\
 	\subfloat[]{\includegraphics[width=0.50\textwidth]{vertices/MuPlusJets_nVertex_reweighted_PU_down.pdf}}\hfill
@@ -104,7 +103,6 @@ in Figure~\ref{fig:pileup_vertices_variations} for both electron and muon channe
 	\caption{\label{fig:pileup_vertices_variations}
     Number of reconstructed vertices per event for the $-\sigma$ (left) and the $+\sigma$ variations (right) of
     the pile-up reweighting procedure for the electron channel (top) and the muon channel (bottom).}
-\end{center}
 \end{figure}
 
 
@@ -121,7 +119,7 @@ used to reweight the simulated events. The overall jet content of the event is t
 jets originating from light and heavy quarks.
 
 \begin{figure}[!htpb]
-\begin{center}
+	\centering
 	\subfloat[]{\includegraphics[width=0.50\textwidth]{bjets_multiplicity/EPlusJets_N_BJets.pdf}}\hfill
 	\subfloat[]{\includegraphics[width=0.50\textwidth]{bjets_multiplicity/EPlusJets_N_BJets_reweighted.pdf}} \\
 	\subfloat[]{\includegraphics[width=0.50\textwidth]{bjets_multiplicity/MuPlusJets_N_BJets.pdf}}\hfill
@@ -129,7 +127,6 @@ jets originating from light and heavy quarks.
 	\caption{\label{fig:bjet_weights}
     b-tag multiplicity before (left) and after applying b-tag scale factors (right) in the electron channel (top) and
     the muon channel (bottom).}
-\end{center}
 \end{figure}
 
 Figure \ref{fig:bjet_weights} shows the results of the reweighting procedure for electron and muon channels. It can be
@@ -397,7 +394,7 @@ pseudorapidity region of $1.0 < \abs \eta < 1.5$. Such behaviour is correlated w
 since this control region favours non-isolated electrons coming from heavy quark decays.
 
 \begin{figure}[hbtp]
-  \begin{center}
+	\centering
   	\subfloat[]{\includegraphics[width=0.50\textwidth]{QCD/QCD_conversion_control_region_electron_AbsEta_0btag}}\hfill
 	\subfloat[]{\includegraphics[width=0.50\textwidth]{QCD/QCD_non_iso_control_region_electron_AbsEta_0btag}} \\
 	\subfloat[]{\includegraphics[width=0.50\textwidth]{QCD/QCD_control_region_comparison_electron_AbsEta_0btag}}
@@ -405,7 +402,6 @@ since this control region favours non-isolated electrons coming from heavy quark
     (b) and the shape comparison of both QCD control region in data (c) in electron plus jets events with at least
     four jets and 0 b-tagged jets.}
     \label{fig:qcd_control_regions_eta}
-  \end{center}
 \end{figure}
 
 Due to the fact that the non-isolated control region has a significant contamination from signal and \W/\ZpJets events,
@@ -426,14 +422,13 @@ reasonable agreement between data and simulation. The contamination from other p
 Carlo.
 
 \begin{figure}[hbtp]
-  \begin{center}
+	\centering
   	\subfloat[]{\includegraphics[width=0.50\textwidth]{QCD/QCD_muon_pfIsolation_0btag}}\hfill
   	\subfloat[]{\includegraphics[width=0.50\textwidth]{QCD/QCD_non_iso_control_region_muon_AbsEta_0btag}}
     \caption{Muon relative isolation with no isolation cut (a) and muon $\abs \eta$ (b) for non-isolated ($\reliso >
     0.3$) selection in muon plus jets events with at least three jets and 0 b-tagged jets. The vertical red line on plot
     (a) shows the \reliso cut value of \num{0.3}.}
     \label{fig:qcd_muon_plots}
-  \end{center}
 \end{figure}
 
 \section{Data/MC comparison}
@@ -461,7 +456,7 @@ Section~\ref{s_xsection:measurement}.
 \input{06_Cross_section_analysis/tables/xsection_event_yields}
 
 \begin{figure}[hbtp]
-  \begin{center}
+	\centering
   	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/electron_pT_2orMoreBtags_with_ratio}}\hfill
   	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/muon_pT_2orMoreBtags_with_ratio}} \\
   	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/electron_AbsEta_2orMoreBtags_with_ratio}}\hfill
@@ -469,11 +464,10 @@ Section~\ref{s_xsection:measurement}.
     \caption{Data/MC comparison plots after the final event selection: electron \pt (a), muon \pt (b), electron $\abs
     \eta$ (c) and muon $\abs \eta$ (d). Left plots: electron+jets selection, right plots: muon+jets selection.}
     \label{fig:contol_plots_leptons}
-  \end{center}
 \end{figure}
 
 \begin{figure}[hbtp]
-  \begin{center}
+	\centering
   	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/EPlusJets_patType1CorrectedPFMet_2orMoreBtags_with_ratio}}\hfill
   	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/MuPlusJets_patType1CorrectedPFMet_2orMoreBtags_with_ratio}} \\
   	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/EPlusJets_patType1CorrectedPFMet_log_2orMoreBtags_with_ratio}}\hfill
@@ -481,11 +475,10 @@ Section~\ref{s_xsection:measurement}.
     \caption{Data/MC comparison plots of \MET (a, b) and logarithmic view of \MET (c, d) after the final event
     selection. Left plots: electron+jets selection, right plots: muon+jets selection.}
     \label{fig:contol_plots_METs}
-  \end{center}
 \end{figure}
 
 \begin{figure}[hbtp]
-  \begin{center}
+	\centering
   	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/EPlusJets_patType1CorrectedPFMet_phi_2orMoreBtags_with_ratio}}\hfill
 	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/MuPlusJets_patType1CorrectedPFMet_phi_2orMoreBtags_with_ratio}} \\
   	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/EPlusJets_N_Jets_2orMoreBtags_with_ratio}}\hfill
@@ -493,7 +486,6 @@ Section~\ref{s_xsection:measurement}.
     \caption{Data/MC comparison plots of $\phi(\MET)$ (a, b) and jet multiplicity (c, d) after the final event
     selection. Left plots: electron+jets selection, right plots: muon+jets selection.}
     \label{fig:contol_plots_phiMET_NJets}
-  \end{center}
 \end{figure}
 
 \newpage
@@ -567,45 +559,21 @@ bin. The binning is chosen in such way that both purity and stability are above 
 value. This process is performed for both electron and muon channels, and common binning is derived in order to be able
 to combine both channels in the final cross section measurement.
 
-Figures~\ref{fig:choice_of_bins_1} and \ref{fig:choice_of_bins_2} show the two-dimensional distributions of
-reconstructed versus generated primary variables, which were used to calculate purity and stability. The distributions
-were obtained with the central signal \ttbar sample. Red lines represent the bin edges for the chosen binning.
-Tables~\ref{tab:binning_MET_electron} and \ref{tab:binning_MET_muon} show the numerical values of purity and stability,
-as well as the selected binning for \MET variable. Results for other primary variables can be found in
-Appendix~\ref{a:binning}.
+Figure~\ref{fig:choice_of_bins_MET} shows the two-dimensional distributions of reconstructed versus generated \MET,
+which were used to calculate purity and stability. The distributions were obtained with the central signal
+\ttbar sample. Red lines represent the bin edges for the chosen binning. Tables~\ref{tab:binning_MET_electron} and
+\ref{tab:binning_MET_muon} show the numerical values of purity and stability, as well as the selected binning for \MET
+variable. Results for other primary variables can be found in Appendix~\ref{a:binning}.
 
 \input{06_Cross_section_analysis/tables/xsection_binning}
 
 \begin{figure}[hbtp]
 	\centering
-	\vspace*{-1cm}
 	%MET
 	\subfloat[]{\includegraphics[width=0.5\textwidth]{binning/EPlusJets_MET}}\hfill
 	\subfloat[]{\includegraphics[width=0.5\textwidth]{binning/MuPlusJets_MET}}\\
-	%HT
-	\subfloat[]{\includegraphics[width=0.5\textwidth]{binning/EPlusJets_HT}}\hfill
-	\subfloat[]{\includegraphics[width=0.5\textwidth]{binning/MuPlusJets_HT}}\\ 
-	%ST
-	\subfloat[]{\includegraphics[width=0.5\textwidth]{binning/EPlusJets_ST}}\hfill
-	\subfloat[]{\includegraphics[width=0.5\textwidth]{binning/MuPlusJets_ST}}\\ 
-
-	\caption{Reconstructed versus generated \MET (a, b), \HT (c, d) and \ST (e, f) for electron plus jets (left) and
-	muon plus jets events (right).}
-	\label{fig:choice_of_bins_1}
- \end{figure}
-
-\begin{figure}[hbtp]
-	\centering
-	%WPT
-	\subfloat[]{\includegraphics[width=0.5\textwidth]{binning/EPlusJets_WPT}}\hfill
-	\subfloat[]{\includegraphics[width=0.5\textwidth]{binning/MuPlusJets_WPT}}\\
-	%MT
-	\subfloat[]{\includegraphics[width=0.5\textwidth]{binning/EPlusJets_MT}}\hfill
-	\subfloat[]{\includegraphics[width=0.5\textwidth]{binning/MuPlusJets_MT}}\\
-
-	\caption{Reconstructed versus generated \WPT (a, b), \MT (c, d) for electron plus jets (left) and muon plus jets
-	events (right).}
-	\label{fig:choice_of_bins_2}
+	\caption{Reconstructed versus generated \MET for electron plus jets (a) and muon plus jets events (b).}
+	\label{fig:choice_of_bins_MET}
  \end{figure}
 
 \subsection{Fitting procedure}

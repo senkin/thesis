@@ -352,7 +352,7 @@
     \renewcommand{\footnoterule}{\relax}
     \thispagestyle{empty}
 %  \null\vfill
-  \begin{center}
+  \centering
     { \Huge {\bfseries {\@title}} \par}
 {\large \vspace*{35mm} {{\@crest} \par} \vspace*{25mm}}
     {{\Large \@author} \par}
@@ -367,7 +367,6 @@
     \null\vfill
 \vspace*{2ex}
     {\@degreedate}}
-  \end{center}
 \end{alwayssingle}}
 
 % DEDICATION
@@ -378,13 +377,12 @@
 \newenvironment{dedication}
 {\begin{alwayssingle}
   \pagestyle{empty}
-  \begin{center}
+  \centering
   \vspace*{1.5cm}
   {\LARGE }
-  \end{center}
   \vspace{0.5cm}
-  \begin{quote} \begin{center}}
-{\end{center} \end{quote} \end{alwayssingle}}
+  \begin{quote} \centering}
+{\end{quote} \end{alwayssingle}}
 
 
 % ACKNOWLEDGEMENTS
@@ -397,10 +395,9 @@
 \newenvironment{acknowledgements}
 {\pagestyle{empty}
 \begin{alwayssingle}
-\begin{center}
+\centering
 \vspace*{1.5cm}
 {\Large \bfseries Acknowledgements}
-\end{center}
 \vspace{0.5cm}
 \begin{quote}}
 {\end{quote}\end{alwayssingle}}
@@ -412,10 +409,9 @@
 \newenvironment{acknowledgementslong}
 {\pagestyle{empty}
 \begin{alwayssingle}
-\begin{center}
+\centering
 \vspace*{1.5cm}
 {\Large \bfseries Acknowledgements}
-\end{center}
 \vspace{0.5cm}\begin{quote}}
 {\end{quote}\end{alwayssingle}}
 
@@ -426,10 +422,9 @@
 %i.e. tabbed in at both sides, and on its own page.
 
 \newenvironment{abstracts} {\begin{alwayssingle} \pagestyle{empty}
-  \begin{center}
+  \centering
   \vspace*{1.5cm}
   {\Large \bfseries  Abstract}
-  \end{center}
   \vspace{0.5cm}
    \begin{quote}}
 {\end{quote}\end{alwayssingle}}
@@ -439,10 +434,9 @@
 %environment so you can get more in.
 
 \newenvironment{abstractslong} {\begin{alwayssingle} \pagestyle{empty}
-  \begin{center}
+  \centering
   \vspace*{1.5cm}
   {\Large \bfseries  Abstract}
-  \end{center}
   \vspace{0.5cm} \begin{quote}}
 {\end{quote}\end{alwayssingle}}
 
@@ -451,7 +445,7 @@
 
 \newenvironment{abstractseparate} {\begin{alwayssingle} \pagestyle{empty}
   \vspace*{-1in}
- \begin{center}
+  \centering
     { \Large {\bfseries {\@title}} \par}
     {{\large \vspace*{1ex} \@author} \par}
 {\large \vspace*{1ex}
@@ -462,7 +456,7 @@
     {\it {\@degree} \par}
 \vspace*{2ex}
     {\@degreedate}}
-  \end{center}}
+  }
 {\end{alwayssingle}}
 
 %ROMANPAGES
