@@ -462,7 +462,7 @@ Section~\ref{s_xsection:measurement}.
   	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/electron_AbsEta_2orMoreBtags_with_ratio}}\hfill
   	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/muon_AbsEta_2orMoreBtags_with_ratio}}
     \caption{Data/MC comparison plots after the final event selection: electron \pt (a), muon \pt (b), electron $\abs
-    \eta$ (c) and muon $\abs \eta$ (d). Left plots: electron+jets selection, right plots: muon+jets selection.}
+    \eta$ (c) and muon $\abs \eta$ (d). Left-hand plots: electron plus jets selection, right-hand plots: muon plus jets selection.}
     \label{fig:contol_plots_leptons}
 \end{figure}
 
@@ -473,7 +473,7 @@ Section~\ref{s_xsection:measurement}.
   	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/EPlusJets_patType1CorrectedPFMet_log_2orMoreBtags_with_ratio}}\hfill
   	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/MuPlusJets_patType1CorrectedPFMet_log_2orMoreBtags_with_ratio}} \\
     \caption{Data/MC comparison plots of \MET (a, b) and logarithmic view of \MET (c, d) after the final event
-    selection. Left plots: electron+jets selection, right plots: muon+jets selection.}
+    selection. Left-hand plots: electron plus jets selection, right-hand plots: muon plus jets selection.}
     \label{fig:contol_plots_METs}
 \end{figure}
 
@@ -484,7 +484,7 @@ Section~\ref{s_xsection:measurement}.
   	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/EPlusJets_N_Jets_2orMoreBtags_with_ratio}}\hfill
   	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/MuPlusJets_N_Jets_2orMoreBtags_with_ratio}} \\
     \caption{Data/MC comparison plots of $\phi(\MET)$ (a, b) and jet multiplicity (c, d) after the final event
-    selection. Left plots: electron+jets selection, right plots: muon+jets selection.}
+    selection. Left-hand plots: electron plus jets selection, right-hand plots: muon plus jets selection.}
     \label{fig:contol_plots_phiMET_NJets}
 \end{figure}
 
@@ -577,6 +577,85 @@ variable. Results for other primary variables can be found in Appendix~\ref{a:bi
 
 \subsection{Fitting procedure}
 \label{ss_xsection:fitting}
+To calculate the differential cross section as a function of a primary variable, the number of signal \ttbar event
+has to be measured in each primary variable bin. For this purpose, a template fit of the observed distribution of
+lepton pseudorapidity ($\abs {\eta_l}$) is performed in each bin in order to estimate the number of \ttbar events by
+subtracting the primary backgrounds. Three separate templates are produced for the input of the template fit:
+
+\begin{itemize}
+	\item $\abs {\eta_l}$ distribution of top-like events, i.e.\ combined template of \ttbar and single-top MC;
+	\item $\abs {\eta_l}$ distribution of \VpJets events, i.e.\ combined \WpJets and \ZpJets templates;
+	\item $\abs {\eta_l}$ shape of QCD events, estimated from data (Section~\ref{s_xsection:data_driven_QCD}).
+\end{itemize}
+
+The combination of \WpJets and \ZpJets templates is justified by the similarity of the shapes of distributions, as well
+as by limited MC statistics. Figures~\ref{fig:fit_templates_MET_electron} and \ref{fig:fit_templates_MET_muon} show
+templates for the \MET variable for electron and muon channels, respectively. Templates for other primary variables are
+attached in Appendix~\ref{a:templates}.
+
+\sisetup{range-phrase = --}
+\sisetup{range-units = single}
+
+\begin{figure}[!htbp]
+	\centering
+	\vspace*{-0.5cm}
+	\hspace*{\fill}
+  	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_templates/electron_templates_bin_0-25}}\hfill
+  	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_templates/electron_templates_bin_25-45}}
+  	\hspace*{\fill} \\
+  	\hspace*{\fill}
+  	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_templates/electron_templates_bin_45-70}}\hfill
+  	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_templates/electron_templates_bin_70-100}}
+  	\hspace*{\fill} \\
+  	\hspace*{\fill}
+  	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_templates/electron_templates_bin_100-150}}\hfill
+  	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_templates/electron_templates_bin_150-inf}}
+  	\hspace*{\fill}
+    \caption{Electron $\abs \eta$ templates for the fit in different bins of \MET, from top left to bottom right:
+    \SIrange{0}{25}{\GeV}, \SIrange{25}{45}{\GeV}, \SIrange{45}{70}{\GeV}, \SIrange{70}{100}{\GeV},
+    \SIrange{100}{150}{\GeV} and $\geq \SI{150}{\GeV}$.}
+    \label{fig:fit_templates_MET_electron}
+\end{figure}
+
+\begin{figure}[!htbp]
+	\centering
+	\vspace*{-0.5cm}
+	\hspace*{\fill}
+  	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_templates/muon_templates_bin_0-25}}\hfill
+  	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_templates/muon_templates_bin_25-45}}
+  	\hspace*{\fill} \\
+  	\hspace*{\fill}
+  	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_templates/muon_templates_bin_45-70}}\hfill
+  	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_templates/muon_templates_bin_70-100}}
+  	\hspace*{\fill} \\
+  	\hspace*{\fill}
+  	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_templates/muon_templates_bin_100-150}}\hfill
+  	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_templates/muon_templates_bin_150-inf}}
+  	\hspace*{\fill}
+    \caption{Muon $\abs \eta$ templates for the fit in different bins of \MET, from top left to bottom right:
+    \SIrange{0}{25}{\GeV}, \SIrange{25}{45}{\GeV}, \SIrange{45}{70}{\GeV}, \SIrange{70}{100}{\GeV},
+    \SIrange{100}{150}{\GeV} and $\geq \SI{150}{\GeV}$.}
+    \label{fig:fit_templates_MET_muon}
+\end{figure}
+
+\sisetup{range-phrase = {~to~}}
+\sisetup{range-units = repeat}
+
+
+
+The template fit is performed by minimising the log-likelihood defined as:
+\begin{equation}\label{eq:finll}
+LL(\{\lambda_i,d_i\})=-2\,\log{\left(\prod\limits_{i}\frac{\lambda_i^{d_i}\cdot
+e^{-\lambda_i}}{d_i!}\right)}=-2\sum\limits_{i}\log{\left(\frac{\lambda_i^{d_i}\cdot e^{-\lambda_i}}{d_i!}\right)},
+\end{equation}
+
+or
+
+\begin{align}
+LL\left(\Niexp,N_i^\text{obs}\right) &=-2\,\log{\left(\prod\limits_{i}\frac{\left(\Niexp\right)^{\Niobs}\cdot
+e^{-\Niexp}}{\Niobs!}\right)} \\
+ & =-2\sum\limits_{i}\log{\left(\frac{\left(\Niexp\right)^{\Niobs}\cdot e^{-\Niexp}}{\Niobs!}\right)}
+\end{align}
 
 % The first step in the measurement of the differential cross sections $\frac{\mathrm{d} \sigma_{t\bar{t}}}{\mathrm{d}
 % \met}$, $\frac{\mathrm{d} \sigma_{t\bar{t}}}{\mathrm{d} \HT}$, $\frac{\mathrm{d} \sigma_{t\bar{t}}}{\mathrm{d} \st}$,
@@ -632,101 +711,14 @@ variable. Results for other primary variables can be found in Appendix~\ref{a:bi
 % Tables~\ref{tab:fit_met_consts_e} and~\ref{tab:fit_met_consts_mu}) is used as the normalisation for the control plots
 % for each variable as can be seen in Figures~\ref{fig:control_postfit_e} and ~\ref{fig:control_postfit_mu}.
 
-\sisetup{range-phrase = --}
-\sisetup{range-units = single}
 
-\begin{figure}[!htbp]
-	\centering
-	\vspace*{-0.5cm}
-	\hspace*{\fill}
-  	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_templates/electron_templates_bin_0-25}}\hfill
-  	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_templates/electron_templates_bin_25-45}}
-  	\hspace*{\fill} \\
-  	\hspace*{\fill}
-  	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_templates/electron_templates_bin_45-70}}\hfill
-  	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_templates/electron_templates_bin_70-100}}
-  	\hspace*{\fill} \\
-  	\hspace*{\fill}
-  	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_templates/electron_templates_bin_100-150}}\hfill
-  	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_templates/electron_templates_bin_150-inf}}
-  	\hspace*{\fill}
-    \caption{Electron $\abs \eta$ templates for the fit in different bins of \MET, from top left to bottom right:
-    \SIrange{0}{25}{\GeV}, \SIrange{25}{45}{\GeV}, \SIrange{45}{70}{\GeV}, \SIrange{70}{100}{\GeV},
-    \SIrange{100}{150}{\GeV} and $\geq \SI{150}{\GeV}$.}
-    \label{fig:fit_templates_MET_electron}
-\end{figure}
-
-\begin{figure}[!htbp]
-	\centering
-	\vspace*{-0.5cm}
-	\hspace*{\fill}
-  	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_templates/muon_templates_bin_0-25}}\hfill
-  	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_templates/muon_templates_bin_25-45}}
-  	\hspace*{\fill} \\
-  	\hspace*{\fill}
-  	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_templates/muon_templates_bin_45-70}}\hfill
-  	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_templates/muon_templates_bin_70-100}}
-  	\hspace*{\fill} \\
-  	\hspace*{\fill}
-  	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_templates/muon_templates_bin_100-150}}\hfill
-  	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_templates/muon_templates_bin_150-inf}}
-  	\hspace*{\fill}
-    \caption{Muon $\abs \eta$ templates for the fit in different bins of \MET, from top left to bottom right:
-    \SIrange{0}{25}{\GeV}, \SIrange{25}{45}{\GeV}, \SIrange{45}{70}{\GeV}, \SIrange{70}{100}{\GeV},
-    \SIrange{100}{150}{\GeV} and $\geq \SI{150}{\GeV}$.}
-    \label{fig:fit_templates_MET_muon}
-\end{figure}
-
-% \begin{figure}[!htbp]
-% 	\centering
-% 	\vspace*{-0.66cm}
-% 	\hspace*{\fill}
-%   	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_results/electron_bin_0-25}}\hfill
-%   	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_results/electron_bin_25-45}}
-%   	\hspace*{\fill} \\
-%   	\hspace*{\fill}
-%   	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_results/electron_bin_45-70}}\hfill
-%   	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_results/electron_bin_70-100}}
-%   	\hspace*{\fill} \\
-%   	\hspace*{\fill}
-%   	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_results/electron_bin_100-150}}\hfill
-%   	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_results/electron_bin_150-inf}}
-%   	\hspace*{\fill}
-%     \caption{Distributions of electron $\abs \eta$ with the results of the template fit in
-%     different bins of \MET, from top left to bottom right: \SIrange{0}{25}{\GeV}, \SIrange{25}{45}{\GeV},
-%     \SIrange{45}{70}{\GeV}, \SIrange{70}{100}{\GeV}, \SIrange{100}{150}{\GeV} and $\geq \SI{150}{\GeV}$.}
-%     \label{fig:fit_results_MET_electron}
-% \end{figure}
-
-% \begin{figure}[!htbp]
-% 	\centering
-% 	\vspace*{-0.66cm}
-% 	\hspace*{\fill}
-%   	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_results/muon_bin_0-25}}\hfill
-%   	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_results/muon_bin_25-45}}
-%   	\hspace*{\fill} \\
-%   	\hspace*{\fill}
-%   	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_results/muon_bin_45-70}}\hfill
-%   	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_results/muon_bin_70-100}}
-%   	\hspace*{\fill} \\
-%   	\hspace*{\fill}
-%   	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_results/muon_bin_100-150}}\hfill
-%   	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_results/muon_bin_150-inf}}
-%   	\hspace*{\fill}
-%     \caption{Distributions of muon $\abs \eta$ with the results of the template fit in different
-%     bins of \MET, from top left to bottom right: \SIrange{0}{25}{\GeV}, \SIrange{25}{45}{\GeV},
-%     \SIrange{45}{70}{\GeV}, \SIrange{70}{100}{\GeV}, \SIrange{100}{150}{\GeV} and $\geq \SI{150}{\GeV}$.}
-%     \label{fig:fit_results_MET_muon}
-% \end{figure}
-
-\sisetup{range-phrase = {~to~}}
-\sisetup{range-units = repeat}
 
 \begin{figure}[!htbp]
 	\centering
   	\subfloat[]{\includegraphics[width=0.5\textwidth]{fitted_primary_variables/EPlusJets_patType1CorrectedPFMet_2orMoreBtags_with_ratio}}\hfill
   	\subfloat[]{\includegraphics[width=0.5\textwidth]{fitted_primary_variables/MuPlusJets_patType1CorrectedPFMet_2orMoreBtags_with_ratio}}
-    \caption{}
+    \caption{Data/MC comparison plots of \MET for electron plus jets (a) and muon plus jets (b) events after the final
+    event selection using the normalisation from the fitted results.}
     \label{fig:fitted_MET}
 \end{figure}
 
@@ -736,18 +728,21 @@ variable. Results for other primary variables can be found in Appendix~\ref{a:bi
   	\subfloat[]{\includegraphics[width=0.5\textwidth]{fitted_primary_variables/MuPlusJets_HT_2orMoreBtags_with_ratio}} \\
   	\subfloat[]{\includegraphics[width=0.5\textwidth]{fitted_primary_variables/EPlusJets_patType1CorrectedPFMet_ST_2orMoreBtags_with_ratio}}\hfill
   	\subfloat[]{\includegraphics[width=0.5\textwidth]{fitted_primary_variables/MuPlusJets_patType1CorrectedPFMet_ST_2orMoreBtags_with_ratio}}
-    \caption{}
+    \caption{Data/MC comparison plots of \HT (a, b) and \ST (c, d) after the final event selection using the
+    normalisation from the fitted results. Left-hand plots: electron plus jets selection, right-hand plots: muon plus
+    jets selection.}
     \label{fig:fitted_HT_ST}
 \end{figure}
 
 \begin{figure}[!htbp]
 	\centering
-	%\vspace*{-0.66cm}
   	\subfloat[]{\includegraphics[width=0.5\textwidth]{fitted_primary_variables/EPlusJets_patType1CorrectedPFMet_WPT_2orMoreBtags_with_ratio}}\hfill
   	\subfloat[]{\includegraphics[width=0.5\textwidth]{fitted_primary_variables/MuPlusJets_patType1CorrectedPFMet_WPT_2orMoreBtags_with_ratio}} \\
   	\subfloat[]{\includegraphics[width=0.5\textwidth]{fitted_primary_variables/EPlusJets_patType1CorrectedPFMet_MT_2orMoreBtags_with_ratio}}\hfill
   	\subfloat[]{\includegraphics[width=0.5\textwidth]{fitted_primary_variables/MuPlusJets_patType1CorrectedPFMet_MT_2orMoreBtags_with_ratio}}
-    \caption{}
+    \caption{Data/MC comparison plots of \WPT (a, b) and \MT (c, d) after the final event selection using the
+    normalisation from the fitted results. Left-hand plots: electron plus jets selection, right-hand plots: muon plus
+    jets selection.}
     \label{fig:fitted_WPT_MT}
 \end{figure}
 
