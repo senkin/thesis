@@ -575,15 +575,15 @@ variable. Results for other primary variables can be found in Appendix~\ref{a:bi
 	\label{fig:choice_of_bins_MET}
  \end{figure}
 
-\subsection{Fitting procedure}
+\subsection{Fitting procedure and cross section measurement}
 \label{ss_xsection:fitting}
-To calculate the differential cross section as a function of a primary variable, the number of signal \ttbar event
-has to be measured in each primary variable bin. For this purpose, a template fit of the observed distribution of
-lepton pseudorapidity ($\abs {\eta_l}$) is performed in each bin in order to estimate the number of \ttbar events by
-subtracting the primary backgrounds. Three separate templates are produced for the input of the template fit:
+To calculate the differential cross section as a function of a primary variable, the number of signal \ttbar event has
+to be measured in each primary variable bin. For this purpose, a template fit of the observed distribution of lepton
+pseudorapidity ($\abs {\eta_l}$) is performed in each bin in order to estimate the number of \ttbar events by
+subtracting the primary backgrounds. Three separate normalised templates are produced for the input of the template fit:
 
 \begin{itemize}
-	\item $\abs {\eta_l}$ distribution of top-like events, i.e.\ combined template of \ttbar and single-top MC;
+	\item $\abs {\eta_l}$ distribution of top-like events, i.e.\ combined template of \ttbar and single top MC;
 	\item $\abs {\eta_l}$ distribution of \VpJets events, i.e.\ combined \WpJets and \ZpJets templates;
 	\item $\abs {\eta_l}$ shape of QCD events, estimated from data (Section~\ref{s_xsection:data_driven_QCD}).
 \end{itemize}
@@ -643,75 +643,56 @@ attached in Appendix~\ref{a:templates}.
 
 
 
-The template fit is performed by minimising the log-likelihood defined as:
-\begin{equation}\label{eq:finll}
-LL(\{\lambda_i,d_i\})=-2\,\log{\left(\prod\limits_{i}\frac{\lambda_i^{d_i}\cdot
+The template fit is performed independently in each primary variable bin by minimising the log-likelihood defined as:
+% \begin{align}
+% LL\left(\Niexp,N_i^\text{obs}\right) &=-2\,\log{\left(\prod\limits_{i}\frac{\left(\Niexp\right)^{\Niobs}\cdot
+% e^{-\Niexp}}{\Niobs!}\right)} \\
+%  & =-2\sum\limits_{i}\log{\left(\frac{\left(\Niexp\right)^{\Niobs}\cdot e^{-\Niexp}}{\Niobs!}\right)}
+% \end{align}
+\begin{equation}
+\label{eq:xsection_loglikelihood}
+LL(\lambda_i,d_i)=-2\,\log{\left(\prod\limits_{i}\frac{\lambda_i^{d_i}\cdot
 e^{-\lambda_i}}{d_i!}\right)}=-2\sum\limits_{i}\log{\left(\frac{\lambda_i^{d_i}\cdot e^{-\lambda_i}}{d_i!}\right)},
 \end{equation}
+where $\lambda_i$ is the sum of expected events from all the templates $d_i$ is the number of data events in each bin
+$i$, and summation is performed over all bins $i$ of the $\abs {\eta_l}$ distribution. The expected lepton
+pseudorapidity (array of $\lambda_i$) is modelled by normalising the templates $\theta_{i\,j}$ by normalisation factors
+$N_j$:
 
-or
+\begin{equation}
+\label{eq:xsection_templates_normalisation}
+\lambda_i=\sum\limits_{j}N_j\theta_{i\,j},\;\mathrm{where}\;\sum\limits_{i}\theta_{i\,j}=1~\mathrm{for~every~process}~j.
+\end{equation}
+
+The minimisation of the log-likelihood is achieved by varying the fit parameters, i.e.\ normalisation factors for each
+template. Therefore, the template fit strives for equality of $\lambda_i$ and $d_i$ in all lepton pseudorapidity bins.
+The initial normalisation values for the templates are taken from the expected number of events for \ttbar, single top,
+\WpJets and \ZpJets as per Table~\ref{tab:xsection_mc_samples}. Although the QCD template shape is data-driven, the
+initial normalisation for it is also taken from Monte Carlo simulation (Tables~\ref{tab:xsection_electron_qcd_samples}
+and \ref{tab:xsection_muon_qcd_samples}).
+
+The similarity of QCD and \VpJets templates, particularly for muon plus jets events
+(Figure~\ref{fig:fit_templates_MET_muon}), can lead to unphysical bin-to-bin fluctuations of these backgrounds. To
+mitigate such behaviour, the following conservative Gaussian constraints were added to the likelihood function of the
+fit:
 
 \begin{align}
-LL\left(\Niexp,N_i^\text{obs}\right) &=-2\,\log{\left(\prod\limits_{i}\frac{\left(\Niexp\right)^{\Niobs}\cdot
-e^{-\Niexp}}{\Niobs!}\right)} \\
- & =-2\sum\limits_{i}\log{\left(\frac{\left(\Niexp\right)^{\Niobs}\cdot e^{-\Niexp}}{\Niobs!}\right)}
+\label{eq:xsection_fit_constraints}
+(N_{\VpJets}^\mathrm{fit}-N_{\VpJets}^\mathrm{MC})^2/(0.5 \times N_{\VpJets}^\mathrm{MC})^2 \\
+(N_\mathrm{QCD}^\mathrm{fit}-N_\mathrm{QCD}^\mathrm{MC})^2/(2\times N_\mathrm{QCD}^\mathrm{MC})^2
 \end{align}
 
-% The first step in the measurement of the differential cross sections $\frac{\mathrm{d} \sigma_{t\bar{t}}}{\mathrm{d}
-% \met}$, $\frac{\mathrm{d} \sigma_{t\bar{t}}}{\mathrm{d} \HT}$, $\frac{\mathrm{d} \sigma_{t\bar{t}}}{\mathrm{d} \st}$,
-% $\frac{\mathrm{d} \sigma_{t\bar{t}}} {\mathrm{d} \wpt}$ and $\frac{\mathrm{d} \sigma_{t\bar{t}}}{\mathrm{d} \mt}$ is to
-% extract the number of \ttbar\ events in each bin for each of the variables under investigation using a binned likelihood
-% fit of the observed absolute lepton rapidity distribution $|\eta_{\ell}|$ after the event selection described in
-% section~\ref{s_xsection:event_selection}. In the course of the fit, we minimise the logarithm of the likelihood ($LL$)
-% defined as
+The first term represents the constraint of the number of \VpJets events to within \SI{50}{\pc} of that predicted by
+theory, whereas the second term is the \SI{200}{\pc} constraint for QCD events.
 
-% \begin{equation}\label{eq:finll}
-% LL(\{\lambda_i,d_i\})=-2\,\log{\left(\prod\limits_{i}\frac{\lambda_i^{d_i}\cdot
-% e^{-\lambda_i}}{d_i!}\right)}=-2\sum\limits_{i}\log{\left(\frac{\lambda_i^{d_i}\cdot e^{-\lambda_i}}{d_i!}\right)},
-% \end{equation}
-
-% where we run over all $\left|\eta_{\ell}\right|$ bins $i$ of the distribution and $\lambda_i$ ($d_i$) are the expected
-% (observed) number of events in each bin $i$. We model the expected rapidity distribution $\{\lambda_i\}$ by process
-% dependent normalised templates $\theta_j:=\{\theta_{i\,j}\}$ and normalisation factors $N_j$, such that
-
-% \begin{equation}
-% \lambda_i=\sum\limits_{j}N_j\theta_{i\,j},\;\mathrm{with}\;\sum\limits_{i}\theta_{i\,j}=1\;\forall\,\mathrm{process}\,j.
-% \end{equation}
-
-% The template fit is performed separately for each bin of the variable in question, as explained in section
-% \ref{ss_xsection:binning}. Introducing the superscript $k$ to distinguish the bins of a given variable, there are three
-% separate templates $\theta_j^k$ in the fit: $\theta_\mathrm{top}^k$ for the top processes \ttbar and single-top
-% production; $\theta_\mathrm{WZ}^k$ for the combination of W+jets and Z+jets and $\theta_\mathrm{QCD}^k$ for the QCD
-% background. The first two templates are taken from simulation and the QCD templates from data as discussed in
-% section~\ref{s_xsection:data_driven_QCD}. The fit parameters are then the three normalisation factors $N_\mathrm{top}^k$
-% and $N_{\mathrm{WZ}}^k$ and $N_{\mathrm{QCD}}^k$.
-
-% The templates used for the \MET variable are shown in Figure \ref{fig:fit_templates_MET_electron} for
-% electron-plus-jets events and in Figure \ref{fig:fit_templates_MET_muon} for muon-plus-jets events.
-
-% A single fit parameter $N_\mathrm{top}^k$ is used to account for the combined contribution of \ttbar and single-top
-% events, since the $\left|\eta_\ell\right|$ distribution is similar for the two processes. The contribution from
-% single-top is around 20\% of the total in all bins. The Monte Carlo estimate for single-top is subtracted from the
-% fitted total number of top-like (signal) events to arrive at the number of \ttbar events:
-
-
-% \begin{equation}\label{eq:finll_2}
-% \Nttbar^k = N_{\mathrm{top}}^k - N_{\textrm{single-top}}^k.
-% \end{equation}
-
-% The total normalisation value is obtained by summing $\Nttbar^k$ over all bins, k, for each variable. The fit results
-% compared to the MC prediction for each process (without constraints) in each \MET bin can be seen in
-% Tables~\ref{tab:fit_met_consts_e} and~\ref{tab:fit_met_consts_mu}. Without constraints there are quite large bin-to-bin
-% fluctuations in the fitted results. It is therefore useful to add constraints to the fitted background normalisation
-% values. This can be done by adding extra terms to the likelihood function. The following gaussian constraints have been
-% added: $(N_\mathrm{QCD}^\mathrm{fit}-N_\mathrm{QCD}^\mathrm{MC})^2/(2\times N_\mathrm{QCD}^\mathrm{MC})^2$ for QCD and
-% $(N_\mathrm{V+Jets}^\mathrm{fit}-N_\mathrm{V+Jets}^\mathrm{MC})^2/(0.5 \times N_\mathrm{V+Jets}^\mathrm{MC})^2$. Using
-% these constraints helps to stabilise the fit and the results can be seen in Tables~\ref{tab:fit_met_consts_e}
-% and~\ref{tab:fit_met_consts_mu}. The total number of fitted events for each process (taken from the final column in
-% Tables~\ref{tab:fit_met_consts_e} and~\ref{tab:fit_met_consts_mu}) is used as the normalisation for the control plots
-% for each variable as can be seen in Figures~\ref{fig:control_postfit_e} and ~\ref{fig:control_postfit_mu}.
-
-
+Figure~\ref{fig:fitted_MET} shows the control plots of data/MC comparison for \MET variable in both electron and muon
+channels. Here the normalisation for signal and backgrounds is taken from the fitted results. Similar plots for \HT and
+\ST are shown in Figure~\ref{fig:fitted_HT_ST}, whereas Figure~\ref{fig:fitted_WPT_MT} shows control plots for \WPT and
+\MT. Overall, the data and simulation agree within the fit uncertainty. The observed discrepancies can be attributed to
+the known issue of the event generators incorrectly modelling the \pt spectrum of the top quarks
+\autocite{ttbar_differential_xsection_7TeV, ttbar_differential_xsection_8TeV}. This effect is accounted for as a source
+of systematic uncertainty, as explained in Section~\ref{s_xsection:systematics}.
+%https://twiki.cern.ch/twiki/bin/viewauth/CMS/TopPtReweighting
 
 \begin{figure}[!htbp]
 	\centering
@@ -745,6 +726,45 @@ e^{-\Niexp}}{\Niobs!}\right)} \\
     jets selection.}
     \label{fig:fitted_WPT_MT}
 \end{figure}
+
+The output of the fit yields the number of top-like events in each bin, which includes both \ttbar and single top
+processes since the lepton pseudorapidity distribution is very similar between them. The number of \ttbar events is
+extracted from the signal fit result by using the expected ratio of \ttbar and single top events before the fitting
+process:
+\begin{equation}
+\label{eq:xsection_decomposition}
+\Nttbar^{\text{fit}} = N_{\text{signal}}^{\text{fit}} \times \frac{\Nttbar^{\text{exp}}}{N_{\text{signal}}^{\text{exp}}},
+\end{equation}
+where $N_{\ttbar}^{\text{fit}}$ ($N_{\text{signal}}^{\text{fit}}$) is the number of \ttbar (\ttbar + single top) events
+as found by the fit, and $N_{\ttbar}^{\text{exp}}$ ($N_{\text{signal}}^{\text{exp}}$) is the number of \ttbar (\ttbar +
+single top) events as predicted by theory.
+
+The obtained number of \ttbar events $\Nttbar^k$ can be converted to a partial cross section of \ttbar production in
+each bin $k$ of a given variable:
+\begin{equation}
+\label{eq:partial_xsection}
+\Delta\sigttbar^k = \frac{\Nttbar^k}{\mathrm{BR} \times {\cal L}},
+\end{equation}
+where $\cal L$ is the total integrated luminosity and $\mathrm{BR}$ is the theoretical branching ratio of semi-leptonic
+\ttbar decay. These values cancel in the normalisation of the cross section, which is performed by division by the bin
+width $\Delta \mathrm{X}^k$ of a given variable $\mathrm{X}$, yielding the differential cross section:
+
+\begin{equation}
+\label{eq:differential_xsection}
+\frac{\mathrm{d}\sigttbar^k}{\mathrm{d} \mathrm{X}} = \frac{\Delta\sigttbar^k}{\Delta \mathrm{X}^k }
+\end{equation}
+
+Finally, the normalised differential cross section is obtained by using the sum of the partial differential cross
+sections:
+
+\begin{equation}
+\label{eq:normalised_differential_xsection}
+\frac{1}{\sigttbar^\mathrm{tot}} \frac{\mathrm{d}\sigttbar^k}{\mathrm{d} \mathrm{X}} =
+\frac{1}{\sum\limits_k{\frac{\mathrm{d}\sigttbar^k}{\mathrm{d} \mathrm{X}}}} \frac{\mathrm{d}\sigttbar^k}{\mathrm{d} \mathrm{X}}
+= \frac{1}{\Delta \mathrm{X}^k} \frac{\Nttbar^k}{\sum\limits_k \Nttbar^k}
+\end{equation}
+
+
 
 
 
