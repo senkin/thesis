@@ -137,7 +137,7 @@ by applying $\pm 1 \sigma$ variations of the scale factors in the reweighting pr
 \section{Event Selection}
 \label{s_xsection:event_selection}
 As in the top quark mass analysis, the event selection in this work is based on the standard CMS selection optimised for
-the Standard Model \ttbar production. It also exploits the semi-leptonic signature of a \ttbar decay with exactly one
+the Standard Model \ttbar production. It also exploits the semileptonic signature of a \ttbar decay with exactly one
 isolated lepton and at least four jets, two of which are b-tagged. One of the main goals of the analysis is the
 measurement of the missing transverse energy distribution represented by a neutrino from the leptonic decay of the \W
 boson, however, there is no specific requirement on the \MET in the selection.
@@ -149,7 +149,7 @@ used in order to reduce the number of events for local analysis processing is id
 However, additional filters are used to reject the events with artificial \MET caused by noise or known problems with
 one of the detector subsystems. These filters are discussed in Section~\ref{ss_xsection:met_filters}.
 
-Two semi-leptonic \ttbar decay modes are explored in this analysis: the electron plus jets and the muon plus jets
+Two semileptonic \ttbar decay modes are explored in this analysis: the electron plus jets and the muon plus jets
 channels. The event selection for each of these decay modes is described below.
 
 \subsection{Electron plus jets channel}
@@ -365,7 +365,7 @@ anomalously high missing transverse energy. A short description of each filter i
 
 \section{Data-driven QCD estimation}
 \label{s_xsection:data_driven_QCD}
-The QCD multi-jet events constitute an important background to semi-leptonic \ttbar decays, and one of the most
+The QCD multi-jet events constitute an important background to semileptonic \ttbar decays, and one of the most
 difficult to model (Section~\ref{ss:backgrounds}). The two b-tagged jets requirement in the event selection is mainly
 motivated by the necessity to mitigate the effect of this particular background. In this analysis, the final QCD yield
 is obtained from the fitting process as explained in Section~\ref{s_xsection:measurement}. However, the initial estimate
@@ -410,7 +410,7 @@ contributions of the QCD events from both control regions in the final selected 
 can differ considerably from the prediction. Therefore, the non-isolated region is used to estimate the systematic
 uncertainty due to the QCD shape choice.
 
-\subsection{QCD multijet events with muons}
+\subsection{QCD multi-jet events with muons}
 For the QCD shape extraction in the muon plus jets channel, the inverted isolation cut is applied in the event
 selection: at least one muon with $\reliso>0.3$ is required, and events with isolated muons with $\reliso<0.3$ are
 vetoed. Similarly to the electron channel, only events with no b-tagged jets are taken into account. Additionally, to
@@ -544,7 +544,8 @@ directly influenced by available statistics and detector resolution. An ideal me
 section calculation in as many bins as possible. However, insufficient statistics leads to high statistical uncertainty
 in a particular bin, whereas limited detector resolution causes substantial migration effects between bins. Bin
 migration happens if an event originating from one bin appears in a different bin after reconstruction. Unreasonable
-binning choice would lead to a high number of such events, which can compromise the cross section measurement.
+binning choice would lead to a high number of such events, which can potentially compromise the cross section
+measurement.
 
 To quantify the bin migration, purity and stability variables are introduced, defined as:
 \begin{align}
@@ -575,7 +576,7 @@ variable. Results for other primary variables can be found in Appendix~\ref{a:bi
 	\label{fig:choice_of_bins_MET}
  \end{figure}
 
-\subsection{Fitting procedure and cross section measurement}
+\subsection{Fitting procedure}
 \label{ss_xsection:fitting}
 To calculate the differential cross section as a function of a primary variable, the number of signal \ttbar event has
 to be measured in each primary variable bin. For this purpose, a template fit of the observed distribution of lepton
@@ -640,8 +641,6 @@ attached in Appendix~\ref{a:templates}.
 
 \sisetup{range-phrase = {~to~}}
 \sisetup{range-units = repeat}
-
-
 
 The template fit is performed independently in each primary variable bin by minimising the log-likelihood defined as:
 % \begin{align}
@@ -739,19 +738,90 @@ where $N_{\ttbar}^{\text{fit}}$ ($N_{\text{signal}}^{\text{fit}}$) is the number
 as found by the fit, and $N_{\ttbar}^{\text{exp}}$ ($N_{\text{signal}}^{\text{exp}}$) is the number of \ttbar (\ttbar +
 single top) events as predicted by theory.
 
-The obtained number of \ttbar events $\Nttbar^k$ can be converted to a partial cross section of \ttbar production in
+
+\subsection{Unfolding}
+\label{ss_xsection:unfolding}
+Measurements of physical observables are inevitably distorted by various detector effects, including limited detector
+resolution, experimental acceptance and selection inefficiency. Therefore, it is often very challenging to compare the
+results with theory predictions, as well as other experiments. To tackle this issue, unfolding can be used to estimate
+true underlying distributions of measured physical observables.
+
+In order to describe the concept of unfolding, let us consider the distribution of a measured observable as a vector
+$b$. The measurement of this observable can be usually simulated by using Monte Carlo techniques according to some
+theoretical model and detector simulation. Let $x_0$ be the ``true'' generated distribution, i.e.\ unaffected by
+detector effects, and $b_0$ the corresponding measured distribution obtained by performing reconstruction in simulation:
+
+\begin{equation}
+\label{eq:unfolding_MC}
+\hat{A} x_0 = b_0.
+\end{equation}
+
+Here $\hat{A}$ is the response matrix of the detector, representing all aforementioned detector effects. Therefore,
+the given measured observable $b$ and corresponding true distribution $x$ are similarly related:
+
+\begin{equation}
+\label{eq:unfolding_data}
+\hat{A} x = b.
+\end{equation}
+
+Attempting to solve this system of equations by direct inversion of the matrix $\hat{A}$ usually results in rapidly
+oscillating, unacceptable solutions. Therefore, a more sophisticated approach is needed. The process of finding the true
+distribution $x$ is referred to as an unfolding, and in this particular analysis, Singular Value Decomposition (SVD)
+method of unfolding \autocite{SVD_unfolding} is used.
+
+The SVD unfolding incorporates the following factorisation of the response matrix:
+\begin{equation}
+\hat{A} = USV^T,
+\end{equation}
+where $S$ is a diagonal matrix with non-negative elements (called singular values of matrix $\hat{A}$), and $U$ and $V$
+are orthogonal matrices (called the left and right singular vectors). The inverse of the response matrix then takes the
+form:
+\begin{equation}
+\hat{A}^{-1} = VS^{-1}U^T.
+\label{eq:inverse_response}
+\end{equation}
+
+Such factorisation allows simple manipulation of the response matrix and its inverse, which is particularly useful for
+ill-determined cases of near-degenerate matrices when singular values of $\hat{A}$ are close to zero. Additionally, if
+statistical errors of the measurement are substantial, it can result in amplification of essentially random components
+in the solution. These issues can be resolved by implementing regularisation in the unfolding procedure. The
+regularisation parameter $k$ is used to select the number of statistically significant equations
+\autocite{SVD_unfolding}. The value of $k$ is determined by analysing the vector $d$ obtained by rotating the measured
+distribution:
+\begin{equation}
+d = U^T \times b
+\end{equation}
+
+For a reasonably smooth measured distribution (an a priori knowledge used for regularisation), only the first few terms
+of the decomposition are expected to be significant, with the rest of the terms corresponding to quickly oscillating
+vectors. This implies that the distribution $d_i$ of the vector $d$ components is expected to gradually fall towards
+a Gaussian-distributed random values for large $i$. The number of first few significant components ($\abs {d_i} \geq 1$)
+is therefore chosen as a regularisation parameter.
+
+In this work, RooUnfold package \autocite{RooUnfold} is used to implement the SVD method of data unfolding. The unfolded
+\MET is defined as the generated \pt of the neutrino produced in the semileptonic \ttbar decay. The underlying \HT (and
+therefore \ST) distribution is calculated by applying the full jet clustering reconstruction described in
+Section~\ref{ss:jet_reconstruction} to the generated particles, with the $\pt > \SI{20}{\GeV}$ requirement for the
+generated jets. \MT and \WPT variables are constructed from generated \MET and leptons, as shown in
+Section~\ref{ss_xsection:variables}. The response matrices are built from true and measured distributions of primary
+variables, based on \ttbar Monte Carlo samples.
+
+\subsection{Differential cross section calculation}
+\label{ss_xsection:calculation}
+
+The unfolded number of \ttbar events $\Nttbar^k$ can be converted to a partial cross section of \ttbar production in
 each bin $k$ of a given variable:
 \begin{equation}
 \label{eq:partial_xsection}
 \Delta\sigttbar^k = \frac{\Nttbar^k}{\mathrm{BR} \times {\cal L}},
 \end{equation}
-where $\cal L$ is the total integrated luminosity and $\mathrm{BR}$ is the theoretical branching ratio of semi-leptonic
+where $\cal L$ is the total integrated luminosity and $\mathrm{BR}$ is the theoretical branching ratio of semileptonic
 \ttbar decay. These values cancel in the normalisation of the cross section, which is performed by division by the bin
 width $\Delta \mathrm{X}^k$ of a given variable $\mathrm{X}$, yielding the differential cross section:
 
 \begin{equation}
 \label{eq:differential_xsection}
-\frac{\mathrm{d}\sigttbar^k}{\mathrm{d} \mathrm{X}} = \frac{\Delta\sigttbar^k}{\Delta \mathrm{X}^k }
+\frac{\mathrm{d}\sigttbar^k}{\mathrm{d} \mathrm{X}} = \frac{\Delta\sigttbar^k}{\Delta \mathrm{X}^k }.
 \end{equation}
 
 Finally, the normalised differential cross section is obtained by using the sum of the partial differential cross
@@ -760,22 +830,49 @@ sections:
 \begin{equation}
 \label{eq:normalised_differential_xsection}
 \frac{1}{\sigttbar^\mathrm{tot}} \frac{\mathrm{d}\sigttbar^k}{\mathrm{d} \mathrm{X}} =
-\frac{1}{\sum\limits_k{\frac{\mathrm{d}\sigttbar^k}{\mathrm{d} \mathrm{X}}}} \frac{\mathrm{d}\sigttbar^k}{\mathrm{d} \mathrm{X}}
-= \frac{1}{\Delta \mathrm{X}^k} \frac{\Nttbar^k}{\sum\limits_k \Nttbar^k}
+\frac{1}{\sum\limits_k{\frac{\mathrm{d}\sigttbar^k}{\mathrm{d} \mathrm{X}}}} \frac{\mathrm{d}\sigttbar^k}{\mathrm{d}
+\mathrm{X}} = \frac{1}{\Delta \mathrm{X}^k} \frac{\Nttbar^k}{\sum\limits_k \Nttbar^k}.
 \end{equation}
 
-
-
-
-
-\subsection{Unfolding}
-\label{ss_xsection:unfolding}
 
 \section{Systematic Uncertainties}
 \label{s_xsection:systematics}
 
 \section{Results}
 \label{s_xsection:results}
+
+% \begin{figure}[!htbp]
+% 	\centering
+%   	\subfloat[]{\includegraphics[width=0.5\textwidth]{fitted_primary_variables/EPlusJets_patType1CorrectedPFMet_2orMoreBtags_with_ratio}}\hfill
+%   	\subfloat[]{\includegraphics[width=0.5\textwidth]{fitted_primary_variables/MuPlusJets_patType1CorrectedPFMet_2orMoreBtags_with_ratio}}
+%     \caption{Data/MC comparison plots of \MET for electron plus jets (a) and muon plus jets (b) events after the final
+%     event selection using the normalisation from the fitted results.}
+%     \label{fig:fitted_MET}
+% \end{figure}
+
+% \begin{figure}[!htbp]
+% 	\centering
+%   	\subfloat[]{\includegraphics[width=0.5\textwidth]{fitted_primary_variables/EPlusJets_HT_2orMoreBtags_with_ratio}}\hfill
+%   	\subfloat[]{\includegraphics[width=0.5\textwidth]{fitted_primary_variables/MuPlusJets_HT_2orMoreBtags_with_ratio}} \\
+%   	\subfloat[]{\includegraphics[width=0.5\textwidth]{fitted_primary_variables/EPlusJets_patType1CorrectedPFMet_ST_2orMoreBtags_with_ratio}}\hfill
+%   	\subfloat[]{\includegraphics[width=0.5\textwidth]{fitted_primary_variables/MuPlusJets_patType1CorrectedPFMet_ST_2orMoreBtags_with_ratio}}
+%     \caption{Data/MC comparison plots of \HT (a, b) and \ST (c, d) after the final event selection using the
+%     normalisation from the fitted results. Left-hand plots: electron plus jets selection, right-hand plots: muon plus
+%     jets selection.}
+%     \label{fig:fitted_HT_ST}
+% \end{figure}
+
+% \begin{figure}[!htbp]
+% 	\centering
+%   	\subfloat[]{\includegraphics[width=0.5\textwidth]{fitted_primary_variables/EPlusJets_patType1CorrectedPFMet_WPT_2orMoreBtags_with_ratio}}\hfill
+%   	\subfloat[]{\includegraphics[width=0.5\textwidth]{fitted_primary_variables/MuPlusJets_patType1CorrectedPFMet_WPT_2orMoreBtags_with_ratio}} \\
+%   	\subfloat[]{\includegraphics[width=0.5\textwidth]{fitted_primary_variables/EPlusJets_patType1CorrectedPFMet_MT_2orMoreBtags_with_ratio}}\hfill
+%   	\subfloat[]{\includegraphics[width=0.5\textwidth]{fitted_primary_variables/MuPlusJets_patType1CorrectedPFMet_MT_2orMoreBtags_with_ratio}}
+%     \caption{Data/MC comparison plots of \WPT (a, b) and \MT (c, d) after the final event selection using the
+%     normalisation from the fitted results. Left-hand plots: electron plus jets selection, right-hand plots: muon plus
+%     jets selection.}
+%     \label{fig:fitted_WPT_MT}
+% \end{figure}
 
 %%% Local Variables: 
 %%% mode: latex
