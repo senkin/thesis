@@ -806,6 +806,35 @@ generated jets. \MT and \WPT variables are constructed from generated \MET and l
 Section~\ref{ss_xsection:variables}. The response matrices are built from true and measured distributions of primary
 variables, based on \ttbar Monte Carlo samples.
 
+To test and validate the performance of the unfolding, a set of 300 pseudo-experiments (also known as toy MC) was
+created by generating a random number of events in each bin of a primary variable according to a Poisson distribution
+with the mean around the initial central value. This was performed for both true and measured distributions in the
+unfolding, with the response matrix recalculated accordingly. Then the unfolding procedure is performed for the
+measured distribution in each pseudo-experiment by using the SVD decomposition of a response matrix from every other
+pseudo-experiment, making a total of $300 \times 299 = 89700$ different measurements. For each combination, a pull
+is calculated:
+\begin{equation}
+p_i = \frac{N_i^{\text{unfolded}} -N_i^{\text{truth}} }{\sigma_i},
+\end{equation}
+where $\sigma_i$ is the combined statistical and unfolding uncertainty in bin $i$. The pull distributions for all bins
+of the \MET variable are shown in Figure~\ref{fig:met_SVD_pull}. Clearly, there is no significant bias in the unfolding
+procedure, as all the distributions are centred around zero. The width of the distributions is close to unity, meaning
+that the errors are reliably calculated. The unfolding performance was similarly validated for other primary variables.
+
+\begin{figure}[hbtp]
+   	\centering
+   	\vspace*{-0.5cm}
+    \includegraphics[width=0.44\textwidth]{unfolding_performance/pull_from_files_bin_0_stats_89700} 
+    \includegraphics[width=0.44\textwidth]{unfolding_performance/pull_from_files_bin_1_stats_89700}   \\
+    \includegraphics[width=0.44\textwidth]{unfolding_performance/pull_from_files_bin_2_stats_89700} 
+    \includegraphics[width=0.44\textwidth]{unfolding_performance/pull_from_files_bin_3_stats_89700}   \\
+    \includegraphics[width=0.44\textwidth]{unfolding_performance/pull_from_files_bin_4_stats_89700}
+    \includegraphics[width=0.44\textwidth]{unfolding_performance/pull_from_files_bin_5_stats_89700}
+    \caption[Pull distributions for the SVD unfolding]{Pull distributions for the SVD unfolding method for all \MET bins
+    from the first (top left) to the last one (bottom right).}
+    \label{fig:met_SVD_pull}
+\end{figure}
+
 \subsection{Differential cross section calculation}
 \label{ss_xsection:calculation}
 
@@ -837,6 +866,7 @@ sections:
 
 \section{Systematic Uncertainties}
 \label{s_xsection:systematics}
+
 
 \section{Results}
 \label{s_xsection:results}
