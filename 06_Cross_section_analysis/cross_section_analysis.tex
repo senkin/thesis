@@ -10,16 +10,17 @@
 
 % ------------------------------------------------------------------------
 Measurement of the differential cross section of the top quark pairs with respect to different variables is an important
-precision measurement, but it can also give hints of new physics. For example, measurement of the missing energy in
-\ttbar events can represent a search for invisible particles produced in association with top quarks.
+precision measurement, and provides a sensitive probe for new physics. For instance, deviations in the tail of the
+missing transverse energy distribution could signal new resonances with invisible particles produced in association with
+top quarks.
 
-The analysis presented in this chapter represents the top quark differential cross section measurement with respect to
+The analysis described in this chapter represents the top quark differential cross section measurement with respect to
 event-level (or global) distributions, including the missing transverse momentum (\MET), the scalar sum of jet
 transverse momenta (\HT), the scalar sum of the transverse momenta of all objects in the event (\ST), and both the
 transverse mass (\MT) and transverse momentum (\WPT) of the leptonically decaying \W boson produced in the top quark
-decay \autocite{xsection_PAS_7TeV, xsection_PAS_8TeV}. This measurement is used to validate different Monte Carlo models
-and generator tunes. Moreover, it provides a sensitive probe for new physics: for instance, deviations in the tail of
-the missing transverse energy distribution could signal new resonances with invisible particles in the final state.
+decay \autocite{xsection_PAS_7TeV, xsection_PAS_8TeV}. The analysis is focused on semileptonic \ttbar decays, where a
+lepton is either an electron or a muon. The cross section measurement is performed to validate different Monte Carlo
+generators and theoretical predictions of the effects due to variations of various modelling parameters.
 
 \section{Data and Simulation}
 \label{s_xsection:data_and_simulation}
@@ -823,15 +824,16 @@ that the errors are reliably calculated. The unfolding performance was similarly
 
 \begin{figure}[hbtp]
    	\centering
-   	\vspace*{-0.5cm}
-    \includegraphics[width=0.44\textwidth]{unfolding_performance/pull_from_files_bin_0_stats_89700} 
-    \includegraphics[width=0.44\textwidth]{unfolding_performance/pull_from_files_bin_1_stats_89700}   \\
-    \includegraphics[width=0.44\textwidth]{unfolding_performance/pull_from_files_bin_2_stats_89700} 
-    \includegraphics[width=0.44\textwidth]{unfolding_performance/pull_from_files_bin_3_stats_89700}   \\
-    \includegraphics[width=0.44\textwidth]{unfolding_performance/pull_from_files_bin_4_stats_89700}
-    \includegraphics[width=0.44\textwidth]{unfolding_performance/pull_from_files_bin_5_stats_89700}
-    \caption[Pull distributions for the SVD unfolding]{Pull distributions for the SVD unfolding method for all \MET bins
-    from the first (top left) to the last one (bottom right).}
+   	\vspace*{-0.8cm}
+    \includegraphics[width=0.42\textwidth]{unfolding_performance/pull_from_files_bin_0_stats_89700} 
+    \includegraphics[width=0.42\textwidth]{unfolding_performance/pull_from_files_bin_1_stats_89700}   \\
+    \includegraphics[width=0.42\textwidth]{unfolding_performance/pull_from_files_bin_2_stats_89700} 
+    \includegraphics[width=0.42\textwidth]{unfolding_performance/pull_from_files_bin_3_stats_89700}   \\
+    \includegraphics[width=0.42\textwidth]{unfolding_performance/pull_from_files_bin_4_stats_89700}
+    \includegraphics[width=0.42\textwidth]{unfolding_performance/pull_from_files_bin_5_stats_89700}
+    \caption[Pull distributions for the SVD unfolding]{Pull distributions for the SVD unfolding method for all \MET bins,
+    from top left to bottom right: \SIrange{0}{25}{\GeV}, \SIrange{25}{45}{\GeV}, \SIrange{45}{70}{\GeV},
+    \SIrange{70}{100}{\GeV}, \SIrange{100}{150}{\GeV} and $\geq \SI{150}{\GeV}$.}
     \label{fig:met_SVD_pull}
 \end{figure}
 
@@ -863,46 +865,143 @@ sections:
 \mathrm{X}} = \frac{1}{\Delta \mathrm{X}^k} \frac{\Nttbar^k}{\sum\limits_k \Nttbar^k}.
 \end{equation}
 
-
+\newpage
 \section{Systematic Uncertainties}
 \label{s_xsection:systematics}
+The sources of systematic uncertainties considered in this analysis are largely the same to those of the top quark mass
+analysis (Section~\ref{s_top_mass:systematics}). Similarly, the errors are estimated by varying the input quantities
+according to their theoretical or experimental variations, and measuring the change in the final result. All systematic
+errors are added to the fitting and unfolding errors in quadrature.
 
+The full list of systematic uncertainties for the normalised cross section measurement with respect to \MET variable is
+shown in Table~\ref{tab:combined_MET_systematics}.
+
+\input{06_Cross_section_analysis/tables/xsection_MET_systematics}
+
+% \begin{description}[wide=\parindent]
+% \item Luminosity: 4.4\% (global)
+% \item Electron efficiency (combined trigger + ID + isolation): 3\% (electron events, flat in \pt and $\eta$) (from
+% tag-and-probe)
+% \item Muon efficiency (combined trigger + ID + isolation): 1\% (muon events) (from tag-and-probe)
+% \item QCD shape uncertainty
+% \item Single top cross section: 30\% (global). Though the theoretical uncertainties of the NNLO predictions of the
+% single top production cross sections in the three production channels are of the order of 5-10\%, it has been agreed
+% within the Top PAG to use a combined uncertainty of 30\% for the single top production cross section in the phase space
+% of \ttbar production, i.e.\ events with more than three selected jets.
+% \item $Q^2$ scale for W and Z events (shape-changing, from dedicated samples, affecting W and Z samples)
+% \item Matching scale for W and Z events (shape-changing, from dedicated samples, affecting W and Z samples)
+% \item $Q^2$ scale for \ttbar events (shape-changing, from dedicated samples, affecting \ttbar samples)
+% \item Matching scale for \ttbar events (shape-changing, from dedicated samples, affecting \ttbar samples)
+% \item Jet energy scale (JES) uncertainty: \pt/$\eta$-dependent uncertainties provided by the JetMET group, taking into
+% account uncertainties due to jet flavours and pile-up conditions (shape-changing, different for individual samples and
+% categories)
+% \item Jet energy resolution (JER) uncertainty: $\pm 10$\% (shape-changing, different for individual samples and
+% categories)
+% \item Unclustered energy: $10\%$ (shape-changing)
+% \item Tau energy: $\pm 3\%$ from the TAU POG (shape-changing)
+% \item Electron \& photon energy: $\pm 0.6\%$ in EB and $\pm 1.5\%$ in EE. From
+% ECAL DPG /Egamma POG (shape-changing)
+% \item Muon momentum: $\pm 0.2\%$ as discussed with the muon POG.
+% Negligible (shape-changing)
+% \item pile up (shape-changing, affecting all simulated samples): 5\% variations of the inelastic cross section used as
+% input in the pile-up reweighting procedure
+% \item $b$ tagging (for b-flavoured jets with $\pt < \SI{800}{\GeV}$): \pt-dependent, 1.6-8\% (different scales for
+% individual samples and categories)~\cite{CMS-PAS-BTV-11-004}
+% \item $b$ tagging (for c-flavoured jets with $\pt < \SI{800}{\GeV}$): twice the uncertainty for b-flavoured jets
+% (different scales for individual samples and categories, fully correlated with $b$ tagging uncertainty)
+% \item $b$ tagging (for c- and b-flavoured jets with $\pt > \SI{800}{\GeV}$): twice the uncertainty at \SI{800}{\GeV}
+% (different scales for individual samples and categories, fully correlated with $b$ tagging uncertainty)
+% \item mistagging (or $b$ tagging for light-flavoured jets): O(10\%) (different scales for individual samples and
+% categories, uncorrelated with $b$ tag uncertainty for $c$/$b$-flavoured jets)~\cite{CMS-PAS-BTV-11-004}
+% \end{description}
 
 \section{Results}
 \label{s_xsection:results}
+The template fit explained in Section~\ref{ss_xsection:fitting} was performed for both electron and muon channels,
+yielding two distributions of signal \ttbar events. These distributions are then separately unfolded using the SVD
+unfolding method described in Section~\ref{ss_xsection:unfolding}. The two unfolded distributions are summed together to
+obtain the total distribution of \ttbar events in semileptonic production mode. Finally, the normalised cross section is
+calculated as outlined in Section~\ref{ss_xsection:calculation}.
 
-% \begin{figure}[!htbp]
-% 	\centering
-%   	\subfloat[]{\includegraphics[width=0.5\textwidth]{fitted_primary_variables/EPlusJets_patType1CorrectedPFMet_2orMoreBtags_with_ratio}}\hfill
-%   	\subfloat[]{\includegraphics[width=0.5\textwidth]{fitted_primary_variables/MuPlusJets_patType1CorrectedPFMet_2orMoreBtags_with_ratio}}
-%     \caption{Data/MC comparison plots of \MET for electron plus jets (a) and muon plus jets (b) events after the final
-%     event selection using the normalisation from the fitted results.}
-%     \label{fig:fitted_MET}
-% \end{figure}
+The final combined results are shown in Figures~\ref{fig:results_MET_combined}--\ref{fig:results_WPT_combined} for all
+primary variables. The unfolded data are compared with predictions by \MADGRAPH, \POWHEG and \MCATNLO event generators
+(Section~\ref{sss_top_mass:MC_generators}). Results are also compared with theoretical predictions showing
+the effects due to variations of modelling parameters, including matching threshold and normalisation scale
+(Section~\ref{sss_top_mass:matching_and_factorisation}). In all figures, the inner error bars represent the combined
+fitting and unfolding uncertainties, whereas the outer error bars show the uncertainty due to systematic variations.
+Naturally, the systematic errors due to matching threshold and normalisation scale choice are excluded from comparison
+with variations due to these parameters, and the hadronisation systematic is excluded from the comparison with
+different generators. Overall, the results are consistent with predictions of the Standard Model.
 
-% \begin{figure}[!htbp]
-% 	\centering
-%   	\subfloat[]{\includegraphics[width=0.5\textwidth]{fitted_primary_variables/EPlusJets_HT_2orMoreBtags_with_ratio}}\hfill
-%   	\subfloat[]{\includegraphics[width=0.5\textwidth]{fitted_primary_variables/MuPlusJets_HT_2orMoreBtags_with_ratio}} \\
-%   	\subfloat[]{\includegraphics[width=0.5\textwidth]{fitted_primary_variables/EPlusJets_patType1CorrectedPFMet_ST_2orMoreBtags_with_ratio}}\hfill
-%   	\subfloat[]{\includegraphics[width=0.5\textwidth]{fitted_primary_variables/MuPlusJets_patType1CorrectedPFMet_ST_2orMoreBtags_with_ratio}}
-%     \caption{Data/MC comparison plots of \HT (a, b) and \ST (c, d) after the final event selection using the
-%     normalisation from the fitted results. Left-hand plots: electron plus jets selection, right-hand plots: muon plus
-%     jets selection.}
-%     \label{fig:fitted_HT_ST}
-% \end{figure}
 
-% \begin{figure}[!htbp]
-% 	\centering
-%   	\subfloat[]{\includegraphics[width=0.5\textwidth]{fitted_primary_variables/EPlusJets_patType1CorrectedPFMet_WPT_2orMoreBtags_with_ratio}}\hfill
-%   	\subfloat[]{\includegraphics[width=0.5\textwidth]{fitted_primary_variables/MuPlusJets_patType1CorrectedPFMet_WPT_2orMoreBtags_with_ratio}} \\
-%   	\subfloat[]{\includegraphics[width=0.5\textwidth]{fitted_primary_variables/EPlusJets_patType1CorrectedPFMet_MT_2orMoreBtags_with_ratio}}\hfill
-%   	\subfloat[]{\includegraphics[width=0.5\textwidth]{fitted_primary_variables/MuPlusJets_patType1CorrectedPFMet_MT_2orMoreBtags_with_ratio}}
-%     \caption{Data/MC comparison plots of \WPT (a, b) and \MT (c, d) after the final event selection using the
-%     normalisation from the fitted results. Left-hand plots: electron plus jets selection, right-hand plots: muon plus
-%     jets selection.}
-%     \label{fig:fitted_WPT_MT}
-% \end{figure}
+\begin{figure}[!htbp]
+	\centering
+  	{\includegraphics[width=0.5\textwidth]{measurement/MET/central/normalised_xsection_combined_different_generators}}\hfill
+  	{\includegraphics[width=0.5\textwidth]{measurement/MET/central/normalised_xsection_combined_systematics_shifts}}
+    \caption[The normalised semileptonic \ttbar differential cross section with respect to \MET.]{The normalised
+      semileptonic \ttbar differential cross section with respect to \MET. The data are compared to predictions of three
+      different MC generators (left) and theoretical predictions showing the variation due to modelling uncertainties
+      (right).}
+    \label{fig:results_MET_combined}
+\end{figure}
+
+\begin{figure}[!htbp]
+	\centering
+  	{\includegraphics[width=0.5\textwidth]{measurement/HT/central/normalised_xsection_combined_different_generators}}\hfill
+  	{\includegraphics[width=0.5\textwidth]{measurement/HT/central/normalised_xsection_combined_systematics_shifts}}
+    \caption[The normalised semileptonic \ttbar differential cross section with respect to \HT.]{The normalised
+      semileptonic \ttbar differential cross section with respect to \HT. The data are compared to predictions of three
+      different MC generators (left) and theoretical predictions showing the variation due to modelling uncertainties
+      (right).}
+    \label{fig:results_HT_combined}
+\end{figure}
+
+\begin{figure}[!htbp]
+	\centering
+  	{\includegraphics[width=0.5\textwidth]{measurement/ST/central/normalised_xsection_combined_different_generators}}\hfill
+  	{\includegraphics[width=0.5\textwidth]{measurement/ST/central/normalised_xsection_combined_systematics_shifts}}
+    \caption[The normalised semileptonic \ttbar differential cross section with respect to \ST.]{The normalised
+      semileptonic \ttbar differential cross section with respect to \ST. The data are compared to predictions of three
+      different MC generators (left) and theoretical predictions showing the variation due to modelling uncertainties
+      (right).}
+    \label{fig:results_ST_combined}
+\end{figure}
+
+\begin{figure}[!htbp]
+	\centering
+  	{\includegraphics[width=0.5\textwidth]{measurement/MT/central/normalised_xsection_combined_different_generators}}\hfill
+  	{\includegraphics[width=0.5\textwidth]{measurement/MT/central/normalised_xsection_combined_systematics_shifts}}
+    \caption[The normalised semileptonic \ttbar differential cross section with respect to \MT.]{The normalised
+      semileptonic \ttbar differential cross section with respect to \MT. The data are compared to predictions of three
+      different MC generators (left) and theoretical predictions showing the variation due to modelling uncertainties
+      (right).}
+    \label{fig:results_MT_combined}
+\end{figure}
+
+\begin{figure}[!htbp]
+	\centering
+  	{\includegraphics[width=0.5\textwidth]{measurement/WPT/central/normalised_xsection_combined_different_generators}}\hfill
+  	{\includegraphics[width=0.5\textwidth]{measurement/WPT/central/normalised_xsection_combined_systematics_shifts}}
+    \caption[The normalised semileptonic \ttbar differential cross section with respect to \WPT.]{The normalised
+      semileptonic \ttbar differential cross section with respect to \WPT. The data are compared to predictions of three
+      different MC generators (left) and theoretical predictions showing the variation due to modelling uncertainties
+      (right).}
+    \label{fig:results_WPT_combined}
+\end{figure}
+
+\newpage
+\section{Summary}
+\label{s_xsection:summary}
+A differential cross section measurement of top quark pair production with respect to \MET and other global variables
+was performed in proton-proton collisions at a centre of mass energy of $\sqrt{s} = \SI{8}{\TeV}$, using the full 2012
+LHC dataset corresponding to integrated luminosity of \SI{19.7}{\fbinv}, collected by the CMS experiment. The analysis
+selected events with a single isolated highly-energetic electron or muon, which is assumed to come from one of the \W
+bosons in top quark and anti-quark decay. The shape of QCD multi-jet events was estimated using data-driven techniques.
+A template fit method was used to determine the sample composition and the number of \ttbar events, which was corrected
+for misidentification, detector resolution and acceptance effects using the SVD unfolding technique. The results from
+both semileptonic decay channels were combined and compared with different Monte Carlo generators, as well as with
+variations in theoretical predictions due to modelling uncertainties. No significant deviations from the Standard Model
+predictions were observed.
 
 %%% Local Variables: 
 %%% mode: latex
