@@ -1,0 +1,49 @@
+\begin{table}[!hbp]
+\centering
+% \begin{tabular}{@{} p{1.4cm}p{0.9cm}p{0.9cm}p{0.9cm}p{0.9cm}p{0.9cm}p{0.9cm} cc}
+\resizebox{\textwidth}{!} {
+\begin{tabular}{c|c|c|c|c|c|c}
+ \toprule
+ \multirow{2}{*}[-2pt]{Generation} & \multicolumn{3}{c|}{Leptons} & \multicolumn{3}{c}{Quarks} \\
+ \cmidrule{2-7}
+  & Flavour & Charge & Mass [\si{\MeV}] & Flavour & Charge & Mass [\si{\MeV}] \\
+ \midrule
+ \multirow{2}{*}{1} & $e$ & \num{-1} & \num{0.511} & \cPqu & \num{+2/3} & $2.3^{+0.7}_{-0.5}$ \\
+                    & $\nu_e$ & \num{0} & $<\num{2e-6}$ & \cPqd & \num{-1/3} & $4.8^{+0.5}_{-0.3}$ \\
+ \midrule
+ \multirow{2}{*}{2} & $\mu$ & \num{-1} & \num{105.66} & \cPqc & \num{+2/3} & $(1.29^{+0.05}_{-0.11}) \times 10^3$ \\
+                    & $\nu_\mu$ & \num{0} & $<\num{0.19}$ & \cPqs & \num{-1/3} & $95 \pm 5$ \\
+ \midrule
+ \multirow{2}{*}{3} & $\tau$ & \num{-1} & $1776.82 \pm 0.16$ & \cPqt & \num{+2/3} & $(173 \pm 0.79) \times 10^3$ \\
+                    & $\nu_\tau$ & \num{0} & $<\num{18.2}$ & \cPqb & \num{-1/3} & $(4.18 \pm 0.3) \times 10^3$ \\
+
+%http://pdg.lbl.gov/2013/tables/rpp2013-sum-quarks.pdf
+
+\bottomrule
+\end{tabular}}
+\caption[Fundamental fermions of the Standard Model.]{Three generations of fundamental fermions of the Standard Model
+with charge and mass properties quoted from the 2012 edition of Review of Particle Physics with 2013 partial update for the 2014 edition
+\autocite{PDG}.}
+\label{tab:SM_fermions}
+\end{table}
+
+\begin{table}[!hbp]
+\centering
+\begin{tabular}{l|c|c|c|c|c}
+ \toprule
+ Force & Gauge Boson & Charge & Spin & Mass [\si{\GeV}] & Range\\ 
+ \midrule
+ electromagnetic  & photon ($\gamma$) & 0 & 1 & 0 & $\infty$\\
+ \midrule
+ \multirow{2}{*}{weak} & $\W^\pm$ & \num{\pm1} & \multirow{2}{*}{\num{1}} & $80.385 \pm 0.015$ & \multirow{2}{*}{\SI{d-18}{\metre}}\\   
+                       & $\Z^0$   & \num{0} &                             & $91.1876 \pm 0.0021$ &                                   \\
+ \midrule
+ strong  & 8 gluons (\cPg) & 0 & 1 & 0 & \SI{d-15}{\metre} \\
+ \midrule
+ gravitation  & graviton (\cPG) & 0 & 2 & 0 & $\infty$\\
+\bottomrule
+\end{tabular}
+\caption{Fundamental forces and corresponding gauge bosons with their properties \autocite{PDG}. The gravitation is the
+only fundamental interaction not desribed by the Standard Model.}
+\label{tab:SM_forces} 
+\end{table}
