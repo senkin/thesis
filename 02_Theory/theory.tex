@@ -119,17 +119,55 @@ field $\psi$ by a $1 \times 1$ unitary matrix ($\psi \rightarrow U \psi$, where 
 [e^{i \theta(x)},~e^{i\theta(x')}] = 0.
 \end{equation}
 
-The same strategy of requiring the global invariance to hold locally can be generalised to any $SU(N)$ group: in 1950s
-Yang and Mills produced the theory of $SU(2)$ gauge fields, and later on the idea was extended to $SU(3)$ group giving
-rise to Quantum Chromodynamics. As a matter of fact, all of the fundamental interactions in the Standard Model are
-introduced using the same gauge principle. However, in order to preserve gauge invariance, the introduced gauge fields
-are required to be massless, which clearly contradicts the existence of massive vector bosons. This problem is solved by
-the Brout-Englert-Higgs mechanism of spontaneous gauge symmetry breaking
+The same strategy of requiring the global invariance to hold locally can be generalised to any $SU(N)$ group: in the
+1950s Yang and Mills produced a theory of $SU(2)$ gauge fields, and later on the idea was extended to $SU(3)$ group
+giving rise to Quantum Chromodynamics. As a matter of fact, all of the fundamental interactions in the Standard Model
+are introduced using the same gauge principle. However, in order to preserve gauge invariance, the introduced gauge
+fields are required to be massless, which clearly contradicts the existence of massive vector bosons. This problem is
+solved by the Brout-Englert-Higgs mechanism of spontaneous gauge symmetry breaking
 (Section~\ref{ss:electroweak_symmetry_breaking}).
 
 
 \subsection{Electroweak theory}
 \label{ss:electroweak_theory}
+In 1961, a partially unified theory combining the electromagnetic and weak interactions was proposed by Sheldon Glashow
+\autocite{Glashow}. A few years later the model was independently revised by Weinberg \autocite{Weinberg} and Salam
+\autocite{Salam} to introduce massive vector bosons, acquiring mass through spontaneous symmetry breaking. The resulting
+electroweak theory, usually referred to as GWS model, is based on a non-Abelian (i.e.\ not commuting) symmetry group of
+$SU(2)_L \times U(1)_Y$. Here $U(1)_Y$ is no longer a QED gauge group mentioned previously, but the group associated
+with the weak hypercharge $Y$, which relates to the electric charge $Q$ and the third component of weak isospin $I_3$
+as
+\begin{equation}
+Q = I_3 + \frac{Y}{2} 
+\end{equation} 
+
+This equation is known as Gell-Mann-Nishijima relation, and the coefficient in front of the weak hypercharge is purely
+conventional. The weak force is the only interaction that violates parity, meaning that it can distinguish between
+left-handed and right-handed systems -- this fact was famously confirmed by Madame Wu's experiment in 1957
+\autocite{Madame_Wu}. To accommodate for this observation, fermion fields are divided into left-handed and right-handed
+components as follows:
+\begin{equation}
+\twovector{\nu_{l,L}}{l_L}, l_R
+\end{equation} 
+for leptons ($l = e, \mu, \tau$), and
+\begin{equation}
+\twovector{u_L}{d_L}, u_R, d_R; ~~ \twovector{c_L}{s_L}, c_R, s_R; ~~ \twovector{t_L}{b_L}, t_R, b_R
+\end{equation} 
+for all three generations of quarks. These components are obtained by applying the projection operators
+$\frac{1}{2}(1\pm\gamma^5)$ to fermionic fields:
+\begin{equation}
+\psi = \frac{1}{2}(1-\gamma^5) \psi + \frac{1}{2}(1 + \gamma^5)\psi = \psi_L +  \psi_R,
+\end{equation} 
+where
+\begin{equation}
+\gamma^5 = i \gamma^0  \gamma^1  \gamma^2  \gamma^3 = \begin{pmatrix}
+0 & 1\\
+1 & 0
+\end{pmatrix}.
+\end{equation}
+
+The left-handed particles are doublets with the weak isospin of $I = \frac{1}{2}$, whereas the right-handed particles are
+singlets with $I = 0$.
 
 
 
