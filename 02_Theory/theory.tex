@@ -121,11 +121,8 @@ field $\psi$ by a $1 \times 1$ unitary matrix ($\psi \rightarrow U \psi$, where 
 
 The same strategy of requiring the global invariance to hold locally can be generalised to any $SU(N)$ group: in the
 1950s Yang and Mills produced a theory of $SU(2)$ gauge fields, and later on the idea was extended to $SU(3)$ group
-giving rise to Quantum Chromodynamics. As a matter of fact, all of the fundamental interactions in the Standard Model
-are introduced using the same gauge principle. However, in order to preserve gauge invariance, the introduced gauge
-fields are required to be massless, which clearly contradicts the existence of massive vector bosons. This problem is
-solved by the Brout-Englert-Higgs mechanism of spontaneous gauge symmetry breaking
-(Section~\ref{ss:electroweak_symmetry_breaking}).
+giving rise to Quantum Chromodynamics. In fact, all of the fundamental interactions in the Standard Model are introduced
+using the same gauge principle.
 
 
 \subsection{Electroweak theory}
@@ -148,13 +145,16 @@ left-handed and right-handed systems -- this fact was famously confirmed by Mada
 components as follows:
 \begin{equation}
 \twovector{\nu_{l,L}}{l_L}, l_R
+\label{lepton_EWK_fields}
 \end{equation} 
 for leptons ($l = e, \mu, \tau$), and
 \begin{equation}
 \twovector{u_L}{d_L}, u_R, d_R; ~~ \twovector{c_L}{s_L}, c_R, s_R; ~~ \twovector{t_L}{b_L}, t_R, b_R
+\label{quark_EWK_fields}
 \end{equation} 
-for all three generations of quarks. These components are obtained by applying the projection operators
-$\frac{1}{2}(1\pm\gamma^5)$ to fermionic fields:
+for all three generations of quarks. The left-handed particles are doublets with the weak isospin of $I = \frac{1}{2}$,
+whereas the right-handed particles are singlets with $I = 0$. These components are obtained by applying the projection
+operators $\frac{1}{2}(1\pm\gamma^5)$ to fermionic fields:
 \begin{equation}
 \psi = \frac{1}{2}(1-\gamma^5) \psi + \frac{1}{2}(1 + \gamma^5)\psi = \psi_L +  \psi_R,
 \end{equation} 
@@ -166,18 +166,56 @@ where
 \end{pmatrix}.
 \end{equation}
 
-The left-handed particles are doublets with the weak isospin of $I = \frac{1}{2}$, whereas the right-handed particles are
-singlets with $I = 0$.
+By requiring a local gauge invariance to the group $SU(2)_L \times U(1)_Y$, a covariant derivative is written as:
+\begin{equation}
+\partial_\mu \rightarrow D_\mu = \partial_\mu + i g \mathbf{T} \cdot \mathbf{W}_\mu + i \frac{g'}{2} Y B_\mu.
+\end{equation}
 
+Here $g$ and $g'$ are the coupling constants for groups $SU(2)_L$ and $U(1)_Y$, respectively; $\mathbf{T} =
+\hat{\sigma}/2$ are the Pauli matrices which are the generators for $SU(2)$ group; $\mathbf{W}_\mu$ is the triplet of
+new gauge fields $W^{1,2,3}_\mu$ introduced for $SU(2)_L$ invariance; $B_\mu$ is the new gauge field for $U(1)_Y$
+invariance. For right-handed particles (singlets), $\mathbf{T} = 0$ and the second term in the covariant derivative
+vanishes. The resulting gauge-invariant Lagrangian for electroweak theory with kinetic energy terms takes form:
+\begin{equation}
+\calL = \bar{\psi}_L \gamma^\mu ( i\partial_\mu  - g \mathbf{T} \cdot \mathbf{W}_\mu - \frac{g'}{2} Y
+B_\mu) \psi_L + \bar{\psi}_R \gamma^\mu (i \partial_\mu - \frac{g'}{2} Y B_\mu) \psi_R - \frac{1}{4}\mathbf{W}_{\mu\nu}
+\mathbf{W}^{\mu\nu} -\frac{1}{4}B_{\mu\nu} B^{\mu\nu},
+\end{equation}
+where
+\begin{equation*}
+\psi_L = \twovector{\psi^1_L}{\psi^2_L},
+\end{equation*}
+and $\psi_L$ and $\psi_R$ are summed over all possibilities shown in Equations~\ref{lepton_EWK_fields} and
+\ref{quark_EWK_fields}.
 
+The newly introduced gauge fields $W^{1,2,3}_\mu$ and $B_\mu$ do not directly correspond to the physical fields of
+gauge bosons, but form them via the following linear combinations:
+\begin{subequations}
+\begin{align}
+W^{\pm}_\mu & = \frac{1}{\sqrt{2}} (W^1_\mu \pm  i W^2_\mu), \\
+Z_\mu & = - B_\mu \sin{\theta_W} + W^3_\mu \cos{\theta_W}, \\
+A_\mu & = B_\mu \cos{\theta_W} + W^3_\mu \sin{\theta_W}.
+\end{align}
+\end{subequations}
 
+We obtained the physical fields of charged $W^{\pm}$ bosons, as well as a neutral $Z^0$ boson and a photon, which were
+produced by mixing the neutral fields $W^3_\mu$ and $B_\mu$ with a rotation by the weak mixing (or
+\textit{Weinberg}) angle $\theta_W$. The electric charge is then given as
+\begin{equation}
+e = g' \cos{\theta_W} = g \sin{\theta_W}.
+\end{equation}
 
-\subsection{Quantum Chromodynamics}
-\label{ss:QCD_theory}
+Up to this point, there are no mass terms in the Lagrangian as their introduction would violate the gauge invariance.
+However, the existence of massive vector bosons clearly contradicts the concept of massless gauge fields in electroweak
+theory. This problem is solved by the Brout-Englert-Higgs mechanism of spontaneous gauge symmetry breaking, explained in
+Section~\ref{ss:electroweak_symmetry_breaking}.
 
 \subsection{Electroweak symmetry breaking}
 \label{ss:electroweak_symmetry_breaking}
 %or englert-higgs mechanism?
+
+\subsection{Quantum Chromodynamics}
+\label{ss:QCD_theory}
 
 \section{Top Quark Physics within the Standard Model}
 \label{s:top_quak_physics}
@@ -209,7 +247,6 @@ singlets with $I = 0$.
 \label{ss:extra_dimensions}
 
 % \subsection{Standard Model Lagrangian}
-% Because why the hell not:
 
 % \begin{center}
 % \begin{math}
