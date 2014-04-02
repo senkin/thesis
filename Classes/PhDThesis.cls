@@ -54,12 +54,19 @@
 \usepackage{ifpdf}
 \usepackage{xspace}
 \usepackage{booktabs}
+\usepackage{array}
 \usepackage{multirow}
 \usepackage{pbox}
 \usepackage{enumitem}
 %\usepackage{lmodern}
 \usepackage[T1]{fontenc}
 
+% Tables handling: adjustable row styles
+\newcolumntype{_}{>{\global\let\currentrowstyle\relax}}
+\newcolumntype{^}{>{\currentrowstyle}}
+\newcommand{\rowstyle}[1]{\gdef\currentrowstyle{#1}
+  #1\ignorespaces
+}
 
 %Bibliography
 %uncomment next line to change bibliography name to references for Book document class
