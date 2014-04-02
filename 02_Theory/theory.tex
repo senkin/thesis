@@ -90,7 +90,7 @@ derivative $D_\mu$:
 \begin{equation}
 \partial_\mu \rightarrow D_\mu = \partial_\mu + i q A_\mu,
 \end{equation}
-where $A_\mu$ is a new vector field which transforms under a local gauge transformation as:
+where $A_\mu$ is a new vector field which transforms under a local gauge transformation as
 \begin{equation}
 A_\mu \rightarrow A'_\mu = A_\mu - \frac{1}{q} \partial_\mu \theta(x).
 \end{equation}
@@ -167,9 +167,10 @@ where
 \end{pmatrix}.
 \end{equation}
 
-By requiring a local gauge invariance to the group $SU(2)_L \times U(1)_Y$, a covariant derivative is written as:
+By requiring a local gauge invariance to the group $SU(2)_L \times U(1)_Y$, a covariant derivative is written as
 \begin{equation}
 \partial_\mu \rightarrow D_\mu = \partial_\mu + i g \mathbf{T} \cdot \mathbf{W}_\mu + i \frac{g'}{2} Y B_\mu.
+\label{eq:D_mu_EWK}
 \end{equation}
 
 Here $g$ and $g'$ are the coupling constants for groups $SU(2)_L$ and $U(1)_Y$, respectively; $\mathbf{T} =
@@ -194,9 +195,9 @@ The newly introduced gauge fields $W^{1,2,3}_\mu$ and $B_\mu$ do not directly co
 gauge bosons, but form them via the following linear combinations:
 \begin{subequations}
 \begin{align}
-W^{\pm}_\mu & = \frac{1}{\sqrt{2}} (W^1_\mu \pm  i W^2_\mu), \\
-Z_\mu & = - B_\mu \sin{\theta_W} + W^3_\mu \cos{\theta_W}, \\
-A_\mu & = B_\mu \cos{\theta_W} + W^3_\mu \sin{\theta_W}.
+W^{\pm}_\mu & = \frac{1}{\sqrt{2}} (W^1_\mu \pm  i W^2_\mu), \label{eq:W_mu} \\
+Z_\mu & = - B_\mu \sin{\theta_W} + W^3_\mu \cos{\theta_W}, \label{eq:Z_mu} \\
+A_\mu & = B_\mu \cos{\theta_W} + W^3_\mu \sin{\theta_W}. \label{eq:A_mu}
 \end{align}
 \end{subequations}
 
@@ -284,14 +285,83 @@ referred to as baryons. Bound states with higher number of quarks (e.g.\ pentaqu
 \label{ss:electroweak_symmetry_breaking}
 The mechanism of spontaneous electroweak symmetry breaking, often called the Higgs mechanism, was developed in the 1960s
 by Peter Higgs \autocite{Higgs} and two other groups independently: Robert Brout and Fran\c{c}ois Englert
-\autocite{Englert_Brout}; Gerald Guralnik, Carl Richard Hagen, and Tom Kibble \autocite{Guralnik_Hagen_Kibble}. 
-
-This is done by introducing an $SU(2)$ doublet of complex scalar fields, called Higgs fields:
+\autocite{Englert_Brout}; Gerald Guralnik, Carl Richard Hagen, and Tom Kibble \autocite{Guralnik_Hagen_Kibble}. As it
+was already mentioned, this mechanism is responsible for acquisition of mass by the vector bosons, since direct
+inclusion of mass terms in the electroweak Lagrangian (Equation~\ref{eq:EWK_L}) would violate gauge symmetry. Therefore,
+we need to spontaneously break the $SU(2)$ symmetry by adding an external field with a non-zero vacuum expectation
+value. This is done by introducing an $SU(2)$ doublet of complex scalar fields, called the Higgs fields:
 \begin{equation}
-\psi = \twovector{\psi^+}{\psi^0}.
-\label{Higgs_fields}
-\end{equation} 
+\phi = \twovector{\phi^+}{\phi^0} = \frac{1}{\sqrt{2}} \twovector{\phi_1 + i \phi_2}{\phi_3 + i \phi_4},
+\end{equation}
+with the following additional term in the Lagrangian:
+\begin{equation}
+\calL_\textrm{Higgs} = (D_\mu \phi)^{\dag} (D^\mu \phi) - V(\phi),
+\label{eq:Higgs_L}
+\end{equation}
+where $D_\mu$ is the electroweak covariant derivative from Equation~\ref{eq:D_mu_EWK}. The scalar potential $V(\phi)$
+is given by
+\begin{equation}
+V(\phi) = - \mu^2(\phi^{\dag} \phi) + \lambda(\phi^{\dag} \phi)^2.
+\end{equation}
 
+With the choice of $\mu^2>0$ and $\lambda>0$, the potential has the shape shown in Figure~\ref{fig:higgs_potential}.
+Clearly, the minimum of this potential is not at $\phi = 0$, but forms a circle in $SU(2)$ space specified by
+\begin{equation}
+(\phi^{\dag} \phi)_\textrm{min} = \frac{\mu^2}{2\lambda} = \frac{v^2}{2}.
+\end{equation}
+
+\begin{figure}[!hbtp]
+\centering
+\includegraphics[width=0.5\textwidth]{Higgs_potential}
+\caption[The Higgs field potential.]{The Higgs field potential in the complex plane, commonly referred to as a
+``Mexican hat'' potential.}
+\label{fig:higgs_potential}
+\end{figure}
+
+The choice of minimum corresponding to the lowest energy state (or vacuum) is completely arbitrary. In fact, any point
+at which the potential is minimum loses the invariance under $SU(2)_L \times U(1)_Y$ gauge transformations. Therefore,
+nature spontaneously breaks the symmetry by picking the vacuum from the set of minima of the Higgs potential.
+Conventionally, we can choose
+\begin{equation}
+\langle 0 | \phi | 0 \rangle = \frac{1}{\sqrt{2}} \twovector{0}{v}.
+\end{equation}
+
+Expanding around the chosen minimum, $\phi$ is then given by
+\begin{equation}
+\phi = \frac{1}{\sqrt{2}} \twovector{0}{v+H},
+\end{equation}
+where $H$ is the neutral scalar Higgs field. By substituting this field into the Lagrangian in
+Equation~\ref{eq:Higgs_L}, one can obtain:
+\begin{equation}
+\begin{split}
+\calL_\textrm{Higgs} & = \frac{1}{2} (\partial_\mu H)(\partial^\mu H) + \frac{1}{4} (H^2 + 2vH + v^2) W^+_\mu W^{-\mu} + \\
+& + \frac{1}{8} (g^2 + {g'}^2)(H^2 + 2vH + v^2)Z_\mu Z^\mu - \\
+& - \mu^2 H^2 - \frac{\lambda}{4} (H^4 + 4vH^3),
+\end{split}
+\label{eq:Higgs_L_final}
+\end{equation}
+where the fields $W^{\pm}_\mu$ and $Z_\mu$ are given by Equations~\ref{eq:W_mu} and \ref{eq:Z_mu}, respectively.
+Notably, we can see that these fields have acquired mass terms in the Lagrangian, with the masses of vector bosons given
+by
+\begin{subequations}
+\begin{align}
+M_W &= \frac{1}{2}gv, \\
+M_Z &= \frac{1}{2}v\sqrt{g^2+{g'}^2} = \frac{1}{2} \frac{gv}{\cos{\theta_W}},
+\end{align}
+\end{subequations}
+which was confirmed by experimental measurements. Naturally, the photon field $A_\mu$ acquires no mass terms in the
+Lagrangian. However, the Higgs boson mass (coefficient by the $H^2$ term) yields
+\begin{equation}
+M_H = \sqrt{2} \mu = v \sqrt{2\lambda}.
+\end{equation}
+
+Unlike the \W and \Z boson masses which can be predicted from the measurement of the fine structure constant, the Higgs
+mass $m_H$ can not be determined by other experimentally measured parameters.
+
+The existence of the Higgs boson and therefore the nature of electroweak symmetry breaking had long remained a mystery.
+In the summer of 2012 both ATLAS and CMS experiments at the LHC observed the Higgs boson with an approximate mass of
+\SI{125}{\GeV} \autocite{ATLAS_higgs_observation, CMS_higgs_observation}, with couplings consistent with theoretical
+predictions, which proved to be yet another triumph of the Standard Model.
 
 
 \newpage
