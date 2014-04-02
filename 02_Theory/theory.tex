@@ -281,6 +281,41 @@ referred to as baryons. Bound states with higher number of quarks (e.g.\ pentaqu
 
 \end{description}
 
+In Section~\ref{ss:electroweak_theory} we introduced weak isospin doublets for three generations of left-handed quarks
+(Equation~\ref{eq:quark_EWK_fields}). These states, however, do not exactly correspond to the strong force eigenstates.
+Experimental evidence (e.g.\ $n \rightarrow p e^- \bar{\nu_e}$ decay) suggests that the weak interaction is capable of
+changing the quark flavour, meaning that the weak interaction eigenstates are in fact mixtures of flavour eigenstates.
+Relation between the two sets of eigenstates is given by the Cabbibo-Kobayashi-Maskawa (CKM) matrix:
+\begin{equation}
+\threevector{d'}{s'}{b'}
+=
+\begin{pmatrix}
+V_{ud} & V_{us} & V_{ub}  \\
+V_{cd} & V_{cs} & V_{cb}  \\
+V_{td} & V_{ts} & V_{tb}
+\end{pmatrix}
+\threevector{d}{s}{b},
+\label{eq:CKM}
+\end{equation}
+where $d'$, $s'$, $b'$ are the weak interaction eigenstates, and $d$, $s$, $b$ are the strong force eigenstates. The CKM
+matrix describes flavour mixing, i.e.\ the probability of transitions between different quark flavours through weak
+interactions. The origin of such mixing lies in the Yukawa interaction between quarks and the Higgs field, described in
+the next section.
+
+% The magnitudes of the CKM matrix elements are\autocite{PDG}:
+% \begin{equation}
+% \begin{pmatrix}
+% \abs{V_{ud}} & \abs{V_{us}} & \abs{V_{ub}}  \\
+% \abs{V_{cd}} & \abs{V_{cs}} & \abs{V_{cb}}  \\
+% \abs{V_{td}} & \abs{V_{ts}} & \abs{V_{tb}}
+% \end{pmatrix} =
+% \begin{pmatrix}
+% 0.97428 \pm 0.00015 & 0.2253 \pm 0.0007 &  0.00347^{+0.00016}_{-0.00012} \\
+% 0.2252 \pm 0.0007 & 0.97345^{+0.00015}_{-0.00016} & 0.0410^{+0.0011}_{-0.0007}  \\
+% 0.00862^{+0.00026}_{-0.00020} & 0.0403^{+0.0011}_{-0.0007} & 0.999152^{+0.000030}_{-0.000045}
+% \end{pmatrix}.
+% \end{equation}
+
 \subsection{Electroweak symmetry breaking}
 \label{ss:electroweak_symmetry_breaking}
 The mechanism of spontaneous electroweak symmetry breaking, often called the Higgs mechanism, was developed in the 1960s
@@ -324,6 +359,7 @@ nature spontaneously breaks the symmetry by picking the vacuum from the set of m
 Conventionally, we can choose
 \begin{equation}
 \langle 0 | \phi | 0 \rangle = \frac{1}{\sqrt{2}} \twovector{0}{v}.
+\label{eq:unitary_gauge_vev}
 \end{equation}
 
 Expanding around the chosen minimum, $\phi$ is then given by
@@ -340,7 +376,7 @@ Equation~\ref{eq:Higgs_L}, one can obtain:
 \end{split}
 \label{eq:Higgs_L_final}
 \end{equation}
-where the fields $W^{\pm}_\mu$ and $Z_\mu$ are given by Equations~\ref{eq:W_mu} and \ref{eq:Z_mu}, respectively.
+where physical fields $W^{\pm}_\mu$ and $Z_\mu$ are given by Equations~\ref{eq:W_mu} and \ref{eq:Z_mu}, respectively.
 Notably, we can see that these fields have acquired mass terms in the Lagrangian, with the masses of vector bosons given
 by
 \begin{subequations}
@@ -350,23 +386,39 @@ M_Z &= \frac{1}{2}v\sqrt{g^2+{g'}^2} = \frac{1}{2} \frac{gv}{\cos{\theta_W}},
 \end{align}
 \end{subequations}
 which was confirmed by experimental measurements. Naturally, the photon field $A_\mu$ acquires no mass terms in the
-Lagrangian. However, the Higgs boson mass (coefficient by the $H^2$ term) yields
+Lagrangian. The Higgs mechanism can also be used in a similar way to generate fermion masses by introducing an $SU(2)_L
+\times U(1)_Y$ gauge invariant term responsible for interaction between the Higgs and fermion fields. This additional
+term in the Standard Model Lagrangian is called \textit{Yukawa term}, which for the first generation of fermions is
+given by
+\begin{equation}
+\calL_\textrm{Yukawa} = -Y_e^{ij} \bar{l_L}^i \phi e_R^j - Y_u^{ij} \bar{q_L}^i \epsilon \phi^\dag u_R^j - Y_d^{ij}
+\bar{q_L}^i \phi d_R^j + \textrm{h.c.},
+\end{equation}
+where coefficients $Y_{e,u,d}^{ij}$ are $3\times3$ complex matrices (Yukawa couplings) and $\epsilon$ is the $2\times2$
+antisymmetric tensor. When the Higgs field $\phi$ acquires the vacuum expectation value given by
+Equation~\ref{eq:unitary_gauge_vev}, the Yukawa Lagrangian yields mass terms for fermions. The Yukawa couplings are not
+diagonal in general, which results in mixing between different generations described for the quarks by the CKM matrix
+(Equation~\ref{eq:CKM}).
+
+Returning to the Lagrangian in Equation~\ref{eq:Higgs_L_final}, the Higgs boson mass is
 \begin{equation}
 M_H = \sqrt{2} \mu = v \sqrt{2\lambda}.
 \end{equation}
 
 Unlike the \W and \Z boson masses which can be predicted from the measurement of the fine structure constant, the Higgs
-mass $m_H$ can not be determined by other experimentally measured parameters.
+mass $M_H$ can not be determined by other experimentally measured parameters. However, it is possible to put indirect
+constraints on $M_H$ through quantum loop corrections and precise measurement of the \W boson and top quark masses. This
+will be discussed in Section~\ref{s:top_quak_physics}.
 
 The existence of the Higgs boson and therefore the nature of electroweak symmetry breaking had long remained a mystery.
 In the summer of 2012 both ATLAS and CMS experiments at the LHC observed the Higgs boson with an approximate mass of
 \SI{125}{\GeV} \autocite{ATLAS_higgs_observation, CMS_higgs_observation}, with couplings consistent with theoretical
 predictions, which proved to be yet another triumph of the Standard Model.
 
-
 \newpage
 \section{Top Quark Physics within the Standard Model}
 \label{s:top_quak_physics}
+
 
 \subsection{Top quark production at the LHC}
 \label{ss:top_production}
