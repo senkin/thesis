@@ -396,9 +396,16 @@ given by
 \end{equation}
 where coefficients $Y_{e,u,d}^{ij}$ are $3\times3$ complex matrices (Yukawa couplings) and $\epsilon$ is the $2\times2$
 antisymmetric tensor. When the Higgs field $\phi$ acquires the vacuum expectation value given by
-Equation~\ref{eq:unitary_gauge_vev}, the Yukawa Lagrangian yields mass terms for fermions. The Yukawa couplings are not
-diagonal in general, which results in mixing between different generations described for the quarks by the CKM matrix
-(Equation~\ref{eq:CKM}).
+Equation~\ref{eq:unitary_gauge_vev}, the Yukawa Lagrangian yields mass terms for fermions, generating the masses:
+\begin{equation}
+M_f = Y_f \frac{v}{\sqrt{2}}.
+\end{equation}
+
+The Yukawa couplings are not diagonal in general, which results in mixing between different generations described for
+the quarks by the CKM matrix (Equation~\ref{eq:CKM}). Another curious observation is that the fermion masses are
+proportional to Yukawa couplings, which essentially represent the interaction strength with the Higgs field. Due to the
+large mass of the top quark of approximately \SI{173}{\GeV}, and the Higgs field vacuum expectation value
+$v\approx\SI{246}{\GeV}$, the Yukawa coupling to the top quark is very close to unity.
 
 Returning to the Lagrangian in Equation~\ref{eq:Higgs_L_final}, the Higgs boson mass is
 \begin{equation}
@@ -419,9 +426,101 @@ predictions, which proved to be yet another triumph of the Standard Model.
 \section{Top Quark Physics within the Standard Model}
 \label{s:top_quak_physics}
 
-
 \subsection{Top quark production at the LHC}
 \label{ss:top_production}
+
+\begin{figure}[!hbtp]
+	\begin{minipage}[t]{0.49\textwidth}
+	\centering
+	\subfloat[]{
+		\begin{fmfgraph*}(200,100)
+		\fmfleft{i1,i2}
+		\fmfright{o1,o2}
+		\fmflabel{$g$}{i1}
+		\fmflabel{$g$}{i2}
+		\fmflabel{$\bar{t}$}{o1}
+		\fmflabel{$t$}{o2}
+
+		\fmf{gluon}{i1,v1}
+		\fmf{gluon}{i2,v2}
+		\fmf{fermion}{v1,v2}
+		\fmf{fermion}{o1,v1}
+		\fmf{fermion}{v2,o2}
+		\end{fmfgraph*}
+	}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.49\textwidth}
+	\centering
+	\subfloat[]{
+		\begin{fmfgraph*}(200,100)
+		\fmfleft{i1,i2}
+		\fmfright{o1,o2}
+		\fmflabel{$g$}{i1}
+		\fmflabel{$g$}{i2}
+		\fmflabel{$\bar{t}$}{o1}
+		\fmflabel{$t$}{o2}
+
+		\fmf{gluon}{i1,v1}
+		\fmf{gluon}{i2,v1}
+		\fmf{gluon}{v1,v2}
+		\fmf{fermion}{o1,v2}
+		\fmf{fermion}{v2,o2}
+		\end{fmfgraph*}
+	}
+	\end{minipage}
+
+	\vspace{1cm}
+
+	\begin{minipage}[t]{0.49\textwidth}
+	\centering
+	\subfloat[]{
+		\begin{fmfgraph*}(200,100)
+		\fmfleft{i1,i2}
+		\fmfright{o1,o2}
+		\fmflabel{$g$}{i1}
+		\fmflabel{$g$}{i2}
+		\fmflabel{$\bar{t}$}{o1}
+		\fmflabel{$t$}{o2}
+
+		\fmf{gluon}{i1,v1}
+		\fmf{phantom}{v1,o1}
+		\fmf{gluon}{i2,v2}
+		\fmf{phantom}{v2,o2}
+		\fmf{fermion}{v2,v1}
+
+		\fmf{fermion,tension=0}{v1,o2}
+		\fmf{fermion,tension=0}{o1,v2}
+
+		\end{fmfgraph*}
+	}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.49\textwidth}
+	\centering
+	\subfloat[]{
+		\begin{fmfgraph*}(200,100)
+		\fmfleft{i1,i2}
+		\fmfright{o1,o2}
+		\fmflabel{$\bar{q}$}{i1}
+		\fmflabel{$q$}{i2}
+		\fmflabel{$\bar{t}$}{o1}
+		\fmflabel{$t$}{o2}
+
+		\fmf{fermion}{v1,i1}
+		\fmf{fermion}{i2,v1}
+		\fmf{gluon}{v1,v2}
+		\fmf{fermion}{o1,v2}
+		\fmf{fermion}{v2,o2}
+		\end{fmfgraph*}
+	}
+	\end{minipage}
+
+	\caption[Feynman diagrams for leading order \ttbar production at the LHC.]{Feynman diagrams for leading order \ttbar
+	production at the LHC. (a), (b) and (c) show the gluon fusion, the dominant production mechanism, (d) represents
+	quark-antiquark annihilation.}
+  \label{fig:ttbar_production_feynman_diagrams}
+\end{figure}
 
 \subsection{Top quark decay}
 \label{ss:top_decay}

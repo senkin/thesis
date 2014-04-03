@@ -42,7 +42,7 @@
 \usepackage{amsmath}
 \usepackage{siunitx}
 \usepackage{hyphenat}
-%\usepackage{graphicx}
+%\usepackage[pdftex]{graphicx}
 \usepackage{subfig}
 \usepackage{makeidx}
 \usepackage{fancyhdr}
@@ -60,6 +60,10 @@
 \usepackage{enumitem}
 %\usepackage{lmodern}
 \usepackage[T1]{fontenc}
+
+% Feynman diagrams
+\usepackage{feynmp}
+\DeclareGraphicsRule{*}{mps}{*}{}
 
 % Tables handling: adjustable row styles
 \newcolumntype{_}{>{\global\let\currentrowstyle\relax}}

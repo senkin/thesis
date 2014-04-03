@@ -38,4 +38,4 @@ tmp/
 *.tdo
 *-blx.bib
 *.run.xml
-
+feynman-diagrams.*
