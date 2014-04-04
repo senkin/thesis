@@ -538,6 +538,122 @@ beyond it.
   \label{fig:ttbar_production_feynman_diagrams}
 \end{figure}
 
+
+\begin{figure}[!hbtp]
+	\centering
+	\begin{minipage}[b]{0.3\textwidth}
+	\centering
+	\subfloat[]{
+		\begin{fmfgraph*}(150,75)
+		\fmfleft{i1,i2}
+		\fmfright{o1,o2}
+		\fmflabel{$q$}{i1}
+		\fmflabel{$\bar{q'}$}{i2}
+		\fmflabel{$\bar{b}$}{o1}
+		\fmflabel{$t$}{o2}
+
+		\fmf{fermion}{i1,v1}
+		\fmf{fermion}{v1,i2}
+		\fmf{photon, label=$W$}{v1,v2}
+		\fmf{fermion}{o1,v2}
+		\fmf{fermion}{v2,o2}
+		\end{fmfgraph*}
+	}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.3\textwidth}
+	\centering
+	\subfloat[]{
+		\begin{fmfgraph*}(150,75)
+		\fmfleft{i1,i2}
+		\fmfright{o1,o2,o3}
+		\fmflabel{$g$}{i1}
+		\fmflabel{$q$}{i2}
+		\fmflabel{$\bar{b}$}{o1}
+		\fmflabel{$t$}{o2}
+		\fmflabel{$q'$}{o3}
+
+		\fmf{gluon}{i1,v1}
+		\fmf{fermion}{i2,v3}
+		\fmf{fermion, label=$b$}{v1,v2}
+		\fmf{photon, label=$W$}{v2,v3}
+		\fmf{fermion}{o1,v1}
+		\fmf{fermion}{v2,o2}
+		\fmf{fermion}{v3,o3}
+		\end{fmfgraph*}
+	}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.3\textwidth}
+	\centering
+	\subfloat[]{
+		\begin{fmfgraph*}(150,75)
+		\fmfleft{i1,i2}
+		\fmfright{o1,o2}
+		\fmflabel{$b$}{i1}
+		\fmflabel{$q$}{i2}
+		\fmflabel{$t$}{o1}
+		\fmflabel{$q'$}{o2}
+
+		\fmf{fermion}{i1,v1}
+		\fmf{fermion}{i2,v2}
+		\fmf{photon, label=$W$}{v1,v2}
+		\fmf{fermion}{v1,o1}
+		\fmf{fermion}{v2,o2}
+		\end{fmfgraph*}
+	}
+	\end{minipage}
+
+	\vspace{1cm}
+
+	\hfill
+
+	\begin{minipage}[t]{0.3\textwidth}
+	\centering
+	\subfloat[]{
+		\begin{fmfgraph*}(150,75)
+		\fmfleft{i1,i2}
+		\fmfright{o1,o2}
+		\fmflabel{$g$}{i1}
+		\fmflabel{$b$}{i2}
+		\fmflabel{$t$}{o1}
+		\fmflabel{$W$}{o2}
+
+		\fmf{gluon}{i1,v1}
+		\fmf{fermion}{i2,v1}
+		\fmf{fermion, label=$b$}{v1,v2}
+		\fmf{fermion}{v2,o1}
+		\fmf{photon}{v2,o2}
+		\end{fmfgraph*}
+	}
+	\end{minipage}
+	\hspace{2cm}
+	\begin{minipage}[t]{0.3\textwidth}
+	\centering
+	\subfloat[]{
+		\begin{fmfgraph*}(150,75)
+		\fmfleft{i1,i2}
+		\fmfright{o1,o2}
+		\fmflabel{$b$}{i1}
+		\fmflabel{$g$}{i2}
+		\fmflabel{$W$}{o1}
+		\fmflabel{$t$}{o2}
+
+		\fmf{fermion}{i1,v1}
+		\fmf{gluon}{i2,v2}
+		\fmf{fermion, label=$t$}{v1,v2}
+		\fmf{photon}{v1,o1}
+		\fmf{fermion}{v2,o2}
+		\end{fmfgraph*}
+	}
+	\end{minipage}
+	\hfill
+
+	\caption[Feynman diagrams for leading order single top production.]{Feynman diagrams for leading order
+	single top production. (a) s-channel, (b) and (c) t-channel, (d) and (e) tW-channel.}
+  \label{fig:single_top_production_feynman_diagrams}
+\end{figure}
+
 \subsection{Top quark decay}
 \label{ss:top_decay}
 
