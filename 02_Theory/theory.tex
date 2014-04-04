@@ -39,8 +39,8 @@ The quarks also exist in three generations, and are represented by up and down (
 these particles possess another physical property called colour charge. Due to a phenomenon of colour confinement, they
 can only exist as constituents of composite particles -- hadrons. More detail on the QCD theory of strong interaction is
 presented in Section~\ref{ss:QCD_theory}. The top quark, however, is too heavy hadronise as it has an extremely short
-lifetime of \SI{\sim e-25}{\s}, which is an order of magnitude shorter than the timescale of strong interactions. This
-and other properties of the top quark will be discussed in Section~\ref{s:top_quak_physics}.
+lifetime of \SI{\approx 5e-25}{\s} \autocite{PDG}, which is an order of magnitude shorter than the timescale of strong
+interactions. This and other properties of the top quark will be discussed in Section~\ref{s:top_quak_physics}.
 
 The last essential constituent of the Standard Model is the recently discovered Higgs boson
 \autocite{ATLAS_higgs_observation, CMS_higgs_observation}. The Higgs field is responsible for electroweak symmetry
@@ -425,6 +425,22 @@ predictions, which proved to be yet another triumph of the Standard Model.
 \newpage
 \section{Top Quark Physics within the Standard Model}
 \label{s:top_quak_physics}
+The top quark is the heaviest elementary particle in the Standard Model, and the heaviest observed particle, discovered
+in 1995 at the Tevatron collider by CDF and D{\O} collaborations \autocite{CDF_top_observation, D0_top_observation}. The
+large mass of $\mtop = 173.29\ \pm\ 0.23\ \textrm{(stat.)}\ \pm 0.92\ \textrm{(syst.)}\ \textrm{GeV}$
+\autocite{LHC_top_mass_combination} suggests that the top quark may have a special role in nature. It is substantially
+more massive than any other fermion. The Standard Model does not provide an explanation for the vast difference between
+masses of fermions (known as the Flavour problem), hence the origin of Yukawa couplings and therefore the CKM matrix
+remains an open problem in particle physics. It is not yet understood why the top quark's Yukawa coupling to the Higgs
+boson is so close to unity. For these reasons, the top quark plays an important role in many models beyond the Standard
+Model, discussed in Section~\ref{s:BSM}.
+
+Due to its large mass, the top quark has an extremely short lifetime of \SI{\approx5e-25}{\s} \autocite{PDG}, meaning
+that it decays before the top-flavoured hadrons or \ttbar bound states can form. Therefore, the spin information is
+passed from the top quark on to its decay products, providing a unique possibility to study a ``bare'' quark.
+High-precision measurements of the top quark properties, such as mass (Section~\ref{c:top_mass_analysis}) and cross
+section (Section~\ref{c:xsection_analysis}) are important tools to test the Standard Model and probe for new physics
+beyond it.
 
 \subsection{Top quark production at the LHC}
 \label{ss:top_production}
@@ -524,6 +540,37 @@ predictions, which proved to be yet another triumph of the Standard Model.
 
 \subsection{Top quark decay}
 \label{ss:top_decay}
+
+\begin{figure}[!hbtp]
+	\centering
+	\begin{fmfgraph*}(300,150)
+	\fmfleft{i1,i2,i3}
+	\fmfright{o1,o2,o3}
+	\fmflabel{$\bar{q}$}{i1}
+	\fmflabel{$q$}{i2}
+	\fmflabel{$\bar{b}$}{i3}
+	\fmflabel{$b$}{o1}
+	\fmflabel{$l^+$}{o2}
+	\fmflabel{$\nu_l$}{o3}
+	
+	\fmf{fermion}{i3,v2}
+	\fmf{phantom}{i1,v2}
+	\fmf{fermion, label=$\bar{t}$}{v2,v3}
+	\fmf{fermion, label=$t$}{v3,v4}
+	\fmf{fermion}{v4,o1}
+	\fmf{phantom}{o3,v4}
+	\fmffreeze
+	\fmf{fermion}{i1,v1}
+	\fmf{fermion}{v1,i2}
+	\fmf{fermion}{o2,v5}
+	\fmf{fermion}{v5,o3}
+	\fmf{photon, label=$W^-$}{v1,v2}
+	\fmf{photon, label=$W^+$}{v4,v5}
+	\fmfdot{v3}
+	\end{fmfgraph*}
+	\caption[Semileptonic \ttbar decay mode.]{Semileptonic \ttbar decay mode.}
+  \label{fig:ttbar_semileptonic_decay}
+\end{figure}
 
 \subsection{Background processes}
 \label{ss:backgrounds}
