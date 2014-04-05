@@ -457,98 +457,7 @@ This happens due to the fact that the LHC is a proton-proton collider, and the o
 quarks (so-called sea quarks). At the Tevatron, which was a proton-antiproton collider, the situation was quite the
 opposite: the aquark-antiquark annihilation was the main \ttbar production mode.
 
-\begin{figure}[!htbp]
-	\begin{minipage}[t]{0.49\textwidth}
-	\centering
-	\subfloat[]{
-		\begin{fmfgraph*}(150,75)
-		\fmfleft{i1,i2}
-		\fmfright{o1,o2}
-		\fmflabel{$g$}{i1}
-		\fmflabel{$g$}{i2}
-		\fmflabel{$\bar{t}$}{o1}
-		\fmflabel{$t$}{o2}
-
-		\fmf{gluon}{i1,v1}
-		\fmf{gluon}{i2,v2}
-		\fmf{fermion}{v1,v2}
-		\fmf{fermion}{o1,v1}
-		\fmf{fermion}{v2,o2}
-		\end{fmfgraph*}
-	}
-	\end{minipage}
-	\hfill
-	\begin{minipage}[t]{0.49\textwidth}
-	\centering
-	\subfloat[]{
-		\begin{fmfgraph*}(150,75)
-		\fmfleft{i1,i2}
-		\fmfright{o1,o2}
-		\fmflabel{$g$}{i1}
-		\fmflabel{$g$}{i2}
-		\fmflabel{$\bar{t}$}{o1}
-		\fmflabel{$t$}{o2}
-
-		\fmf{gluon}{i1,v1}
-		\fmf{gluon}{i2,v1}
-		\fmf{gluon}{v1,v2}
-		\fmf{fermion}{o1,v2}
-		\fmf{fermion}{v2,o2}
-		\end{fmfgraph*}
-	}
-	\end{minipage}
-
-	\vspace{1cm}
-
-	\begin{minipage}[t]{0.49\textwidth}
-	\centering
-	\subfloat[]{
-		\begin{fmfgraph*}(150,75)
-		\fmfleft{i1,i2}
-		\fmfright{o1,o2}
-		\fmflabel{$g$}{i1}
-		\fmflabel{$g$}{i2}
-		\fmflabel{$\bar{t}$}{o1}
-		\fmflabel{$t$}{o2}
-
-		\fmf{gluon}{i1,v1}
-		\fmf{phantom}{v1,o1}
-		\fmf{gluon}{i2,v2}
-		\fmf{phantom}{v2,o2}
-		\fmf{fermion}{v2,v1}
-
-		\fmf{fermion,tension=0}{v1,o2}
-		\fmf{fermion,tension=0}{o1,v2}
-
-		\end{fmfgraph*}
-	}
-	\end{minipage}
-	\hfill
-	\begin{minipage}[t]{0.49\textwidth}
-	\centering
-	\subfloat[]{
-		\begin{fmfgraph*}(150,75)
-		\fmfleft{i1,i2}
-		\fmfright{o1,o2}
-		\fmflabel{$\bar{q}$}{i1}
-		\fmflabel{$q$}{i2}
-		\fmflabel{$\bar{t}$}{o1}
-		\fmflabel{$t$}{o2}
-
-		\fmf{fermion}{v1,i1}
-		\fmf{fermion}{i2,v1}
-		\fmf{gluon}{v1,v2}
-		\fmf{fermion}{o1,v2}
-		\fmf{fermion}{v2,o2}
-		\end{fmfgraph*}
-	}
-	\end{minipage}
-
-	\caption[Feynman diagrams for leading order \ttbar production at the LHC.]{Feynman diagrams for leading order \ttbar
-	production at the LHC. (a), (b) and (c) show the gluon fusion, the dominant production mechanism, (d) represents
-	quark-antiquark annihilation.}
-  \label{fig:ttbar_production_feynman_diagrams}
-\end{figure}
+\input{02_Theory/feynman_diagrams/ttbar_production}
 
 The \ttbar production is a strong interaction process, and therefore is described by perturbative QCD. Hadron collisions
 at the LHC (or other hadron colliders) are best viewed as interactions between their constituent quarks and gluons, also
@@ -610,125 +519,14 @@ modes. Three major production mechanisms include s-channel and t-channel \W boso
 with a \W boson (tW-channel). Measurement of single top production is of significant interest since it allows the direct
 measurement of the Wtb vertex and therefore the magnitude of $|V_{tb}|$ element of the CKM matrix.
 
+\input{02_Theory/feynman_diagrams/single_top_production}
 
-\begin{figure}[!hbtp]
-	\centering
-	\vspace*{0.5cm}
-	\begin{minipage}[b]{0.3\textwidth}
-	\centering
-	\subfloat[]{
-		\begin{fmfgraph*}(150,75)
-		\fmfleft{i1,i2}
-		\fmfright{o1,o2}
-		\fmflabel{$q$}{i1}
-		\fmflabel{$\bar{q'}$}{i2}
-		\fmflabel{$\bar{b}$}{o1}
-		\fmflabel{$t$}{o2}
 
-		\fmf{fermion}{i1,v1}
-		\fmf{fermion}{v1,i2}
-		\fmf{photon, label=$W$}{v1,v2}
-		\fmf{fermion}{o1,v2}
-		\fmf{fermion}{v2,o2}
-		\end{fmfgraph*}
-	}
-	\end{minipage}
-	\hfill
-	\begin{minipage}[b]{0.3\textwidth}
-	\centering
-	\subfloat[]{
-		\begin{fmfgraph*}(150,75)
-		\fmfleft{i1,i2}
-		\fmfright{o1,o2,o3}
-		\fmflabel{$g$}{i1}
-		\fmflabel{$q$}{i2}
-		\fmflabel{$\bar{b}$}{o1}
-		\fmflabel{$t$}{o2}
-		\fmflabel{$q'$}{o3}
 
-		\fmf{gluon}{i1,v1}
-		\fmf{fermion}{i2,v3}
-		\fmf{fermion, label=$b$}{v1,v2}
-		\fmf{photon, label=$W$}{v2,v3}
-		\fmf{fermion}{o1,v1}
-		\fmf{fermion}{v2,o2}
-		\fmf{fermion}{v3,o3}
-		\end{fmfgraph*}
-	}
-	\end{minipage}
-	\hfill
-	\begin{minipage}[b]{0.3\textwidth}
-	\centering
-	\subfloat[]{
-		\begin{fmfgraph*}(150,75)
-		\fmfleft{i1,i2}
-		\fmfright{o1,o2}
-		\fmflabel{$b$}{i1}
-		\fmflabel{$q$}{i2}
-		\fmflabel{$t$}{o1}
-		\fmflabel{$q'$}{o2}
-
-		\fmf{fermion}{i1,v1}
-		\fmf{fermion}{i2,v2}
-		\fmf{photon, label=$W$}{v1,v2}
-		\fmf{fermion}{v1,o1}
-		\fmf{fermion}{v2,o2}
-		\end{fmfgraph*}
-	}
-	\end{minipage}
-
-	\vspace{1cm}
-
-	\hfill
-
-	\begin{minipage}[t]{0.3\textwidth}
-	\centering
-	\subfloat[]{
-		\begin{fmfgraph*}(150,75)
-		\fmfleft{i1,i2}
-		\fmfright{o1,o2}
-		\fmflabel{$g$}{i1}
-		\fmflabel{$b$}{i2}
-		\fmflabel{$t$}{o1}
-		\fmflabel{$W$}{o2}
-
-		\fmf{gluon}{i1,v1}
-		\fmf{fermion}{i2,v1}
-		\fmf{fermion, label=$b$}{v1,v2}
-		\fmf{fermion}{v2,o1}
-		\fmf{photon}{v2,o2}
-		\end{fmfgraph*}
-	}
-	\end{minipage}
-	\hspace{2cm}
-	\begin{minipage}[t]{0.3\textwidth}
-	\centering
-	\subfloat[]{
-		\begin{fmfgraph*}(150,75)
-		\fmfleft{i1,i2}
-		\fmfright{o1,o2}
-		\fmflabel{$b$}{i1}
-		\fmflabel{$g$}{i2}
-		\fmflabel{$W$}{o1}
-		\fmflabel{$t$}{o2}
-
-		\fmf{fermion}{i1,v1}
-		\fmf{gluon}{i2,v2}
-		\fmf{fermion, label=$t$}{v1,v2}
-		\fmf{photon}{v1,o1}
-		\fmf{fermion}{v2,o2}
-		\end{fmfgraph*}
-	}
-	\end{minipage}
-	\hfill
-
-	\caption[Feynman diagrams for leading order single top production.]{Feynman diagrams for leading order
-	single top production. (a) s-channel, (b) and (c) t-channel, (d) and (e) tW-channel.}
-  \label{fig:single_top_production_feynman_diagrams}
-\end{figure}
 
 \subsection{Top quark decay}
 \label{ss:top_decay}
+
 
 \begin{figure}[!hbtp]
 	\centering
