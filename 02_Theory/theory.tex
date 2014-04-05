@@ -438,14 +438,26 @@ Model, discussed in Section~\ref{s:BSM}.
 Due to its large mass, the top quark has an extremely short lifetime of \SI{\approx5e-25}{\s} \autocite{PDG}, meaning
 that it decays before the top-flavoured hadrons or \ttbar bound states can form. Therefore, the spin information is
 passed from the top quark on to its decay products, providing a unique possibility to study a ``bare'' quark.
-High-precision measurements of the top quark properties, such as mass (Section~\ref{c:top_mass_analysis}) and cross
-section (Section~\ref{c:xsection_analysis}) are important tools to test the Standard Model and probe for new physics
+High-precision measurements of the top quark properties, such as mass (Chapter~\ref{c:top_mass_analysis}) and cross
+section (Chapter~\ref{c:xsection_analysis}) are important tools to test the Standard Model and probe for new physics
 beyond it.
 
 \subsection{Top quark production at the LHC}
 \label{ss:top_production}
+There are two particular mechanisms of top quark production in hadron collisions: top-antitop (\ttbar) pair production
+via strong interaction, and single top quark production via electroweak interaction. The \ttbar production dominates
+over single top production, being the main source of top quarks at the LHC, and therefore is the main focus of this
+thesis.
 
-\begin{figure}[!hbtp]
+Feynman diagrams of \ttbar production to the leading order are presented in
+Figure~\ref{fig:ttbar_production_feynman_diagrams}. At the LHC, the major process for \ttbar production is gluon fusion,
+constituting approximately \SI{90}{\pc} (\SI{80}{\pc}) at $\sqrt s =$ \SI{14}{\TeV} (\SI{7}{\TeV}) \autocite{PDG}.
+Quark-antiquark annihilation and higher order processes contribute to the rest of the Standard Model \ttbar production.
+This happens due to the fact that the LHC is a proton-proton collider, and the only source of antiquarks are virtual
+quarks (so-called sea quarks). At the Tevatron, which was a proton-antiproton collider, the situation was quite the
+opposite: the aquark-antiquark annihilation was the main \ttbar production mode.
+
+\begin{figure}[!htbp]
 	\begin{minipage}[t]{0.49\textwidth}
 	\centering
 	\subfloat[]{
@@ -538,9 +550,36 @@ beyond it.
   \label{fig:ttbar_production_feynman_diagrams}
 \end{figure}
 
+The \ttbar production is a strong interaction process, and therefore is described by perturbative QCD. Hadron collisions
+at the LHC (or other hadron colliders) are best viewed as interactions between their constituent quarks and gluons, also
+referred to as partons. Since hadron collisions occur at high energies, these interactions result in hard scattering
+processes between incoming partons, meaning those involving a significant momentum transfer comparing to the proton
+mass, and potentially giving rise to highly energetic final states like top quarks.
+
+Each parton carries only a fraction $x$ of the total momentum of a parent hadron. The distribution of momentum fractions
+for all flavours of partons are described by parton distribution functions (PDFs). The PDF $f_i(x_i,\mu_f^2)$ is defined
+as a probability density of finding a parton with flavour $i$ and a longitudinal momentum fraction $x_i$ when probed at
+momentum scale $\mu_f^2$, which is known as factorisation scale.
+
+The total \ttbar production cross section for hard scattering processes in hadron collisions can be calculated as
+\autocite{Sterman1986}:
+\begin{equation}
+\sigma^{\ttbar} (s,\mtop^2) = \sum_{i,j} \int dx_i dx_j f_i(x_i, \mu_f^2) f_j(x_j,\mu_f^2) \hat{\sigma}_{i,j
+\rightarrow \ttbar} (s, \mtop^2, \alpha_s(\mu_r^2)),
+\end{equation}
+where the indices $i,j$ run over the incoming partons (gluons and quark-antiquark pairs), $x_{i,j}$ are the momentum
+fractions of the incoming partons, $f_{i,j}$ are their parton distribution functions, and $\hat{\sigma}_{i,j
+\rightarrow \ttbar}$ is the cross section of interacting partons, which depends on the centre of mass energy of hadron
+collisions $s$, the top quark mass \mtop, and the QCD strong coupling constant $\alpha_s$.
+
+The single top production modes are shown in Figure~\ref{fig:single_top_production_feynman_diagrams}. There are three
+main production processes: s-channel and t-channel \W boson exchange, and associated production with a \W boson
+(tW-channel).
+
 
 \begin{figure}[!hbtp]
 	\centering
+	\vspace*{0.5cm}
 	\begin{minipage}[b]{0.3\textwidth}
 	\centering
 	\subfloat[]{
