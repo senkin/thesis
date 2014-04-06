@@ -521,12 +521,45 @@ measurement of the Wtb vertex and therefore the magnitude of $|V_{tb}|$ element 
 
 \input{02_Theory/feynman_diagrams/single_top_production}
 
-
-
-
 \subsection{Top quark decay}
 \label{ss:top_decay}
+The top quark predominantly decays to a \W boson and a b-quark: $\cPqt \rightarrow \W \cPqb$. Other possible decay modes
+($\cPqt \rightarrow \W \cPqs$ and $\cPqt \rightarrow \W \cPqd$) are suppressed in the Standard Model by the unitarity
+requirement of the CKM matrix, yielding the $|V_{tb}|$ value of \autocite{PDG}:
+\begin{equation}
+|V_{tb}| = 0.999146^{+0.000021}_{-0.000046}.
+\end{equation}
 
+As it was previously mentioned, the direct measurement of $|V_{tb}|$ (without assuming unitarity) can be performed by
+measuring the single top production cross section. The recent CMS result is consistent with the Standard
+Model \autocite{single_top_Vtb_CMS}:
+\begin{equation}
+|V_{tb}| = 0.998 \pm 0.038~\textrm{(experimental)} \pm 0.016~\textrm{(theoretical)}.
+\end{equation}
+
+The branching fraction of $\cPqt \rightarrow \W \cPqb$ decay is assumed to be \SI{100}{\pc} hereafter. Therefore, the
+\ttbar decay modes completely depend on subsequent \W boson decays:
+\begin{itemize}
+  \item fully hadronic: \ttbar $\rightarrow \cPqb \W^+ \bar{\cPqb} \W^- \rightarrow  \cPqb \cPq\bar{\cPq}' \bar{\cPqb}
+  \cPq'' \bar{\cPq}'''$ (\SI{45.7}{\pc});
+  \item semileptonic: \ttbar $\rightarrow \cPqb \W^+ \bar{\cPqb} \W^- \rightarrow \cPqb \cPq\bar{\cPq}' \bar{\cPqb} l^-
+  \bar{\nu}_l + \cPqb l^+ \nu_l \bar{\cPqb} \cPq'' \bar{\cPq}'''$ (\SI{43.8}{\pc});
+  \item dileptonic: \ttbar $\rightarrow \cPqb \W^+ \bar{\cPqb} \W^- \rightarrow  \cPqb \bar{l} \nu_l \bar{\cPqb} l'
+  \bar{\nu}_{l'}$ (\SI{10.5}{\pc}).
+\end{itemize}
+
+Percentages in parentheses show the branching fractions corresponding to the decay modes \autocite{PDG}. The quarks in
+all final states hadronise into jets. The number of jets is not limited to the number of initial quarks due to the
+contribution from extra QCD radiation (i.e.\ gluon radiation) either before or after \ttbar production.
+
+Fully hadronic \ttbar decay signature implies at least 6 jets in the final state and no leptons, hence it is heavily
+contaminated by the background from QCD and \W/\ZpJets processes. Dileptonic \ttbar decay has a clean signature, but due
+to the lowest branching fraction can suffer from limited statistics. The semileptonic decay mode, shown in
+Figure~\ref{fig:ttbar_semileptonic_decay}, has exactly one highly energetic lepton and at least four jets in the final
+state, which is therefore called the lepton plus jets final state. The lepton can be an electron, a muon or a
+$\tau$-lepton, however, since the $\tau$-leptons are difficult to reconstruct, they are usually excluded from top quark
+analyses studying semileptonic decays. Analyses in this thesis study the electron plus jets and muon plus jets decay
+channels, which have the branching fractions of \SI{\approx14}{\pc} each.
 
 \begin{figure}[!hbtp]
 	\centering
