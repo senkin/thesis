@@ -1,0 +1,88 @@
+\begin{figure}[tbp]
+	\begin{minipage}[t]{0.49\textwidth}
+	\centering
+	\subfloat[]{
+		\begin{fmfgraph*}(150,75)
+		\fmfleft{i1,i2}
+		\fmfright{o1,o2}
+		\fmflabel{$q$}{i1}
+		\fmflabel{$g$}{i2}
+		\fmflabel{$q'$}{o1}
+		\fmflabel{$W$}{o2}
+
+		\fmf{fermion}{i1,v1}
+		\fmf{gluon}{i2,v1}
+		\fmf{fermion}{v1,v2}
+		\fmf{fermion}{v2,o1}
+		\fmf{photon}{v2,o2}
+		\end{fmfgraph*}
+	}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.49\textwidth}
+	\centering
+	\subfloat[]{
+		\begin{fmfgraph*}(150,75)
+		\fmfleft{i1,i2}
+		\fmfright{o1,o2}
+		\fmflabel{$q$}{i1}
+		\fmflabel{$\bar{q}'$}{i2}
+		\fmflabel{$g$}{o1}
+		\fmflabel{$W$}{o2}
+
+		\fmf{fermion}{i1,v1}
+		\fmf{fermion}{v2,i2}
+		\fmf{fermion}{v1,v2}
+		\fmf{gluon}{v1,o1}
+		\fmf{photon}{v2,o2}
+		\end{fmfgraph*}
+	}
+	\end{minipage}
+
+	\vspace{1cm}
+
+	\begin{minipage}[t]{0.49\textwidth}
+	\centering
+		\subfloat[]{
+		\begin{fmfgraph*}(150,75)
+		\fmfleft{i1,i2}
+		\fmfright{o1,o2}
+		\fmflabel{$q$}{i1}
+		\fmflabel{$g$}{i2}
+		\fmflabel{$q'$}{o1}
+		\fmflabel{$Z$}{o2}
+
+		\fmf{fermion}{i1,v1}
+		\fmf{gluon}{i2,v1}
+		\fmf{fermion}{v1,v2}
+		\fmf{fermion}{v2,o1}
+		\fmf{photon}{v2,o2}
+		\end{fmfgraph*}
+	}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.49\textwidth}
+	\centering
+	\subfloat[]{
+		\begin{fmfgraph*}(150,75)
+		\fmfleft{i1,i2}
+		\fmfright{o1,o2}
+		\fmflabel{$g$}{i1}
+		\fmflabel{$q$}{i2}
+		\fmflabel{$q'$}{o1}
+		\fmflabel{$Z$}{o2}
+
+		\fmf{gluon}{i1,v1}
+		\fmf{fermion}{i2,v2}
+		\fmf{fermion}{v2,v1}
+		\fmf{fermion}{v1,o1}
+		\fmf{photon}{v2,o2}
+		\end{fmfgraph*}
+	}
+	\end{minipage}
+
+	\caption[Example diagrams for leading order \W and \Z boson production at the
+	LHC.]{Example diagrams for leading order \W boson (a, b) and \Z boson (c,
+	d) production at the LHC.}
+  \label{fig:VJets_processes}
+\end{figure}
