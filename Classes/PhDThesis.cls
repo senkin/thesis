@@ -205,38 +205,38 @@
 \vspace{-2cm}
 }
 
-\renewcommand{\section}{%
-\@startsection{section}%
-{1}% Gliederungsebene
-{0mm}% Einzug
-{1.5ex plus 1ex minus 1.2ex}% Vorabstand
-{0.5ex plus 0.5ex minus 0.5ex}% Nachabstand
-{\chapterheadfont\Large\bfseries}% Stil
-}
-\renewcommand{\subsection}{%
-\@startsection{subsection}%
-{2}%
-{0mm}%
-{1ex plus 1ex minus 1ex}%
-{0.3ex plus 0.3ex minus 0.3ex}%
-{\chapterheadfont\large\bfseries}%
-}
-\renewcommand{\subsubsection}{%
-\@startsection{subsubsection}%
-{3}%
-{0mm}%
-{1ex plus 1ex minus 1ex}%
-{0.2ex plus 0.2ex minus 0.2ex}%
-{\chapterheadfont\normalsize\bfseries}%
-}
-\renewcommand{\paragraph}{%
-\@startsection{paragraph}%
-{4}%
-{0mm}%
-{2ex plus 1ex minus 2ex}%
-{0.2ex plus 0.2ex minus 0.2ex}%
-{\chapterheadfont\normalsize\bfseries}%
-}
+%\renewcommand{\section}{%
+%\@startsection{section}%
+%{1}% Gliederungsebene
+%{0mm}%
+%{1.5ex plus 1ex minus 1.2ex}%
+%{0.5ex plus 0.5ex minus 0.5ex}%
+%{\chapterheadfont\Large\bfseries}%
+%}
+%\renewcommand{\subsection}{%
+%\@startsection{subsection}%
+%{2}%
+%{0mm}%
+%{1ex plus 1ex minus 1ex}%
+%{0.3ex plus 0.3ex minus 0.3ex}%
+%{\chapterheadfont\large\bfseries}%
+%}
+%\renewcommand{\subsubsection}{%
+%\@startsection{subsubsection}%
+%{3}%
+%{0mm}%
+%{1ex plus 1ex minus 1ex}%
+%{0.2ex plus 0.2ex minus 0.2ex}%
+%{\chapterheadfont\normalsize\bfseries}%
+%}
+%\renewcommand{\paragraph}{%
+%\@startsection{paragraph}%
+%{4}%
+%{0mm}%
+%{2ex plus 1ex minus 2ex}%
+%{0.2ex plus 0.2ex minus 0.2ex}%
+%{\chapterheadfont\normalsize\bfseries}%
+%}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                                                                                                                                                                                  
 %% style of the chapter heading                                                                                                                                                                                                               
