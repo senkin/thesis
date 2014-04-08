@@ -427,8 +427,8 @@ predictions, which proved to be yet another triumph of the Standard Model.
 \label{s:top_quak_physics}
 The top quark is the heaviest elementary particle in the Standard Model, and the heaviest observed particle, discovered
 in 1995 at the Tevatron collider by CDF and D{\O} collaborations \autocite{CDF_top_observation, D0_top_observation}. The
-large mass of $\mtop = 173.29\ \pm\ 0.23\ \textrm{(stat.)}\ \pm 0.92\ \textrm{(syst.)}\ \textrm{GeV}$
-\autocite{LHC_top_mass_combination} suggests that the top quark may have a special role in nature. It is substantially
+large mass of $\mtop = 173.34\ \pm\ 0.27\ \textrm{(stat.)}\ \pm 0.74\ \textrm{(syst.)}\ \textrm{GeV}$
+\autocite{world_top_mass_combination} suggests that the top quark may have a special role in nature. It is substantially
 more massive than any other fermion. The Standard Model does not provide an explanation for the vast difference between
 masses of fermions (known as the Flavour problem), hence the origin of Yukawa couplings and therefore the CKM matrix
 remains an open problem in particle physics. It is not yet understood why the top quark's Yukawa coupling to the Higgs
@@ -636,14 +636,86 @@ Section~\ref{s_xsection:data_driven_QCD}).
 Other background processes potentially mimicking semileptonic \ttbar decay include the Drell-Yan process with dilepton
 production ($q \bar{q} \rightarrow \Z/\gamma^* \rightarrow l \bar{l}$), and diboson production. The background
 contamination from these processes can be reduced by vetoing the second lepton, and is generally considered negligible
-due to the small production cross sections of these processes.
+due to relatively small production cross sections of these processes.
 
 
 \subsection{Top quark mass}
 \label{ss:top_mass}
+The top quark mass is a fundamental parameter of the Standard Model. However, its precise definition is a very
+non-trivial problem, ultimately subject to convention. One of the most popular definitions is the pole mass,
+corresponding to the real part of a pole in the perturbative propagator of a particle
+\autocite{pole_mass_in_QCD_Tarrach}. For the top quark, the perturbative propagator with a four-momentum $p$ has a pole
+at \autocite{top_pole_mass}:
+\begin{equation}
+\sqrt{p^2} = \mtop - \frac{i}{2} \Gamma_\textrm{t},
+\end{equation}
+where \mtop is the pole mass and $\Gamma_\textrm{t}~\SI{\approx1.5}{\GeV}$ is the top quark decay width. This definition
+yields a peak in the invariant mass distribution of the top quark decay products (i.e.\ \W boson and \cPqb-quark), which
+is accessible experimentally. As $\mtop \gg \Gamma_\textrm{t}/2$, the peak approximately corresponds to the pole mass,
+therefore it is usually argued that experimentally measured top quark mass represents the pole mass.
 
-\subsection{Importance of top quark physics}
-\label{ss:importance}
+It has been shown that the pole mass is infrared finite and gauge-invariant to all orders of perturbative QCD
+\autocite{pole_mass_in_QCD_Kronfeld}. Despite being well-defined in perturbation theory, an all-order resummation of a
+particular class of diagrams known as ``infrared renormalons'' \autocite{renormalons1, renormalons2} leads to an
+intrinsic ambiguity of the top quark pole mass proportional to the energy scale of a strong interaction
+$\Lambda_\textrm{QCD}~\SI{\approx200}{\MeV}$ \autocite{pole_MS_top_difference}.
+
+Another frequently used mass definition which is free from renormalon ambiguity is the renormalised mass $\MSmtop(\mu)$
+in the minimal subtraction (\MS) renormalisation scheme. This mass definition is often call a running mass, since it
+depends on the renormalisation scale $\mu$ which is in principle arbitrary. For a choice of $\mu=\MSmtop$, the \MS mass
+\MSmtop is related to the pole mass \mtop as follows
+\autocite{top_pole_mass}:
+\begin{equation}
+\mtop = \MSmtop(\MSmtop) \left( 1 + \frac{4}{3} \frac{\overline{\alpha}_s(\MSmtop)}{\pi} + 8.28
+\left(\frac{\overline{\alpha}_s(\MSmtop)}{\pi} \right)^2 + ... \right) + \bigO(\Lambda_\textrm{QCD}).
+\end{equation}
+% \footnote{Renormalisation is a technique of cancelling divergences (infinities) in perturbative quantum field theories.
+% Initially infinite parameters become finite after renormalisation, thus acquiring physical sense.}
+
+The difference between the pole mass and the \MS mass is then estimated to be on the order of \SI{10}{\GeV} (with $\mtop
+> \MSmtop$). However, it has recently been shown that including electroweak corrections for a Higgs boson of
+\SI{\sim125}{\GeV} mostly cancels the corresponding QCD corrections, reducing the $\mtop-\MSmtop$ difference down to
+\SI{\sim1}{\GeV} \autocite{pole_MS_top_difference}. Theoretical research such as studying higher-order corrections is
+actively ongoing in this field.
+
+The experimental measurement of the top quark mass is of paramount importance. Nearly 20 years of the Tevatron operation
+resulted in a very good understanding of the machine and detectors, leading to an impressively small systematic
+uncertainty. The latest top quark mass combination result from the Tevatron gives
+\autocite{tevatron_top_mass_combination}:
+\begin{equation}
+\mtop = 173.20\ \pm\ 0.51\ \textrm{(stat.)}\ \pm 0.71\ \textrm{(syst.)}\ \textrm{GeV},
+\end{equation}
+
+The LHC experiments have reached nearly as good precision, with a statistical uncertainty being expectedly smaller
+than that of the Tevatron, however, with a larger systematic error due still improving understanding of detector
+effects. The latest LHC combination result yields \autocite{LHC_top_mass_combination}:
+\begin{equation}
+\mtop = 173.29\ \pm\ 0.23\ \textrm{(stat.)}\ \pm 0.92\ \textrm{(syst.)}\ \textrm{GeV}.
+\end{equation}
+
+Recently, the first world combination result of both LHC and Tevatron measurements has become available
+\autocite{world_top_mass_combination}:
+\begin{equation}
+\mtop = 173.34\ \pm\ 0.27\ \textrm{(stat.)}\ \pm 0.74\ \textrm{(syst.)}\ \textrm{GeV}.
+\end{equation}
+
+All these results compared with contributions of individual mass measurements are shown in
+Figure~\ref{fig:top_mass_world_combination}. 
+
+\begin{figure}[!hbtp]
+   \centering
+   {\includegraphics[width=\textwidth]{top_world_combination}}
+   \caption[World combination of the top quark mass measurements.]{Top quark mass measurements and the result of their
+   combination, compared with the Tevatron and LHC combinations. Each measurement is shown with the total uncertainty,
+   the statistical, the jet energy scale (iJES, when applicable), and the systematic uncertainty. The iJES contribution
+   is statistical in nature and applies only to analyses performing \textit{in situ} jet energy calibration procedures.
+   The grey vertical band shows the total uncertainty on the combined value of the top quark mass
+   \autocite{world_top_mass_combination}.}
+   \label{fig:top_mass_world_combination}
+\end{figure}
+
+%future prospects at ILC
+
 
 \section{Physics Beyond The Standard Model}
 \label{s:BSM}
@@ -652,113 +724,6 @@ due to the small production cross sections of these processes.
 
 \subsection{Supersymmetry}
 \label{ss:SUSY}
-
-\subsection{Extra dimensions}
-\label{ss:extra_dimensions}
-
-% \subsection{Standard Model Lagrangian}
-
-% \begin{center}
-% \begin{math}
-% \calL = -\frac{1}{2}\partial_{\nu}g^{a}_{\mu}\partial_{\nu}g^{a}_{\mu}
-% -g_{s}f^{abc}\partial_{\mu}g^{a}_{\nu}g^{b}_{\mu}g^{c}_{\nu}
-% -\frac{1}{4}g^{2}_{s}f^{abc}f^{ade}g^{b}_{\mu}g^{c}_{\nu}g^{d}_{\mu}g^{e}_{\nu}
-% +\frac{1}{2}ig^{2}_{s}(\bar{q}^{\sigma}_{i}\gamma^{\mu}q^{\sigma}_{j})g^{a}_{\mu}
-% +\bar{G}^{a}\partial^{2}G^{a}+g_{s}f^{abc}\partial_{\mu}\bar{G}^{a}G^{b}g^{c}_{\mu}
-% -\partial_{\nu}W^{+}_{\mu}\partial_{\nu}W^{-}_{\mu}-M^{2}W^{+}_{\mu}W^{-}_{\mu}
-% -\frac{1}{2}\partial_{\nu}Z^{0}_{\mu}\partial_{\nu}Z^{0}_{\mu}-\frac{1}{2c^{2}_{w}}
-% M^{2}Z^{0}_{\mu}Z^{0}_{\mu}
-% -\frac{1}{2}\partial_{\mu}A_{\nu}\partial_{\mu}A_{\nu}
-% -\frac{1}{2}\partial_{\mu}H\partial_{\mu}H-\frac{1}{2}m^{2}_{h}H^{2}
-% -\partial_{\mu}\phi^{+}\partial_{\mu}\phi^{-}-M^{2}\phi^{+}\phi^{-}
-% -\frac{1}{2}\partial_{\mu}\phi^{0}\partial_{\mu}\phi^{0}-\frac{1}{2c^{2}_{w}}M\phi^{0}\phi^{0}
-% -\beta_{h}[\frac{2M^{2}}{g^{2}}+\frac{2M}{g}H+\frac{1}{2}(H^{2}+\phi^{0}\phi^{0}+2\phi^{+}\phi^{-%%@
-% })]+\frac{2M^{4}}{g^{2}}\alpha_{h}
-% -igc_{w}[\partial_{\nu}Z^{0}_{\mu}(W^{+}_{\mu}W^{-}_{\nu}-W^{+}_{\nu}W^{-}_{\mu})
-% -Z^{0}_{\nu}(W^{+}_{\mu}\partial_{\nu}W^{-}_{\mu}-W^{-}_{\mu}\partial_{\nu}W^{+}_{\mu})
-% +Z^{0}_{\mu}(W^{+}_{\nu}\partial_{\nu}W^{-}_{\mu}-W^{-}_{\nu}\partial_{\nu}W^{+}_{\mu})]
-% -igs_{w}[\partial_{\nu}A_{\mu}(W^{+}_{\mu}W^{-}_{\nu}-W^{+}_{\nu}W^{-}_{\mu})
-% -A_{\nu}(W^{+}_{\mu}\partial_{\nu}W^{-}_{\mu}-W^{-}_{\mu}\partial_{\nu}W^{+}_{\mu})
-% +A_{\mu}(W^{+}_{\nu}\partial_{\nu}W^{-}_{\mu}-W^{-}_{\nu}\partial_{\nu}W^{+}_{\mu})]
-% -\frac{1}{2}g^{2}W^{+}_{\mu}W^{-}_{\mu}W^{+}_{\nu}W^{-}_{\nu}+\frac{1}{2}g^{2}
-% W^{+}_{\mu}W^{-}_{\nu}W^{+}_{\mu}W^{-}_{\nu}
-% +g^2c^{2}_{w}(Z^{0}_{\mu}W^{+}_{\mu}Z^{0}_{\nu}W^{-}_{\nu}-Z^{0}_{\mu}Z^{0}_{\mu}W^{+}_{\nu}
-% W^{-}_{\nu})
-% +g^2s^{2}_{w}(A_{\mu}W^{+}_{\mu}A_{\nu}W^{-}_{\nu}-A_{\mu}A_{\mu}W^{+}_{\nu}
-% W^{-}_{\nu})
-% +g^{2}s_{w}c_{w}[A_{\mu}Z^{0}_{\nu}(W^{+}_{\mu}W^{-}_{\nu}-W^{+}_{\nu}W^{-}_{\mu})-%%@
-% 2A_{\mu}Z^{0}_{\mu}W^{+}_{\nu}W^{-}_{\nu}]
-% -g\alpha[H^3+H\phi^{0}\phi^{0}+2H\phi^{+}\phi^{-}]
-% -\frac{1}{8}g^{2}\alpha_{h}[H^4+(\phi^{0})^{4}+4(\phi^{+}\phi^{-})^{2}+4(\phi^{0})^{2}
-% \phi^{+}\phi^{-}+4H^{2}\phi^{+}\phi^{-}+2(\phi^{0})^{2}H^{2}]
-% -gMW^{+}_{\mu}W^{-}_{\mu}H-\frac{1}{2}g\frac{M}{c^{2}_{w}}Z^{0}_{\mu}Z^{0}_{\mu}H
-% -\frac{1}{2}ig[W^{+}_{\mu}(\phi^{0}\partial_{\mu}\phi^{-}-\phi^{-}\partial_{\mu}\phi^{0})
-% -W^{-}_{\mu}(\phi^{0}\partial_{\mu}\phi^{+}-\phi^{+}\partial_{\mu}\phi^{0})]
-% +\frac{1}{2}g[W^{+}_{\mu}(H\partial_{\mu}\phi^{-}-\phi^{-}\partial_{\mu}H)
-% -W^{-}_{\mu}(H\partial_{\mu}\phi^{+}-\phi^{+}\partial_{\mu}H)]
-% +\frac{1}{2}g\frac{1}{c_{w}}(Z^{0}_{\mu}(H\partial_{\mu}\phi^{0}-\phi^{0}\partial_{\mu}H)
-% -ig\frac{s^{2}_{w}}{c_{w}}MZ^{0}_{\mu}(W^{+}_{\mu}\phi^{-}-W^{-}_{\mu}\phi^{+})
-% +igs_{w}MA_{\mu}(W^{+}_{\mu}\phi^{-}-W^{-}_{\mu}\phi^{+})
-% -ig\frac{1-2c^{2}_{w}}{2c_{w}}Z^{0}_{\mu}(\phi^{+}\partial_{\mu}\phi^{-}-\phi^{-%%@
-% }\partial_{\mu}\phi^{+})
-% +igs_{w}A_{\mu}(\phi^{+}\partial_{\mu}\phi^{-}-\phi^{-}\partial_{\mu}\phi^{+})
-% -\frac{1}{4}g^{2}W^{+}_{\mu}W^{-}_{\mu}[H^{2}+(\phi^{0})^{2}+2\phi^{+}\phi^{-}]
-% -\frac{1}{4}g^{2}\frac{1}{c^{2}_{w}}Z^{0}_{\mu}Z^{0}_{\mu}[H^{2}+(\phi^{0})^{2}+2(2s^{2}_{w}-%%@
-% 1)^{2}\phi^{+}\phi^{-}]
-% -\frac{1}{2}g^{2}\frac{s^{2}_{w}}{c_{w}}Z^{0}_{\mu}\phi^{0}(W^{+}_{\mu}\phi^{-}+W^{-%%@
-% }_{\mu}\phi^{+})
-% -\frac{1}{2}ig^{2}\frac{s^{2}_{w}}{c_{w}}Z^{0}_{\mu}H(W^{+}_{\mu}\phi^{-}-W^{-}_{\mu}\phi^{+})
-% +\frac{1}{2}g^{2}s_{w}A_{\mu}\phi^{0}(W^{+}_{\mu}\phi^{-}+W^{-}_{\mu}\phi^{+})
-% +\frac{1}{2}ig^{2}s_{w}A_{\mu}H(W^{+}_{\mu}\phi^{-}-W^{-}_{\mu}\phi^{+})
-% -g^{2}\frac{s_{w}}{c_{w}}(2c^{2}_{w}-1)Z^{0}_{\mu}A_{\mu}\phi^{+}\phi^{-}-%%@
-% g^{1}s^{2}_{w}A_{\mu}A_{\mu}\phi^{+}\phi^{-}
-% -\bar{e}^{\lambda}(\gamma\partial+m^{\lambda}_{e})e^{\lambda}
-% -\bar{\nu}^{\lambda}\gamma\partial\nu^{\lambda}
-% -\bar{u}^{\lambda}_{j}(\gamma\partial+m^{\lambda}_{u})u^{\lambda}_{j}
-% -\bar{d}^{\lambda}_{j}(\gamma\partial+m^{\lambda}_{d})d^{\lambda}_{j}
-% +igs_{w}A_{\mu}[-(\bar{e}^{\lambda}\gamma^{\mu}
-% e^{\lambda})+\frac{2}{3}(\bar{u}^{\lambda}_{j}\gamma^{\mu} %%@
-% u^{\lambda}_{j})-\frac{1}{3}(\bar{d}^{\lambda}_{j}\gamma^{\mu} 
-% d^{\lambda}_{j})]
-% +\frac{ig}{4c_{w}}Z^{0}_{\mu}
-% [(\bar{\nu}^{\lambda}\gamma^{\mu}(1+\gamma^{5})\nu^{\lambda})+
-% (\bar{e}^{\lambda}\gamma^{\mu}(4s^{2}_{w}-1-\gamma^{5})e^{\lambda})+
-% (\bar{u}^{\lambda}_{j}\gamma^{\mu}(\frac{4}{3}s^{2}_{w}-1-\gamma^{5})u^{\lambda}_{j})+
-% (\bar{d}^{\lambda}_{j}\gamma^{\mu}(1-\frac{8}{3}s^{2}_{w}-\gamma^{5})d^{\lambda}_{j})]
-% +\frac{ig}{2\sqrt{2}}W^{+}_{\mu}[(\bar{\nu}^{\lambda}\gamma^{\mu}(1+\gamma^{5})e^{\lambda})
-% +(\bar{u}^{\lambda}_{j}\gamma^{\mu}(1+\gamma^{5})C_{\lambda\kappa}d^{\kappa}_{j})]
-% +\frac{ig}{2\sqrt{2}}W^{-}_{\mu}[(\bar{e}^{\lambda}\gamma^{\mu}(1+\gamma^{5})\nu^{\lambda})
-% +(\bar{d}^{\kappa}_{j}C^{\dagger}_{\lambda\kappa}\gamma^{\mu}(1+\gamma^{5})u^{\lambda}_{j})]
-% +\frac{ig}{2\sqrt{2}}\frac{m^{\lambda}_{e}}{M}
-% [-\phi^{+}(\bar{\nu}^{\lambda}(1-\gamma^{5})e^{\lambda})
-% +\phi^{-}(\bar{e}^{\lambda}(1+\gamma^{5})\nu^{\lambda})]
-% -\frac{g}{2}\frac{m^{\lambda}_{e}}{M}[H(\bar{e}^{\lambda}e^{\lambda})
-% +i\phi^{0}(\bar{e}^{\lambda}\gamma^{5}e^{\lambda})]
-% +\frac{ig}{2M\sqrt{2}}\phi^{+}
-% [-m^{\kappa}_{d}(\bar{u}^{\lambda}_{j}C_{\lambda\kappa}(1-\gamma^{5})d^{\kappa}_{j})
-% +m^{\lambda}_{u}(\bar{u}^{\lambda}_{j}C_{\lambda\kappa}(1+\gamma^{5})d^{\kappa}_{j}]
-% +\frac{ig}{2M\sqrt{2}}\phi^{-}
-% [m^{\lambda}_{d}(\bar{d}^{\lambda}_{j}C^{\dagger}_{\lambda\kappa}(1+\gamma^{5})u^{\kappa}_{j})
-% -m^{\kappa}_{u}(\bar{d}^{\lambda}_{j}C^{\dagger}_{\lambda\kappa}(1-\gamma^{5})u^{\kappa}_{j}]
-% -\frac{g}{2}\frac{m^{\lambda}_{u}}{M}H(\bar{u}^{\lambda}_{j}u^{\lambda}_{j})
-% -\frac{g}{2}\frac{m^{\lambda}_{d}}{M}H(\bar{d}^{\lambda}_{j}d^{\lambda}_{j})
-% +\frac{ig}{2}\frac{m^{\lambda}_{u}}{M}\phi^{0}(\bar{u}^{\lambda}_{j}\gamma^{5}u^{\lambda}_{j})
-% -\frac{ig}{2}\frac{m^{\lambda}_{d}}{M}\phi^{0}(\bar{d}^{\lambda}_{j}\gamma^{5}d^{\lambda}_{j})
-% +\bar{X}^{+}(\partial^{2}-M^{2})X^{+}+\bar{X}^{-}(\partial^{2}-M^{2})X^{-}
-% +\bar{X}^{0}(\partial^{2}-\frac{M^{2}}{c^{2}_{w}})X^{0}+\bar{Y}\partial^{2}Y
-% +igc_{w}W^{+}_{\mu}(\partial_{\mu}\bar{X}^{0}X^{-}-\partial_{\mu}\bar{X}^{+}X^{0})
-% +igs_{w}W^{+}_{\mu}(\partial_{\mu}\bar{Y}X^{-}-\partial_{\mu}\bar{X}^{+}Y)
-% +igc_{w}W^{-}_{\mu}(\partial_{\mu}\bar{X}^{-}X^{0}-\partial_{\mu}\bar{X}^{0}X^{+})
-% +igs_{w}W^{-}_{\mu}(\partial_{\mu}\bar{X}^{-}Y-\partial_{\mu}\bar{Y}X^{+})
-% +igc_{w}Z^{0}_{\mu}(\partial_{\mu}\bar{X}^{+}X^{+}-\partial_{\mu}\bar{X}^{-}X^{-})
-% +igs_{w}A_{\mu}(\partial_{\mu}\bar{X}^{+}X^{+}-\partial_{\mu}\bar{X}^{-}X^{-})
-% -\frac{1}{2}gM[\bar{X}^{+}X^{+}H+\bar{X}^{-}X^{-}H+\frac{1}{c^{2}_{w}}\bar{X}^{0}X^{0}H]
-% +\frac{1-2c^{2}_{w}}{2c_{w}}igM[\bar{X}^{+}X^{0}\phi^{+}-\bar{X}^{-}X^{0}\phi^{-}]
-% +\frac{1}{2c_{w}}igM[\bar{X}^{0}X^{-}\phi^{+}-\bar{X}^{0}X^{+}\phi^{-}]
-% +igMs_{w}[\bar{X}^{0}X^{-}\phi^{+}-\bar{X}^{0}X^{+}\phi^{-}]
-% +\frac{1}{2}igM[\bar{X}^{+}X^{+}\phi^{0}-\bar{X}^{-}X^{-}\phi^{0}]
-% \end{math}
-% \end{center}
 
 
 
