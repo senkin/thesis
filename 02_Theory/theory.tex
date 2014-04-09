@@ -413,9 +413,10 @@ M_H = \sqrt{2} \mu = v \sqrt{2\lambda}.
 \end{equation}
 
 Unlike the \W and \Z boson masses which can be predicted from the measurement of the fine structure constant, the Higgs
-mass $M_H$ can not be determined by other experimentally measured parameters. However, it is possible to put indirect
-constraints on $M_H$ through quantum loop corrections and precise measurement of the \W boson and top quark masses. This
-will be discussed in Section~\ref{s:top_quak_physics}.
+mass $M_H$ can not be determined by other experimentally measured parameters.
+
+% However, it is possible to put indirect constraints on $M_H$ through quantum loop corrections and precise measurement of
+% the \W boson and top quark masses. This will be discussed in Section~\ref{s:top_quak_physics}.
 
 The existence of the Higgs boson and therefore the nature of electroweak symmetry breaking had long remained a mystery.
 In the summer of 2012 both ATLAS and CMS experiments at the LHC observed the Higgs boson with an approximate mass of
@@ -652,7 +653,8 @@ at \autocite{top_pole_mass}:
 where \mtop is the pole mass and $\Gamma_\textrm{t}~\SI{\approx1.5}{\GeV}$ is the top quark decay width. This definition
 yields a peak in the invariant mass distribution of the top quark decay products (i.e.\ \W boson and \cPqb-quark), which
 is accessible experimentally. As $\mtop \gg \Gamma_\textrm{t}/2$, the peak approximately corresponds to the pole mass,
-therefore it is usually argued that experimentally measured top quark mass represents the pole mass.
+therefore it is usually assumed that experimentally measured top quark mass represents the pole mass. As it will be
+discussed later, there are a few problems with this approach.
 
 It has been shown that the pole mass is infrared finite and gauge-invariant to all orders of perturbative QCD
 \autocite{pole_mass_in_QCD_Kronfeld}. Despite being well-defined in perturbation theory, an all-order resummation of a
@@ -673,38 +675,55 @@ depends on the renormalisation scale $\mu$ which is in principle arbitrary. For 
 % Initially infinite parameters become finite after renormalisation, thus acquiring physical sense.}
 
 The difference between the pole mass and the \MS mass is then estimated to be on the order of \SI{10}{\GeV} (with $\mtop
-> \MSmtop$). However, it has recently been shown that including electroweak corrections for a Higgs boson of
+> \MSmtop$). However, it has recently been shown that including electroweak corrections for a Higgs boson mass of
 \SI{\sim125}{\GeV} mostly cancels the corresponding QCD corrections, reducing the $\mtop-\MSmtop$ difference down to
 \SI{\sim1}{\GeV} \autocite{pole_MS_top_difference}. Theoretical research such as studying higher-order corrections is
 actively ongoing in this field.
 
-The experimental measurement of the top quark mass is of paramount importance. Nearly 20 years of the Tevatron operation
-resulted in a very good understanding of the machine and detectors, leading to an impressively small systematic
-uncertainty. The latest top quark mass combination result from the Tevatron gives
-\autocite{tevatron_top_mass_combination}:
+It has been argued that the top quark mass measured at hadron colliders is in fact a parameter of Monte Carlo
+generators, which does not necessarily correspond to the pole mass. This parameter is determined by (next to) leading
+order calculations of the matrix elements of hard processes (see Section~\ref{sss_top_mass:MC_generators}), and this
+mass definition does not absorb any corrections from parton showers and hadronisation. Therefore, the actual mass
+definition measured experimentally remains not fully understood, with a conceptual uncertainty on the order of
+\SI{1}{\GeV} \autocite{measured_top_mass_interpretation}.
+
+Nevertheless, experimental measurements of the top quark mass are of paramount importance. Continuously increasing
+precision of the measurements is challenging the current definition of the measured mass, undoubtedly triggering more
+effort in reaching a more precise theoretical specification of the mass parameter used in Monte Carlo simulation. As the
+top quark is a major background to many new physics searches beyond the Standard Model, deep understanding of its mass
+parameter in simulation as well as pushing down the corresponding theoretical and experimental uncertainties are
+extremely important.
+
+Nearly 20 years of the Tevatron operation resulted in a very good understanding of the machine and detectors, leading to
+an impressively small systematic uncertainty on the top quark mass measurement. The latest combination result from the
+Tevatron gives \autocite{tevatron_top_mass_combination}:
 \begin{equation}
-\mtop = 173.20\ \pm\ 0.51\ \textrm{(stat.)}\ \pm 0.71\ \textrm{(syst.)}\ \textrm{GeV},
+\mtop = 173.20 \pm 0.51~\textrm{(stat.)} \pm 0.71~\textrm{(syst.)}~\textrm{GeV}.
 \end{equation}
 
 The LHC experiments have reached nearly as good precision, with a statistical uncertainty being expectedly smaller
 than that of the Tevatron, however, with a larger systematic error due still improving understanding of detector
 effects. The latest LHC combination result yields \autocite{LHC_top_mass_combination}:
 \begin{equation}
-\mtop = 173.29\ \pm\ 0.23\ \textrm{(stat.)}\ \pm 0.92\ \textrm{(syst.)}\ \textrm{GeV}.
+\mtop = 173.29 \pm 0.23~\textrm{(stat.)} \pm 0.92~\textrm{(syst.)}~\textrm{GeV}.
 \end{equation}
 
 Recently, the first world combination result of both LHC and Tevatron measurements has become available
 \autocite{world_top_mass_combination}:
 \begin{equation}
-\mtop = 173.34\ \pm\ 0.27\ \textrm{(stat.)}\ \pm 0.74\ \textrm{(syst.)}\ \textrm{GeV}.
+\mtop = 173.34 \pm 0.27~\textrm{(stat.)} \pm 0.71~\textrm{(syst.)}~\textrm{GeV},
 \end{equation}
+which corresponds to a total uncertainty on the top quark mass of \SI{0.76}{\GeV}, or \SI{0.44}{\pc}. All these results
+compared with contributions of individual mass measurements are shown in Figure~\ref{fig:top_mass_world_combination}.
 
-All these results compared with contributions of individual mass measurements are shown in
-Figure~\ref{fig:top_mass_world_combination}. 
+At a proposed linear electron-positron collider (International Linear Collider, ILC), the uncertainty on the top quark
+mass is expected to fall below \SI{200}{\MeV}, i.e.\ the energy scale of the strong interaction $\Lambda_\textrm{QCD}$.
+It will clearly challenge the theoretical understanding of different mass schemes, ultimately leading to more vigorous
+tests of the Standard Model and potentially providing sensitivity to new physics models.
 
-\begin{figure}[!hbtp]
+\begin{figure}[hbtp]
    \centering
-   {\includegraphics[width=\textwidth]{top_world_combination}}
+   {\includegraphics[width=0.9\textwidth]{top_world_combination}}
    \caption[World combination of the top quark mass measurements.]{Top quark mass measurements and the result of their
    combination, compared with the Tevatron and LHC combinations. Each measurement is shown with the total uncertainty,
    the statistical, the jet energy scale (iJES, when applicable), and the systematic uncertainty. The iJES contribution
@@ -714,7 +733,9 @@ Figure~\ref{fig:top_mass_world_combination}.
    \label{fig:top_mass_world_combination}
 \end{figure}
 
-%future prospects at ILC
+
+
+%relation to the Higgs mass and sensitivity to BSM.
 
 
 \section{Physics Beyond The Standard Model}
@@ -722,8 +743,8 @@ Figure~\ref{fig:top_mass_world_combination}.
 % There are simple extensions to the Standard Model describing massive neutrinos and keeping the local symmetry of weak
 % interactions.
 
-\subsection{Supersymmetry}
-\label{ss:SUSY}
+% \subsection{Supersymmetry}
+% \label{ss:SUSY}
 
 
 
