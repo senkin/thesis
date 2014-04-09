@@ -27,7 +27,7 @@ cost savings.
   \centering
   \leavevmode
   \includegraphics[width=\columnwidth]{LHC}
-  \caption{CERN accelerator complex.}
+  \caption{CERN accelerator complex}
   \label{fig:LHC}
 \end{figure}
 
@@ -46,19 +46,32 @@ a dedicated heavy ion experiment.
 
 The instantaneous luminosity of a collider can be calculated as
 \begin{equation}
-	L = \frac{n_1 n_2 f}{4 \pi \sigma_x \sigma_y},
+	L = \frac{n_1 n_2 n_b f}{4 \pi \sigma_x \sigma_y},
 \end{equation}
-where $n_1$ and $n_2$ are the numbers of particles in each of the colliding bunches, $f$ is the revolution frequency,
-$\sigma_x$ and $\sigma_y$ are the horizontal and vertical beam sizes, assuming the two beams have the same size.
+where $n_1$ and $n_2$ are the numbers of particles in each of the colliding bunches, $n_b$ is the number of bunches per
+beam, $f$ is the revolution frequency, $\sigma_x$ and $\sigma_y$ are the horizontal and vertical beam sizes, assuming
+the two beams have the same size. These and other performance-related parameters of the LHC for different running
+conditions are shown in Table~\ref{tab:LHC_parameters}.
 
 The number of events generated in the collisions per second is given by
 \begin{equation}
 	N_{events} = L \times \sigma,
 \end{equation}
+where $\sigma$ is the cross section of the process under study. Cross sections and production rates for several
+different processes as a function of the centre of mass energy are shown in Figure~\ref{fig:production_cross_sections}.
 
-where $\sigma$ is the cross section of the process under study.
+\input{03_Detector/tables/LHC_parameters}
 
-%\textit{[add the plots with cross sections and production rates?]}
+\begin{figure}[!htbp]
+  \centering
+  \leavevmode
+  \includegraphics[width=0.6\columnwidth]{production_cross_sections}
+  \caption[Production cross sections for different processes as a function of the centre of mass energy.]{Production
+  cross sections for different processes as a function of the centre of mass energy $\sqrt{s}$. The discontinuity is due
+  to extrapolation between proton-antiproton Tevatron and proton-proton LHC. The \ttbar production cross section is
+  denoted by $\sigma_\textrm{t}$ \autocite{primer_LHC}.}
+  \label{fig:production_cross_sections}
+\end{figure}
 
 The LHC started operating on the 10th of September 2008, with the first beams fully circulating in both rings. However,
 only 9 days later a magnet quench occurred in two sectors of the tunnel, which was caused by an electrical fault due to
@@ -77,8 +90,6 @@ approximately \SI{21.8}{\invfb} of data recorded until early 2013. A long shut-d
 years with various upgrades scheduled. The next physics run is expected in 2015 with the beam energy increased up to 6
 or \SI{7}{\TeV}.
 
-%\textit{[add any upgrade details and distant future plans, like SLHC?]}
-
 \section{The CMS Detector}
 \label{s:CMS}
 
@@ -95,7 +106,7 @@ length of \SI{21.6}{\metre}, a diameter of \SI{14.6}{\metre} and a total weight 
   \centering
   \leavevmode
   \includegraphics[width=\columnwidth]{CMS}
-  \caption{Sectional view of the CMS detector.}
+  \caption{Sectional view of the CMS detector}
   \label{fig:CMS}
 \end{figure}
 
@@ -122,7 +133,7 @@ called missing transverse energy, is denoted by \ETm.
 \label{ss:tracker}
 The tracking system lies in the heart of the CMS detector and is the closest to the interaction point where the particle
 flux has the highest value. This imposes demanding requirements on the configuration of the system. At design luminosity
-of $L = $ \SI{d34}{\cm^{-2} s^{-1}} with the bunch spacing of \SI{25}{\ns}, an average of \num{1000} particles from
+of $L = $ \SI{d34}{\cm^{-2}~\s^{-1}} with the bunch spacing of \SI{25}{\ns}, an average of \num{1000} particles from
 about \num{25} proton-proton interactions (pile-up vertices) is expected to traverse the tracker for each bunch
 crossing. However, up until the long shutdown a bunch spacing of \SI{50}{\ns} was used, which meant a higher number of
 protons in each bunch leading to approximately twice the number of pile-up vertices. Therefore, in order for the
@@ -143,7 +154,7 @@ section.
   \centering
   \leavevmode
   \includegraphics[width=\columnwidth]{tracker}
-  \caption{Cross section of the CMS tracker system \autocite{CMS}.}
+  \caption{Cross section of the CMS tracker system \autocite{CMS}}
   \label{fig:tracker}
 \end{figure}
 
@@ -169,13 +180,11 @@ The silicon sensors' thickness varies between \num{320} and \SI{500}{\micron} an
 \begin{figure}[!htbp]
   \centering
   \leavevmode
-  \includegraphics[width=\columnwidth]{tracker_material_budget}
-  \caption{Material budget as a function of pseudorapidity $\eta$ for the different sub-detectors of the tracker
-  (left) and broken down into the functional contributions (right), in units of radiation length \autocite{CMS}.}
+  \includegraphics[width=0.6\columnwidth]{tracker_material_budget}
+  \caption{Material budget as a function of pseudorapidity $\eta$ for the different sub-detectors of the tracker in
+  units of radiation length \autocite{CMS_tracker_twiki}}
   \label{fig:tracker_material_budget}
 \end{figure}
-
-%update with http://cms.cern.ch/iCMS/jsp/analysis/admin/analysismanagement.jsp?awg=TRK&dataset=All&awgyear=2011
 
 The silicon detectors of the tracker, the readout electronics and support structure form a considerable amount of
 material for the particles traversing from the interaction point. Figure~\ref{fig:tracker_material_budget}
@@ -207,7 +216,7 @@ level of radiation.
   \centering
   \leavevmode
   \includegraphics[width=\columnwidth]{ECAL}
-  \caption{Layout of the CMS electromagnetic calorimeter \autocite{CMS}.}
+  \caption{Layout of the CMS electromagnetic calorimeter \autocite{CMS}}
   \label{fig:ECAL}
 \end{figure}
 
@@ -216,22 +225,7 @@ endcap region to lower the required detector depth. Its principal aim is to iden
 it also helps to distinguish neutral pions and electrons from minimum ionising particles and improves the position
 determination of electrons and photons with high granularity.
 
-\begin{table}[htbp]
-\caption{ECAL crystal characteristics}
-\label{tab:ECAL_crystals}
-\centering
-\begin{tabular}{|l|r|r|}
-  \toprule
-   & Barrel & Endcaps \\
-  \midrule
-  number of crystals & \num{61200} & \num{14648} \\
-  crystal cross section in ($\eta$, $\phi$) & \num{0.0174 x 0.0174} & varies \\
-  crystal cross section at the front & \num{22x22} \si{\mm\squared} & \num{28.62x28.62} \si{\mm\squared} \\
-  crystal cross section at the rear & \num{26x26} \si{\mm\squared} & \num{30x30} \si{\mm\squared} \\
-  crystal length & \SI{230}{\mm} (\num{25.8}$X_0$) & \SI{220}{\mm} (\num{24.7}$X_0$) \\
-  \bottomrule  
-\end{tabular}
-\end{table}
+\input{03_Detector/tables/ECAL_crystals}
 
 The main geometrical characteristics of the ECAL crystals are shown in Table~\ref{tab:ECAL_crystals}. The choice of lead
 tungstate was driven by the constraints of the CMS design. It is a very dense material (\SI{8.28}{g\per\cm\cubed}) with
@@ -245,21 +239,23 @@ light yield is relatively low. At \SI{18}{\degreeCelsius}, about \num{4.5} photo
 dependence of the light yield on temperature requires a cooling system capable of keeping the crystal temperature stable
 within \SI{+-0.05}{\degreeCelsius} to preserve energy resolution \autocite{CMS_TDR1}.
 
-\begin{figure}[htbp]
-  \centering
-  \leavevmode
-  \includegraphics[width=0.7\columnwidth]{ECAL_resolution}
-  \caption{ECAL energy resolution derived from the test beam measurements as a function of deposited energy. The
-  stochastic, noise, and constant contributions are shown \autocite{CMS}.}
-  \label{fig:ECAL_resolution}
-\end{figure}
-
 The energy-dependent resolution of the calorimeter can be parameterised as follows \autocite{CMS}:
 \begin{equation}
   \left(\frac{\sigma}{E}\right)^2 = \left(\frac{S}{\sqrt E}\right)^2 + \left(\frac{N}{E}\right)^2 + C^2.
 \end{equation}
 where $S$ is the stochastic term, $N$ is the noise term, and $C$ is the constant term. Figure~\ref{fig:ECAL_resolution}
-shows the energy resolution measured using incident electrons, during the beam tests in 2004.
+shows the energy resolution in bins of pseudorapidity, measured using $\Z \rightarrow ee$ decays from MC simulation and
+2012 data.
+
+\begin{figure}[htbp]
+  \centering
+  \leavevmode
+  \includegraphics[width=0.7\columnwidth]{ECAL_resolution}
+  \caption[Relative ECAL energy resolution in bins of pseudorapidity $\eta$]{Relative electron (ECAL) energy resolution
+unfolded in bins of pseudorapidity $\eta$. Electrons from $\Z \rightarrow ee$ decays are used. The resolution
+$\sigma_\mathrm{E}/\mathrm{E}$ is plotted separately for data and simulated events \autocite{CMS_ECAL_twiki}.}
+  \label{fig:ECAL_resolution}
+\end{figure}
 
 \subsection{Hadron Calorimeter}
 
@@ -271,7 +267,7 @@ calorimetry system. It is essential for the measurement of hadron jets and missi
   \leavevmode
   \includegraphics[width=\columnwidth]{HCAL}
   \caption{Longitudinal view of the CMS detector showing the locations of the hadron barrel (HB), endcap (HE), outer
-  (HO) and forward (HF) calorimeters \autocite{CMS}.}
+  (HO) and forward (HF) calorimeters \autocite{CMS}}
   \label{fig:HCAL}
 \end{figure}
 
@@ -298,7 +294,7 @@ from the interaction point, and is essential to reconstruct very forward hadron 
 hermeticity of the calorimetry system, making it possible to measure the transverse missing energy to a reasonable
 precision.
 
-%\textit{[perhaps need to add the energy resolution plots]}
+%\textit{[Can't find recent resolution plots]}
 
 \subsection{Superconducting Magnet}
 The superconducting solenoid is a central feature of the CMS apparatus, essentially giving it its name. The magnet
@@ -307,26 +303,7 @@ designed to sustain a uniform magnetic field of \SI{4}{\tesla} within the \SI{5.
 at \SI{3.8}{\tesla} was chosen in order to increase the lifetime. The magnetic field is returned by a massive iron yoke.
 The main parameters of the CMS magnet are shown in Table~\ref{tab:solenoid_parameters}.
 
-\begin{table}[htbp]
-\caption{Parameters of the CMS superconducting solenoid \autocite{CMS_TDR1, CMS_Solenoid}.}
-\label{tab:solenoid_parameters}
-\centering
-\begin{tabular}{|l|r|}
-  \toprule             
-  Field & \SI{3.8}{\tesla} \\
-  \midrule
-  Inner Bore & \SI{5.9}{\metre} \\
-  \midrule
-  Length & \SI{12.5}{\metre} \\
-  \midrule
-  Number of Turns & \num{2168} \\
-  \midrule
-  Current & \SI{18160}{\kilo\ampere} \\
-  \midrule
-  Stored energy & \SI{2.3}{\giga\joule} \\
-  \bottomrule
-\end{tabular}
-\end{table}
+\input{03_Detector/tables/solenoid_parameters}
 
 The large bending power of the solenoid is required to bend the tracks of high energy charged particles to an extent
 where good momentum resolution is achieved. The design requirement for the strength of the magnetic field was the
@@ -356,7 +333,8 @@ separate from the background.
 
 The layout of the CMS muon system is shown in Figure~\ref{fig:muon_system}. It consists of the drift tubes (DT), cathode
 strip chambers (CSC) and resistive plate chambers (RPC). The entire system surrounds the solenoid and covers the
-pseudorapidity region of \abs\eta \num{<2.4}.
+pseudorapidity region of \abs\eta \num{<2.4}. Three different technologies are used in order to maximise the muon
+triggering, identification and reconstruction efficiency in both barrel and endcap regions of the detector.
 
 The drift tubes are located in the barrel region (\abs\eta \num{<1.2}). Consisting of four stations, they form
 concentric cylinders around the beam line; there are \num{250} drift chambers with about \num{172000} sensitive wires in
@@ -395,12 +373,13 @@ resolution is obtained in the tracker, whereas in the high-\pt region the muon s
 improvement. Therefore, by using information from both the silicon tracker and the muon chambers (i.e.\ reconstructing
 the ``global muon''), the momentum resolution is improved in the whole \pt region up to a \SI{\approx 1}{\TeV/c} level.
 
+\newpage
 \subsection{Trigger and Data Acquisition}
 \label{ss:trigger_daq}
 At design LHC luminosity of $L = $ \SI{d34}{\cm^{-2} s^{-1}}, approximately \num{25} collisions are expected to occur at
 each crossing of the proton bunches. The bunch spacing of \SI{25}{\ns} corresponds to a crossing rate of
 \SI{40}{\mega\hertz}. Since every event produces \SI{\sim1}{\mega\byte} of raw data, it corresponds to a total data
-production of \SI{40}{\tera\byte\per\second}. Attempting to store all of this data is clearly beyond the available
+production of \SI{40}{\tera\byte\per\second}. Attempting to store all of these data is clearly beyond the available
 technology. Moreover, only a fraction of events contain hard scattering processes that are of interest, therefore an
 effective trigger system had to be implemented.
 
@@ -436,24 +415,24 @@ to the HLT development of the trigger paths important for top physics is describ
 The vast amounts of data delivered by the CMS detector impose high requirements on the offline computing system. During
 2010--2012 operation, CMS collected \SI{\sim10}{\peta\byte} of raw data per year. Including Monte Carlo simulations,
 reconstructed data and analysis skims, the total annual amount of data essentially doubles. To handle the distributed
-storage and processing of this data, not just for CMS but for the entire high energy physics community using the LHC, a
+storage and processing of these data, not just for CMS but for the entire high energy physics community using the LHC, a
 worldwide LHC computing grid (WLCG) has been put in place.
 
 WLCG is a global collaboration of more than 150 computing centres in about 40 countries. The grid has a tiered
 architecture, comprising 4 tiers with different resources and services. The first one, Tier 0, is based at CERN and is
 responsible for data-taking. It accepts raw data from the data acquisition system and repacks it into primary datasets
-according to the trigger information. The raw data is archived to tape, and is also prompt-reconstructed (within 48
+according to the trigger information. The raw data are archived to tape, and is also prompt-reconstructed (within 48
 hours) before being distributed to the Tier 1 (T1) centres around the world. There are 8 T1 sites based at large
-national laboratories in collaborating countries (e.g.\ RAL in the UK and FNAL in the US). Each of the T1 centres is
-used for large-scale centrally organised data-processing activities. The data is then distributed in the reduced format
-(see Section~\ref{ss:edm}) to a more numerous set of Tier 2 centres, typically located at collaborating universities.
-Each of these centres is used for the grid-based analysis and Monte Carlo simulation for the whole experiment, as well
-as local services for groups maintaining them. The last stage of computing system, Tier 3, is meant solely for the local
-institution's user analysis.
+national laboratories in collaborating countries (e.g.\ Rutherford Appleton Laboratory in the UK and Fermi National
+Accelerator Laboratory in the US). Each of the T1 centres is used for large-scale centrally organised data-processing
+activities. The data are then distributed in a reduced format (see Section~\ref{ss:edm}) to a more numerous set of Tier
+2 centres, typically located at collaborating universities. Each of these centres is used for the grid-based analysis
+and Monte Carlo simulation for the whole experiment, as well as local services for groups maintaining them. The last
+stage of computing system, Tier 3, is meant solely for the local institution's user analysis.
 
 \subsection{Event Data Model}
 \label{ss:edm}
-In the basis of the CMS Event Data Model lies the concept of an event, which is physically a result of a single
+At the heart of the CMS Event Data Model lies the concept of an event, which is physically a result of a single
 collision in the LHC. From a software point of view, the event is a \Cplusplus object container storing raw data from a
 single readout of detector electronics (e.g.\ hits in various sub-detectors), as well as reconstructed data which is
 based on this information, such as tracks, clusters and physics objects. All these \Cplusplus objects are stored in ROOT
@@ -461,8 +440,8 @@ format \autocite{ROOT}.
 
 The EDM makes use of three main data formats, based on different levels of detail and precision:
 \begin{itemize}
-  \item RAW format, containing full information from the detector as well as L1 and HLT trigger decisions, with the
-  event size of \SI{\sim1.5}{\mega\byte}.
+  \item RAW format, containing full information from the detector as well as L1 and HLT trigger decisions, with an event
+  size of \SI{\sim1.5}{\mega\byte}.
   \item RECO (reconstructed data) format, which is obtained from raw data by application of pattern recognition and
   compression algorithms. This data includes reconstructed detector hits, clusters and physics objects (electrons,
   muons, etc.). The typical event size is \SI{\sim250}{\kilo\byte}.
@@ -477,7 +456,7 @@ by CMS software into plain basic types or vectors of them, only including the an
 can be reduced down to \SI{\sim3}{\kilo\byte} level depending on the needs of a particular analysis. This data format is
 often referred to as private ``ntuples'', and it requires specific analysis software capable of restructuring the data
 into user-defined classes. By following this approach, the analysis can be run locally and generally much faster than
-processing the RECO or AOD data. However, it requires ``ntuplising'' this data every time when new centrally-recommended
+processing the RECO or AOD data. However, it requires ``ntuplising'' these data every time when new centrally-recommended
 physics objects or corrections are produced.
 
 \subsection{Analysis Software}
@@ -519,32 +498,33 @@ interface, and matplotlib \autocite{matplotlib} was used to create plots.
 \section{Object Reconstruction}
 \label{s:object_reconstruction}
 Most CMS analyses, including the ones described in this thesis, adopt a reconstruction technique called Particle Flow
-(PF) \autocite{PF}. This algorithm is used to obtain a global event description at level of individually reconstructed
-particles by means of combining information coming from all sub-detector systems. The ultimate goal is to determine
-type, energy and momentum of all the particles in the event with highest possible precision and in the most optimal way.
-The types of these particles include electrons, muons, charged hadrons, neutral hadrons and photons. All these particles
-are then used to reconstruct jets (Section~\ref{ss:jet_reconstruction}), missing transverse energy
+(PF) \autocite{PF}. This algorithm is used to obtain a global event description at the level of individually
+reconstructed particles by means of combining information coming from all sub-detector systems. The ultimate goal is to
+determine type, energy and momentum of all the particles in the event with highest possible precision and in the most
+optimal way. The types of these particles include electrons, muons, charged hadrons, neutral hadrons and photons. All
+these particles are then used to reconstruct jets (Section~\ref{ss:jet_reconstruction}), missing transverse energy
 (Section~\ref{ss:electron_reconstruction}) and tau leptons from their decay products.
 
 \subsection{Electron Reconstruction}
 \label{ss:electron_reconstruction}
-The reconstruction of the \ttbar pair with an electron in the final state imposes high requirements on the electron
-identification and its energy-momentum measurement, precision of which is of major importance for both top mass and
+The reconstruction of the \ttbar pair with an electron in the final state (see
+Section~\ref{fig:ttbar_semileptonic_decay}) imposes strict requirements on the electron identification and its
+energy-momentum measurement, precision of which is of major importance for both top mass and
 \ttbar cross section measurements.
 
 Although the CMS detector is equipped with highly accurate ECAL and tracker systems, electron identification and
 reconstruction is still a challenging task due to the large amount of tracker material (see Section~\ref{ss:tracker}).
-This results in a significant Bremsstrahlung photon emission, which often causes an ECAL energy deposit to be widely
-spread in azimuthal direction because of the high magnetic field. Therefore, dedicated algorithms were developed in
+This results in significant Bremsstrahlung photon emission, which often causes an ECAL energy deposit to be widely
+spread in the azimuthal direction because of the high magnetic field. Therefore, dedicated algorithms were developed in
 order to collect all Bremsstrahlung energy deposits in the calorimeter (Bremsstrahlung recovery), and also to take into
-account the kinks in the electron trajectory caused by photon emissions.
+account the kinks in the electron trajectory caused by photon emission.
 
-Electron reconstruction in CMS has following distinct stages: seeding, track finding, pre-identification, Bremsstrahlung
-recovery, track-cluster linking and final identification. Historically, the original seeding algorithm was designed and
-optimised for isolated high-\pt electrons. This approach starts from ECAL clusters, and therefore is called the
-``ECAL-driven'' seeding. It is based on the property of the ECAL energy deposits to have narrow width in the $\eta$
-coordinate, and to be widely spread in $\phi$ (azimuthal direction) like it was mentioned above. The electron and all
-the associated Bremsstrahlung energy deposits form a single ``super-cluster'', and the ability to correctly determine it
+Electron reconstruction in CMS has the following distinct stages: seeding; track finding; pre-identification;
+Bremsstrahlung recovery; track-cluster linking; and final identification. Historically, the original seeding algorithm
+was designed and optimised for isolated high-\pt electrons. This approach starts from ECAL clusters, and therefore is
+called the ``ECAL-driven'' seeding. It is based on the property of ECAL energy deposits to have narrow width in the
+$\eta$ coordinate, and to be widely spread in $\phi$ (azimuthal direction) as mentioned above. The electron and all the
+associated Bremsstrahlung energy deposits form a single ``super-cluster'', and the ability to correctly identify it
 affects the overall performance of this method. Only super-clusters with transverse energy above \SI{4}{\GeV} are taken
 into account. Super-clusters are then matched to pairs or triplets of hits in the inner tracker layers, forming the
 track seeds on which the electron tracks are built upon.
@@ -562,32 +542,33 @@ position and therefore preventing the efficient matching with a track seed.
 
 Within the particle flow method, efficient reconstruction of non-isolated and low-\pt electrons is particularly
 important since it affects the reconstruction of jets and missing transverse energy. Therefore, a different
-('tracker-driven') seeding algorithm is used, which starts from reconstruction of tracks. The baseline of the CMS track
-reconstruction is the Kalman filter (KF) \autocite{KF}, which is a linear least-squares estimator based solely on
-Gaussian probability density functions. It is particularly suitable for muon reconstruction since it is dominated by
-multiple Coulomb scattering and its impact is well modelled by Gaussian fluctuations. However, this approach usually
-fails for electrons because Bremsstrahlung photon emission is highly non-Gaussian. To accommodate for the resulting
-kinks in the electron trajectory, the Gaussian-Sum Filter (GSF) \autocite{GSF} is used, which is essentially a
-non-linear generalisation of the Kalman Filter. In this method, Bremsstrahlung energy loss is modelled by a Gaussian
-mixture, therefore GSF track fit provides a better estimate for the inner and outer track momentum comparing to the KF
-algorithm. The downside of this approach is its high CPU usage, which means it can be run on a limited number of seeds.
+(``tracker-driven'') seeding algorithm is used, which starts from reconstruction of tracks. The baseline of the CMS
+track reconstruction is the Kalman filter (KF) \autocite{KF}, which is a linear least-squares estimator based solely on
+Gaussian probability density functions. It is particularly suitable for muon reconstruction, since the interaction of
+muons with matter is dominated by multiple Coulomb scattering, which is well modelled by Gaussian fluctuations. However,
+this approach usually fails for electrons because Bremsstrahlung photon emission is highly non-Gaussian. To accommodate
+the resulting kinks in the electron trajectory, the Gaussian-Sum Filter (GSF) \autocite{GSF} is used, which is
+essentially a non-linear generalisation of the Kalman Filter. In this method, Bremsstrahlung energy loss is modelled by
+a Gaussian mixture, therefore the GSF track fit provides a better estimate for the inner and outer track momentum
+compared to the KF algorithm. The downside of this approach is its high CPU usage, which means it can be run only on a
+limited number of seeds.
 
-The GSF tracks are reconstructed upon all ECAL-driven seeds. In case of the ``tracker-driven'' seeds, a
+The GSF tracks are reconstructed upon all ECAL-driven seeds. In the case of ``tracker-driven'' seeds, a
 pre-identification based on high-purity KF tracks has been adopted. This procedure starts with the tracks reconstructed
 with very tight criteria, thus decreasing the fake rate yet compromising on tracking efficiency. Then an
 iterative-tracking strategy is carried out by means of removing hits unambiguously assigned to tracks from the previous
 iteration, and also progressively relaxing track seeding criteria. This approach leads to both high efficiency and low
 fake rate, which is crucial for low-\pt and non-isolated electrons.
 
-In the next step, track-cluster matching has to be performed. In case if electron has negligible Bremsstrahlung
-emission, the track is well reconstructed with the KF algorithm all the way to the ECAL internal surface, where the
-closest cluster is matched to the track. The corresponding cluster energy is compared with the track momentum, and if
-the ratio ($E/p$) is close to unity, the track is selected. On the contrary, if the electron experiences a significant
-Bremsstrahlung emission, other track characteristics have to be exploited. In this case a selection based on the number
-of hits in the tracker and the $\chi^2_\textrm{KF}$ of the KF fit is applied before running a GSF refit. Finally, the
-number of hits, the GSF refit $\chi^2_\textrm{GSF}$, $\chi^2_\textrm{KF}/\chi^2_\textrm{GSF}$ ratio, the energy loss
-measured by the track and the quality of the ECAL cluster-track matching are fed into a multivariate analysis using a
-Boosted Decision Trees (BDT) estimator.
+In the next step, track-cluster matching has to be performed. In the case where an electron has negligible
+Bremsstrahlung emission, the track is well reconstructed with the KF algorithm all the way to the ECAL internal surface,
+where the closest cluster is matched to the track. The corresponding cluster energy is compared with the track momentum,
+and if the ratio ($E/p$) is close to unity, the track is selected. On the contrary, if the electron experiences a
+significant Bremsstrahlung emission, other track characteristics have to be exploited. In this case a selection based on
+the number of hits in the tracker and the $\chi^2_\textrm{KF}$ of the KF fit is applied before running a GSF refit.
+Finally, the number of hits, the GSF refit $\chi^2_\textrm{GSF}$, $\chi^2_\textrm{KF}/\chi^2_\textrm{GSF}$ ratio, the
+energy loss measured by the track and the quality of the ECAL cluster-track matching are fed into a multivariate
+analysis using a Boosted Decision Tree (BDT) estimator.
 
 Both tracker-driven and ECAL-driven seeds are used to obtain the GSF track collection of electron candidates. In the
 particle flow algorithm, it is necessary to link both electron and Bremsstrahlung energy deposits to the GSF track. A
@@ -601,7 +582,7 @@ Bremsstrahlung photons, thus forming a super-cluster. This procedure is carried 
 a straight-line extrapolation tangent to the track, up to the calorimeter. To determine a Bremsstrahlung photon,
 track-cluster linking is performed as described above. To limit the charged hadron contamination, clusters already
 assigned to KF tracks are not included in the calculation. Also, the distance in $\eta$ coordinate between the
-extrapolation and the cluster is required to be smaller than \num{0.015}, which helps to reduce the neutral particles
+extrapolation and the cluster is required to be smaller than \num{0.015}, which helps to reduce the neutral particle
 background.
 
 \subsubsection{Electron Identification}
@@ -614,30 +595,34 @@ from ``real'' ones, a further selection has to be applied. This procedure is ref
 electron ID).
 
 Initially the electron identification is performed at the final stage of the electron reconstruction process. The
-working points of the cuts applied are selected to be loose enough in order to satisfy most CMS analyses requirements.
-Afterwards, more specific (tighter) ID cuts are applied for each individual analysis, defining the working point in the
-trade-off between selection efficiency and fakes contamination. This will be discussed separately in the selection
-description for each analysis in corresponding chapters.
+working points of the cuts applied are selected to be loose enough in order to satisfy the requirements of most CMS
+analyses. Afterwards, more specific (tighter) ID cuts are applied for each individual analysis, defining the working
+point in the trade-off between selection efficiency and contamination from fakes. This will be discussed separately in
+the selection description for each analysis in corresponding chapters.
 
 There are several electron identification algorithms used by various CMS analyses, and four of them are used in the
 analyses described in this thesis: simple cut-based (SCB ID), cuts in categories (CiC ID), particle flow (PF ID) and
-multi-variate analysis (MVA ID).
+multivariate analysis (MVA ID).
 
 Simple cut-based identification is used in the High-Level Trigger, and therefore has to be as simple, fast and
 robust as possible. Cuts are applied on the following variables:
 
 \begin{itemize}
-  \item $H/E$, i.e.\ the ratio of hadronic energy of the HCAL towers centred at the super-cluster position of the
-  electron in a cone of radius $\Delta R = 0.15$, and the super-cluster electromagnetic energy;
+  \item $H/E$, i.e.\ the ratio of the hadronic energy associated with the electron candidate to the super-cluster
+  energy. The hadronic energy is found by summing the HCAL towers in a cone of radius $\Delta R = 0.15$, centred at the
+  super-cluster position;
   \item $\Delta\eta_{\text{in}}$, i.e.\ the difference in $\eta$ between the extrapolated track position and $\eta$ of
   the super-cluster;
   \item $\Delta\phi_{\text{in}}$, i.e.\ the difference in $\phi$ between the extrapolated track position and $\phi$ of
   the super-cluster;
-  \item $\sigma_{i\eta, i\eta}$, i.e.\ cluster shape of the electron energy in a $5\times5$ block of crystals around the
-  seed crystal (the one with the highest energy) \autocite{electron_reconstruction}:
+  % \item $\sigma_{i\eta, i\eta}$, i.e.\ a cluster shape of the electron energy in a $5\times5$ block of crystals around the
+  % seed crystal (the one with the highest energy) \autocite{electron_reconstruction}:
+  \item $\sigma^2_{i\eta, i\eta}$, i.e.\ the cluster shape variable that gives a measure of the width of the cluster in
+  $\eta$, using the distribution of energy in a $5\times5$ block of crystals around the seed crystal (the one with the
+  highest energy) \autocite{electron_reconstruction}:
   \begin{equation}
   \label{eq:cluster_shape}
-    \sigma_{i\eta, i\eta} = \sum_{5\times5 \text{ crystals}} \left(\eta_i - \eta_\text{seed cluster}\right)^2
+    \sigma^2_{i\eta, i\eta} = \sum_{5\times5 \text{ crystals}} \left(\eta_i - \eta_\text{seed cluster}\right)^2
     \frac{E_i}{E_{\text{seed cluster}}}
   \end{equation}
 \end{itemize}
@@ -646,10 +631,10 @@ Although this identification method has an advantage of its simplicity, it does 
 background rejection. One of the more complex methods is the CiC ID, which exploits the categorisation of electrons. It
 is optimised to select electrons from different sources (W, Z and J/$\psi$ decays) and reject fakes from jets or
 conversions. In order to achieve higher efficiency, electron candidates are split into categories with different signal
-to background ratio, allowing to better tune the working points of the cuts. The first step in categorisation is done by
-division between barrel and endcap regions of the detector. Since the properties of both the tracker and calorimetry
-systems differ significantly in these two regions, different cuts are applied. The second step is based on the following
-observables:
+to background ratio, allowing for better tuning of the working points of the cuts. The first step in categorisation is
+done by division between barrel and endcap regions of the detector. Since the properties of both the tracker and
+calorimetry systems differ significantly in these two regions, different cuts are applied. The second step is based on
+the following observables:
 
 \begin{itemize}
   \item $f_\text{brem}$, or measured bremsstrahlung fraction, defined as:
@@ -661,6 +646,8 @@ observables:
   hit;
   \item $E/p$, which is the ratio of the super-cluster energy and the initial track momentum.
 \end{itemize}
+
+% consider showing the supporting plot, but not found in vector.
 
 Three categories of electron candidates are distinguished \autocite{CiC_ID}:
 \begin{itemize}
@@ -674,13 +661,13 @@ Three categories of electron candidates are distinguished \autocite{CiC_ID}:
 The third and the final step in categorisation is based simply on the electron transverse energy, with the lower
 threshold taken as \SI{10}{\GeV}. In each category, the selection is performed on the basic ID variables already
 mentioned above for the simple cut-based identification. On top of these variables, isolation and conversion rejection
-variables are also used, they are discussed in Section~\ref{sss:electron_isolation} and
+variables are also used; these are discussed in Section~\ref{sss:electron_isolation} and
 Section~\ref{sss:photon_conversions}, respectively.
 
 The cuts within CiC ID are applied in order to maximise the signal to background ratio. Depending on the needs of
 different analyses, nine levels of cut severity are implemented: \textit{VeryLoose, Loose, Medium, Tight, SuperTight,
 HyperTight(1-4)}. Each step decreases the fake rate by about a factor of two for electrons with \ET$>$ \SI{20}{\GeV}
-\autocite{CiC_ID}. The CiC ID is used as a primary electron identification method in the Top Mass analysis
+\autocite{CiC_ID}. The CiC ID is used as a primary electron identification method in the top quark mass analysis
 (Chapter~\ref{c:top_mass_analysis}).
 
 Particle flow ID is the final step of the particle flow electron reconstruction. Following the particle flow concept,
