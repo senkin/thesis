@@ -80,7 +80,7 @@
 
 \DefineBibliographyStrings{english}{%
   backrefpage = {cited on page},% originally "cit. on p"
-  backrefpages = {cited on pages},% originally "cited on pp"
+  backrefpages = {cited on pages},% originally "cit. on pp"
 }
 
 % Nomenclature

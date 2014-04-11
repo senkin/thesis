@@ -152,7 +152,8 @@ components as follows:
 \end{equation} 
 for leptons ($l = e, \mu, \tau$), and
 \begin{equation}
-\twovector{u_L}{d_L}, u_R, d_R; ~~ \twovector{c_L}{s_L}, c_R, s_R; ~~ \twovector{t_L}{b_L}, t_R, b_R
+\twovector{\cPqu_L}{\cPqd_L}, \cPqu_R, \cPqd_R; ~~ \twovector{\cPqc_L}{\cPqs_L}, \cPqc_R, \cPqs_R; ~~
+\twovector{\cPqt_L}{\cPqb_L}, \cPqt_R, \cPqb_R
 \label{eq:quark_EWK_fields}
 \end{equation} 
 for all three generations of quarks. The left-handed particles are doublets with the weak isospin of $I = \frac{1}{2}$,
@@ -288,24 +289,25 @@ despite being predicted by the Standard Model.
 
 In Section~\ref{ss:electroweak_theory} we introduced weak isospin doublets for three generations of left-handed quarks
 (Equation~\ref{eq:quark_EWK_fields}). These states, however, do not exactly correspond to the strong force eigenstates.
-Experimental evidence (e.g.\ $n \rightarrow p e^- \bar{\nu_e}$ decay) suggests that the weak interaction is capable of
-changing the quark flavour, meaning that the weak interaction eigenstates are in fact mixtures of mass eigenstates. The
-relation between the two sets of eigenstates is given by the Cabbibo-Kobayashi-Maskawa (CKM) matrix:
+Experimental evidence (e.g.\ $\Lambda \rightarrow p + \pi^-$ decay, involving the conversion of a strange quark into an
+up quark via $\cPqs \rightarrow \W^- + \cPqu$) suggests that the weak interaction is capable of changing the quark
+flavour, meaning that the weak interaction eigenstates are in fact mixtures of mass eigenstates. The relation between
+the two sets of eigenstates is given by the Cabbibo-Kobayashi-Maskawa (CKM) matrix:
 \begin{equation}
-\threevector{d'}{s'}{b'}
+\threevector{\cPqd'}{\cPqs'}{\cPqb'}
 =
 \begin{pmatrix}
-V_{ud} & V_{us} & V_{ub}  \\
-V_{cd} & V_{cs} & V_{cb}  \\
-V_{td} & V_{ts} & V_{tb}
+V_{\cPqu\cPqd} & V_{\cPqu\cPqs} & V_{\cPqu\cPqb}  \\
+V_{\cPqc\cPqd} & V_{\cPqc\cPqs} & V_{\cPqc\cPqb}  \\
+V_{\cPqt\cPqd} & V_{\cPqt\cPqs} & V_{\cPqt\cPqb}
 \end{pmatrix}
-\threevector{d}{s}{b},
+\threevector{\cPqd}{\cPqs}{\cPqb},
 \label{eq:CKM}
 \end{equation}
-where $d'$, $s'$, $b'$ are the weak interaction eigenstates, and $d$, $s$, $b$ are the mass eigenstates. The CKM matrix
-describes flavour mixing, i.e.\ the probability of transitions between different quark flavours through weak
-interactions. The origin of such mixing lies in the Yukawa interaction between quarks and the Higgs field, described in
-the next section.
+where $\cPqd'$, $\cPqs'$, $\cPqb'$ are the weak interaction eigenstates, and \cPqd, \cPqs, \cPqb are the mass
+eigenstates. The CKM matrix describes flavour mixing, i.e.\ the probability of transitions between different quark
+flavours through weak interactions. The origin of such mixing lies in the Yukawa interaction between quarks and the
+Higgs field, described in the next section.
 
 % The magnitudes of the CKM matrix elements are\autocite{PDG}:
 % \begin{equation}
@@ -353,8 +355,8 @@ Clearly, the minimum of this potential is not at $\phi = 0$, but forms a circle 
 \begin{figure}[!hbtp]
 \centering
 \includegraphics[width=0.5\textwidth]{Higgs_potential}
-\caption[The Higgs field potential.]{The Higgs field potential in the complex plane, commonly referred to as a
-``Mexican hat'' potential.}
+\caption[The Higgs field potential]{The Higgs field potential in the complex plane, commonly referred to as a
+``Mexican hat'' potential \autocite{top_quark_at_HC}}
 \label{fig:higgs_potential}
 \end{figure}
 
@@ -375,9 +377,9 @@ where $H$ is the neutral scalar Higgs field. By substituting this field into the
 Equation~\ref{eq:Higgs_L}, one can obtain:
 \begin{equation}
 \begin{split}
-\calL_\textrm{Higgs} & = \frac{1}{2} (\partial_\mu H)(\partial^\mu H) + \frac{1}{4} (H^2 + 2vH + v^2) W^+_\mu W^{-\mu} + \\
-& + \frac{1}{8} (g^2 + {g'}^2)(H^2 + 2vH + v^2)Z_\mu Z^\mu - \\
-& - \mu^2 H^2 - \frac{\lambda}{4} (H^4 + 4vH^3),
+\calL_\textrm{Higgs} & = \frac{1}{2} (\partial_\mu H)(\partial^\mu H) + \frac{1}{4} g^2 (H^2 + 2vH + v^2) W^+_\mu
+W^{-\mu} + \\ & + \frac{1}{8} (g^2 + {g'}^2)(H^2 + 2vH + v^2)Z_\mu Z^\mu - \\ & - \mu^2 H^2 - \frac{\lambda}{4} (H^4 +
+4vH^3),
 \end{split}
 \label{eq:Higgs_L_final}
 \end{equation}
@@ -390,11 +392,21 @@ M_W &= \frac{1}{2}gv, \\
 M_Z &= \frac{1}{2}v\sqrt{g^2+{g'}^2} = \frac{1}{2} \frac{gv}{\cos{\theta_W}},
 \end{align}
 \end{subequations}
-which was confirmed by experimental measurements. Naturally, the photon field $A_\mu$ acquires no mass terms in the
-Lagrangian. The Higgs mechanism can also be used in a similar way to generate fermion masses by introducing an $SU(2)_L
-\times U(1)_Y$ gauge invariant term responsible for interaction between the Higgs and fermion fields. This additional
-term in the Standard Model Lagrangian is called \textit{Yukawa term}, which for the first generation of fermions is
-given by
+whereas the mass of the Higgs boson itself is given by
+\begin{equation}
+M_H = \sqrt{2} \mu = v \sqrt{2\lambda}.
+\end{equation}
+
+% Unlike the \W and \Z boson masses which can be predicted from the measurement of the fine structure constant, the Higgs
+% mass $M_H$ can not be determined by other experimentally measured parameters.
+
+% However, it is possible to put indirect constraints on $M_H$ through quantum loop corrections and precise measurement of
+% the \W boson and top quark masses. This will be discussed in Section~\ref{s:top_quak_physics}.
+
+Naturally, the photon field $A_\mu$ acquires no mass terms in the Lagrangian. The Higgs mechanism can also be used in a
+similar way to generate fermion masses by introducing an $SU(2)_L \times U(1)_Y$ gauge invariant term responsible for
+interaction between the Higgs and fermion fields. This additional term in the Standard Model Lagrangian is called
+\textit{Yukawa term}, which for the first generation of fermions is given by
 \begin{equation}
 \calL_\textrm{Yukawa} = -Y_e^{ij} \bar{l_L}^i \phi e_R^j - Y_u^{ij} \bar{q_L}^i \epsilon \phi^\dag u_R^j - Y_d^{ij}
 \bar{q_L}^i \phi d_R^j + \textrm{h.c.},
@@ -412,34 +424,23 @@ proportional to Yukawa couplings, which essentially represent the interaction st
 large mass of the top quark of approximately \SI{173}{\GeV}, and the Higgs field vacuum expectation value
 $v\approx\SI{246}{\GeV}$, the Yukawa coupling to the top quark is very close to unity.
 
-Returning to the Lagrangian in Equation~\ref{eq:Higgs_L_final}, the Higgs boson mass is
-\begin{equation}
-M_H = \sqrt{2} \mu = v \sqrt{2\lambda}.
-\end{equation}
-
-Unlike the \W and \Z boson masses which can be predicted from the measurement of the fine structure constant, the Higgs
-mass $M_H$ can not be determined by other experimentally measured parameters.
-
-% However, it is possible to put indirect constraints on $M_H$ through quantum loop corrections and precise measurement of
-% the \W boson and top quark masses. This will be discussed in Section~\ref{s:top_quak_physics}.
-
 The existence of the Higgs boson and therefore the nature of electroweak symmetry breaking had long remained a mystery.
 In the summer of 2012 both ATLAS and CMS experiments at the LHC observed the Higgs boson with an approximate mass of
 \SI{125}{\GeV} \autocite{ATLAS_higgs_observation, CMS_higgs_observation}, with couplings consistent with theoretical
-predictions, which proved to be yet another triumph of the Standard Model.
+predictions \autocite{CMS_Higgs_long_paper, ATLAS_Higgs_couplings}, which proved to be yet another triumph of the
+Standard Model.
 
 \newpage
 \section{Top Quark Physics within the Standard Model}
 \label{s:top_quak_physics}
 The top quark is the heaviest elementary particle in the Standard Model, and the heaviest observed particle, discovered
 in 1995 at the Tevatron collider by CDF and D{\O} collaborations \autocite{CDF_top_observation, D0_top_observation}. The
-large mass of $\mtop = 173.34\ \pm\ 0.27\ \textrm{(stat.)}\ \pm 0.74\ \textrm{(syst.)}\ \textrm{GeV}$
-\autocite{world_top_mass_combination} suggests that the top quark may have a special role in nature. It is substantially
-more massive than any other fermion. The Standard Model does not provide an explanation for the vast difference between
-masses of fermions (known as the Flavour problem), hence the origin of Yukawa couplings and therefore the CKM matrix
-remains an open problem in particle physics. It is not yet understood why the top quark's Yukawa coupling to the Higgs
-boson is so close to unity. For these reasons, the top quark plays an important role in many models beyond the Standard
-Model, discussed in Section~\ref{s:BSM}.
+large mass of approximately \SI{173}{\GeV} suggests that the top quark may have a special role in nature. It is
+substantially more massive than any other fermion. The Standard Model does not provide an explanation for the vast
+difference between masses of fermions (known as the Flavour problem), hence the origin of Yukawa couplings and therefore
+the CKM matrix remains an open problem in particle physics. It is not yet understood why the top quark's Yukawa coupling
+to the Higgs boson is so close to unity. For these reasons, the top quark plays an important role in many models beyond
+the Standard Model, discussed in Section~\ref{s:BSM}.
 
 Due to its large mass, the top quark has an extremely short lifetime of \SI{\approx5e-25}{\s} \autocite{PDG}, meaning
 that it decays before the top-flavoured hadrons or \ttbar bound states can form. Therefore, the spin information is
@@ -451,17 +452,17 @@ beyond it.
 \subsection{Top quark production at the LHC}
 \label{ss:top_production}
 There are two particular mechanisms of top quark production in hadron collisions: top-antitop (\ttbar) pair production
-via strong interaction, and single top quark production via electroweak interaction. The \ttbar production dominates
-over single top production, being the main source of top quarks at the LHC, and therefore is the main focus of this
-thesis.
+via the strong interaction, and single top quark production via the electroweak interaction. The \ttbar production
+dominates over single top production, being the main source of top quarks at the LHC, and therefore is the main focus of
+this thesis.
 
-Feynman diagrams of \ttbar production to the leading order are presented in
+Feynman diagrams for \ttbar production to leading order are presented in
 Figure~\ref{fig:ttbar_production_feynman_diagrams}. At the LHC, the major process for \ttbar production is gluon fusion,
 constituting approximately \SI{90}{\pc} (\SI{80}{\pc}) at $\sqrt s =$ \SI{14}{\TeV} (\SI{7}{\TeV}) \autocite{PDG}.
-Quark-antiquark annihilation and higher order processes contribute to the rest of the Standard Model \ttbar production.
+Quark-antiquark annihilation and higher-order processes contribute the rest of the Standard Model \ttbar production.
 This happens due to the fact that the LHC is a proton-proton collider, and the only source of antiquarks are virtual
 quarks (so-called sea quarks). At the Tevatron, which was a proton-antiproton collider, the situation was quite the
-opposite: the aquark-antiquark annihilation was the main \ttbar production mode.
+opposite: the quark-antiquark annihilation was the main \ttbar production mode.
 
 \input{02_Theory/feynman_diagrams/ttbar_production}
 
@@ -477,7 +478,7 @@ which is known as factorisation scale. This parameter separates the hard scatter
 interaction and the soft (or long-range) interaction. The former interaction happens at a short distance, and therefore
 only involves high-momentum transfer which is calculable in perturbative QCD. The soft long-range part of the
 interaction, on the contrary, can not be calculated in QCD and instead is parametrised by the PDFs, which have to be
-obtained from experimental data. Figure~\ref{fig:CT10_PDFs} shows one of the latest PDFs obtained by CTEQ-TEA
+obtained from experimental data. Figure~\ref{fig:CT10_PDFs} shows one of the latest PDFs obtained by the CTEQ-TEA
 collaboration \autocite{CT10_NNLO}.
 
 \begin{figure}[!hbtp]
@@ -485,27 +486,29 @@ collaboration \autocite{CT10_NNLO}.
    \subfloat[]{\includegraphics[width=0.5\textwidth]{CT10_1}}
    \subfloat[]{\includegraphics[width=0.5\textwidth]{CT10_2}}
    \caption[CT10 NNLO parton distribution functions.]{CT10 NNLO parton distribution functions for up and down quarks,
-   gluons and sea quarks, given at two different factorisation scales \autocite{CT10_NNLO}.}
+   gluons and sea quarks, given at two different factorisation scales: (a) Q = \SI{3.16}{\GeV}, (b) Q =
+   \SI{85}{\GeV} \autocite{CT10_NNLO}.}
    \label{fig:CT10_PDFs}
 \end{figure}
 
 
-The total \ttbar production cross section for hard scattering processes in hadron collisions can be calculated as
-\autocite{Sterman1986}:
+In the leading order, the total \ttbar production cross section for hard scattering processes in hadron collisions can
+be calculated as \autocite{Sterman1986, primer_LHC}:
 \begin{equation}
 \sigma^{\ttbar} (s,\mtop^2) = \sum_{i,j} \int dx_i dx_j f_i(x_i, \mu_f^2) f_j(x_j,\mu_f^2) \hat{\sigma}_{i,j
-\rightarrow \ttbar} (s, \mtop^2, \alpha_s(\mu_r^2)),
+\rightarrow \ttbar} (\hat{s}, \mtop^2, \alpha_S(\mu_r^2)),
 \end{equation}
 where the indices $i,j$ run over the incoming partons (gluons and quark-antiquark pairs), $x_{i,j}$ are the momentum
 fractions of the incoming partons, $f_{i,j}$ are their parton distribution functions, and $\hat{\sigma}_{i,j
-\rightarrow \ttbar}$ is the cross section of interacting partons, which depends on the centre of mass energy of hadron
-collisions $s$, the top quark mass \mtop, and the QCD strong coupling constant $\alpha_s$. The latter parameter is
-evaluated at renormalisation scale $\mu_r^2$. %explain?
+\rightarrow \ttbar}$ is the cross section of interacting partons, which depends on the parton centre of mass energy
+$\hat{s} = x_i x_j s$, the top quark mass \mtop, and the QCD strong coupling constant $\alpha_S$. The latter parameter
+is evaluated at renormalisation scale $\mu_r$. %explain?
 
-The results of most recent theoretical calculation of \ttbar cross section performed with next-to-next-to-leading-order
-(NNLO) QCD corrections \autocite{NNLO_ttbar} are given in Table~\ref{tab:ttbar_NNLO_xsections}. The cross section has
-also been measured by CMS and ATLAS experiments at the LHC -- the comparison of these measurements with the theoretical
-prediction is shown in Figure~\ref{fig:xsections_comparison_NNLO}.
+The results of the most recent theoretical calculation of \ttbar cross section performed with
+next-to-next-to-leading-order (NNLO) QCD corrections \autocite{NNLO_ttbar} are given in
+Table~\ref{tab:ttbar_NNLO_xsections}. The cross section has also been measured by CMS and ATLAS experiments at the LHC
+-- the comparison of these measurements with the theoretical prediction is shown in
+Figure~\ref{fig:xsections_comparison_NNLO}.
 
 \input{02_Theory/tables/ttbar_NNLO_xsections}
 
@@ -513,7 +516,7 @@ prediction is shown in Figure~\ref{fig:xsections_comparison_NNLO}.
 \begin{figure}[!hbtp]
    \centering
    {\includegraphics[width=0.7\textwidth]{xsections_comparison_NNLO}}
-   \caption[Measurement of the \ttbar production cross section.]{Measurement of the \ttbar production cross section at
+   \caption[Measurement of the \ttbar production cross section]{Measurement of the \ttbar production cross section at
    centre of mass energies of \SI{7}{\TeV} and \SI{8}{\TeV} by ATLAS and CMS experiments, compared with the theoretical
    prediction \autocite{NNLO_ttbar}.}
    \label{fig:xsections_comparison_NNLO}
@@ -531,7 +534,7 @@ measurement of the Wtb vertex and therefore the magnitude of $|V_{tb}|$ element 
 \label{ss:top_decay}
 The top quark predominantly decays to a \W boson and a b-quark: $\cPqt \rightarrow \W \cPqb$. Other possible decay modes
 ($\cPqt \rightarrow \W \cPqs$ and $\cPqt \rightarrow \W \cPqd$) are suppressed in the Standard Model by the unitarity
-requirement of the CKM matrix, yielding the $|V_{tb}|$ value of \autocite{PDG}:
+requirement of the CKM matrix, which yields \autocite{PDG} the $|V_{tb}|$ value of
 \begin{equation}
 |V_{tb}| = 0.999146^{+0.000021}_{-0.000046}.
 \end{equation}
@@ -558,14 +561,14 @@ Percentages in parentheses show the branching fractions corresponding to the dec
 all final states hadronise into jets. The number of jets is not limited to the number of initial quarks due to the
 contribution from extra QCD radiation (i.e.\ gluon radiation) either before or after \ttbar production.
 
-Fully hadronic \ttbar decay signature implies at least 6 jets in the final state and no leptons, hence it is heavily
+The fully hadronic \ttbar decay signature implies at least 6 jets in the final state and no leptons, hence it is heavily
 contaminated by the background from QCD and \W/\ZpJets processes. Dileptonic \ttbar decay has a clean signature, but due
 to the lowest branching fraction can suffer from limited statistics. The semileptonic decay mode, shown in
 Figure~\ref{fig:ttbar_semileptonic_decay}, has exactly one highly energetic lepton and at least four jets in the final
 state, which is therefore called the lepton plus jets final state. The lepton can be an electron, a muon or a
-$\tau$-lepton, however, since the $\tau$-leptons are difficult to reconstruct, they are usually excluded from top quark
-analyses studying semileptonic decays. Analyses in this thesis study the electron plus jets and muon plus jets decay
-channels, which have the branching fractions of \SI{\approx14}{\pc} each.
+$\tau$-lepton; however, since the $\tau$-leptons are difficult to reconstruct, they are usually excluded from top quark
+analyses studying semileptonic decays. Analyses in this thesis study the electron plus jets ($e+$jets) and muon plus
+jets ($\mu+$jets) decay channels, which have branching fractions of \SI{\approx14}{\pc} each.
 
 \input{02_Theory/feynman_diagrams/semileptonic_ttbar_decay}
 
@@ -573,10 +576,10 @@ channels, which have the branching fractions of \SI{\approx14}{\pc} each.
 \subsection{Background processes to semileptonic top quark pair decay}
 \label{ss:backgrounds}
 Both top quark mass and differential cross section analyses presented in this thesis are based on selection of events
-with semileptonic ($e/\mu+$jets) \ttbar decay signature. Being a relatively clean yet still providing sufficient event
+with semileptonic ($e/\mu+$jets) \ttbar decay signature. Being relatively clean yet still providing sufficient event
 yields, this decay mode is used in many measurements of top quark properties, and is often called a ``golden channel''
 in top quark physics. Good understanding of background contributions is very important for accuracy and reliability of
-measurements. Most significant background processes to semileptonic \ttbar decay are described below.
+measurements. The most significant background processes to semileptonic \ttbar decay are described below.
 
 \subsubsection*{Single top quark background}
 One of the less significant backgrounds to lepton plus jets analyses is the single top quark production. Major
@@ -593,14 +596,14 @@ successfully mimic the \ttbar decay since it also includes two \W bosons. Howeve
 are usually much softer than those coming from \ttbar decay, due to the large mass of top quarks. Moreover, additional
 jets are less likely to be \cPqb-jets which are necessarily present in \ttbar decay. Therefore, tagging of \cPqb-jets
 and high kinematic cuts on lepton and jets transverse momenta can significantly reduce the
-\WpJets background. Besides, production cross section of \WpJets events reduces exponentially with increasing number of
-jets \autocite{multijet_WZ}, therefore jet multiplicity cuts also help to mitigate this background. These methods are
+\WpJets background. Besides, the production cross section of \WpJets events reduces exponentially with increasing number
+of jets \autocite{multijet_WZ}, therefore jet multiplicity cuts also help to mitigate this background. These methods are
 detailed in selection procedures of top quark mass and differential cross section analyses in
 Sections~\ref{s_top_mass:event_selection} and \ref{s_xsection:event_selection}, respectively.
 
 \subsubsection*{\ZpJets background}
-\Z boson production processes with additional jets (\ZpJets) are largely similar to \WpJets processes, as it can be seen
-in Figure~\ref{fig:VJets_processes} (c, d). The difference lies in leptonic decays of the \Z boson, as it produces two
+\Z boson production processes with additional jets (\ZpJets) are largely similar to \WpJets processes, as can be seen in
+Figure~\ref{fig:VJets_processes} (c, d). The difference lies in leptonic decays of the \Z boson, as it produces two
 opposite-sign leptons. Vetoing the second lepton in the selection is therefore particularly helpful in reducing this
 background. Contamination can still occur if one of the leptons is misreconstructed as a jet or does not pass
 identification criteria. This contribution is estimated to be small, and together with the jet multiplicity cuts the
@@ -621,8 +624,8 @@ considerable.
 \input{02_Theory/feynman_diagrams/QCD_processes}
 
 QCD multi-jet background is usually less significant in the muon plus jets channel, since jets faking muons are easier
-to recognise. For instance, when a highly energetic jet punches through calorimetry system into muon chambers and thus
-becomes a fake muon, it can be removed by isolation criteria as it also leaves a significant energy deposit in
+to recognise. For instance, when a highly energetic jet punches through the calorimetry system into muon chambers and
+thus becomes a fake muon, it can be removed by isolation criteria as it also leaves a significant energy deposit in
 calorimeters. Muons (and electrons) can also arise from heavy flavour decays of \cPqb and \cPqc quarks -- these are in
 fact real leptons, but as they don't originate at the interaction point, they can be removed by track quality cuts most
 of the time.
@@ -658,14 +661,15 @@ at \autocite{top_pole_mass}:
 where \mtop is the pole mass and $\Gamma_\textrm{t}~\SI{\approx1.5}{\GeV}$ is the top quark decay width. This definition
 yields a peak in the invariant mass distribution of the top quark decay products (i.e.\ \W boson and \cPqb-quark), which
 is accessible experimentally. As $\mtop \gg \Gamma_\textrm{t}/2$, the peak approximately corresponds to the pole mass,
-therefore it is usually assumed that experimentally measured top quark mass represents the pole mass. As it will be
+therefore it is usually assumed that experimentally measured top quark mass represents the pole mass. As will be
 discussed later, there are a few problems with this approach.
 
-It has been shown that the pole mass is infrared finite and gauge-invariant to all orders of perturbative QCD
-\autocite{pole_mass_in_QCD_Kronfeld}. Despite being well-defined in perturbation theory, an all-order resummation of a
-particular class of diagrams known as ``infrared renormalons'' \autocite{renormalons1, renormalons2} leads to an
-intrinsic ambiguity of the top quark pole mass proportional to the energy scale of a strong interaction
-$\Lambda_\textrm{QCD}~\SI{\approx200}{\MeV}$ \autocite{pole_MS_top_difference}.
+It has been shown \autocite{pole_mass_in_QCD_Kronfeld} that the pole mass is infrared finite and gauge-invariant to all
+orders of perturbative QCD. Despite being well-defined in perturbation theory, an all-order resummation of a particular
+class of diagrams known as ``infrared renormalons'' \autocite{renormalons1, renormalons2} leads to an intrinsic
+ambiguity of the top quark pole mass proportional to the energy scale of a strong interaction
+$\Lambda_\textrm{QCD}~\SI{\approx200}{\MeV}$
+\autocite{pole_MS_top_difference}.
 
 Another frequently used mass definition which is free from renormalon ambiguity is the renormalised mass $\MSmtop(\mu)$
 in the minimal subtraction (\MS) renormalisation scheme. This mass definition is often call a running mass, since it
@@ -673,16 +677,16 @@ depends on the renormalisation scale $\mu$ which is in principle arbitrary. For 
 \MSmtop is related to the pole mass \mtop as follows
 \autocite{top_pole_mass}:
 \begin{equation}
-\mtop = \MSmtop(\MSmtop) \left( 1 + \frac{4}{3} \frac{\overline{\alpha}_s(\MSmtop)}{\pi} + 8.28
-\left(\frac{\overline{\alpha}_s(\MSmtop)}{\pi} \right)^2 + ... \right) + \bigO(\Lambda_\textrm{QCD}).
+\mtop = \MSmtop(\MSmtop) \left( 1 + \frac{4}{3} \frac{\overline{\alpha}_S(\MSmtop)}{\pi} + 8.28
+\left(\frac{\overline{\alpha}_S(\MSmtop)}{\pi} \right)^2 + ... \right) + \bigO(\Lambda_\textrm{QCD}).
 \end{equation}
 % \footnote{Renormalisation is a technique of cancelling divergences (infinities) in perturbative quantum field theories.
 % Initially infinite parameters become finite after renormalisation, thus acquiring physical sense.}
 
 The difference between the pole mass and the \MS mass is then estimated to be on the order of \SI{10}{\GeV} (with $\mtop
-> \MSmtop$). However, it has recently been shown that including electroweak corrections for a Higgs boson mass of
-\SI{\sim125}{\GeV} mostly cancels the corresponding QCD corrections, reducing the $\mtop-\MSmtop$ difference down to
-\SI{\sim1}{\GeV} \autocite{pole_MS_top_difference}. Theoretical research such as studying higher-order corrections is
+> \MSmtop$). However, it has recently been shown \autocite{pole_MS_top_difference} that including electroweak
+corrections for a Higgs boson mass of \SI{\sim125}{\GeV} mostly cancels the corresponding QCD corrections, reducing the
+$\mtop-\MSmtop$ difference down to \SI{\sim1}{\GeV}. Theoretical research such as studying higher-order corrections is
 actively ongoing in this field.
 
 It has been argued that the top quark mass measured at hadron colliders is in fact a parameter of Monte Carlo
