@@ -33,7 +33,7 @@ carry an electric charge, and therefore are only subject to the weak force, whic
 detect as they barely interact with matter. In the classic version of Standard Model neutrinos are considered to be
 massless, however, the observation of neutrino oscillations between different flavours \autocite{neutrino_oscillations}
 implies that neutrinos are in fact massive. This is one of the deficiencies of the Standard Model, giving rise to
-possible extensions elaborated in Section~\ref{s:BSM}.
+possible extensions discussed in Section~\ref{s:SM_shortcomings}.
 
 The quarks also exist in three generations, and are represented by up and down (\cPqu, \cPqd), charm and strange (\cPqc,
 \cPqs), and bottom and top (\cPqb, \cPqt) flavours. Together with the mediators of the strong interaction (gluons),
@@ -430,17 +430,39 @@ In the summer of 2012 both ATLAS and CMS experiments at the LHC observed the Hig
 predictions \autocite{CMS_Higgs_long_paper, ATLAS_Higgs_couplings}, which proved to be yet another triumph of the
 Standard Model.
 
+\section{Shortcomings of the SM and physics beyond the SM}
+\label{s:SM_shortcomings}
+Despite being the most successful theory up to date, the Standard Model is not perfect and has its shortcomings.
+
+% gravity
+
+% dark matter and energy
+
+% neutrino masses
+% There are simple extensions to the Standard Model describing massive neutrinos and keeping the local symmetry of weak
+% interactions.
+
+% matter/antimatter asymmetry
+
+% hierarchy problem, ad-hoc Higgs mechanism, lack of understanding
+
+The Standard Model does not provide an explanation for the vast difference between masses of fermions (known as the
+Flavour problem), hence the origin of Yukawa couplings and therefore the CKM matrix remains an open problem in particle
+physics.
+
+% GUTs, supersymmetry
+
+
 \newpage
 \section{Top Quark Physics within the Standard Model}
 \label{s:top_quak_physics}
 The top quark is the heaviest elementary particle in the Standard Model, and the heaviest observed particle, discovered
 in 1995 at the Tevatron collider by CDF and D{\O} collaborations \autocite{CDF_top_observation, D0_top_observation}. The
 large mass of approximately \SI{173}{\GeV} suggests that the top quark may have a special role in nature. It is
-substantially more massive than any other fermion. The Standard Model does not provide an explanation for the vast
-difference between masses of fermions (known as the Flavour problem), hence the origin of Yukawa couplings and therefore
-the CKM matrix remains an open problem in particle physics. It is not yet understood why the top quark's Yukawa coupling
-to the Higgs boson is so close to unity. For these reasons, the top quark plays an important role in many models beyond
-the Standard Model, discussed in Section~\ref{s:BSM}.
+substantially more massive than any other fermion. As mentioned in Section~\ref{s:SM_shortcomings}, the reason for such
+vast discrepancy between fermion masses is not known. It is also not yet understood why the top quark's Yukawa coupling
+to the Higgs boson is so close to unity. Naturally, studying the most massive fermion is a logical starting point in
+search for answers to these questions.
 
 Due to its large mass, the top quark has an extremely short lifetime of \SI{\approx5e-25}{\s} \autocite{PDG}, meaning
 that it decays before the top-flavoured hadrons or \ttbar bound states can form. Therefore, the spin information is
@@ -461,67 +483,10 @@ Figure~\ref{fig:ttbar_production_feynman_diagrams}. At the LHC, the major proces
 constituting approximately \SI{90}{\pc} (\SI{80}{\pc}) at $\sqrt s =$ \SI{14}{\TeV} (\SI{7}{\TeV}) \autocite{PDG}.
 Quark-antiquark annihilation and higher-order processes contribute the rest of the Standard Model \ttbar production.
 This happens due to the fact that the LHC is a proton-proton collider, and the only source of antiquarks are virtual
-quarks (so-called sea quarks). At the Tevatron, which was a proton-antiproton collider, the situation was quite the
-opposite: the quark-antiquark annihilation was the main \ttbar production mode.
+quarks (so-called sea quarks). At the Tevatron, which was a proton-antiproton collider, the quark-antiquark annihilation
+was the main \ttbar production mode.
 
 \input{02_Theory/feynman_diagrams/ttbar_production}
-
-The \ttbar production is a strong interaction process, and therefore is described by perturbative QCD. Hadron collisions
-at the LHC (or other hadron colliders) are best viewed as interactions between their constituent quarks and gluons, also
-referred to as partons. Since collisions occur at high energies, these interactions result in hard scattering processes
-between incoming partons, meaning those involving a significant momentum transfer comparing to the proton mass, and
-potentially giving rise to highly energetic final states like top quarks. Each incoming parton carries only a fraction
-$x$ of the total momentum of a parent hadron. The distribution of momentum fractions for all flavours of partons are
-described by parton distribution functions (PDFs). A PDF $f_i(x_i,\mu_f^2)$ is defined as a probability density of
-finding a parton with flavour $i$ and a longitudinal momentum fraction $x_i$ when probed at momentum scale $\mu_f^2$,
-which is known as factorisation scale. This parameter separates the hard scattering process into the hard partonic
-interaction and the soft (or long-range) interaction. The former interaction happens at a short distance, and therefore
-only involves high-momentum transfer which is calculable in perturbative QCD. The soft long-range part of the
-interaction, on the contrary, can not be calculated in QCD and instead is parametrised by the PDFs, which have to be
-obtained from experimental data. Figure~\ref{fig:CT10_PDFs} shows one of the latest PDFs obtained by the CTEQ-TEA
-collaboration \autocite{CT10_NNLO}.
-
-\begin{figure}[!hbtp]
-   \centering
-   \subfloat[]{\includegraphics[width=0.5\textwidth]{CT10_1}}
-   \subfloat[]{\includegraphics[width=0.5\textwidth]{CT10_2}}
-   \caption[CT10 NNLO parton distribution functions.]{CT10 NNLO parton distribution functions for up and down quarks,
-   gluons and sea quarks, given at two different factorisation scales: (a) Q = \SI{3.16}{\GeV}, (b) Q =
-   \SI{85}{\GeV} \autocite{CT10_NNLO}.}
-   \label{fig:CT10_PDFs}
-\end{figure}
-
-
-In the leading order, the total \ttbar production cross section for hard scattering processes in hadron collisions can
-be calculated as \autocite{Sterman1986, primer_LHC}:
-\begin{equation}
-\sigma^{\ttbar} (s,\mtop^2) = \sum_{i,j} \int dx_i dx_j f_i(x_i, \mu_f^2) f_j(x_j,\mu_f^2) \hat{\sigma}_{i,j
-\rightarrow \ttbar} (\hat{s}, \mtop^2, \alpha_S(\mu_r^2)),
-\end{equation}
-where the indices $i,j$ run over the incoming partons (gluons and quark-antiquark pairs), $x_{i,j}$ are the momentum
-fractions of the incoming partons, $f_{i,j}$ are their parton distribution functions, and $\hat{\sigma}_{i,j
-\rightarrow \ttbar}$ is the cross section of interacting partons, which depends on the parton centre of mass energy
-$\hat{s} = x_i x_j s$, the top quark mass \mtop, and the QCD strong coupling constant $\alpha_S$. The latter parameter
-is evaluated at renormalisation scale $\mu_r$. %explain?
-
-The results of the most recent theoretical calculation of \ttbar cross section performed with
-next-to-next-to-leading-order (NNLO) QCD corrections \autocite{NNLO_ttbar} are given in
-Table~\ref{tab:ttbar_NNLO_xsections}. The cross section has also been measured by CMS and ATLAS experiments at the LHC
--- the comparison of these measurements with the theoretical prediction is shown in
-Figure~\ref{fig:xsections_comparison_NNLO}.
-
-\input{02_Theory/tables/ttbar_NNLO_xsections}
-
-
-\begin{figure}[!hbtp]
-   \centering
-   {\includegraphics[width=0.7\textwidth]{xsections_comparison_NNLO}}
-   \caption[Measurement of the \ttbar production cross section]{Measurement of the \ttbar production cross section at
-   centre of mass energies of \SI{7}{\TeV} and \SI{8}{\TeV} by ATLAS and CMS experiments, compared with the theoretical
-   prediction \autocite{NNLO_ttbar}.}
-   \label{fig:xsections_comparison_NNLO}
-\end{figure}
-
 
 Figure~\ref{fig:single_top_production_feynman_diagrams} shows the Feynman diagrams of various single top production
 modes. Three major production mechanisms include s-channel and t-channel \W boson exchange, and associated production
@@ -742,20 +707,78 @@ tests of the Standard Model and potentially providing sensitivity to new physics
    \label{fig:top_mass_world_combination}
 \end{figure}
 
+\subsection{Top quark pair production cross section}
+\label{ss:ttbar_cross_section}
+The \ttbar production is a strong interaction process, and therefore is described by perturbative QCD. Hadron collisions
+at the LHC (or other hadron colliders) are best viewed as interactions between their constituent quarks and gluons, also
+referred to as partons. Since collisions occur at high energies, these interactions result in hard scattering processes
+between incoming partons, meaning those involving a significant momentum transfer comparing to the proton mass, and
+potentially giving rise to highly energetic final states like top quarks. Each incoming parton carries only a fraction
+$x$ of the total momentum of a parent hadron. The distribution of momentum fractions for all flavours of partons are
+described by parton distribution functions (PDFs).
 
+A PDF $f_i(x_i,\mu_f^2)$ is defined as a probability density of finding a parton with flavour $i$ and a longitudinal
+momentum fraction $x_i$ when probed at momentum scale $\mu_f^2$, which is known as factorisation scale. This parameter
+separates the hard scattering process into the hard partonic interaction and the soft (or long-range) interaction. The
+former interaction happens at a short distance, and therefore only involves high-momentum transfer which is calculable
+in perturbative QCD. The soft long-range part of the interaction, on the contrary, can not be calculated in QCD and
+instead is parametrised by the PDFs, which have to be obtained from experimental data. Figure~\ref{fig:CT10_PDFs} shows
+one of the latest PDFs obtained by the CTEQ-TEA collaboration \autocite{CT10_NNLO}.
 
-%relation to the Higgs mass and sensitivity to BSM.
+\begin{figure}[!hbtp]
+   \centering
+   \subfloat[]{\includegraphics[width=0.5\textwidth]{CT10_1}}
+   \subfloat[]{\includegraphics[width=0.5\textwidth]{CT10_2}}
+   \caption[CT10 NNLO parton distribution functions.]{CT10 NNLO parton distribution functions for up and down quarks,
+   gluons and sea quarks, given at two different factorisation scales: (a) Q = \SI{3.16}{\GeV}, (b) Q =
+   \SI{85}{\GeV} \autocite{CT10_NNLO}.}
+   \label{fig:CT10_PDFs}
+\end{figure}
 
+In the leading order approximation, the total \ttbar production cross section for hard scattering processes in hadron
+collisions can be calculated as \autocite{Sterman1986, primer_LHC}:
+\begin{equation}
+\sigma^{\ttbar} (s,\mtop^2) = \sum_{i,j} \int dx_i dx_j f_i(x_i, \mu_f^2) f_j(x_j,\mu_f^2) \hat{\sigma}_{i,j
+\rightarrow \ttbar} (\hat{s}, \mtop^2, \alpha_S(\mu_r^2)),
+\end{equation}
+where the indices $i,j$ run over the incoming partons (gluons and quark-antiquark pairs), $x_{i,j}$ are the momentum
+fractions of the incoming partons, $f_{i,j}$ are their parton distribution functions, and $\hat{\sigma}_{i,j
+\rightarrow \ttbar}$ is the cross section of interacting partons, which depends on the parton centre of mass energy
+$\hat{s} = x_i x_j s$, the top quark mass \mtop, and the QCD strong coupling constant $\alpha_S$. The latter parameter
+is evaluated at renormalisation scale $\mu_r$. %explain?
 
-\section{Physics Beyond The Standard Model}
-\label{s:BSM}
-% There are simple extensions to the Standard Model describing massive neutrinos and keeping the local symmetry of weak
-% interactions.
+The results of the most recent theoretical calculation of \ttbar cross section performed with
+next-to-next-to-leading-order (NNLO) QCD corrections \autocite{NNLO_ttbar} are given in
+Table~\ref{tab:ttbar_NNLO_xsections}. The cross section has also been measured by CMS and ATLAS experiments at the LHC
+-- the comparison of these measurements with the theoretical prediction is shown in
+Figure~\ref{fig:xsections_comparison_NNLO}.
 
-% \subsection{Supersymmetry}
-% \label{ss:SUSY}
+\input{02_Theory/tables/ttbar_NNLO_xsections}
 
+\begin{figure}[!hbtp]
+   \centering
+   {\includegraphics[width=0.7\textwidth]{xsections_comparison_NNLO}}
+   \caption[Measurement of the \ttbar production cross section]{Measurement of the \ttbar production cross section at
+   centre of mass energies of \SI{7}{\TeV} and \SI{8}{\TeV} by ATLAS and CMS experiments, compared with the theoretical
+   prediction \autocite{NNLO_ttbar}.}
+   \label{fig:xsections_comparison_NNLO}
+\end{figure}
 
+% Importance of differential cross section measurements, allowed by large statistics at LHC
+
+% Different types - some examples
+
+% Testing different MC generators and models, used in BSM searches where ttbar is background
+
+% Potential signs of new physics in the tails of distributions
+
+\newpage
+\section{Summary}
+In this chapter, an overview of the Standard Model has been presented. The concept of gauge principle and its
+applications in the electroweak theory and the Quantum Chromodynamics, as well as the mechanism of the electroweak
+symmetry breaking have been briefly described. Shortcomings of the Standard Model and some models proposing the
+solutions have been mentioned. Finally, an introduction to the top quark physics has been given, with pointing out the
+relevance and importance of the top quark mass and differential cross section measurements presented in this thesis.
 
 %%% Local Variables: 
 %%% mode: latex
