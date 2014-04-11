@@ -35,7 +35,7 @@
 %}%
 %\usepackage[square, sort&compress, numbers]{natbib}
 \usepackage{csquotes}
-\usepackage[sorting=none,style=numeric,citestyle=numeric,backref=false,hyperref=true,isbn=false,backend=bibtex]{biblatex}
+\usepackage[sorting=none,style=numeric,citestyle=numeric,backref=true,hyperref=true,isbn=false,backend=bibtex]{biblatex}
 \usepackage{setspace}
 \usepackage{tocbibind}
 \usepackage{amssymb}
@@ -78,6 +78,10 @@
 \renewcommand{\bibname}{References}
 % note that this doesn't do much if you later define another bibliography style 
 
+\DefineBibliographyStrings{english}{%
+  backrefpage = {cited on page},% originally "cit. on p"
+  backrefpages = {cited on pages},% originally "cited on pp"
+}
 
 % Nomenclature
 \usepackage{nomencl}
