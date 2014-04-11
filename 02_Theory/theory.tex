@@ -14,8 +14,9 @@
 \label{s:SM}
 The Standard Model (SM) is a quantum field theory which is currently the most accurate description of matter and all
 known fundamental interactions, with the exception of gravity. It was developed in the 20th century as a combination of
-two complementary field theories, the Glashow-Weinberg-Salam (GWS) \autocite{Glashow, Weinberg, Salam} theory of
-electroweak interaction, and Quantum Chromodynamics (QCD) theory of strong interaction.
+two complementary field theories, the Glashow-Weinberg-Salam (GWS) \autocite{Glashow, Weinberg, Salam} theory of the
+electroweak interaction, and the Quantum Chromodynamics (QCD) \autocite{Gell-Mann_1964, Gross_Wilczek, Politzer} theory
+of the strong interaction.
 
 The fundamental particles in the Standard Model are the three generations of fermions, shown in
 Table~\ref{tab:SM_fermions}, interacting via gauge bosons of three fundamental interactions, presented in
@@ -36,11 +37,12 @@ possible extensions elaborated in Section~\ref{s:BSM}.
 
 The quarks also exist in three generations, and are represented by up and down (\cPqu, \cPqd), charm and strange (\cPqc,
 \cPqs), and bottom and top (\cPqb, \cPqt) flavours. Together with the mediators of the strong interaction (gluons),
-these particles possess another physical property called colour charge. Due to a phenomenon of colour confinement, they
-can only exist as constituents of composite particles -- hadrons. More detail on the QCD theory of strong interaction is
-presented in Section~\ref{ss:QCD_theory}. The top quark, however, is too heavy hadronise as it has an extremely short
-lifetime of \SI{\approx 5e-25}{\s} \autocite{PDG}, which is an order of magnitude shorter than the timescale of strong
-interactions. This and other properties of the top quark will be discussed in Section~\ref{s:top_quak_physics}.
+these particles possess another physical property called colour charge. Due to the phenomenon of colour confinement,
+they can only exist as constituents of composite particles -- hadrons. More detail on the QCD theory of the strong
+interaction is presented in Section~\ref{ss:QCD_theory}. The top quark, however, is too heavy to hadronise as it has an
+extremely short lifetime of \SI{\approx 5e-25}{\s} \autocite{PDG}, which is an order of magnitude shorter than the
+timescale of strong interactions. This and other properties of the top quark will be discussed in
+Section~\ref{s:top_quak_physics}.
 
 The last essential constituent of the Standard Model is the recently discovered Higgs boson
 \autocite{ATLAS_higgs_observation, CMS_higgs_observation}. The Higgs field is responsible for electroweak symmetry
@@ -65,14 +67,14 @@ this concept, let us consider a Lagrangian density of a free Dirac field $\psi$,
 
 Clearly, it is invariant under the following phase transformation:
 \begin{equation}
-\psi \rightarrow \psi' = e^{i \theta} \psi, ~\bar{\psi} \rightarrow \bar{\psi} = e^{-i \theta} \bar{\psi},
+\psi \rightarrow \psi' = e^{i \theta} \psi, ~\bar{\psi} \rightarrow \bar{\psi}' = e^{-i \theta} \bar{\psi},
 \end{equation}
 since in the combination $\bar{\psi}\psi$ the exponential factors cancel out ($e^{i \theta} e^{-i \theta} = 1$). This
-transformation is called a \textit{global} phase transformation, since the phase $i \theta$ is space-time independent.
-The \textit{local} phase transformation, on the other hand, corresponds to the phase $i \theta(x_\mu)$ which is
+transformation is called a \textit{global} phase transformation, since the phase $\theta$ is space-time independent.
+The \textit{local} phase transformation, on the other hand, corresponds to the phase $\theta(x_\mu)$ which is
 different at each space-time point:
 \begin{equation}
-\psi \rightarrow \psi' = e^{i \theta(x)} \psi, ~\bar{\psi} \rightarrow \bar{\psi} = e^{-i \theta(x)} \bar{\psi}.
+\psi \rightarrow \psi' = e^{i \theta(x)} \psi, ~\bar{\psi} \rightarrow \bar{\psi}' = e^{-i \theta(x)} \bar{\psi}.
 \end{equation}
 Here the space-time indices are dropped on $x_\mu \equiv x$ for clarity. One can see that the Lagrangian is no longer
 invariant under such transformation, since
@@ -106,24 +108,25 @@ we obtain the full gauge invariant QED Lagrangian:
 %\bar{\psi}(i \gamma^\mu \partial^\mu -m) \psi - q \bar{\psi}\gamma^\mu A_\mu \psi - \frac{1}{4}F_{\mu\nu} F^{\mu\nu}.
 \end{equation}
 
-The requirement of local gauge invariance necessitates the gauge field $A_\mu$ to be massless, since the term
-proportional to $A_\mu A^\mu$ is not invariant under local gauge transformations and therefore has to be excluded from
-the Lagrangian. In case of QED, the gauge field $A_\mu$ represents the photon field, and the Lagrangian describes the
+The requirement of local gauge invariance implies the gauge field $A_\mu$ must be massless, since the term proportional
+to $A_\mu A^\mu$ is not invariant under local gauge transformations and therefore has to be excluded from the
+Lagrangian. In case of QED, the gauge field $A_\mu$ represents the photon field, and the Lagrangian describes the
 interaction of Dirac fields (electrons and positrons) with Maxwell fields (photons).
 
-The idea of requiring a local gauge invariance by introducing additional fields in the Lagrangian to make it covariant
+The idea of requiring local gauge invariance by introducing additional fields in the Lagrangian to make it covariant
 with respect to an extended group of local transformations is an important procedure in particle physics, referred to as
-gauge principle. In the example above, the local phase transformation can be thought of as multiplication of the Dirac
-field $\psi$ by a $1 \times 1$ unitary matrix ($\psi \rightarrow U \psi$, where $U^{\dag}U = 1$). Here $U = e^{i
-\theta(x)}$, and all such transformations form an Abelian Lie group of $U(1)$, since any two its elements commute:
+the gauge principle. In the example above, the local phase transformation can be thought of as multiplication of the
+Dirac field $\psi$ by a $1 \times 1$ unitary matrix ($\psi \rightarrow U \psi$, where $U^{\dag}U = 1$). Here $U = e^{i
+\theta(x)}$, and all such transformations form the Lie group $U(1)$. This is an Abelian group, since any two its
+elements commute:
 \begin{equation}
 [e^{i \theta(x)},~e^{i\theta(x')}] = 0.
 \end{equation}
 
 The same strategy of requiring the global invariance to hold locally can be generalised to any $SU(N)$ group: in the
-1950s Yang and Mills produced a theory of $SU(2)$ gauge fields, and later on the idea was extended to $SU(3)$ group
-giving rise to Quantum Chromodynamics. In fact, all of the fundamental interactions in the Standard Model are introduced
-using the same gauge principle.
+1950s Yang and Mills \autocite{Yang_Mills} produced a theory of $SU(2)$ gauge fields, and later on the idea was extended
+to $SU(3)$ group giving rise to Quantum Chromodynamics. In fact, all of the fundamental interactions in the Standard
+Model are introduced using the same gauge principle.
 
 \newpage
 \subsection{Electroweak theory}
@@ -132,16 +135,15 @@ In 1961, a partially unified theory combining the electromagnetic and weak inter
 \autocite{Glashow}. A few years later the model was independently revised by Weinberg \autocite{Weinberg} and Salam
 \autocite{Salam} to introduce massive vector bosons, acquiring mass through spontaneous symmetry breaking. The resulting
 electroweak theory, usually referred to as GWS model, is based on a non-Abelian (i.e.\ not commuting) symmetry group of
-$SU(2)_L \times U(1)_Y$. Here $U(1)_Y$ is no longer a QED gauge group mentioned previously, but the group associated
-with the weak hypercharge $Y$, which relates to the electric charge $Q$ and the third component of weak isospin $I_3$
-as
+$SU(2)_L \times U(1)_Y$. Here $U(1)_Y$ is no longer the QED gauge group mentioned previously, but the group associated
+with the weak hypercharge $Y$, which relates to the electric charge $Q$ and the third component of weak isospin $I_3$ as
 \begin{equation}
 Q = I_3 + \frac{Y}{2} 
 \end{equation} 
 
-This equation is known as Gell-Mann-Nishijima relation, and the coefficient in front of the weak hypercharge is purely
-conventional. The weak force is the only interaction that violates parity, meaning that it can distinguish between
-left-handed and right-handed systems -- this fact was famously confirmed by Madame Wu's experiment in 1957
+This equation is known as the Gell-Mann-Nishijima relation, and the coefficient in front of the weak hypercharge is
+purely conventional. The weak force is the only interaction that violates parity, meaning that it can distinguish
+between left-handed and right-handed systems -- this fact was famously confirmed by Madame Wu's experiment in 1957
 \autocite{Madame_Wu}. To accommodate for this observation, fermion fields are divided into left-handed and right-handed
 components as follows:
 \begin{equation}
@@ -167,17 +169,18 @@ where
 \end{pmatrix}.
 \end{equation}
 
-By requiring a local gauge invariance to the group $SU(2)_L \times U(1)_Y$, a covariant derivative is written as
+By requiring local gauge invariance under the group $SU(2)_L \times U(1)_Y$, a covariant derivative is written as
 \begin{equation}
 \partial_\mu \rightarrow D_\mu = \partial_\mu + i g \mathbf{T} \cdot \mathbf{W}_\mu + i \frac{g'}{2} Y B_\mu.
 \label{eq:D_mu_EWK}
 \end{equation}
 
 Here $g$ and $g'$ are the coupling constants for groups $SU(2)_L$ and $U(1)_Y$, respectively; $\mathbf{T} =
-\hat{\sigma}/2$ are the Pauli matrices which are the generators for $SU(2)$ group; $\mathbf{W}_\mu$ is the triplet of
-new gauge fields $W^{1,2,3}_\mu$ introduced for $SU(2)_L$ invariance; $B_\mu$ is the new gauge field for $U(1)_Y$
-invariance. For right-handed particles (singlets), $\mathbf{T} = 0$ and the second term in the covariant derivative
-vanishes. The resulting gauge-invariant Lagrangian for electroweak theory with kinetic energy terms takes form:
+\hat{\sigma}/2$, where $\hat{\sigma}$ are the Pauli matrices which are the generators for $SU(2)$ group;
+$\mathbf{W}_\mu$ is the triplet of new gauge fields $W^{1,2,3}_\mu$ introduced for $SU(2)_L$ invariance; $B_\mu$ is the
+new gauge field for $U(1)_Y$ invariance. For right-handed particles (singlets), $\mathbf{T} = 0$ and the second term in
+the covariant derivative vanishes. The resulting gauge-invariant Lagrangian for electroweak theory with kinetic energy
+terms takes form:
 \begin{equation}
 \label{eq:EWK_L}
 \calL_\textrm{EWK} = \bar{\psi}_L \gamma^\mu ( i\partial_\mu  - g \mathbf{T} \cdot \mathbf{W}_\mu - \frac{g'}{2} Y
@@ -208,7 +211,7 @@ produced by mixing the neutral fields $W^3_\mu$ and $B_\mu$ with a rotation by t
 e = g' \cos{\theta_W} = g \sin{\theta_W}.
 \end{equation}
 
-Up to this point, there are no mass terms in the Lagrangian as their introduction would violate the gauge invariance.
+Up to this point, there are no mass terms in the Lagrangian as their introduction would violate gauge invariance.
 However, the existence of massive \W and \Z bosons clearly contradicts the notion of massless gauge fields in
 electroweak theory. This problem is solved by the Higgs mechanism of spontaneous gauge symmetry breaking, which is a
 subject of Section~\ref{ss:electroweak_symmetry_breaking}.
@@ -232,13 +235,13 @@ under local $SU(3)$ gauge transformations, the QCD Lagrangian is given as
 G_a^{\mu\nu}.
 \end{equation}
 
-Here $T_a = \lambda_a / 2$ are the Gell-Mann matrices, i.e.\ eight generators of the $SU(3)$ group, satisfying the Lie
-algebra:
+Here $T_a = \lambda_a / 2$, where $\lambda_a$ are the Gell-Mann matrices, i.e.\ eight generators of the $SU(3)$ group,
+satisfying the Lie algebra:
 \begin{equation}
 [T_a,T_b] = i f_{abc} T_c.
 \end{equation}
 
-This gives rise to eight gauge fields -- massless gluons. The field strength $G^a_{\mu\nu}$ is tensor is analogous to
+This gives rise to eight gauge fields -- massless gluons. The field strength $G^a_{\mu\nu}$ is a tensor analogous to
 that of QED (Equation~\ref{eq:F_mu_nu}), but contains an extra term proportional to the structure constants $f^{abc}$,
 responsible for self-interaction of gluons:
 \begin{equation}
@@ -258,34 +261,36 @@ QCD gauge coupling $g_S$, which is usually presented in terms of $\alpha_S$ defi
 \alpha_S (\mu) = \frac{g_S (\mu)^2}{4 \pi},
 \end{equation}
 where $\mu$ is the energy scale of the process. It was discovered that $\alpha_S$ \textit{decreases} with the increase
-of energy scale. This can be shown by evaluating contributions from quark-antiquark and (crucially) gluon-gluon loops,
-leading to the first order to \autocite{Griffiths}
+of energy scale. This can be shown by evaluating contributions from quark-antiquark and (crucially) gluon-gluon loops
+\autocite{Griffiths}, leading to the first order to:
 \begin{equation}
 \alpha_S (\mu) = \frac{12\pi}{(33-2n_f) \ln(\mu^2/\Lambda_{\text{QCD}}^2)},
 \label{eq:alpha_S}
 \end{equation}
 where $n_f$ is the number of flavours available at the energy scale $\mu$, and $\Lambda_{QCD}$ is the QCD scale, i.e.\
 the value of renormalisation scale at which the QCD coupling diverges. Since the number of quark flavours is known to be
-less than 16, the coefficient by the logarithm in Equation~\ref{eq:alpha_S} is positive, meaning that $\alpha_S$ in fact
+less than 16, the coefficient of the logarithm in Equation~\ref{eq:alpha_S} is positive, meaning that $\alpha_S$ in fact
 decreases with the increase of $\mu$ (or decrease of the probe distance). An important consequence of this phenomenon is
 the fact that at very short distances (\SI{\sim0.1}{\femto\metre}), the strong force is relatively weak and quarks
 become effectively free (hence the name ``asymptotic freedom'').
 
-\item [Colour confinement] is another important consequence -- since the strong force increases with distance between
-quarks, in case if the quarks move apart the energy rises until being sufficient to form a quark-antiquark pair. This
-process is called hadronisation, and it continues until the kinetic energy of the quarks is completely transformed into
-the energy of creation of new quark pairs. All quarks are therefore confined in colourless bound states, called hadrons.
-Hadrons formed by a quark-antiquark pair are called mesons, whereas combinations of three quarks or three antiquarks are
-referred to as baryons. Bound states with higher number of quarks (e.g.\ pentaquarks), or containing gluons only
-(glueballs) remain unobserved, despite being predicted by the Standard Model.
+\item [Colour confinement] is another important consequence -- since the strong force increases with the distance
+between quarks, if the quarks move apart the energy rises until it becomes sufficient to form a quark-antiquark pair.
+This process is called hadronisation, and it continues until the kinetic energy of the quarks is completely transformed
+into the energy of creation of new quark pairs. All quarks are therefore confined in colourless bound states, called
+hadrons. Hadrons formed by a quark-antiquark pair are called mesons, whereas combinations of three quarks or three
+antiquarks are referred to as baryons. Recently a tetraquark (\cPqc\cPaqc\cPqd\cPaqu) state has been confirmed by the
+LHCb collaboration with an overwhelming significance of at least \SI{13.9}{\sigma} \autocite{tetraquark_LHCb}. Bound
+states with higher number of quarks (e.g.\ pentaquarks), or containing gluons only (glueballs) remain unobserved,
+despite being predicted by the Standard Model.
 
 \end{description}
 
 In Section~\ref{ss:electroweak_theory} we introduced weak isospin doublets for three generations of left-handed quarks
 (Equation~\ref{eq:quark_EWK_fields}). These states, however, do not exactly correspond to the strong force eigenstates.
 Experimental evidence (e.g.\ $n \rightarrow p e^- \bar{\nu_e}$ decay) suggests that the weak interaction is capable of
-changing the quark flavour, meaning that the weak interaction eigenstates are in fact mixtures of flavour eigenstates.
-Relation between the two sets of eigenstates is given by the Cabbibo-Kobayashi-Maskawa (CKM) matrix:
+changing the quark flavour, meaning that the weak interaction eigenstates are in fact mixtures of mass eigenstates. The
+relation between the two sets of eigenstates is given by the Cabbibo-Kobayashi-Maskawa (CKM) matrix:
 \begin{equation}
 \threevector{d'}{s'}{b'}
 =
@@ -297,8 +302,8 @@ V_{td} & V_{ts} & V_{tb}
 \threevector{d}{s}{b},
 \label{eq:CKM}
 \end{equation}
-where $d'$, $s'$, $b'$ are the weak interaction eigenstates, and $d$, $s$, $b$ are the strong force eigenstates. The CKM
-matrix describes flavour mixing, i.e.\ the probability of transitions between different quark flavours through weak
+where $d'$, $s'$, $b'$ are the weak interaction eigenstates, and $d$, $s$, $b$ are the mass eigenstates. The CKM matrix
+describes flavour mixing, i.e.\ the probability of transitions between different quark flavours through weak
 interactions. The origin of such mixing lies in the Yukawa interaction between quarks and the Higgs field, described in
 the next section.
 
