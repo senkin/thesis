@@ -1,0 +1,39 @@
+\begin{figure}[!hbtp]
+	\centering
+	\vspace*{0.5cm}
+	\begin{minipage}[b]{0.4\textwidth}
+	\centering
+	\subfloat[]{
+		\begin{fmfgraph*}(100,50)
+		\fmfleft{i}
+		\fmfright{o}
+		\fmflabel{$H$}{i}
+		\fmflabel{$H$}{o}
+		\fmf{dashes,tension=3}{i,v1}
+		\fmf{dashes,tension=3}{v2,o}
+		\fmf{fermion,left,tension=1}{v1,v2,v1}
+		\fmfdot{v1,v2}
+		\end{fmfgraph*}
+	}
+	\end{minipage}
+	\hspace{1cm}
+	\begin{minipage}[b]{0.4\textwidth}
+	\centering
+	\subfloat[]{
+		\begin{fmfgraph*}(100,50)
+		\fmfleft{i}
+		\fmfright{o}
+		\fmflabel{$H$}{i}
+		\fmflabel{$H$}{o}
+		\fmf{dashes}{i,v1}
+		\fmf{dashes}{v1,o}
+		\fmffreeze
+		\fmf{dashes,tension=1}{v1,v1}
+		\fmfdot{v1}
+		\end{fmfgraph*}
+	}
+	\end{minipage}
+	\caption[Loop contributions to the Higgs boson mass]{Loop contributions to the Higgs boson mass: (a) fermion loops, (b)
+	boson loops.}
+  \label{fig:Higgs_loops}
+\end{figure}

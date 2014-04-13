@@ -793,11 +793,11 @@ distribution:
 d = U^T \times b
 \end{equation}
 
-For a reasonably smooth measured distribution (an a priori knowledge used for regularisation), only the first few terms
-of the decomposition are expected to be significant, with the rest of the terms corresponding to quickly oscillating
-vectors. This implies that the distribution $d_i$ of the vector $d$ components is expected to gradually fall towards
-a Gaussian-distributed random values for large $i$. The number of first few significant components ($\abs {d_i} \geq 1$)
-is therefore chosen as a regularisation parameter.
+For a reasonably smooth measured distribution (an \textit{a priori} knowledge used for regularisation), only the first
+few terms of the decomposition are expected to be significant, with the rest of the terms corresponding to quickly
+oscillating vectors. This implies that the distribution $d_i$ of the vector $d$ components is expected to gradually fall
+towards a Gaussian-distributed random values for large $i$. The number of first few significant components ($\abs {d_i}
+\geq 1$) is therefore chosen as a regularisation parameter.
 
 In this work, RooUnfold package \autocite{RooUnfold} is used to implement the SVD method of data unfolding. The unfolded
 \MET is defined as the generated \pt of the neutrino produced in the semileptonic \ttbar decay. The underlying \HT (and
