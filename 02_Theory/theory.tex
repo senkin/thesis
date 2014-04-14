@@ -763,7 +763,7 @@ in perturbative QCD. The soft long-range part of the interaction, on the contrar
 instead is parametrised by the PDFs, which have to be obtained from experimental data. Figure~\ref{fig:CT10_PDFs} shows
 one of the latest PDFs obtained by the CTEQ-TEA collaboration \autocite{CT10_NNLO}.
 
-\begin{figure}[!hbtp]
+\begin{figure}[hbtp]
    \centering
    \subfloat[]{\includegraphics[width=0.5\textwidth]{CT10_1}}
    \subfloat[]{\includegraphics[width=0.5\textwidth]{CT10_2}}
@@ -773,8 +773,8 @@ one of the latest PDFs obtained by the CTEQ-TEA collaboration \autocite{CT10_NNL
    \label{fig:CT10_PDFs}
 \end{figure}
 
-In the leading order approximation, the total \ttbar production cross section for hard scattering processes in hadron
-collisions can be calculated as \autocite{Sterman1986, primer_LHC}:
+The total \ttbar production cross section for hard scattering processes in hadron collisions can be calculated to a
+fixed order as \autocite{Sterman1986, primer_LHC}:
 \begin{equation}
 \sigma^{\ttbar} (s,\mtop^2) = \sum_{i,j} \int dx_i dx_j f_i(x_i, \mu_f^2) f_j(x_j,\mu_f^2) \hat{\sigma}_{i,j
 \rightarrow \ttbar} (\hat{s}, \mtop^2, \alpha_S(\mu_r^2)),
@@ -782,8 +782,9 @@ collisions can be calculated as \autocite{Sterman1986, primer_LHC}:
 where the indices $i,j$ run over the incoming partons (gluons and quark-antiquark pairs), $x_{i,j}$ are the momentum
 fractions of the incoming partons, $f_{i,j}$ are their parton distribution functions, and $\hat{\sigma}_{i,j
 \rightarrow \ttbar}$ is the cross section of interacting partons, which depends on the parton centre of mass energy
-$\hat{s} = x_i x_j s$, the top quark mass \mtop, and the QCD strong coupling constant $\alpha_S$. The latter parameter
-is evaluated at renormalisation scale $\mu_r$. %explain?
+$\hat{s} \sim x_i x_j s$, the top quark mass \mtop, and the QCD strong coupling constant $\alpha_S$. The latter
+parameter is evaluated at renormalisation scale $\mu_r$. The top quark mass \mtop, as discussed in
+Section~\ref{ss:top_mass}, also depends on the choice of renormalisation scheme and scale $\mu_r$.
 
 The results of the most recent theoretical calculation of \ttbar cross section performed with
 next-to-next-to-leading-order (NNLO) QCD corrections \autocite{NNLO_ttbar} are given in
@@ -793,7 +794,7 @@ Figure~\ref{fig:xsections_comparison_NNLO}.
 
 \input{02_Theory/tables/ttbar_NNLO_xsections}
 
-\begin{figure}[!hbtp]
+\begin{figure}[bhtp]
    \centering
    {\includegraphics[width=0.7\textwidth]{xsections_comparison_NNLO}}
    \caption[Measurement of the \ttbar production cross section]{Measurement of the \ttbar production cross section at
@@ -802,15 +803,51 @@ Figure~\ref{fig:xsections_comparison_NNLO}.
    \label{fig:xsections_comparison_NNLO}
 \end{figure}
 
-% Importance of differential cross section measurements, allowed by large statistics at LHC
+An abundance of top quark events at the LHC allows measurements of differential \ttbar production cross section with
+respect to many different variables. These measurements provide important tools for validation of various MC models and
+higher-order QCD calculations of \ttbar production. Since the very same models are used in BSM searches where \ttbar
+events represent a major background, such validation is of great importance. Moreover, these measurements can themselves
+be sensitive to signal contributions from new physics.
 
-% Different types - some examples
+Normalised differential cross section in each bin $i$ of an observed variable $\mathrm{X}$ is given by:
+\begin{equation}
+\label{eq:normalised_differential_xsection_theory}
+\frac{1}{\sigttbar^\mathrm{tot}} \frac{\mathrm{d}\sigma_i}{\mathrm{d} \mathrm{X}} = \frac{1}{\sigttbar^\mathrm{tot}}
+\frac{x_i}{\Delta \mathrm{X}_i \calL},
+\end{equation}
+where $x_i$ is the number of signal events in data after subtraction of background, corrected for detector efficiency,
+acceptance and migration between the bins of variable $\mathrm{X}$; $\calL$ is the total integrated luminosity; $\Delta
+\mathrm{X}_i$ is the variable bin width; and $\sigttbar^\mathrm{tot}$ is the total \ttbar production cross section. The
+normalisation is performed in order to cancel the systematic uncertainties that are correlated between the bins of
+variable $\mathrm{X}$.
 
-% Testing different MC generators and models, used in BSM searches where ttbar is background
+Both ATLAS and CMS collaborations have delivered a range of differential \ttbar production cross section measurements
+\autocite{ATLAS_diff_xsections_7TeV, CMS_diff_xsections_7TeV}. For instance, Figure~\ref{fig:ATLAS_CMS_diff_xsections}
+shows the normalised differential cross section with respect to the invariant mass of \ttbar pair ($m_{\ttbar}$),
+measured by ATLAS and CMS collaborations using the $\sqrt{s} = \SI{7}{\TeV}$ LHC data. These measurements require a full
+kinematic reconstruction of the semileptonic \ttbar decay in order to accurately calculate the $m_{\ttbar}$ variable.
+Other variables requiring the kinematic reconstruction include the transverse momenta of top quarks decaying either
+leptonically or hadronically, their rapidities, etc.
 
-% Potential signs of new physics in the tails of distributions
+\begin{figure}[hbtp]
+   \centering
+   \subfloat[]{\includegraphics[width=0.5\textwidth]{ATLAS_diff_xsection_mtt}}
+   \subfloat[]{\includegraphics[width=0.5\textwidth]{CMS_diff_xsection_mtt}}
+   \caption[Normalised differential \ttbar production cross section measurements by ATLAS and CMS
+   collaborations]{Normalised differential \ttbar production cross section measurements in the $l+$jets channel with
+   respect to the invariant mass of a top quark pair. (a) ATLAS measurement \autocite{ATLAS_diff_xsections_7TeV}, (b)
+   CMS measurement \autocite{CMS_diff_xsections_7TeV}.}
+   \label{fig:ATLAS_CMS_diff_xsections}
+\end{figure}
 
-\newpage
+In this thesis, the \ttbar differential cross section is measured with respect to so-called event-level (or global)
+variables, not requiring a kinematic reconstruction of the \ttbar decay -- for example, missing transverse energy (\MET)
+or total hadronic activity (\HT) in the event (see Section~\ref{ss_xsection:variables}). The main advantage of these
+measurements is the absence of the systematic uncertainty associated with the kinematic reconstruction. Additionally,
+signs of new physics scenarios could be revealed in the tails of these distributions. For example, an associative
+production of a \ttbar pair with some new resonance ($\ttbar+\mathrm{X}$) decaying invisibly can show up in the tail of
+the missing transverse energy distribution.
+
 \section{Summary}
 In this chapter, an overview of the Standard Model has been presented. The concept of gauge principle and its
 applications in the electroweak theory and the Quantum Chromodynamics, as well as the mechanism of the electroweak
