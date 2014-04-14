@@ -13,37 +13,36 @@ operation. While the production rate of \SI{\approx1}{\Hz} seems manageable in t
 significantly complicated by background processes with similar signatures occurring at much higher rates.
 
 The trigger is the starting point of any physics event selection process, and therefore is clearly important for any
-physics analysis. As it was mentioned in Section~\ref{ss:trigger_daq}, the CMS L1 trigger rate is limited to
+physics analysis. As mentioned in Section~\ref{ss:trigger_daq}, the CMS L1 trigger rate is limited to
 \SI{\sim100}{\kilo\hertz}. In order to meet the data recording constraints of approximately
 \SI{300}{\mega\byte\per\second}, this rate is further reduced down to \SI{\sim300}{\Hz}, which is done by the HLT
-system. The total rate budget has to be shared between various physics analysis groups (e.g.\ Top, Higgs, Exotica, etc).
-Corresponding allocations are determined by CMS trigger coordination according to CMS physics goals, and can be a matter
-of serious debate.
+system. The total rate budget has to be allocated to maximise the acceptance across the full range of the CMS physics
+programme, which can be a matter of serious debate.
 
 During the LHC operation in 2011 and 2012 under conditions of gradual increase of instantaneous luminosity and pile-up,
 but very limited rate budget, trigger developers constantly tackled the challenge of finding the best compromise between
 growing rates and maintaining reasonable signal acceptance. While the simplest approach is tightening the cuts on
 physical quantities like lepton or jet transverse momenta, it is not favourable since it lowers the number of stored
 signal events and decreases the phase space which is crucial for new physics searches as well as Standard Model
-precision measurements. Therefore, development of more efficient algorithms allowing to keep high level of acceptance
-for signal events, whilst effectively rejecting background events, is the most preferable solution. This can often be
-achieved by increasing the level of approximation of the online (HLT) object reconstruction, making the algorithms
-closer to their sophisticated offline counterparts. However, it leads to a higher execution time, which is limited by
-computing resources available for HLT reconstruction. Hence, the CPU timing is another major constraint faced by the HLT
-developers.
+precision measurements. Therefore, the development of more efficient algorithms is the most preferable solution,
+allowing a high level of acceptance to be kept for signal events, whilst effectively rejecting background events. This
+can often be achieved by reducing the level of approximation of the online (HLT) object reconstruction, making the
+algorithms closer to their sophisticated offline counterparts. However, it leads to a higher execution time, which is
+limited by computing resources available for HLT reconstruction. Hence, the CPU timing is another major constraint faced
+by the HLT developers.
 
 This chapter covers the author's contribution to development and verification of High-Level Triggers for top physics
-with semileptonic signature, where one of the W bosons decays into an electron and a neutrino. The description of top
+with a semileptonic signature, where one of the W bosons decays into an electron and a neutrino. The description of top
 triggers, efficiency measurement, validation of jet energy corrections and pile-up subtraction applied at the HLT level
 are discussed in relevant sections of this chapter.
 
 \section{Level-1 triggers}
 The CMS L1 trigger \autocite{CMS_L1_Trigger_TDR} is built of custom electronics processing the data from the
 calorimeters and the muon system. It is the first filtering stage of any physics selection, therefore it has high
-requirements on efficiency and phase space. The input rate of events, i.e.\ the beam crossing frequency of
-\SI{\sim5e8}{\hertz} must be reduced down to \SI{\sim100}{\kilo\hertz}, being a major challenge considering a gradual
-increase of instantaneous luminosity throughout the LHC operation. The rate budget of \SI{\sim100}{\kilo\hertz} is
-shared between several L1 triggers corresponding to different physics objects being present in the event. For top
+requirements on efficiency and phase space acceptance. The input rate of events, i.e.\ the beam crossing frequency of
+\SI{\sim5e8}{\hertz} must be reduced down to \SI{\sim100}{\kilo\hertz}. This represents a major challenge considering a
+gradual increase of instantaneous luminosity throughout the LHC operation. The rate budget of \SI{\sim100}{\kilo\hertz}
+is shared between several L1 triggers corresponding to different physics objects being present in the event. For top
 physics signatures with a single electron in the final state, the following triggers have been used:
 
 \begin{itemize}
@@ -52,49 +51,53 @@ physics signatures with a single electron in the final state, the following trig
  \item L1\_SingleEG\_22
 \end{itemize}
 
-These triggers are referred to as electron/photon (e/$\gamma$, or EG) triggers. They scan the ECAL for groups of crystal
-cells ($4 \times 4$) with a cumulative energy above the threshold that is suggested by the name of the trigger
-(\SIlist{18;20;22}{\GeV}). The choice of threshold is determined by sustainability of the trigger rate at a given
-instantaneous luminosity.
+These triggers are referred to as electron/photon (e/$\gamma$, or EG) triggers. They scan the ECAL for groups of trigger
+cells\footnote{Each trigger cell is formed by $5 \times 5$ crystals in the barrel region, corresponding to dimensions of
+$\Delta\eta \times \Delta\phi = \num{0.087 x 0.087}$; these numbers vary in the endcap region
+\autocite{CMS_L1_Trigger_TDR}.} ($4 \times 4$) with a summed energy above the threshold that is suggested by the name of
+the trigger (\SIlist{18;20;22}{\GeV}). The choice of threshold is determined by sustainability of the trigger rate at a
+given instantaneous luminosity.
 
 \begin{figure}[!htbp]
   \centering
   \leavevmode
   \includegraphics[width=0.5\columnwidth]{L1_turnon}
   \caption{Efficiency of the \SI{20}{\GeV} e/$\gamma$ trigger as a function of offline \ET, shown separately for
-  barrel and endcap regions \autocite{L1_Brooke}.}
+  barrel and endcap regions \autocite{L1_Brooke}}
   \label{fig:L1_seed_turn_on_curve}
 \end{figure}
 
 The efficiency of the L1\_SingleEG\_20 trigger as a function of the offline-reconstructed electron transverse momentum
-is shown on Figure~\ref{fig:L1_seed_turn_on_curve}. The L1 trigger decisions are then used as an input ``seeds'' to the
-HLT system, which is described in the following section.
+is shown on Figure~\ref{fig:L1_seed_turn_on_curve}. Clearly, the turn-on curve of the trigger is sharper in the barrel
+region than in the endcap region. The plateau region of the curve (\SI{\approx95}{\pc} efficiency) is reached at
+\SI{\approx30}{\GeV} in the barrel and \SI{\approx35}{\GeV} in the endcap region. This difference in trigger efficiency
+needs to be taken into account in the construction of the high-level trigger, as the L1 trigger decisions are used as
+input ``seeds'' to the HLT system, which is described in the following section.
 
 \section{High-level triggers for top physics}
 \label{s:hlt_for_top_physics}
-The High-Level Trigger \autocite{HLT} is the crucial part of CMS event selection process. As it was mentioned in
+The High-Level Trigger \autocite{HLT} is the crucial part of CMS event selection process. As mentioned in
 Section~\ref{ss:trigger_daq}, it is based on software algorithms running on the Event Filter Farm, i.e.\ a large cluster
 of commercial CPUs. The HLT reconstruction, often referred to as online reconstruction, is implemented in the same
 software framework (CMSSW) which is used for offline reconstruction, and the algorithms can be very similar. However,
 the key difference between online and offline reconstruction is the running time. Since the HLT selection has to be
-performed in real time, it imposes a significant constraint on computing resources, enforcing to compromise on
+performed in real time, it imposes a significant constraint on computing resources, enforcing compromises on the
 robustness and efficiency of online algorithms. With an exception of small samples for performance monitoring, data
 rejected by the HLT is lost irrevocably. Therefore, correct and efficient operation of the HLT is of major importance
-for CMS physics programme.
+for the CMS physics programme.
 
-Modular structure of CMSSW provides high flexibility in use of selection and reconstruction algorithms, allowing their
-continuous optimisation according to changes in physics needs and data-taking conditions. Various modules account for
-reconstruction of different physics objects and their matching with L1 objects, filtering, logging, monitoring, etc. All
-these modules are grouped into so-called trigger ``paths'', ultimately giving trigger decisions on whether to accept an
-event or not. A typical example of a trigger path used for top physics is an electron-plus-jets trigger, which requires
-the presence of isolated electron and at least three energetic jets in the event.
+The modular structure of CMSSW provides high flexibility in use of selection and reconstruction algorithms, allowing
+their continuous optimisation according to changes in physics needs and data-taking conditions. Various modules account
+for reconstruction of different physics objects and their matching with L1 objects, filtering, logging, monitoring, etc.
+All these modules are grouped into so-called trigger ``paths'', ultimately giving trigger decisions on whether to accept
+an event or not. A typical example of a trigger path used for top physics is an electron plus jets trigger, which
+requires the presence of isolated electron and at least three energetic jets in the event.
 
-There are two types of trigger paths: prescaled and unprescaled. Prescaling is a method of reducing the trigger rate by
-only recording a fraction of events that pass the trigger selection. For example, if the prescale value of a particular
-trigger is 10, only one out of ten events that fire the trigger will be actually recorded. Usually prescaled triggers
-are used for performance monitoring and background estimation as they can impose a much looser selection criteria yet
-still have manageable rate. However, such triggers are unfavourable for signal selection, as they greatly reduce signal
-acceptance.
+A trigger path can be prescaled or unprescaled. Prescaling is a method of reducing the trigger rate by only recording a
+fraction of events that pass the trigger selection. For example, if the prescale value of a particular trigger is 10,
+only one out of ten events that fire the trigger will be actually recorded. Usually prescaled triggers are used for
+performance monitoring and background estimation as they can impose a much looser selection criteria yet still have
+manageable rate. However, such triggers are unfavourable for signal selection, as they greatly reduce signal acceptance.
 
 A set of trigger paths and their prescale factors is combined in the HLT configuration, referred to as the HLT menu or
 table \autocite{HLT_commissioning}. Since the start of data-taking in 2010, the CMS trigger coordination adopted a
@@ -104,44 +107,47 @@ conditions. In order for a trigger path to be included in the trigger menu, it h
 configurations database, validated by measuring the trigger rate and signal efficiency, tested for CPU timing and
 finally approved by the trigger studies group.
 
-As it was mentioned before, the top quark pair decay covered in this work has a semileptonic signature, containing an
-electron, at least four jets and a neutrino in form of \MET. Due to the nature of the decay, all these objects are
-highly energetic and can be triggered on with rather high thresholds on transverse energy. During the start-up year of
-2010 when the instantaneous luminosity went up from \SI{\sim e27}{\cm^{-2}~s^{-1}} to \SI{\sim e31}{\cm^{-2}~s^{-1}},
-top analyses with the signature of interest used the single electron trigger, requiring just one electron with certain
+As mentioned before, the top quark pair decay covered in this work has a semileptonic signature, containing an electron,
+at least four jets and a neutrino giving rise to \MET. Due to the nature of the decay, all these objects are highly
+energetic and can be triggered on with rather high thresholds on transverse energy. During the start-up year of 2010
+when the instantaneous luminosity went up from \SI{\sim e27}{\cm^{-2}~s^{-1}} to \SI{\sim e31}{\cm^{-2}~s^{-1}}, top
+analyses with the signature of interest used the single electron trigger, requiring just one electron with certain
 isolation and transverse momentum criteria. However, by extrapolating the trigger rates on higher luminosities foreseen
 in the following years it became obvious that the single electron trigger rate would quickly become too high for the
 rate budget restrictions at the time. Therefore, alternative ways of adding other objects from the \ttbar signature were
-explored, naturally leading to electron-plus-jets trigger solution.
+explored, naturally leading to electron plus jets trigger solution.
 
-A typical electron-plus-jets trigger consists of a standard electron module, a jet module, a cleaning module to remove
+A typical electron plus jets trigger consists of a standard electron module, a jet module, a cleaning module to remove
 overlap between jet and electron collections, and a jet multiplicity filter. The electron module is constructed from the
 following sub-modules:
 
-\begin{itemize}
+\begin{enumerate}
   \item L1 object and ECAL super-cluster matching;
   \item ECAL transverse energy filter;
   \item ECAL electron ID and isolation filter;
   \item HCAL electron ID and isolation filter;
-  \item tracker electron ID and isolation filter.
-\end{itemize}
+  \item Tracker electron ID and isolation filter.
+\end{enumerate}
 
 To minimise the total running time, all the sub-modules are ordered by speed, starting from the fastest. The matching
-module finds the ECAL super-cluster closest to the L1 object in $\eta$ and $\phi$ dimensions. If the super-cluster is
-located within a certain $\eta$ and $\phi$ range, the event is passed to the next module, otherwise it is rejected.
+module (1) finds the ECAL super-cluster closest to the L1 object in $\eta$ and $\phi$ dimensions. If the super-cluster is
+located within a certain $\eta$ and $\phi$ range, the event is passed to the next module, otherwise it is rejected. The
+following ECAL module (2) calculates the super-cluster transverse energy ($E_\mathrm{T}$), and as long as it is above
+\SI{25}{\GeV}, the electron ID and isolation criteria are imposed using ECAL (3), HCAL (4) and the tracker (5)
+information (see Section~\ref{ss:electron_reconstruction}).
 
-The following (ECAL) module calculates the super-cluster transverse energy ($E_\mathrm{T}$), and in case if it is above
-\SI{25}{\GeV}, the electron ID and isolation criteria are imposed for both ECAL and HCAL (see
-Section~\ref{ss:electron_reconstruction}). The working points of identification and isolation and their naming
-conventions are shown in Table~\ref{tab:trigger_naming}.
+The working points for identification and isolation criteria and their naming conventions are shown in
+Table~\ref{tab:trigger_naming}. Working points studied for 2011 analysis (Chapter~\ref{c:top_mass_analysis}) were known
+by the following descriptive lables: VeryLoose (VL), Loose (L), Tight (T), and VeryTight (VT). In 2012, the working
+point known as WP80 was introduced for the use in single electron trigger, described later on.
 
 \input{04_Service_work/tables/trigger_naming}
 % source: https://twiki.cern.ch/twiki/bin/view/CMS/EgammaWorkingPointsv3 (restricted access so no reference)
 % although, can reference Luke's thesis
 
-In the main trigger path used for signal rather than background estimation, Very Tight (VT) working point for
-calorimeter identification (CaloID) and Tight (T) working point for calorimeter isolation (CaloIso) were used. This was
-motivated by consistency with similar criteria for the single electron trigger used in 2010.
+In the main trigger path used for signal rather than background estimation in 2011 analysis, the Very Tight (VT) working
+point for calorimeter identification (CaloID) and the Tight (T) working point for calorimeter isolation (CaloIso) were
+used. This was motivated by consistency with similar criteria for the single electron trigger used in 2010.
 
 For the events that pass all described criteria in the electron module, a simplified algorithm for offline iterative
 tracking is applied. This algorithm has a faster running time at the expense of worse resolution. In order to decrease
@@ -149,20 +155,19 @@ the CPU usage, the Combinatorial Track Finder (CTF) \autocite{CTF_tracking} is u
 tracking is confined to a small region around the electron. The events are required to pass the tight criteria of the
 tracker electron ID (TrkId) which is calculated at this stage. Finally, the tight working point of the tracker isolation
 (TrkIso) is applied, where the track \pt is summed over all tracks within $\Delta R = 0.3$ cone around the electron
-track, excluding the electron itself. Provided that event passes all the electron sub-modules, the jet module is then
-executed.
+track, excluding the electron itself.
 
-The jet reconstruction is performed with the \antikt algorithm (see Section~\ref{ss:jet_reconstruction}) with a radius
-parameter of $R = 0.5$. Historically, at the early stages of LHC operation, CMS analyses mostly used calorimeter jets,
-i.e.\ jets reconstructed using calorimeter information exclusively. Therefore, initially the trigger jet module used
-calorimeter jet collection, which provided fast reconstruction yet worse resolution hence lower trigger efficiency
-comparing to PF jets which were introduced later on during 2011 data-taking. In order to work online, PF jet
-reconstruction was modified to be compatible with the simplified tracking algorithm. Despite the fact that running the
-jet module with PF jet reconstruction is highly CPU-intensive and therefore can not be used as an unprescaled
-stand-alone trigger, it works effectively together with the electron module since it reduces the input event rate
-considerably. Both calorimeter and PF jet versions of the module impose the $\SI{30}{\GeV}$ cut on transverse momentum
-on the jets as well as the pseudorapidity cut of $|\eta| < 2.6$. Subsequently, the jet collection is passed to the
-cleaning module.
+Provided that event passes all the electron sub-modules, the jet module is then executed. The jet reconstruction is
+performed with the \antikt algorithm (see Section~\ref{ss:jet_reconstruction}) with a radius parameter of $R = 0.5$.
+Historically, at the early stages of LHC operation, CMS analyses mostly used calorimeter jets, i.e.\ jets reconstructed
+using calorimeter information exclusively. Therefore, initially the trigger jet module used the calorimeter jet
+collection, which provided fast reconstruction but worse resolution, hence lower trigger efficiency comparing to PF jets
+which were introduced later on during 2011 data-taking. In order to work online, PF jet reconstruction was modified to
+be compatible with the simplified tracking algorithm. Despite the fact that running the jet module with PF jet
+reconstruction is highly CPU-intensive and therefore can not be used as an unprescaled stand-alone trigger, it works
+effectively together with the electron module since it reduces the input event rate considerably. Both calorimeter and
+PF jet versions of the module impose a $\SI{30}{\GeV}$ cut on transverse momentum of the jets as well as a
+pseudorapidity cut of $|\eta| < 2.6$. Subsequently, the jet collection is passed to the cleaning module.
 
 Within CMS, electron and jet collections are reconstructed independently, and since they often leave similar footprints
 in the detector, these collections can overlap, causing potential double-counting. The electron-jet cleaning module
@@ -174,14 +179,14 @@ jet collections are created for all electrons in the event, where jets are only 
 electrons. All these jet collections are passed to the following jet multiplicity filter, which accepts and event if at
 least one collection contains a desired number of cleaned jets.
 
-Electron-plus-jets triggers successfully functioned throughout 2011 and 2012 years of data taking. During 2011, they
+Electron plus jets triggers successfully functioned throughout 2011 and 2012 years of data taking. During 2011, they
 were used in the top mass analysis and differential cross section analysis with respect to missing transverse energy,
 described in this thesis. The 2012 cross section analysis used a single electron trigger with a lepton \pt threshold of
 \SI{27}{\GeV}, reasonably tight (WP80) lepton isolation requirements, but no specific jet requirements. In contrast to
 2011 running, this trigger was decided to be unprescaled in the trigger menu for the whole period of data-taking in
-2012, regardless of having a significant rate. It is favourable for many analyses as it is much more straightforward in
-terms of calculating efficiency and acceptance scale factors, also reducing the complexity of estimating the systematic
-errors associated with the triggering.
+2012, despite having a significant rate. It is favourable for many analyses as it is much more straightforward in terms
+of calculating efficiency and acceptance scale factors, also reducing the complexity of estimating the systematic errors
+associated with the triggering.
 
 \section{Trigger efficiency measurement}
 \label{s:trigger_efficicency_measurement}
@@ -194,8 +199,8 @@ therefore the same trigger may have different efficiencies for each of them.
 The trigger efficiency can be measured in both data and Monte Carlo simulation using various methods. For all of them,
 the study has to be performed on some initial preselected dataset. Ideally, this preselection needs to be unbiased with
 respect to selection imposed by the trigger and offline selection. However, in reality it implies running on vast
-amounts of data, with very little number of events satisfying the trigger selection, leading to insufficient statistics
-or non-feasible computing resources needed for the study. Therefore, some other trigger is used for preselecting the
+amounts of data, with very few events satisfying the trigger selection, leading to insufficient statistics or
+non-feasible computing resources needed for the study. Therefore, some other trigger is used for preselecting the
 initial dataset, somewhat correlated to the trigger under study in order to obtain reasonable statistics. To correctly
 measure the efficiency of a trigger path, this correlation has to be taken into account.
 
@@ -252,40 +257,39 @@ the total number of signal events, which also complicates estimation of the syst
 trigger. As for the efficiency dependency on the jet angular distribution, it is expected to be flat -- however, as it
 can be seen from the following section, this is not always the case.
 
-\section{Validation of jet energy corrections and charged hadron subtraction}
+\section{Jet energy corrections and charged hadron subtraction validation study}
 \label{s:JEC_PFnoPU_validation}
 In the end of 2011, to match the jet reconstruction method used by most CMS analyses, the calorimeter-based jet module
-in electron-plus-jets was replaced with PF-based one. This was done in an attempt to improve the \pt resolution of
-online jet reconstruction, reduce the rate and obtain sharper turn-on curves of the trigger efficiency. In the first
-iteration of PF-based trigger paths, no jet energy corrections were applied to the jets online, which resulted in
-observation of a non-flat trigger efficiency with respect to jet pseudorapidity. After a few months of work, responsible
-physics object group (known as ``JetMET'') provided a series of jet energy corrections to be applied at the HLT level,
-which were tested by the author.
+in the electron plus jets HLT path was replaced with a PF-based one. This was done in an attempt to improve the \pt
+resolution of online jet reconstruction, reduce the rate and obtain sharper turn-on curves of the trigger efficiency. In
+the first iteration of PF-based trigger paths, no jet energy corrections were applied to the jets online, which resulted
+in observation of a non-flat trigger efficiency with respect to jet pseudorapidity. After a few months of work, the
+responsible physics object group (known as ``JetMET'') provided a series of jet energy corrections to be applied at the
+HLT level, which were tested by the author.
 
-Pile-up turned out to be another major issue particularly specific to 2012 data-taking period. Increased centre of mass
+Pile-up turned out to be another major issue particularly during the 2012 data-taking period. Increased centre of mass
 energy and instantaneous luminosity at a bunch spacing of \SI{50}{\ns} effectively doubled the average number of pile-up
-vertices comparing to 2011 conditions. This led to a significant increase in rate of PF-jets triggers, requiring
+vertices compared to 2011 conditions. This led to a significant increase in the rates of PF-jets triggers, requiring
 implementation of pile-up mitigation techniques at the HLT level. As a result, charged hadron subtraction (CHS) for PF
 jets, also known as ``PFnoPU'', was introduced online. As the name suggests, it essentially removes the charged hadrons
 associated with secondary vertices from PF candidates, which helped to reduce the trigger rate dramatically. As top
 triggers operate with PF jets, they were greatly affected by pile-up, therefore this correction also had to be validated
-for electron-plus-jets triggers.
+for electron plus jets triggers.
 
 
-In this work, an impact of both jet energy corrections and pile-up subtraction on electron-plus-jets trigger efficiency
-was investigated. A rather complicated name of the main signal trigger under study (\HLTThreeCentralPFJet) suggests
-working points of tracker and calorimeter ID and isolation criteria for the signal electron (see
+In this work, the impact of both jet energy corrections and pile-up subtraction on the electron plus jets trigger
+efficiency was investigated. A rather complicated name of the main signal trigger under study (\HLTThreeCentralPFJet)
+suggests working points of tracker and calorimeter ID and isolation criteria for the signal electron (see
 Table~\ref{tab:trigger_naming}), as well as transverse momenta requirements for both electron (\SI{25}{\GeV}) and each
-of the three particle flow jets (\SI{30}{\GeV}). Since only hadronic part of the trigger was of interest for this
-particular study, the efficiency was measured by using a ``Single Electron'' primary dataset of raw 2012 data. This
-primary dataset was constructed by accepting events passing at least one of the several single electron triggers with
-various \pt and isolation requirements. One of the loosest triggers, referred to as HLT\_Ele27\_WP80, operates with
-working point ``WP80'', also shown in Table~\ref{tab:trigger_naming}, and electron \pt threshold of \SI{27}{\GeV}.
-%ONE OF THE LOOSEST? ISO IS PRETTY TIGHT
+of the three particle flow jets (\SI{30}{\GeV}). Since only the hadronic part of the trigger was of interest for this
+particular study, the efficiency was measured using a ``Single Electron'' primary dataset of raw 2012 data. This primary
+dataset was constructed by accepting events passing at least one of the several single electron triggers with various
+\pt and isolation requirements. One of the loosest triggers, referred to as HLT\_Ele27\_WP80, operates with working
+point ``WP80'', also shown in Table~\ref{tab:trigger_naming}, and electron \pt threshold of \SI{27}{\GeV}.
 
-Offline selection used to obtain a clean \ttbar sample is outlined in Section~\ref{s_top_mass:event_selection}, with an
-exception of the jet multiplicity requirement: here at least three jets were required. A tighter requirement of at least
-four jets was also of interest, as described below. The trigger efficiency is then calculated as:
+The offline selection used to obtain a clean \ttbar sample is outlined in Section~\ref{s_top_mass:event_selection}, with
+the exception of the jet multiplicity requirement: here at least three jets were required. A tighter requirement of at
+least four jets was also of interest, as described below. The trigger efficiency is then calculated as:
 \begin{equation}
 \epsilon = \frac{N_{\text{fired}}}{N_{\text{selected}}}
 \end{equation}
@@ -297,7 +301,7 @@ used. The efficiency in \pt was fitted with the default function describing the 
 \begin{equation}
 \epsilon(\pt) = A \times e^{\left(B \times e^{C \times \pt}\right)}
 \end{equation}
-while the efficiency in $\eta$ was fitted with
+while the efficiency in $\eta$ was fitted with a quadratic form:
 \begin{equation}
 \epsilon (\eta) = A \times \eta^2 + B \times \eta + C
 \end{equation}
@@ -307,7 +311,7 @@ Although the $\eta$ dependency was expected to be flat, the observed structure i
 triggers suggested the use of a parabolic fit function. In fact, this drop of the efficiency in the endcap region was
 the main motivation for the study, as it was believed to be due to the fact that the \pt- and $\eta$-dependent jet
 energy corrections were not applied online, causing inconsistency between HLT and offline reconstructed jets. Efficiency
-of the main electron-plus-jets trigger with no jet energy corrections applied is shown on
+of the main electron plus jets trigger with no jet energy corrections applied is shown on
 Figure~\ref{fig:top_hlt_pt_eta_3jets}. Clearly, parabolic shape is seen on the efficiency plot with respect to
 pseudorapidity of a third reconstructed jet (all the jets were sorted by the value of transverse momentum).
 
@@ -322,11 +326,10 @@ pseudorapidity of a third reconstructed jet (all the jets were sorted by the val
 \end{figure}
 
 It has to be emphasised that only efficiencies with respect to offline selection with at least three jets were affected.
-Requiring a fourth jet in the event increases the trigger efficiency to nearly \SI{100}{\percent}, as it can be seen
-on Figure~\ref{fig:top_hlt_pt_eta_4jets}. This implies that observed inefficiency in the endcap region was not
-critical for analyses requiring at least four jets in the event (including the ones in this thesis), however, it was
-still important to investigate this effect in order to better understand any possible systematic errors due to the
-triggering.
+Requiring a fourth jet in the event increases the trigger efficiency to nearly \SI{100}{\percent}, as can be seen on
+Figure~\ref{fig:top_hlt_pt_eta_4jets}. This implies that observed inefficiency in the endcap region was not critical for
+analyses requiring at least four jets in the event (including the ones in this thesis), however, it was still important
+to investigate this effect in order to better understand any possible systematic errors due to the triggering.
 
 \begin{figure}[hbtp]
     \centering
@@ -341,7 +344,7 @@ triggering.
 
 For the purpose of the study, a modified HLT menu was created, containing new versions of the main signal trigger with
 jet energy corrections and charged hadron subtraction applied. This menu was run on a \ttbar skim of a RAW dataset
-mentioned above, and resulting trigger flags as well as jet collections were used to produce the final plots.
+mentioned above, and the resulting trigger flags as well as jet collections were used to produce the final plots.
 
 Figure~\ref{fig:top_hlt_pt_eta_JEC_3jets} presents the results for the aforementioned trigger path but with jet energy
 corrections applied, and Figure~\ref{fig:top_hlt_pt_eta_JEC_PFnoPU_3jets} shows it for the same path with both charged
@@ -374,7 +377,7 @@ with at least three jets}
 In order to gain further understanding, jet response distributions were investigated. Jet response is a ratio of the
 transverse momenta of offline-reconstructed and HLT jets, ideally produced from the same objects in the detector. To
 find this ratio, all the HLT jets were matched with offline jets found within a cone of $\Delta R = 0.3$ for each online
-jet. Matching efficiency proved to be close to unity, and following distributions were produced only for the
+jet. Matching efficiency proved to be close to unity, and subsequent distributions were produced only for the
 successfully matched jets. Figure~\ref{fig:top_hlt_jet_response} shows the response plots for trigger paths with
 different corrections: uncorrected, only jet energy corrected (JEC) and with both jet energy corrections and charged
 hadron subtraction (JEC+CHS) applied. It can be seen that corrections work reasonably well in the barrel region, but
@@ -399,17 +402,23 @@ Shorty after these results were presented to the trigger coordination, they were
 experts within the JetMET group. Because of the time constraints associated with the luminosity increase schedule, a
 following workaround solution was suggested. In order to re-gain the trigger efficiency, the threshold for the third jet
 was dropped from \SI{30}{\GeV} to \SI{20}{\GeV}, which allowed to apply jet energy corrections and charged hadron
-subtraction with a minimum loss in the efficiency in the endcap region. However, this was a subject of a different
-study.
+subtraction with a minimum loss in the efficiency in the endcap region.
 
+At the time of writing this thesis, the source of inadequacy of the jet response in the endcap region remains not fully
+understood. One of the possible explanations is based on the observation that the number of fake tracks reconstructed
+online is substantially larger than that in the offline reconstruction, which can potentially bias the PF jet
+reconstruction on the HLT level. However, a full solution to this problem (and therefore derivation of adequate jet
+energy corrections for online application) is still being scrutinised.
+
+\newpage
 \section{Summary}
-This chapter covered the service work performed by the author for CMS collaboration, namely development, validation and
-maintenance of high-level triggers for top quark physics, specifically for the electron channel of semileptonic \ttbar
-decay signature. The importance and typical challenges of trigger development has been discussed. The modular structure
-of high level triggers has been described in detail for electron-plus-jets paths. A core of author's contribution: the
-investigation of the effect of jet energy corrections applied on the HLT level to top trigger paths has been presented,
-showing how it affects trigger efficiency and jet response distributions. An impact of charged hadron subtraction
-applied online has also been studied and demonstrated.
+This chapter covered the service work performed by the author for the CMS collaboration, namely development, validation
+and maintenance of high-level triggers for top quark physics, specifically for the electron channel of semileptonic
+\ttbar decay signature. The importance and typical challenges of trigger development have been discussed. The modular
+structure of high level triggers has been described in detail for electron plus jets trigger paths. A core of author's
+contribution: the investigation of the effect of jet energy corrections applied on the HLT level to top trigger paths
+has been presented, showing how it affects trigger efficiency and jet response distributions. An impact of charged
+hadron subtraction applied online has also been studied and demonstrated.
 
 % ------------------------------------------------------------------------
 
