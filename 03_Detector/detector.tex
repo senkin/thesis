@@ -66,7 +66,7 @@ different processes as a function of the centre of mass energy are shown in Figu
   \centering
   \leavevmode
   \includegraphics[width=0.6\columnwidth]{production_cross_sections}
-  \caption[Production cross sections for different processes as a function of the centre of mass energy.]{Production
+  \caption[Production cross sections for different processes as a function of the centre of mass energy]{Production
   cross sections for different processes as a function of the centre of mass energy $\sqrt{s}$. The discontinuity is due
   to extrapolation between proton-antiproton Tevatron and proton-proton LHC. The \ttbar production cross section is
   denoted by $\sigma_\textrm{t}$ \autocite{primer_LHC}.}
@@ -154,7 +154,7 @@ section.
   \centering
   \leavevmode
   \includegraphics[width=\columnwidth]{tracker}
-  \caption{Cross section of the CMS tracker system \autocite{CMS}}
+  \caption[Cross section of the CMS tracker system]{Cross section of the CMS tracker system \autocite{CMS}}
   \label{fig:tracker}
 \end{figure}
 
@@ -181,7 +181,8 @@ The silicon sensors' thickness varies between \num{320} and \SI{500}{\micron} an
   \centering
   \leavevmode
   \includegraphics[width=0.6\columnwidth]{tracker_material_budget}
-  \caption{Material budget as a function of pseudorapidity $\eta$ for the different sub-detectors of the tracker in
+  \caption[Material budget as a function of pseudorapidity $\eta$ for the different sub-detectors of the
+  tracker]{Material budget as a function of pseudorapidity $\eta$ for the different sub-detectors of the tracker in
   units of radiation length \autocite{CMS_tracker_twiki}}
   \label{fig:tracker_material_budget}
 \end{figure}
@@ -216,7 +217,7 @@ level of radiation.
   \centering
   \leavevmode
   \includegraphics[width=\columnwidth]{ECAL}
-  \caption{Layout of the CMS electromagnetic calorimeter \autocite{CMS}}
+  \caption[Layout of the CMS electromagnetic calorimeter]{Layout of the CMS electromagnetic calorimeter \autocite{CMS}}
   \label{fig:ECAL}
 \end{figure}
 
@@ -266,8 +267,8 @@ calorimetry system. It is essential for the measurement of hadron jets and missi
   \centering
   \leavevmode
   \includegraphics[width=\columnwidth]{HCAL}
-  \caption{Longitudinal view of the CMS detector showing the locations of the hadron barrel (HB), endcap (HE), outer
-  (HO) and forward (HF) calorimeters \autocite{CMS}}
+  \caption[Longitudinal view of the CMS detector]{Longitudinal view of the CMS detector showing the locations of the
+  hadron barrel (HB), endcap (HE), outer (HO) and forward (HF) calorimeters \autocite{CMS}.}
   \label{fig:HCAL}
 \end{figure}
 
@@ -324,10 +325,10 @@ separate from the background.
   \centering
   \leavevmode
   \includegraphics[width=\columnwidth]{muon_system}
-  \caption{Layout of one quarter of the CMS muon system. Four drift tube (DT, in light orange) stations are labeled MB
-  (``muon barrel'') and the cathode strip chambers (CSC, in green) are labeled ME (``muon endcap''). Resistive plate
-  chambers (RPC, in blue) are in both the barrel and the endcaps of CMS, where they are labeled RB and RE,
-  respectively.}
+  \caption[Layout of one quarter of the CMS muon system]{Layout of one quarter of the CMS muon system. Four drift tube
+  (DT, in light orange) stations are labeled MB (``muon barrel'') and the cathode strip chambers (CSC, in green) are
+  labeled ME (``muon endcap''). Resistive plate chambers (RPC, in blue) are in both the barrel and the endcaps of CMS,
+  where they are labeled RB and RE, respectively.}
   \label{fig:muon_system}
 \end{figure}
 
@@ -360,9 +361,10 @@ information for triggering. The spacial resolution is, however, quite limited (\
   \centering
   \leavevmode
   \includegraphics[width=\columnwidth]{muon_resolution}
-  \caption{The muon transverse momentum resolution as a function of the transverse momentum (\pt) using the muon
-  system only (black), the inner tracking only (blue), and both (red), in regions of \abs\eta \num{<0.8} (left) and
-  \num{1.2} $<$\abs\eta\num{<2.4} (right) \autocite{CMS}.}
+  \caption[Muon transverse momentum resolution as a function of the transverse momentum]{Muon transverse momentum
+  resolution as a function of the transverse momentum (\pt) using the muon system only (black), the inner tracking only
+  (blue), and both (red), in regions of \abs\eta \num{<0.8} (left) and \num{1.2} $<$\abs\eta\num{<2.4} (right)
+  \autocite{CMS}.}
   \label{fig:muon_resolution}
 \end{figure}
 
@@ -524,14 +526,15 @@ usually includes generation of the following steps, schematically illustrated in
   \centering
   \leavevmode
   \includegraphics[width=0.7\columnwidth]{MC_simulation_graphics}
-  \caption{Graphical overview of a hadron collision process \autocite{Hoeche_slides}}
+  \caption[Graphical overview of a hadron collision process]{Graphical overview of a hadron collision process
+  \autocite{Hoeche_slides}}
   \label{fig:MC_simulation_graphics}
 \end{figure}
 
-The performance of MC generators is usually optimised for one or more of these steps, therefore they two or more
-generators often used in combination, e.g.\ \ttbar signal is modelled with \MADGRAPH and \PYTHIA. Standalone generators
-can also be used for modelling theory systematic effects, which is also exploited in this thesis.
-%(\MCATNLO, \POWHEG + \PYTHIA).
+The performance of MC generators is usually optimised for one or more of these steps, therefore two or more generators
+often used in combination, e.g.\ the \ttbar signal is modelled with \MADGRAPH and \PYTHIA. Standalone generators can
+also be used for modelling theory systematic effects, which is also exploited in this thesis. %(\MCATNLO, \POWHEG +
+\PYTHIA).
 
 \begin{description}[wide=\parindent, style=standard, labelsep=0pt]
 \item [\MADGRAPH] \autocite{MadGraph} is a matrix-element Monte Carlo event generator. For any renormalisable

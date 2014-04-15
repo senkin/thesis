@@ -66,9 +66,10 @@ simulation.
 	\subfloat[]{\includegraphics[width=0.50\textwidth]{vertices/EPlusJets_nVertex_reweighted.pdf}} \\
 	\subfloat[]{\includegraphics[width=0.50\textwidth]{vertices/MuPlusJets_nVertex.pdf}}\hfill
 	\subfloat[]{\includegraphics[width=0.50\textwidth]{vertices/MuPlusJets_nVertex_reweighted.pdf}}
-	\caption{\label{fig:pileup_vertices}
-    Number of reconstructed vertices per event before (left) and after pile-up reweighting (right) in the electron
-    channel (top) and in the muon channel (bottom). Both data and sum of the MC samples are normalised to unit area.}
+    \caption[Number of reconstructed vertices per event before and after pile-up reweighting]{Number of reconstructed
+    vertices per event before (left) and after pile-up reweighting (right) in the electron channel (top) and in the muon
+    channel (bottom). Both data and sum of the MC samples are normalised to unit area.}
+    \label{fig:pileup_vertices}
     %QCD is estimated from MC here. Possible to fix/remove?
 \end{figure}
 
@@ -89,8 +90,9 @@ in Figure~\ref{fig:pileup_vertices_variations} for both electron and muon channe
  \begin{figure}[htbp]
    	\centering
     \includegraphics[width=\textwidth]{vertices/PileUp_2012_truth_data.pdf}
-    \caption{Number of expected vertices per event for central and $\pm1\sigma$ variations of the total inelastic cross
-    section for the 2012 data.}
+    \caption[Number of expected vertices per event for central and $\pm1\sigma$ variations of the total inelastic cross
+    section for the 2012 data]{Number of expected vertices per event for central and $\pm1\sigma$ variations of the
+    total inelastic cross section for the 2012 data.}
     \label{fig:pileup_truth}
  \end{figure}
 
@@ -100,9 +102,10 @@ in Figure~\ref{fig:pileup_vertices_variations} for both electron and muon channe
 	\subfloat[]{\includegraphics[width=0.50\textwidth]{vertices/EPlusJets_nVertex_reweighted_PU_up.pdf}} \\
 	\subfloat[]{\includegraphics[width=0.50\textwidth]{vertices/MuPlusJets_nVertex_reweighted_PU_down.pdf}}\hfill
 	\subfloat[]{\includegraphics[width=0.50\textwidth]{vertices/MuPlusJets_nVertex_reweighted_PU_up.pdf}}
-	\caption{\label{fig:pileup_vertices_variations}
-    Number of reconstructed vertices per event for the $-1\sigma$ (left) and the $+1\sigma$ variations (right) of
-    the pile-up reweighting procedure for the electron channel (top) and the muon channel (bottom).}
+    \caption[Number of reconstructed vertices per event for $\pm1\sigma$ variations of the pile-up reweighting
+    procedure]{Number of reconstructed vertices per event for $-1\sigma$ (left) and $+1\sigma$ variation (right) of the
+    pile-up reweighting procedure for the electron channel (top) and the muon channel (bottom).}
+    \label{fig:pileup_vertices_variations}
 \end{figure}
 
 
@@ -124,9 +127,9 @@ jets originating from light and heavy quarks.
 	\subfloat[]{\includegraphics[width=0.50\textwidth]{bjets_multiplicity/EPlusJets_N_BJets_reweighted.pdf}} \\
 	\subfloat[]{\includegraphics[width=0.50\textwidth]{bjets_multiplicity/MuPlusJets_N_BJets.pdf}}\hfill
 	\subfloat[]{\includegraphics[width=0.50\textwidth]{bjets_multiplicity/MuPlusJets_N_BJets_reweighted.pdf}}
-	\caption{\label{fig:bjet_weights}
-    b-tag multiplicity before (left) and after applying b-tag scale factors (right) in the electron channel (top) and
-    the muon channel (bottom).}
+    \caption[b-tag multiplicity before and after applying the b-tagging scale factors]{b-tag multiplicity before (left)
+    and after applying the b-tagging scale factors (right) in the electron channel (top) and the muon channel (bottom).}
+    \label{fig:bjet_weights}
 \end{figure}
 
 Figure \ref{fig:bjet_weights} shows the results of the reweighting procedure for electron and muon channels. It can be
@@ -285,17 +288,6 @@ electron are the same to the dilepton veto in the electron channel.
 Finally, the jet requirements are applied. These are also identical to those of the electron channel, mentioned above.
 
 
-% \begin{figure}[!htp]
-%    \centering
-%    \subfloat[]{\includegraphics[width=0.5\textwidth]{placeholder}}
-%    \subfloat[]{\includegraphics[width=0.5\textwidth]{placeholder}}
-%    \hfill
-%    \subfloat[]{\includegraphics[width=0.5\textwidth]{placeholder}}
-%    \subfloat[]{\includegraphics[width=0.5\textwidth]{placeholder}}
-%    \caption{\label{fig:controlplots}Kinematic variable distributions after all selection cuts. (a) electron \pt, (b)
-%    electron $\eta$, (c) jet \pt for all jets passing the selection, (d) \MET.}
-% \end{figure}
-
 \subsection{Additional filters for missing transverse energy}
 \label{ss_xsection:met_filters}
 %https://twiki.cern.ch/twiki/bin/viewauth/CMS/MissingETOptionalFilters
@@ -402,9 +394,10 @@ the pseudorapidity region of $1.0 < \abs \eta < 1.5$. Such behaviour is correlat
   	\subfloat[]{\includegraphics[width=0.50\textwidth]{QCD/QCD_conversion_control_region_electron_AbsEta_0btag}}\hfill
 	\subfloat[]{\includegraphics[width=0.50\textwidth]{QCD/QCD_non_iso_control_region_electron_AbsEta_0btag}} \\
 	\subfloat[]{\includegraphics[width=0.50\textwidth]{QCD/QCD_control_region_comparison_electron_AbsEta_0btag}}
-    \caption{Distribution of the electron $\abs \eta$ for conversion selection (a), non-isolated electron selection
-    (b) and the shape comparison of both QCD control region in data (c) in electron plus jets events with at least
-    four jets and 0 b-tagged jets.}
+    \caption[Distribution of the electron $\abs \eta$ for conversion selection and non-isolated electron selection, and
+    the shape comparison of both QCD control regions]{Distribution of the electron $\abs \eta$ for conversion selection
+    (a), non-isolated electron selection (b) and the shape comparison of both QCD control regions in data (c) in
+    electron plus jets events with at least four jets and 0 b-tagged jets.}
     \label{fig:qcd_control_regions_eta}
 \end{figure}
 
@@ -432,7 +425,8 @@ Carlo.
 	\centering
   	\subfloat[]{\includegraphics[width=0.47\textwidth]{QCD/QCD_muon_pfIsolation_0btag}}\hfill
   	\subfloat[]{\includegraphics[width=0.47\textwidth]{QCD/QCD_non_iso_control_region_muon_AbsEta_0btag}}
-    \caption{Muon relative isolation with no isolation cut (a) and muon $\abs \eta$ (b) for non-isolated ($\reliso >
+    \caption[Muon relative isolation with no isolation cut and muon $\abs \eta$ for non-isolated selection in muon plus
+    jets events]{Muon relative isolation with no isolation cut (a) and muon $\abs \eta$ (b) for non-isolated ($\reliso >
     0.3$) selection in muon plus jets events with at least three jets and 0 b-tagged jets. The vertical red line on plot
     (a) shows the \reliso cut value of \num{0.3}.}
     \label{fig:qcd_muon_plots}
@@ -468,8 +462,9 @@ Section~\ref{s_xsection:measurement}.
   	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/muon_pT_2orMoreBtags_with_ratio}} \\
   	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/electron_AbsEta_2orMoreBtags_with_ratio}}\hfill
   	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/muon_AbsEta_2orMoreBtags_with_ratio}}
-    \caption{Data/MC comparison plots after the final event selection: electron \pt (a), muon \pt (b), electron $\abs
-    \eta$ (c) and muon $\abs \eta$ (d). Left-hand plots: electron plus jets selection, right-hand plots: muon plus jets selection.}
+    \caption[Data/MC comparison plots of electron and muon \pt and $\abs \eta$ after the final event selection]{Data/MC
+    comparison plots after the final event selection: electron \pt (a), muon \pt (b), electron $\abs \eta$ (c) and muon
+    $\abs \eta$ (d). Left-hand plots: electron plus jets selection, right-hand plots: muon plus jets selection.}
     \label{fig:contol_plots_leptons}
 \end{figure}
 
@@ -479,8 +474,9 @@ Section~\ref{s_xsection:measurement}.
   	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/MuPlusJets_patType1CorrectedPFMet_2orMoreBtags_with_ratio}} \\
   	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/EPlusJets_patType1CorrectedPFMet_log_2orMoreBtags_with_ratio}}\hfill
   	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/MuPlusJets_patType1CorrectedPFMet_log_2orMoreBtags_with_ratio}} \\
-    \caption{Data/MC comparison plots of \MET (a, b) and logarithmic view of \MET (c, d) after the final event
-    selection. Left-hand plots: electron plus jets selection, right-hand plots: muon plus jets selection.}
+    \caption[Data/MC comparison plots of \MET after the final event selection]{Data/MC comparison plots of \MET (a, b)
+    and logarithmic view of \MET (c, d) after the final event selection. Left-hand plots: electron plus jets selection,
+    right-hand plots: muon plus jets selection.}
     \label{fig:contol_plots_METs}
 \end{figure}
 
@@ -490,8 +486,9 @@ Section~\ref{s_xsection:measurement}.
 	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/MuPlusJets_patType1CorrectedPFMet_phi_2orMoreBtags_with_ratio}} \\
   	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/EPlusJets_N_Jets_2orMoreBtags_with_ratio}}\hfill
   	\subfloat[]{\includegraphics[width=0.50\textwidth]{control_plots/MuPlusJets_N_Jets_2orMoreBtags_with_ratio}} \\
-    \caption{Data/MC comparison plots of $\phi(\MET)$ (a, b) and jet multiplicity (c, d) after the final event
-    selection. Left-hand plots: electron plus jets selection, right-hand plots: muon plus jets selection.}
+    \caption[Data/MC comparison plots of $\phi(\MET)$ and jet multiplicity after the final event selection]{Data/MC
+    comparison plots of $\phi(\MET)$ (a, b) and jet multiplicity (c, d) after the final event selection. Left-hand
+    plots: electron plus jets selection, right-hand plots: muon plus jets selection.}
     \label{fig:contol_plots_phiMET_NJets}
 \end{figure}
 
@@ -579,7 +576,8 @@ variable. Results for other primary variables can be found in Appendix~\ref{a:bi
 	\centering
 	\subfloat[]{\includegraphics[width=0.5\textwidth]{binning/EPlusJets_MET}}\hfill
 	\subfloat[]{\includegraphics[width=0.5\textwidth]{binning/MuPlusJets_MET}}\\
-	\caption{Reconstructed versus generated \MET for electron plus jets (a) and muon plus jets events (b).}
+	\caption[Reconstructed versus generated \MET]{Reconstructed versus generated \MET for electron plus jets (a) and
+	muon plus jets events (b).}
 	\label{fig:choice_of_bins_MET}
  \end{figure}
 
@@ -619,9 +617,9 @@ attached in Appendix~\ref{a:templates}.
   	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_templates/electron_templates_bin_100-150}}\hfill
   	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_templates/electron_templates_bin_150-inf}}
   	\hspace*{\fill}
-    \caption{Electron $\abs \eta$ templates for the fit in different bins of \MET, from top left to bottom right:
-    \SIrange{0}{25}{\GeV}, \SIrange{25}{45}{\GeV}, \SIrange{45}{70}{\GeV}, \SIrange{70}{100}{\GeV},
-    \SIrange{100}{150}{\GeV} and $\geq \SI{150}{\GeV}$.}
+    \caption[Electron $\abs \eta$ templates for the fit in different bins of \MET]{Electron $\abs \eta$ templates for
+    the fit in different bins of \MET, from top left to bottom right: \SIrange{0}{25}{\GeV}, \SIrange{25}{45}{\GeV},
+    \SIrange{45}{70}{\GeV}, \SIrange{70}{100}{\GeV}, \SIrange{100}{150}{\GeV} and $\geq \SI{150}{\GeV}$.}
     \label{fig:fit_templates_MET_electron}
 \end{figure}
 
@@ -640,9 +638,9 @@ attached in Appendix~\ref{a:templates}.
   	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_templates/muon_templates_bin_100-150}}\hfill
   	{\includegraphics[width=0.42\textwidth]{measurement/MET/central/fit_templates/muon_templates_bin_150-inf}}
   	\hspace*{\fill}
-    \caption{Muon $\abs \eta$ templates for the fit in different bins of \MET, from top left to bottom right:
-    \SIrange{0}{25}{\GeV}, \SIrange{25}{45}{\GeV}, \SIrange{45}{70}{\GeV}, \SIrange{70}{100}{\GeV},
-    \SIrange{100}{150}{\GeV} and $\geq \SI{150}{\GeV}$.}
+    \caption[Muon $\abs \eta$ templates for the fit in different bins of \MET]{Muon $\abs \eta$ templates for the fit in
+    different bins of \MET, from top left to bottom right: \SIrange{0}{25}{\GeV}, \SIrange{25}{45}{\GeV},
+    \SIrange{45}{70}{\GeV}, \SIrange{70}{100}{\GeV}, \SIrange{100}{150}{\GeV} and $\geq \SI{150}{\GeV}$.}
     \label{fig:fit_templates_MET_muon}
 \end{figure}
 
@@ -704,8 +702,9 @@ of systematic uncertainty, as explained in Section~\ref{s_xsection:systematics}.
 	\centering
   	\subfloat[]{\includegraphics[width=0.5\textwidth]{fitted_primary_variables/EPlusJets_patType1CorrectedPFMet_2orMoreBtags_with_ratio}}\hfill
   	\subfloat[]{\includegraphics[width=0.5\textwidth]{fitted_primary_variables/MuPlusJets_patType1CorrectedPFMet_2orMoreBtags_with_ratio}}
-    \caption{Data/MC comparison plots of \MET for electron plus jets (a) and muon plus jets (b) events after the final
-    event selection using the normalisation from the fitted results.}
+    \caption[Data/MC comparison plots of \MET using the normalisation from the fitted results]{Data/MC comparison plots
+    of \MET for electron plus jets (a) and muon plus jets (b) events after the final event selection using the
+    normalisation from the fitted results.}
     \label{fig:fitted_MET}
 \end{figure}
 
@@ -715,9 +714,9 @@ of systematic uncertainty, as explained in Section~\ref{s_xsection:systematics}.
   	\subfloat[]{\includegraphics[width=0.5\textwidth]{fitted_primary_variables/MuPlusJets_HT_2orMoreBtags_with_ratio}} \\
   	\subfloat[]{\includegraphics[width=0.5\textwidth]{fitted_primary_variables/EPlusJets_patType1CorrectedPFMet_ST_2orMoreBtags_with_ratio}}\hfill
   	\subfloat[]{\includegraphics[width=0.5\textwidth]{fitted_primary_variables/MuPlusJets_patType1CorrectedPFMet_ST_2orMoreBtags_with_ratio}}
-    \caption{Data/MC comparison plots of \HT (a, b) and \ST (c, d) after the final event selection using the
-    normalisation from the fitted results. Left-hand plots: electron plus jets selection, right-hand plots: muon plus
-    jets selection.}
+    \caption[Data/MC comparison plots of \HT and \ST using the normalisation from the fitted results]{Data/MC comparison
+    plots of \HT (a, b) and \ST (c, d) after the final event selection using the normalisation from the fitted results.
+    Left-hand plots: electron plus jets selection, right-hand plots: muon plus jets selection.}
     \label{fig:fitted_HT_ST}
 \end{figure}
 
@@ -727,9 +726,9 @@ of systematic uncertainty, as explained in Section~\ref{s_xsection:systematics}.
   	\subfloat[]{\includegraphics[width=0.5\textwidth]{fitted_primary_variables/MuPlusJets_patType1CorrectedPFMet_WPT_2orMoreBtags_with_ratio}} \\
   	\subfloat[]{\includegraphics[width=0.5\textwidth]{fitted_primary_variables/EPlusJets_patType1CorrectedPFMet_MT_2orMoreBtags_with_ratio}}\hfill
   	\subfloat[]{\includegraphics[width=0.5\textwidth]{fitted_primary_variables/MuPlusJets_patType1CorrectedPFMet_MT_2orMoreBtags_with_ratio}}
-    \caption{Data/MC comparison plots of \WPT (a, b) and \MT (c, d) after the final event selection using the
-    normalisation from the fitted results. Left-hand plots: electron plus jets selection, right-hand plots: muon plus
-    jets selection.}
+    \caption[Data/MC comparison plots of \WPT and \MT using the normalisation from the fitted results]{Data/MC
+    comparison plots of \WPT (a, b) and \MT (c, d) after the final event selection using the normalisation from the
+    fitted results. Left-hand plots: electron plus jets selection, right-hand plots: muon plus jets selection.}
     \label{fig:fitted_WPT_MT}
 \end{figure}
 
@@ -837,8 +836,8 @@ that the errors are reliably calculated. The unfolding performance was similarly
     \includegraphics[width=0.42\textwidth]{unfolding_performance/pull_from_files_bin_3_stats_89700}   \\
     \includegraphics[width=0.42\textwidth]{unfolding_performance/pull_from_files_bin_4_stats_89700}
     \includegraphics[width=0.42\textwidth]{unfolding_performance/pull_from_files_bin_5_stats_89700}
-    \caption[Pull distributions for the SVD unfolding]{Pull distributions for the SVD unfolding method for all \MET bins,
-    from top left to bottom right: \SIrange{0}{25}{\GeV}, \SIrange{25}{45}{\GeV}, \SIrange{45}{70}{\GeV},
+    \caption[Pull distributions for the SVD unfolding]{Pull distributions for the SVD unfolding method for all \MET
+    bins, from top left to bottom right: \SIrange{0}{25}{\GeV}, \SIrange{25}{45}{\GeV}, \SIrange{45}{70}{\GeV},
     \SIrange{70}{100}{\GeV}, \SIrange{100}{150}{\GeV} and $\geq \SI{150}{\GeV}$.}
     \label{fig:met_SVD_pull}
 \end{figure}
@@ -879,12 +878,13 @@ according to their theoretical or experimental variations, and measuring the cha
 errors are added to the fitting and unfolding errors in quadrature. In the total error calculation, all systematic
 uncertainties are set to be symmetric, conservatively taking the larger of the upward and downward variations.
 
-The full lists of systematic uncertainties for the normalised differential cross section measurement with respect to all
-primary variables are presented in Tables~\ref{tab:combined_MET_systematics}--\ref{tab:combined_WPT_systematics}.
-Rate-changing systematic uncertainties, such as luminosity uncertainty and single top/\ttbar production cross sections,
-expectedly have very a low impact on all measurements. Typically, the dominating systematic uncertainties are due to the
-factorisation scale and matching threshold variations in both \VpJets and \ttbar events, mainly driven by low statistics
-available in corresponding Monte Carlo samples. Unfortunately, this leads to substantial errors in fit results.
+The full lists of systematic uncertainties for the normalised differential cross section measurement with respect \MET
+variable is presented in Table~\ref{tab:combined_MET_systematics}, and the rest of the primary variables can be found in
+Appendix~\ref{a:xsection_systematics_tables}. Rate-changing systematic uncertainties, such as luminosity uncertainty and
+single top/\ttbar production cross sections, expectedly have very a low impact on all measurements. Typically, the
+dominating systematic uncertainties are due to the factorisation scale and matching threshold variations in both \VpJets
+and \ttbar events, mainly driven by low statistics available in corresponding Monte Carlo samples. Unfortunately, this
+leads to substantial errors in fit results.
 
 Jet energy scale is also amongst the dominating uncertainties due to the fact that it has a direct influence on the \MET
 measurement as the jet energy corrections are propagated to \MET (as explained in Section~\ref{ss:MET_reconstruction}).
@@ -911,10 +911,6 @@ a very moderate effect on event-level distributions, with relative changes in th
 \SI{1}{\pc}.
 
 \input{06_Cross_section_analysis/tables/xsection_MET_systematics}
-\input{06_Cross_section_analysis/tables/xsection_HT_systematics}
-\input{06_Cross_section_analysis/tables/xsection_ST_systematics}
-\input{06_Cross_section_analysis/tables/xsection_MT_systematics}
-\input{06_Cross_section_analysis/tables/xsection_WPT_systematics}
 
 \section{Results}
 \label{s_xsection:results}
@@ -938,10 +934,9 @@ generators. Overall, the results are consistent with predictions of the Standard
 	\centering
   	{\includegraphics[width=0.5\textwidth]{measurement/MET/central/normalised_xsection_combined_different_generators}}\hfill
   	{\includegraphics[width=0.5\textwidth]{measurement/MET/central/normalised_xsection_combined_systematics_shifts}}
-    \caption[The normalised semileptonic \ttbar differential cross section with respect to \MET.]{The normalised
-      semileptonic \ttbar differential cross section with respect to \MET. The data are compared to predictions of three
-      different MC generators (left) and theoretical predictions showing the variation due to modelling uncertainties
-      (right).}
+    \caption[Normalised semileptonic \ttbar differential cross section with respect to \MET]{Normalised semileptonic
+      \ttbar differential cross section with respect to \MET. The data are compared to predictions of three different MC
+      generators (left) and theoretical predictions showing the variation due to modelling uncertainties (right).}
     \label{fig:results_MET_combined}
 \end{figure}
 
@@ -949,10 +944,9 @@ generators. Overall, the results are consistent with predictions of the Standard
 	\centering
   	{\includegraphics[width=0.5\textwidth]{measurement/HT/central/normalised_xsection_combined_different_generators}}\hfill
   	{\includegraphics[width=0.5\textwidth]{measurement/HT/central/normalised_xsection_combined_systematics_shifts}}
-    \caption[The normalised semileptonic \ttbar differential cross section with respect to \HT.]{The normalised
-      semileptonic \ttbar differential cross section with respect to \HT. The data are compared to predictions of three
-      different MC generators (left) and theoretical predictions showing the variation due to modelling uncertainties
-      (right).}
+    \caption[Normalised semileptonic \ttbar differential cross section with respect to \HT]{Normalised semileptonic
+      \ttbar differential cross section with respect to \HT. The data are compared to predictions of three different MC
+      generators (left) and theoretical predictions showing the variation due to modelling uncertainties (right).}
     \label{fig:results_HT_combined}
 \end{figure}
 
@@ -960,10 +954,9 @@ generators. Overall, the results are consistent with predictions of the Standard
 	\centering
   	{\includegraphics[width=0.5\textwidth]{measurement/ST/central/normalised_xsection_combined_different_generators}}\hfill
   	{\includegraphics[width=0.5\textwidth]{measurement/ST/central/normalised_xsection_combined_systematics_shifts}}
-    \caption[The normalised semileptonic \ttbar differential cross section with respect to \ST.]{The normalised
-      semileptonic \ttbar differential cross section with respect to \ST. The data are compared to predictions of three
-      different MC generators (left) and theoretical predictions showing the variation due to modelling uncertainties
-      (right).}
+    \caption[Normalised semileptonic \ttbar differential cross section with respect to \ST]{Normalised semileptonic
+      \ttbar differential cross section with respect to \ST. The data are compared to predictions of three different MC
+      generators (left) and theoretical predictions showing the variation due to modelling uncertainties (right).}
     \label{fig:results_ST_combined}
 \end{figure}
 
@@ -971,10 +964,9 @@ generators. Overall, the results are consistent with predictions of the Standard
 	\centering
   	{\includegraphics[width=0.5\textwidth]{measurement/MT/central/normalised_xsection_combined_different_generators}}\hfill
   	{\includegraphics[width=0.5\textwidth]{measurement/MT/central/normalised_xsection_combined_systematics_shifts}}
-    \caption[The normalised semileptonic \ttbar differential cross section with respect to \MT.]{The normalised
-      semileptonic \ttbar differential cross section with respect to \MT. The data are compared to predictions of three
-      different MC generators (left) and theoretical predictions showing the variation due to modelling uncertainties
-      (right).}
+    \caption[Normalised semileptonic \ttbar differential cross section with respect to \MT]{Normalised semileptonic
+      \ttbar differential cross section with respect to \MT. The data are compared to predictions of three different MC
+      generators (left) and theoretical predictions showing the variation due to modelling uncertainties (right).}
     \label{fig:results_MT_combined}
 \end{figure}
 
@@ -982,10 +974,9 @@ generators. Overall, the results are consistent with predictions of the Standard
 	\centering
   	{\includegraphics[width=0.5\textwidth]{measurement/WPT/central/normalised_xsection_combined_different_generators}}\hfill
   	{\includegraphics[width=0.5\textwidth]{measurement/WPT/central/normalised_xsection_combined_systematics_shifts}}
-    \caption[The normalised semileptonic \ttbar differential cross section with respect to \WPT.]{The normalised
-      semileptonic \ttbar differential cross section with respect to \WPT. The data are compared to predictions of three
-      different MC generators (left) and theoretical predictions showing the variation due to modelling uncertainties
-      (right).}
+    \caption[Normalised semileptonic \ttbar differential cross section with respect to \WPT]{Normalised semileptonic
+      \ttbar differential cross section with respect to \WPT. The data are compared to predictions of three different MC
+      generators (left) and theoretical predictions showing the variation due to modelling uncertainties (right).}
     \label{fig:results_WPT_combined}
 \end{figure}
 

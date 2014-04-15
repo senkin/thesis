@@ -181,6 +181,11 @@ required to be present in the event. These jets have to pass the loose PF jet ID
 \ref{ss:jet_reconstruction}). Finally, the CSV b-tagging algorithm with medium working point (Section
 \ref{sss:b-tagging}) is used to identify the two \cPqb-quarks from the \ttbar decay.
 
+A few kinematic distributions, showing the comparison between data and Monte Carlo simulation after applying the
+described selection criteria are shown in Figure~\ref{fig:controlplots}. Overall, a good agreement is observed at this
+stage. However, the final selection criterion is applied later on in the analysis after the kinematic fit, which is
+discussed in the next section.
+
 \begin{figure}[!htp]
    \centering
    \subfloat[]{\includegraphics[width=0.5\textwidth]{cmg_electron_pt}}
@@ -188,10 +193,12 @@ required to be present in the event. These jets have to pass the loose PF jet ID
    \hfill
    \subfloat[]{\includegraphics[width=0.5\textwidth]{cmg_jet_pt}}
    \subfloat[]{\includegraphics[width=0.5\textwidth]{cmg_met}}
-   \caption{\label{fig:controlplots}Kinematic variable distributions after all selection cuts. (a) electron \pt, (b)
-   electron $\eta$, (c) jet \pt for all jets passing the selection, (d) \MET.}
+   \caption[Kinematic variable distributions after all selection cuts]{Kinematic variable distributions after all
+   selection cuts: (a) electron \pt, (b) electron $\eta$, (c) jet \pt for all jets passing the selection, (d) \MET.}
+   \label{fig:controlplots}
 \end{figure}
 
+\newpage
 \section{Kinematic Fit}
 \label{s_top_mass:kinematic_fit}
 
@@ -270,8 +277,9 @@ the best (smallest) $\chi^2$ values are shown in Figure~\ref{fig:fitplots}.
    \hfill
    \subfloat[]{\includegraphics[width=0.5\textwidth]{hitfit_best_fitted_chi2}}
    \subfloat[]{\includegraphics[width=0.5\textwidth]{hitfit_best_pfit}}
-   \caption{\label{fig:fitplots}Distribution of (a) fitted top quark mass, (b) its standard deviation, (c) $\chi^{2}$
-   and (d) fit probability for the best fitted hypotheses.}
+   \caption[Kinematic distributions after the fit]{Distributions of (a) fitted top quark mass, (b) its standard
+   deviation, (c) $\chi^{2}$, and (d) fit probability for the best fitted hypotheses.}
+   \label{fig:fitplots}
 \end{figure}
 
 Typically, an event has a few permutations resulting in a converged fit. The simplest approach of picking a permutation
@@ -403,10 +411,11 @@ illustration.
 \begin{figure}[!htpb]
 	\centering
     \includegraphics[width=0.65\textwidth]{correct_permutations_fitted_top_mass}
-	\caption{\label{fig:fitted_ttbar_cp_density}
-	The fitted top quark mass distribution for \ttbar events with correct permutations. The points with error bars
-	represent the numbers of events for values of fitted \mtop from the output of the kinematic fit, obtained with MC
-	truth sample generated with \mtop = \SI{166.5}{\GeV}.}
+	\caption[Fitted top quark mass distribution for \ttbar events with correct permutations]{Fitted top quark mass
+	distribution for \ttbar events with correct permutations. The points with error bars represent the numbers of events
+	for values of fitted \mtop from the output of the kinematic fit, obtained with MC truth sample generated with \mtop
+	= \SI{166.5}{\GeV}.}
+	\label{fig:fitted_ttbar_cp_density}
 \end{figure}
 
 The second term shows the probability of a wrong permutation in the signal event. This probability density, denoted
@@ -439,11 +448,11 @@ functions of the top quark mass. The fitted distributions of wrong permutations 
 	\subfloat[]{\includegraphics[width=0.50\textwidth]{wrong_permutations_fitted_top_mass_172}}
 	\hfill
 	\subfloat[]{\includegraphics[width=0.50\textwidth]{wrong_permutations_fitted_top_mass_178}}
-	\caption{\label{fig:fitted_ttbar_wp_density}
-	The fitted top quark mass distribution for \ttbar events with wrong permutations. The points with error bars
-	represent the numbers of events for values of fitted \mtop from the output of the kinematic fit, obtained with MC
-	truth sample generated with (a) $\mtop=\SI{166.5}{\GeV}$, (b) $\mtop=\SI{172.5}{\GeV}$, (c)
-	$\mtop=\SI{178.5}{\GeV}$.}
+	\caption[Fitted top quark mass distribution for \ttbar events with wrong permutations]{The fitted top quark mass
+	distribution for \ttbar events with wrong permutations. The points with error bars represent the numbers of events
+	for values of fitted \mtop from the output of the kinematic fit, obtained with MC truth sample generated with (a)
+	$\mtop=\SI{166.5}{\GeV}$, (b) $\mtop=\SI{172.5}{\GeV}$, (c) $\mtop=\SI{178.5}{\GeV}$.}
+	\label{fig:fitted_ttbar_wp_density}
 \end{figure}
 
 \subsubsection*{Background probability}
@@ -468,10 +477,10 @@ Figure~\ref{fig:background_wjets_fitted_top_mass}. This distribution is describe
 \begin{figure}[!htpb]
 	\centering
 	\includegraphics[width=0.65\textwidth]{background_wjets_fitted_top_mass}
-	\caption{\label{fig:background_wjets_fitted_top_mass}
-	The fitted top quark mass distribution for background events. The points with error bars represent the numbers of
-	events for values of fitted \mtop from the output of the kinematic fit, obtained with a \WpJets Monte Carlo
-	sample.}
+	\caption[Fitted top quark mass distribution for background events]{Fitted top quark mass distribution for background
+	events. The points with error bars represent the numbers of events for values of fitted \mtop from the output of the
+	kinematic fit, obtained with a \WpJets Monte Carlo sample.}
+	\label{fig:background_wjets_fitted_top_mass}
 \end{figure}
 
 \subsection{Combined likelihood fit}
@@ -502,9 +511,10 @@ bias of the ideogram method. The mass calibration technique is described in the 
 \begin{figure}[!htpb]
 	\centering
 	\includegraphics[width=0.65\textwidth]{Likelihood}
-	\caption{\label{fig:LogLikelihood}
-	Log-likelihood curve as a function of top quark mass for e+jets dataset before calibration (the true minimum is
-	subtracted in Equation~\ref{eq:CombinedLogLikelihood}).}
+	\caption[Log-likelihood curve as a function of top quark mass]{Log-likelihood curve as a function of top quark mass
+	for electron plus jets dataset before calibration (the true minimum is subtracted in
+	Equation~\ref{eq:CombinedLogLikelihood}).}
+	\label{fig:LogLikelihood}
 \end{figure}
 
 \section{Mass Calibration}
@@ -543,8 +553,9 @@ larger than unity, suggesting that the ideogram method underestimates the statis
 \begin{figure}[!htp]
    \subfloat[]{\includegraphics[width=0.485\textwidth]{bias}}
    \subfloat[]{\includegraphics[width=0.515\textwidth]{pull}}
-   \caption{Average mass bias (a) and width of the pull (b) as a function of true top quark mass.
-   \label{fig:bias_pull_vs_mass}}
+   \caption[Average mass bias and width of the pull as a function of true top quark mass]{Average mass bias (a) and
+   width of the pull (b) as a function of true top quark mass.}
+   \label{fig:bias_pull_vs_mass}
 \end{figure}
 
 Due to the apparent bias, the fitted linear calibration curves in both distributions are used to correct the final
@@ -556,9 +567,10 @@ statistical uncertainty are unbiased after calibration.
 \begin{figure}[!htp]
    \subfloat[]{\includegraphics[width=0.485\textwidth]{bias_calibrated}}
    \subfloat[]{\includegraphics[width=0.515\textwidth]{pull_calibrated}}
-   \caption{Closure test, showing the average mass bias (a) and width of the pull (b) as a function of true top quark
-            mass after calibration.
-   \label{fig:calibrated_bias_pull_vs_mass}}
+   \caption[Average mass bias and width of the pull as a function of true top quark mass after calibration]{Closure
+   test, showing the average mass bias (a) and width of the pull (b) as a function of true top quark mass after
+   calibration.}
+   \label{fig:calibrated_bias_pull_vs_mass}
 \end{figure}
  
 

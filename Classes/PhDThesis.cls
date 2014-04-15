@@ -62,6 +62,14 @@
 %\usepackage{lmodern}
 \usepackage[T1]{fontenc}
 
+% setup the SIunits package (more info in 'texdoc siunitx')
+\sisetup{number-unit-product = \text{ }}
+\sisetup{binary-units = true}
+\sisetup{seperr, openerr=, closeerr=}
+
+% Print URLs not in Typewriter Font                                     
+\def\UrlFont{\rm}
+
 % Feynman diagrams
 \usepackage{feynmp}
 \DeclareGraphicsRule{*}{mps}{*}{}
@@ -191,7 +199,8 @@
 \pagestyle{fancy}
 \renewcommand{\chaptermark}[1]{\markboth{\thechapter.\ #1}{}}
 \fancyhf{} % clear all header and footer fields
-\fancyhead[LE,RO]{{\headfont\thepage}} % left/right header for even/odd pages
+%\fancyhead[LE,RO]{{\headfont\thepage}} % left/right header for even/odd pages
+\fancyfoot[C]{\thepage}
 \fancyhead[LO]{\headfont\nouppercase{\rightmark}} % header for left side (odd)
 \fancyhead[RE]{\headfont\nouppercase{\leftmark}} % right header for even pages
 \renewcommand{\headrulewidth}{0.5pt} % head rule
@@ -201,6 +210,7 @@
   \fancyhf{}
   \renewcommand{\headrulewidth}{0pt}
   \renewcommand{\footrulewidth}{0pt}
+  \fancyfoot[C]{\thepage}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

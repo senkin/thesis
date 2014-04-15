@@ -30,22 +30,14 @@
 \fi
 
 \renewcommand{\submittedtext}{\textit{A dissertation submitted to the University
-of Bristol \\ in accordance with the requirements of the degree of \\ Doctor of
-Philosophy in the Faculty of Science}}
+of Bristol \\ in accordance with the requirements for award of the degree of
+\\ Doctor of Philosophy in the Faculty of Science}}
 \degree{}
-\degreedate{\today}
+\degreedate{April 2014}
 
 % turn of those nasty overfull and underfull hboxes
 \hbadness=10000
 \hfuzz=50pt
-
-% setup the SIunits package (more info in 'texdoc siunitx')
-\sisetup{number-unit-product = \text{ }}
-\sisetup{binary-units = true}
-\sisetup{seperr, openerr=, closeerr=}
-
-% Print URLs not in Typewriter Font                                     
-\def\UrlFont{\rm}
 
 % Put all the style files you want in the directory StyleFiles and usepackage like this:
 %\usepackage{StyleFiles/watermark}
@@ -68,9 +60,9 @@ Philosophy in the Faculty of Science}}
 
 \frontmatter % book mode only
 %\include{Dedication/dedication}
-%\include{Abstract/abstract}
-%\include{Acknowledgements/acknowledgements}
-%\include{Declaration/declaration}
+\include{Abstract/abstract}
+\include{Acknowledgements/acknowledgements}
+\include{Declaration/declaration}
 
 %% ++++++++++++++++++++++++++++++++++++++++++                                                                                                                                                                                                 
 %% index                                                                                                                                                                                                                                      
@@ -78,10 +70,10 @@ Philosophy in the Faculty of Science}}
 \tableofcontents
 
 %\cleardoublepage
-%\listoffigures
+\listoffigures
 %\printnomenclature  %% Print the nomenclature
 %\addcontentsline{toc}{chapter}{Nomenclature}
-%\listoftables
+\listoftables
 
 %change page numbering back to arabic (and start from 1)
 \pagenumbering{arabic}
@@ -89,7 +81,7 @@ Philosophy in the Faculty of Science}}
 \mainmatter % book mode only
 \onehalfspacing
 
-%\include{01_Introduction/introduction}
+\include{01_Introduction/introduction}
 \begin{fmffile}{ThesisFigs/feynman-diagrams}
 \include{02_Theory/theory}
 \end{fmffile}
@@ -97,7 +89,7 @@ Philosophy in the Faculty of Science}}
 \include{04_Service_work/service_work}
 \include{05_Mass_analysis/mass_analysis}
 \include{06_Cross_section_analysis/cross_section_analysis}
-%\include{07_Conclusions/conclusions}
+\include{07_Conclusions/conclusions}
 
 %\backmatter % book mode only
 \appendix
