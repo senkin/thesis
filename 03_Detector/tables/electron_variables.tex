@@ -1,0 +1,85 @@
+\begin{longtable}{| p{.2\textwidth} | p{.75\textwidth} |} 
+  \caption{Variables used in electron identification algorithms} \label{tab:electron_ID_variables} \\
+  \toprule
+  \textbf{Variable} &  \multicolumn{1}{c|}{\textbf{Description}} \\    
+  \midrule
+  \multicolumn{2}{|c|}{\textit{Track quality variables}} \\
+  \midrule
+  \pt & Transverse momentum of the GSF track \\
+  \midrule
+  $\eta$ & Pseudorapidity of the GSF track \\
+  \midrule
+  GSF $\sigma_{p_\text{T}}/p_\text{T}$ & Transverse momentum resolution of the GSF track\\
+  \midrule
+  \#hits$_\text{KF}$ & Number of reconstructed KF track hits\\
+  \midrule
+  $\chi^2_\textrm{GSF}$ and $\chi^2_\textrm{KF}$ & GSF and KF goodness-of-fits\\
+  \midrule
+
+  \multicolumn{2}{|c|}{\textit{ECAL shower variables}} \\
+  \midrule
+  $\sigma^2_{i\eta, i\eta}$ & Cluster shape variable that gives a measure of the width of the cluster in $\eta$, using the distribution of energy in a $5\times5$ block of crystals around the seed crystal (the one with the highest energy) \autocite{electron_reconstruction}:\newline
+  $\sigma^2_{i\eta, i\eta} = \sum_{5\times5 \text{ crystals}} \left(\eta_i - \eta_\text{seed cluster}\right)^2 E_i / E_{\text{seed cluster}}$ \\
+  \midrule
+  $\sigma^2_{i\phi, i\phi}$ & Cluster shape in $\phi$\\
+  \midrule
+  $\eta_\text{SC}$ ($\phi_\text{SC}$) & Width of the super-cluster in $\eta$ ($\phi$)\\
+  \midrule
+  $1-E_{1\times 5}/E_{5\times 5}$ & $E_{1\times 5}$ is the energy in the central $1\times 5$ strip of the
+  $5\times 5$ electron cluster and $E_{5\times 5}$ its total energy\\
+  \midrule
+  $E_{3\times 3}/E_\text{SC, raw}$ & Ratio of the energy of a cluster of $3\times 3$ to the
+  uncorrected (raw) energy of the super-cluster\\
+  \midrule
+  $E_\text{PS}/E_\text{SC, raw}$ & Ratio of the energy in the preshower detector to the raw
+  super-cluster energy (only in the endcap region)\\ 
+  \midrule
+
+  \multicolumn{2}{|c|}{\textit{Longitudinal shower shape variables}} \\
+  \midrule
+  $H/E$ & Ratio of the hadronic energy associated with the electron candidate to the super-cluster energy. The hadronic energy is found by summing the HCAL towers in a cone of radius $\Delta R = 0.15$, centred at the super-cluster position\\
+  \midrule
+  $H/(H+E_\text{e})$ & Hadron fraction of the shower, where $H$ is the energy of the hadron cluster linked to
+  the GSF track\\
+  \midrule
+
+  \caption{Variables used in electron identification algorithms (continued)} \\
+  \midrule
+
+
+  \multicolumn{2}{|c|}{\textit{Track/super-cluster matching variables}} \\
+  \midrule
+  $\Delta\eta_{\text{in}}$ ($\Delta\phi_{\text{in}}$) & Distance in $\eta$ ($\phi$) between the super-cluster
+  position and the extrapolated track position \\
+  \midrule
+  $\Delta\eta_{vtx}$ ($\Delta\phi_{vtx}$) & Distance in $\eta$ ($\phi$) between the super-cluster
+  position and the position of the GSF track at vertex \\
+  % \midrule
+  % $E_\text{SC}/p_\text{T}$ & Ratio of the super-cluster energy to the initial track momentum \\
+  \midrule
+  $(E_\text{e}+\sum E_\gamma)/p_\text{in}$ & Ratio of the super-cluster energy to the inner track
+  momentum\\
+  \midrule
+  $E_\text{e}/p_\text{out}$ & Ratio of the electron cluster energy to the outer track momentum\\
+  \midrule
+  $1/E_\text{SC} - 1/p_\text{T}$ & Difference between inverse super-cluster energy and inverse
+  track\newline momentum\\
+  \midrule
+
+  \multicolumn{2}{|c|}{\textit{Bremsstrahlung variables}} \\
+  \midrule
+  $f_\text{brem}$ & Measured bremsstrahlung fraction, defined as:
+  $f_\text{brem} = (p_\text{in}-p_\text{out})/p_\text{in}$, where $p_\text{in}$ is the initial track momentum at the vertex and $p_\text{out}$ is the track momentum at the last hit\\
+  \midrule
+  $\sum E_\gamma/(p_\text{in}-p_\text{out})$ & Ratio between the Bremsstrahlung photon energy as measured by
+  ECAL and by the tracker\\
+  \midrule
+  $EarlyBrem$ & Flag of $(E_\text{e}+\sum E_\gamma)>p_\text{in}$ inequality, corresponding to an electron
+  emitting an ``early'' Bremsstrahlung photon, i.e.\ before it has crossed at least three tracker layers\\
+  \midrule
+  $LateBrem$ & Flag of $E_\text{e}>p_\text{out}$ inequality, corresponding to an electron emitting a ``late''
+  Bremsstrahlung electron, when the ECAL clustering is not able to disentangle the overlapping electron and photon
+  showers\\
+
+  \bottomrule
+\end{longtable}

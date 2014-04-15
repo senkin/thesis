@@ -35,12 +35,11 @@ event selection will be described in Section~\ref{s_xsection:event_selection}.
 
 \subsection{Monte Carlo samples}
 \label{ss_xsection:MC_samples}
-The Monte Carlo generators used in this work were presented in Section~\ref{sss_top_mass:MC_generators}. The list of
-signal and background MC samples is shown in Table~\ref{tab:xsection_mc_samples}, and is largely similar to that from
-the top quark mass analysis. In addition, the signal \ttjets sample is also available with \POWHEG and \MCATNLO
-generators in order to be able to differentiate between them. Moreover, to extend the statistics of the \W/\ZpJets
-samples, they were generated in four exclusive jet multiplicity bins: \W/\Z boson plus one/two/three and at least four
-jets.
+The Monte Carlo generators used in this work were presented in Section~\ref{ss:MC_generators}. The list of signal and
+background MC samples is shown in Table~\ref{tab:xsection_mc_samples}, and is broadly similar to that from the top quark
+mass analysis. In addition, the signal \ttjets sample is also available with \POWHEG and \MCATNLO generators in order to
+be able to differentiate between them. Moreover, to extend the statistics of the \W/\ZpJets samples, they were generated
+in four exclusive jet multiplicity bins: \W/\Z boson plus one/two/three and at least four jets.
 
 Table~\ref{tab:xsection_electron_qcd_samples} presents the list of QCD multi-jet background and $\gamma$ + jets samples
 used in the estimation of the QCD background in the electron plus jets channel. The analogous set of muon-enriched QCD
@@ -58,7 +57,7 @@ reweighting procedure for MC events is required. To produce the weights, measure
 obtain a distribution of true pile-up vertices in data, i.e.\ before any vertex reconstruction inefficiencies. This
 distribution is then divided by the simulated one, and for each number of pile-up interactions, the weight is
 calculated. Figure~\ref{fig:pileup_vertices} shows the number of interactions before and after reweighting for both
-electron an muon channels. Evidently, the reweighting procedure helps to achieve a good agreement between data and
+electron and muon channels. Evidently, the reweighting procedure helps to achieve a good agreement between data and
 simulation.
 
 \begin{figure}[!htpb]
@@ -90,7 +89,7 @@ in Figure~\ref{fig:pileup_vertices_variations} for both electron and muon channe
  \begin{figure}[htbp]
    	\centering
     \includegraphics[width=\textwidth]{vertices/PileUp_2012_truth_data.pdf}
-    \caption{Number of expected vertices per event for central and $\pm \sigma$ variations of the total inelastic cross
+    \caption{Number of expected vertices per event for central and $\pm1\sigma$ variations of the total inelastic cross
     section for the 2012 data.}
     \label{fig:pileup_truth}
  \end{figure}
@@ -102,18 +101,18 @@ in Figure~\ref{fig:pileup_vertices_variations} for both electron and muon channe
 	\subfloat[]{\includegraphics[width=0.50\textwidth]{vertices/MuPlusJets_nVertex_reweighted_PU_down.pdf}}\hfill
 	\subfloat[]{\includegraphics[width=0.50\textwidth]{vertices/MuPlusJets_nVertex_reweighted_PU_up.pdf}}
 	\caption{\label{fig:pileup_vertices_variations}
-    Number of reconstructed vertices per event for the $-\sigma$ (left) and the $+\sigma$ variations (right) of
+    Number of reconstructed vertices per event for the $-1\sigma$ (left) and the $+1\sigma$ variations (right) of
     the pile-up reweighting procedure for the electron channel (top) and the muon channel (bottom).}
 \end{figure}
 
 
 \subsection{b-tagging corrections}
 \label{ss_xsection:btagging_corrections}
-In order to mitigate the background (QCD in particular), the b-tagging is applied in the event selection of this
-analysis. Similarly to the top quark mass analysis, the CSV algorithm with the medium working point providing
+In order to mitigate the background (QCD in particular), b-tagging is applied in the event selection of this analysis.
+Similarly to the top quark mass analysis, the CSV algorithm with the medium working point providing
 \SI{\sim70}{\percent} efficiency and \SI{\sim1}{\percent} mis-tag rate (Section~\ref{sss:b-tagging}) was used. However,
 in contrast with the 2011 analysis where the b-tagging corrections were implemented in the construction of the event
-likelihood, in this work the scale factors are applied to Monte Carlo events. This is done in order to correct for the
+likelihood, in this work scale factors are applied to Monte Carlo events. This is done in order to correct for the
 mismatch between the algorithm efficiency seen in data and MC \autocite{btagging_CMS_8TeV_results}. \pt and
 $\eta$-dependent scale factors were derived by the CMS b-tag Physics Object Group \autocite{btag_weights_2011} and are
 used to reweight the simulated events. The overall jet content of the event is taken into account, such as the number of
@@ -138,15 +137,15 @@ by applying $\pm 1 \sigma$ variations of the scale factors in the reweighting pr
 \section{Event Selection}
 \label{s_xsection:event_selection}
 As in the top quark mass analysis, the event selection in this work is based on the standard CMS selection optimised for
-the Standard Model \ttbar production. It also exploits the semileptonic signature of a \ttbar decay with exactly one
+Standard Model \ttbar production. It also exploits the semileptonic signature of a \ttbar decay with exactly one
 isolated lepton and at least four jets, two of which are b-tagged. One of the main goals of the analysis is the
 measurement of the missing transverse energy distribution represented by a neutrino from the leptonic decay of the \W
-boson, however, there is no specific requirement on the \MET in the selection.
+boson. However, there is no specific requirement on the \MET in the selection.
 
 Comparing to the 2011 event selection described in Section~\ref{s_top_mass:event_selection}, enhanced pile-up
 subtraction and lepton identification techniques are used. Improved understanding of the detector in form of updated
 alignment and calibration constants resulted in better resolution of jets and \MET. The preselection (or skimming) step
-used in order to reduce the number of events for local analysis processing is identical to that of 2011 analysis.
+used in order to reduce the number of events for local analysis processing is identical to that of the 2011 analysis.
 However, additional filters are used to reject the events with artificial \MET caused by noise or known problems with
 one of the detector subsystems. These filters are discussed in Section~\ref{ss_xsection:met_filters}.
 
@@ -173,11 +172,11 @@ steps:
 %https://twiki.cern.ch/twiki/bin/view/CMS/TWikiTop2011DataMCTrig
 
 \subsubsection*{Trigger}
-As opposed to 2011 analysis using cross triggers, a single electron trigger is used in this analysis. Referred to as
-HLT\_Ele27\_WP80, this trigger has a lepton \pt threshold of \SI{27}{\GeV} and ``WP80'' lepton isolation requirement
-(see Table~\ref{tab:trigger_naming}), but no specific jet requirements. In contrast to 2011 data-taking, the single
-electron trigger was unprescaled for the whole period of 2012 running, despite a comparatively large rate. This decision
-was made due to simplicity of the trigger selection, requiring flat efficiency corrections.
+In contrast to the 2011 analysis using cross triggers, a single electron trigger is used in this analysis. Referred to
+as HLT\_Ele27\_WP80, this trigger has a lepton \pt threshold of \SI{27}{\GeV} and ``WP80'' lepton isolation requirement
+(see Table~\ref{tab:trigger_naming}), but no specific jet requirements. In 2012, the single electron trigger was
+unprescaled for the whole running period, despite a comparatively large rate. The decision to keep the trigger
+unprescaled was made due to simplicity of the trigger selection, requiring flat efficiency corrections.
 
 \subsubsection*{Electron candidate selection}
 Similarly to 2011 selection, exactly one electron candidate passing is required in the event, passing the following
@@ -198,7 +197,7 @@ a tracker muon (see Section \ref{ss:muon_reconstruction}) are rejected. The requ
 those of 2011 selection: $\pt > \SI{10}{\GeV}$, $|\eta| < 2.5$ and $\reliso < 0.2$ with a $\Delta R$ cone of \num{0.4}.
 
 \subsubsection*{Dilepton veto}
-To reject events with additional electrons, dilepton veto is applied. Events are rejected if they contain a second
+To reject events with additional electrons, a dilepton veto is applied. Events are rejected if they contain a second
 electron candidate with the same ID and $\eta$ requirements, but looser \ET and \reliso criteria ($>\SI{20}{\GeV}$ and
 $<0.15$, respectively).
 
@@ -219,7 +218,7 @@ algorithm with the medium working point (Section \ref{sss:b-tagging}) is used to
 
 \subsection{Muon plus jets channel}
 \label{ss_xsection:mujets}
-The muon channel event selection follows similar strategy as that of the electron channel:
+The muon channel event selection follows a strategy similar to that of the electron channel:
 
 \begin{enumerate}[topsep=\parskip, parsep=\parskip, itemsep=\parskip, leftmargin=\leftmargin]
 	\item preselection;
@@ -312,7 +311,7 @@ anomalously high missing transverse energy. A short description of each filter i
 \begin{description}[wide=\parindent]
 	\item[CSC beam halo filter.]
 	Protons in the LHC beams can interact with residual particles of beam collimators, which produces secondary particle
-	showers refered to as beam halo \autocite{beam_halo_CMS}. This machine-induced background can significantly
+	showers referred to as beam halo \autocite{beam_halo_CMS}. This machine-induced background can significantly
 	contaminate collision events, particularly affecting the \MET observable due to specific trajectories of halo muons.
 	A dedicated algorithm based on exploiting the halo signatures in the Cathode Strip Chambers (CSCs) helps to mitigate
 	this background.
@@ -336,11 +335,11 @@ anomalously high missing transverse energy. A short description of each filter i
 	\item[Tracking failure filter.] Some events have been observed to have a lack of tracks corresponding to standard or
 	large calorimeter deposits. There are two understood sources of this misreconstruction: in a first type of such
 	events, the tracking algorithm (explained in Section~\ref{ss:electron_reconstruction}) halts for some of its
-	iterations due to an exceeding number of calorimeter clusters. In a second type the hard collision happens at a
-	distance of approximately \SI{75}{\cm} from the nominal interaction point. A cut on the summed \pt of the tracks
-	originating from the primary vertices passing the preselection criteria, divided by the summed \pt of all jets in
-	the event, was found to clearly distinguish between pathological and unaffected events. A cut value of \SI{10}{\pc}
-	is imposed.
+	iterations due to an exceeding number of calorimeter clusters. In a second type the hard collision happens in a
+	satellite colliding bunch at a distance of approximately \SI{75}{\cm} from the nominal interaction point along the
+	$z$ axis. A cut on the summed \pt of the tracks originating from the primary vertices passing the preselection
+	criteria, divided by the summed \pt of all jets in the event, was found to clearly distinguish between pathological
+	and unaffected events. A cut value of \SI{10}{\pc} is imposed.
 	%https://twiki.cern.ch/twiki/bin/viewauth/CMS/SusyRA2NJetsInData2010#Tracking_failure
 
 	\item[Bad ECAL endcap super-cluster filter.] In 2012, two $5\times5$ super-clusters in the ECAL endcap regions were
@@ -353,8 +352,8 @@ anomalously high missing transverse energy. A short description of each filter i
 	\item[ECAL laser correction filter.] Lead tungstate crystals of the ECAL naturally lose their transparency with
 	radiation exposure. To maintain high precision, this effect is corrected for by frequently injecting laser pulses
 	and reading out the response in order to calibrate each crystal \autocite{CMS_TDR1}. During 2012 data-taking, a
-	handful of crystals unphysically large values of laser corrections, resulting in anomalously high \MET in recorded
-	events. The filter removes such events from the dataset.
+	handful of crystals had unphysically large values of laser corrections, resulting in anomalously high \MET in
+	recorded events. The filter removes such events from the dataset.
 	%https://twiki.cern.ch/twiki/bin/viewauth/CMS/PdmVKnowFeatures#Filter_to_reject_events_with_ano
 
 	\item[Strip tracker noise filter.] A few events were affected by a large coherent noise in the silicon strip
@@ -364,15 +363,19 @@ anomalously high missing transverse energy. A short description of each filter i
 
 \end{description}
 
+% Although the number of events removed by these filters is extremely small (\SI{\ll1}{\pc}), most of them have high
+% fake \MET, which could lead to an artificial excess in the \MET distribution. Due to the analysis sensitivity to
+% \MET, application of these filters was rather important.
+
 \section{Data-driven QCD estimation}
 \label{s_xsection:data_driven_QCD}
-The QCD multi-jet events constitute an important background to semileptonic \ttbar decays, and one of the most
-difficult to model (Section~\ref{ss:backgrounds}). The two b-tagged jets requirement in the event selection is mainly
-motivated by the necessity to mitigate the effect of this particular background. In this analysis, the final QCD yield
-is obtained from the fitting process as explained in Section~\ref{s_xsection:measurement}. However, the initial estimate
-is performed using the data-driven techniques. Only the shape of the distribution is of importance here as the
-normalisation is determined in the fitting process. The QCD estimation methods for both electron and muon channel are
-described in detail hereafter.
+QCD multi-jet events constitute an important background to semileptonic \ttbar decays, and one of the most difficult to
+model (Section~\ref{ss:backgrounds}). The requirement of two b-tagged jets in the event selection is mainly motivated by
+the necessity to mitigate the effect of this particular background. In this analysis, the final QCD yield is obtained
+from the fitting process as explained in Section~\ref{s_xsection:measurement}. However, the initial estimate is
+performed using data-driven techniques. Only the shape of the distribution is of importance here as the normalisation is
+determined in the fitting process. The QCD estimation methods for both electron and muon channel are described in detail
+hereafter.
 
 \subsection{QCD multi-jet events with electrons}
 Two control regions have been investigated in the electron channel:
@@ -384,15 +387,15 @@ $\reliso > 0.2$.
 \end{itemize}
 
 Additionally, only events with no b-tagged jets are taken into account to increase the statistics and QCD purity in both
-control regions. Both control regions are presented on Figure~\ref{fig:qcd_control_regions_eta}, and the QCD shapes are
-compared for the electron absolute pseudorapidity distribution as this observable is used in the fitting procedure. It
-can be seen that the distributions are not well described by the Monte Carlo, e.g.\ occasional high peaks in the QCD MC
-represent the lack of statistics in simulation. Moreover, the two control regions have considerably different shapes in
-the electron $\abs \eta$ distributions. For the conversion control region, the shape is mostly flat in the barrel region
-($\abs \eta < 1.5$) and peaks in the endcap region ($\abs \eta > 1.5$), which is expected as the conversions are more
-likely to happen in the region with higher material budget. In contrast, the non-isolated control region peaks in the
-pseudorapidity region of $1.0 < \abs \eta < 1.5$. Such behaviour is correlated with the jet $\abs \eta$ distribution,
-since this control region favours non-isolated electrons coming from heavy quark decays.
+control regions. In Figure~\ref{fig:qcd_control_regions_eta} the distributions of the absolute pseudorapidities of the
+electron are presented for both control regions. The distributions observed in data are compared with MC expectations.
+It can be seen that the distributions are not well described by the Monte Carlo, e.g.\ occasional high peaks in the QCD
+MC represent the lack of statistics in simulation. Moreover, the two control regions have considerably different shapes
+in the electron $\abs \eta$ distributions. For the conversion control region, the shape is mostly flat in the barrel
+region ($\abs \eta < 1.5$) and peaks in the endcap region ($\abs \eta > 1.5$), which is expected as the conversions are
+more likely to happen in the region with higher material budget. In contrast, the non-isolated control region peaks in
+the pseudorapidity region of $1.0 < \abs \eta < 1.5$. Such behaviour is correlated with the jet $\abs
+\eta$ distribution, since this control region favours non-isolated electrons coming from heavy quark decays.
 
 \begin{figure}[htbp]
 	\centering
@@ -405,11 +408,14 @@ since this control region favours non-isolated electrons coming from heavy quark
     \label{fig:qcd_control_regions_eta}
 \end{figure}
 
-Due to the fact that the non-isolated control region has a significant contamination from signal and \W/\ZpJets events,
-the conversion region was chosen to produce the QCD template for the electron channel. However, since the relative
-contributions of the QCD events from both control regions in the final selected sample are not known, the real QCD shape
-can differ considerably from the prediction. Therefore, the non-isolated region is used to estimate the systematic
-uncertainty due to the QCD shape choice.
+Also, in Figure~\ref{fig:qcd_control_regions_eta} we see that while the conversion region is predicted to be a rather
+pure QCD sample, the non-isolated control region has significant contamination from \ttbar signal and \W/\ZpJets events.
+For this reason, the conversion region was chosen to produce the QCD template for the electron channel. However, since
+the relative contributions of the QCD events from both control regions in the final selected sample are not known, the
+real QCD shape can differ considerably from the prediction. Therefore, the non-isolated region is used to estimate the
+systematic uncertainty due to the QCD shape choice. This systematic error is estimated by substituting the nominal QCD
+template from the conversion control region with that from the non-isolated region, and calculating the change in the
+final measurement. More information on systematic uncertainties is presented in Section~\ref{s_xsection:systematics}.
 
 \subsection{QCD multi-jet events with muons}
 For the QCD shape extraction in the muon plus jets channel, the inverted isolation cut is applied in the event
@@ -422,10 +428,10 @@ Figure~\ref{fig:qcd_muon_plots}. Clearly, the control region is dominated by QCD
 reasonable agreement between data and simulation. The contamination from other processes is subtracted using Monte
 Carlo.
 
-\begin{figure}[htbp]
+\begin{figure}[!htbp]
 	\centering
-  	\subfloat[]{\includegraphics[width=0.50\textwidth]{QCD/QCD_muon_pfIsolation_0btag}}\hfill
-  	\subfloat[]{\includegraphics[width=0.50\textwidth]{QCD/QCD_non_iso_control_region_muon_AbsEta_0btag}}
+  	\subfloat[]{\includegraphics[width=0.47\textwidth]{QCD/QCD_muon_pfIsolation_0btag}}\hfill
+  	\subfloat[]{\includegraphics[width=0.47\textwidth]{QCD/QCD_non_iso_control_region_muon_AbsEta_0btag}}
     \caption{Muon relative isolation with no isolation cut (a) and muon $\abs \eta$ (b) for non-isolated ($\reliso >
     0.3$) selection in muon plus jets events with at least three jets and 0 b-tagged jets. The vertical red line on plot
     (a) shows the \reliso cut value of \num{0.3}.}
@@ -501,11 +507,11 @@ In this analysis, the normalised differential cross section of \ttbar production
 variables:
 
 \begin{itemize}
-	\item \MET, or missing transverse momentum;
+	\item \MET, or magnitude of missing transverse momentum;
 	\item \HT, or scalar sum of jet transverse momenta;
 	\item \ST, or scalar sum of the transverse momenta of all objects in the event;
 	\item \MT, or transverse mass of the leptonically decaying \W boson;
-	\item \WPT, or transverse momentum of the leptonically decaying \W boson.
+	\item \WPT, or magnitude of transverse momentum of the leptonically decaying \W boson.
 \end{itemize}
 
 These observables are often called event-level (or global) variables due to the fact that no high-level kinematic
@@ -514,10 +520,10 @@ variables less prone to inefficiencies, systematic errors or biases arising from
 techniques. Hence, global variables can provide better sensitivity in comparison of different theoretical models or
 generator tunes.
 
-\MET is commonly referred to as the missing transverse energy, which is equivalent to missing transverse momentum under
-assumption that the missing particles contributing to \MET are massless. It is defined as the negative of the vector sum
-of the transverse momenta of all reconstructed particles in an event. Therefore, its direction is opposite to the
-observed sum of transverse momentum, with the magnitude of
+\METvec is commonly referred to as the missing transverse energy, which is equivalent to missing transverse momentum
+under assumption that the missing particles contributing to \METvec are massless. \METvec is defined as the negative of
+the vector sum of the transverse momenta of all reconstructed particles in an event. Therefore, its direction is
+opposite to the observed sum of transverse momentum, and its magnitude \MET is given by:
 \[ \MET = - \left[ \left(\sum_i{p_{x}^i}\right)^2 + \left(\sum_i{p_{y}^i}\right)^2 \right]^{\frac{1}{2}}\]
 where the sums are calculated over all measured particles in the event.
 
@@ -525,11 +531,11 @@ where the sums are calculated over all measured particles in the event.
 \[\HT = \sum_{\mathrm{all~jets}}\pt^{\mathrm{jet}}\]
 Here all jets are required to have a \pt $>$ \SI{20}{\GeV} as described in Section~\ref{s_xsection:event_selection}.
 
-\ST represents the sum of \HT, \MET and the \pt of the single isolated lepton: 
+\ST represents the sum of \HT, \MET and the magnitude of \pt of the single isolated lepton:
 \[\ST = \HT + \MET + p_\mathrm{T}^\mathrm{lepton}\]
 
-\WPT refers to the transverse momentum of the leptonically decaying \W boson, which is calculated from the single
-isolated lepton and \MET assumed to originate from the \ttbar decay:
+\WPT refers to the magnitude of transverse momentum of the leptonically decaying \W boson, which is calculated from the
+single isolated lepton and \MET assumed to originate from the \ttbar decay:
 \[\WPT = \sqrt{(p_x^{\mathrm{lepton}} + p_x^{\mathrm{miss}})^2 + (p_y^{\mathrm{lepton}} + p_y^{\mathrm{miss}})^2}\]
 
 Finally, \MT is defined as the transverse mass of the leptonically decaying \W boson, also using the single isolated
@@ -579,7 +585,7 @@ variable. Results for other primary variables can be found in Appendix~\ref{a:bi
 
 \subsection{Fitting procedure}
 \label{ss_xsection:fitting}
-To calculate the differential cross section as a function of a primary variable, the number of signal \ttbar event has
+To calculate the differential cross section as a function of a primary variable, the number of signal \ttbar events has
 to be measured in each primary variable bin. For this purpose, a template fit of the observed distribution of lepton
 pseudorapidity ($\abs {\eta_l}$) is performed in each bin in order to estimate the number of \ttbar events by
 subtracting the primary backgrounds. Three separate normalised templates are produced for the input of the template fit:
@@ -683,13 +689,13 @@ fit:
 \end{align}
 
 The first term represents the constraint of the number of \VpJets events to within \SI{50}{\pc} of that predicted by
-theory, whereas the second term is the \SI{200}{\pc} constraint for QCD events.
+theory, whereas the second term is a \SI{200}{\pc} constraint for QCD events.
 
-Figure~\ref{fig:fitted_MET} shows the control plots of data/MC comparison for \MET variable in both electron and muon
-channels. Here the normalisation for signal and backgrounds is taken from the fitted results. Similar plots for \HT and
-\ST are shown in Figure~\ref{fig:fitted_HT_ST}, whereas Figure~\ref{fig:fitted_WPT_MT} shows control plots for \WPT and
-\MT. Overall, the data and simulation agree within the fit uncertainty. The observed discrepancies can be attributed to
-the known issue of the event generators incorrectly modelling the \pt spectrum of the top quarks
+Figure~\ref{fig:fitted_MET} shows the control plots of data/MC comparison for the \MET variable in both electron and
+muon channels. Here the normalisation for signal and backgrounds is taken from the fitted results. Similar plots for \HT
+and \ST are shown in Figure~\ref{fig:fitted_HT_ST}, whereas Figure~\ref{fig:fitted_WPT_MT} shows control plots for \WPT
+and \MT. Overall, the data and simulation agree within the fit uncertainty. The observed discrepancies can be attributed
+to the known issue of the event generators incorrectly modelling the \pt spectrum of the top quarks
 \autocite{ttbar_differential_xsection_7TeV, ttbar_differential_xsection_8TeV}. This effect is accounted for as a source
 of systematic uncertainty, as explained in Section~\ref{s_xsection:systematics}.
 %https://twiki.cern.ch/twiki/bin/viewauth/CMS/TopPtReweighting
@@ -865,7 +871,6 @@ sections:
 \mathrm{X}} = \frac{1}{\Delta \mathrm{X}^k} \frac{\Nttbar^k}{\sum\limits_k \Nttbar^k}.
 \end{equation}
 
-\newpage
 \section{Systematic Uncertainties}
 \label{s_xsection:systematics}
 The sources of systematic uncertainties considered in this analysis are largely the same to those of the top quark mass
@@ -873,8 +878,8 @@ analysis (Section~\ref{s_top_mass:systematics}). Similarly, the errors are estim
 according to their theoretical or experimental variations, and measuring the change in the final result. All systematic
 errors are added to the fitting and unfolding errors in quadrature.
 
-The full list of systematic uncertainties for the normalised cross section measurement with respect to \MET variable is
-shown in Table~\ref{tab:combined_MET_systematics}.
+The full list of systematic uncertainties for the normalised cross section measurement with respect to the \MET variable
+is shown in Table~\ref{tab:combined_MET_systematics}.
 
 \input{06_Cross_section_analysis/tables/xsection_MET_systematics}
 
@@ -925,13 +930,13 @@ Section~\ref{ss_xsection:calculation}.
 
 The final combined results are shown in Figures~\ref{fig:results_MET_combined}--\ref{fig:results_WPT_combined} for all
 primary variables. The unfolded data are compared with predictions by \MADGRAPH, \POWHEG and \MCATNLO event generators
-(Section~\ref{sss_top_mass:MC_generators}). Results are also compared with theoretical predictions showing
-the effects due to variations of modelling parameters, including matching threshold and normalisation scale
-(Section~\ref{sss_top_mass:matching_and_factorisation}). In all figures, the inner error bars represent the combined
-fitting and unfolding uncertainties, whereas the outer error bars show the uncertainty due to systematic variations.
-Naturally, the systematic errors due to matching threshold and normalisation scale choice are excluded from comparison
-with variations due to these parameters, and the hadronisation systematic is excluded from the comparison with
-different generators. Overall, the results are consistent with predictions of the Standard Model.
+(Section~\ref{ss:MC_generators}). Results are also compared with theoretical predictions showing the effects due to
+variations of modelling parameters, including matching threshold and normalisation scale
+(Section~\ref{ss:matching_and_factorisation}). In all figures, the inner error bars represent the combined fitting and
+unfolding uncertainties, whereas the outer error bars show the uncertainty due to systematic variations. Naturally, the
+systematic errors due to matching threshold and normalisation scale choice are excluded from comparison with variations
+due to these parameters, and the hadronisation systematic is excluded from the comparison with different generators.
+Overall, the results are consistent with predictions of the Standard Model.
 
 
 \begin{figure}[!htbp]

@@ -1,5 +1,9 @@
 \begin{table}[!htbp]
 \centering
+\caption{Signal and background Monte Carlo samples with cross sections at $\sqrt s =
+\SI{8}{\TeV}$, numbers of generated events and corresponding integrated
+luminosities.}
+\label{tab:xsection_mc_samples}
 \begin{tabular}{|l|l|r|r|r|}
 \toprule
 Process & Generator & $\sigma$ (\pb) & \# events & $\int\lumi dt$ (\fbinv)\\
@@ -29,14 +33,16 @@ Single top & \POWHEG & & & \\
 \hspace{5 mm} anti-top tW-channel & & 11.18 & 493460 & 44.1 \\
 \bottomrule
 \end{tabular}
-\caption{Signal and background Monte Carlo samples with cross sections at $\sqrt s =
-\SI{8}{\TeV}$, numbers of generated events and corresponding integrated
-luminosities.}
-\label{tab:xsection_mc_samples}
 \end{table}
 
 \begin{table}[!htbp] 
 \centering
+\caption{QCD multi-jet background and $\gamma$ + jets MC samples used in the electron plus jets channel
+with cross sections at $\sqrt s = \SI{8}{\TeV}$, numbers of generated events and corresponding integrated luminosities.
+% EM-enriched samples are preselected to include jets with higher electromagnetic content;
+% $\cPqb/\cPqc \rightarrow e\nu$ samples are preselected to include leptonic ($e\nu$) in-flight decays of b- and c-quarks.
+}
+\label{tab:xsection_electron_qcd_samples}
 \resizebox{\textwidth}{!}{
 \begin{tabular}{|l|l|r|r|r|r|}
 \toprule
@@ -64,16 +70,13 @@ $\gamma$ + jets & \MADGRAPH & & & & \\
 \bottomrule
 \end{tabular}
 }
-\caption{QCD multi-jet background and $\gamma$ + jets MC samples used in the electron plus jets channel
-with cross sections at $\sqrt s = \SI{8}{\TeV}$, numbers of generated events and corresponding integrated luminosities.
-% EM-enriched samples are preselected to include jets with higher electromagnetic content;
-% $\cPqb/\cPqc \rightarrow e\nu$ samples are preselected to include leptonic ($e\nu$) in-flight decays of b- and c-quarks.
-}
-\label{tab:xsection_electron_qcd_samples}
 \end{table}
 
 \begin{table}[!htbp] 
 \centering
+\caption{QCD multi-jet background MC samples used in the muon plus jets channel with cross sections at $\sqrt s =
+\SI{8}{\TeV}$, numbers of generated events and corresponding integrated luminosities.}
+\label{tab:xsection_muon_qcd_samples}
 \resizebox{\textwidth}{!}{
 \begin{tabular}{|l|l|r|r|r|r|}
 \toprule
@@ -95,13 +98,16 @@ QCD ($\mu$ enriched)  & \PYTHIA & & & & \\
 \bottomrule
 \end{tabular}
 }
-\caption{QCD multi-jet background MC samples used in the muon plus jets channel with cross sections at $\sqrt s =
-\SI{8}{\TeV}$, numbers of generated events and corresponding integrated luminosities.}
-\label{tab:xsection_muon_qcd_samples}
 \end{table}
 
 \begin{table}[!htbp]
 \centering
+\caption{Systematic MC samples with cross sections at $\sqrt s =
+\SI{8}{\TeV}$, numbers of generated events and corresponding integrated
+luminosities. Factorisation scale $Q$ and matching threshold systematic
+uncertainties are estimated with variations of \ttjets, \WpJets and \ZpJets
+samples.}
+\label{tab:xsection_systematic_samples}
 \begin{tabular}{|l|l|r|r|r|}
 \toprule
 Process & Generator & $\sigma$ (\pb) & \# events & $\int\lumi dt$ (\fbinv)\\
@@ -125,12 +131,6 @@ Process & Generator & $\sigma$ (\pb) & \# events & $\int\lumi dt$ (\fbinv)\\
 \hspace{5 mm}$2 \times Q$ 						& & 2954 & 2170270 & 0.7 \\
 \bottomrule
 \end{tabular}
-\caption{Systematic MC samples with cross sections at $\sqrt s =
-\SI{8}{\TeV}$, numbers of generated events and corresponding integrated
-luminosities. Factorisation scale $Q$ and matching threshold systematic
-uncertainties are estimated with variations of \ttjets, \WpJets and \ZpJets
-samples.}
-\label{tab:xsection_systematic_samples}
 \end{table}
 
 % WARNING: V+Jets systematic samples cross sections are 7 TeV ones (taken from PREP)

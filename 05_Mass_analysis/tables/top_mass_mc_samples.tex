@@ -1,5 +1,8 @@
 \begin{table}[!htbp]
 \centering
+\caption{Signal and background Monte Carlo samples with cross sections at $\sqrt s = \SI{7}{\TeV}$, numbers of generated
+events and corresponding integrated luminosities.}
+\label{tab:top_mass_mc_samples}
 \begin{tabular}{|l|l|r|r|r|}
 \toprule
 Process & Generator & $\sigma$ (\pb) & \# events & $\int\lumi dt$ (\fbinv)\\
@@ -32,10 +35,6 @@ Single top & \POWHEG & & & \\
 \hspace{5 mm} anti-top $tW$-channel & & 5.3 & 809984 & 152.8 \\
 \bottomrule
 \end{tabular}
-\caption{Signal and background Monte Carlo samples with cross sections at $\sqrt s =
-\SI{7}{\TeV}$, numbers of generated events and corresponding integrated
-luminosities.}
-\label{tab:top_mass_mc_samples}
 \end{table}
 
 % \begin{table}[!hbth] \centering
@@ -65,6 +64,12 @@ luminosities.}
 
 \begin{table}[!htbp] 
 \centering
+\caption{QCD multi-jet background and $\gamma$ + jets MC samples with cross sections at $\sqrt s =
+\SI{7}{\TeV}$, numbers of generated events and corresponding integrated luminosities.
+% EM-enriched samples are preselected to include jets with higher electromagnetic content;
+% $\cPqb/\cPqc \rightarrow e\nu$ samples are preselected to include leptonic ($e\nu$) in-flight decays of b- and c-quarks.
+}
+\label{tab:top_mass_background_qcd}
 \resizebox{\textwidth}{!}{
 \begin{tabular}{|l|l|r|r|r|r|}
 \toprule
@@ -87,16 +92,14 @@ $\gamma$ + jets & \MADGRAPH & & & & \\
 \bottomrule
 \end{tabular}
 }
-\caption{QCD multi-jet background and $\gamma$ + jets MC samples with cross sections at $\sqrt s =
-\SI{7}{\TeV}$, numbers of generated events and corresponding integrated luminosities.
-% EM-enriched samples are preselected to include jets with higher electromagnetic content;
-% $\cPqb/\cPqc \rightarrow e\nu$ samples are preselected to include leptonic ($e\nu$) in-flight decays of b- and c-quarks.
-}
-\label{tab:top_mass_background_qcd}
 \end{table}
 
 \begin{table}[!htbp]
 \centering
+\caption{Systematic MC samples with cross sections at $\sqrt s = \SI{7}{\TeV}$, numbers of generated events and
+corresponding integrated luminosities. Factorisation scale $Q$ and matching threshold systematic uncertainties (see
+Section \ref{ss:matching_and_factorisation}) are estimated with variations of \ttjets, \WpJets and \ZpJets samples.}
+\label{tab:top_mass_systematic_samples}
 \begin{tabular}{|l|l|r|r|r|}
 \toprule
 Process & Generator & $\sigma$ (\pb) & \# events & $\int\lumi dt$ (\fbinv)\\
@@ -120,10 +123,4 @@ Process & Generator & $\sigma$ (\pb) & \# events & $\int\lumi dt$ (\fbinv)\\
 \hspace{5 mm}$2 \times Q$ & & 2954 & 1592742 & 0.5 \\
 \bottomrule
 \end{tabular}
-\caption{Systematic MC samples with cross sections at $\sqrt s =
-\SI{7}{\TeV}$, numbers of generated events and corresponding
-integrated luminosities. Factorisation scale $Q$ and matching threshold
-systematic uncertainties (see Section \ref{sss_top_mass:matching_and_factorisation}) are
-estimated with variations of \ttjets, \WpJets and \ZpJets samples.}
-\label{tab:top_mass_systematic_samples}
 \end{table}

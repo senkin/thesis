@@ -54,6 +54,7 @@
 \usepackage{ifpdf}
 \usepackage{xspace}
 \usepackage{booktabs}
+\usepackage{longtable}
 \usepackage{array}
 \usepackage{multirow}
 \usepackage{pbox}

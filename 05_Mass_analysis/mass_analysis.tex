@@ -44,110 +44,8 @@ pre-selected by single electron plus jets high level triggers, described in deta
 % 	\item /ElectronHad/Run2011B-PromptReco-v1/AOD
 % \end{itemize}
 
-\subsection{Simulation of signal and background processes}
-\label{ss_top_mass:signal_and_background}
-
-To develop and test any analysis technique in particle physics, simulated events from Monte Carlo (MC) generators as
-well as a working simulation model of the detector are inevitably needed. In this analysis, \ttbar signal decays and
-background processes were generated with a set of different MC generators including \MADGRAPH \autocite{MadGraph},
-\PYTHIA \autocite{Pythia,Pythia6.4} and \POWHEG \autocite{POWHEG}. A supplementary package (\TAUOLA \autocite{TAUOLA})
-was used for the tau lepton decay description. In this section, all the event generators as well as the different MC
-tunes used for evaluation of systematic uncertainties are briefly described. Additionally, the \GEANTfour-based
-\autocite{GEANT4} CMS detector simulation is mentioned, and finally Monte Carlo samples for all processes are
-presented.
-
-\subsubsection{Monte Carlo event generators}
-\label{sss_top_mass:MC_generators}
-
-Simulation of \ttbar signal and background processes, described in Section~\ref{s:top_quak_physics}, was performed using
-several Monte Carlo event generators. The process of simulating a hadron collision event is rather complicated, and
-usually includes generation of the following steps:
-
-\begin{enumerate}[label=\textbullet]
-	\item incoming hadrons (protons);
-	\item hard scattering of partons;
-	\item boson radiation (\Z, \photon, \cPg);
-	\item parton shower;
-	\item hadronisation of partons.
-\end{enumerate}
-
-The performance of MC generators is usually optimised for one or more of these steps, therefore they two or more
-generators often used in combination, e.g.\ \ttbar signal is modelled with \MADGRAPH and \PYTHIA. Standalone generators
-can also be used for modelling theory systematic effects, which is also exploited in this thesis.
-%(\MCATNLO, \POWHEG + \PYTHIA).
-
-\begin{description}[wide=\parindent, style=standard, labelsep=0pt]
-\item [\MADGRAPH] \autocite{MadGraph} is a matrix-element Monte Carlo event generator. For any renormalisable
-Lagrangian-based model it produces all possible Feynman diagrams and automatically generates its matrix elements at the
-tree level, performing the integration over all phase-space. This calculation is then used to produce the \xsect of
-various processes and subprocesses as well as partons and kinematics of an event, including decays that are described
-using spin correlations. Partons from matrix element calculations are then matched to parton showers from hadronisation
-of quarks and gluons, which is simulated in \PYTHIA (see below) along with the fragmentation of initial protons and the
-soft scattering of underlying event (mentioned in Section~\ref{sss:JEC}). The matching is done according to the
-so-called MLM prescription \autocite{MLM} if a parton-jet pair satisfies a certain $\Delta R$ separation criterion. If
-no or more than one matched jets are found, events are rejected. There is also a certain transverse energy threshold
-requirement for the partons to be considered in the matching. Default values as well as variations used to estimate the
-systematic effect of the matching threshold are shown in Table~\ref{tab:systematic_mc_variations}.
-
-\item [\PYTHIA] \autocite{Pythia,Pythia6.4} is one of the most widely used MC generators in high energy physics. It is a
-standard tool used for simulation of quark and gluon hadronisation, multi-particle production, beam remnants, initial
-protons fragmentation, etc. In this work, \PYTHIA is used to generate QCD multi-jet production, and to simulate the
-underlying event on top of other generators providing partons from hard processes.
-
-\item [\MCATNLO] \autocite{MCatNLO} is a parton shower MC generator providing next-to-leading order (NLO) corrections
-for a simulated process. It represents a major improvement in precision and accuracy of physics simulations comparing to
-leading order (LO) generators like \PYTHIA. NLO implementation can handle additional partons in the final state coming
-from the hard scattering, which is not possible with LO calculations. Therefore it includes additional dynamic features,
-giving a major advantage for heavy flavour physics.
-
-\item [\POWHEG] (Positive Weight Hardest Emission Generator) \autocite{POWHEG} also works at NLO precision. Its main
-difference to \MCATNLO generator lies in the order of process generation: \POWHEG initially generates the hardest
-radiation. This technique allows to avoid double-counting coming from subsequent radiation which may happen with
-\MCATNLO method when matching QCD NLO calculations with parton showers.
-%http://theory.fnal.gov/seminars/slides/2008/COleari.pdf
-
-\end{description}
-
-\subsubsection{Matching Threshold and Factorisation Scale}
-\label{sss_top_mass:matching_and_factorisation}
-%https://twiki.cern.ch/twiki/bin/view/CMS/MadGraphStandardModel
-
-As described above with the example of \MADGRAPH generator, there is a certain threshold for partons transverse momenta
-from matrix element calculations to be matched with parton showers, often referred to as ME-PS threshold. To estimate
-the systematic uncertainty arising from it, additional MC samples were generated with the value of the threshold either
-halved or doubled. This procedure was performed for signal \ttjets and background \WpJets and \ZpJets samples.
-Similarly, the systematic effect of the choice of factorisation scale $Q^2$ (described in
-Section~\ref{ss:top_production}) is determined. A summary of central values and variations used to estimate these
-systematic uncertainties is shown in Table~\ref{tab:systematic_mc_variations}, whereas the list of systematic MC samples
-is shown in Table~\ref{tab:top_mass_systematic_samples}.
-
-\input{05_Mass_analysis/tables/top_mass_mc_systematics}
-
-\subsubsection{CMS detector simulation}
-\label{sss_top_mass:detector_simulation}
-
-Detector simulation is an essential final step on top of the full physics simulation of proton-proton collisions. All
-generated particles resulting from these collisions are propagated to the simulated layers of the detector so that their
-interaction with the detector material and detector response can also be modelled. The CMS simulation is based on the
-\GEANTfour (GEometry ANd Tracking \autocite{GEANT4}) package, which is implemented in CMS software \CMSSW
-\autocite{CMSSW}. This package fully recreates the geometry of the detector, including all its subsystems as well as a
-detailed map of the magnetic field.
-
-In general, the simulation procedure includes modelling of the following steps:
-\begin{enumerate}[label=\textbullet]
-	\item interaction region;
-	\item particles traversing all the layers of the detector and the interaction processes;
-	\item multiple interactions per beam crossing (pile-up) and event overlay effects;
-	\item digital readout of the detector (digitisation).
-\end{enumerate}
-%https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideSimulation
-
-The data stream generated with this process is very similar to the output of the real detector, although naturally in
-addition to reconstructed objects, generated events also include collections of generated objects, allowing users to
-access the Monte Carlo truth information, which is essential for any particle physics analysis.
-
-\subsubsection{Monte Carlo samples}
-\label{sss_top_mass:mc_samples}
+\subsection{Monte Carlo samples}
+\label{ss_top_mass:mc_samples}
 
 The nominal signal \ttbar MC sample used in this analysis was generated using the \MADGRAPH generator with a top quark
 mass of \mtop = \SI{172.5}{\GeV}. To calibrate the mass extraction technique, as explained in
@@ -173,14 +71,11 @@ luminosities.
 %gamma plus jets samples were not even used?
 
 Finally, Table~\ref{tab:top_mass_systematic_samples} lists the additional samples generated to allow estimation of the
-systematic uncertainties due to factorisation scale and matching threshold choices, as discussed earlier.
-
-%in Section~\ref{sss_top_mass:matching_and_factorisation}.
-
+systematic uncertainties due to factorisation scale and matching threshold choices, as discussed in
+Section~\ref{ss:matching_and_factorisation}.
 
 \input{05_Mass_analysis/tables/top_mass_mc_samples}
 
-\clearpage
 
 % \subsection{Pile-up reweighting}
 % \label{ss_top_mass:pileup_reweithing}
@@ -224,9 +119,10 @@ Preselection is performed in order to reduce the number of events stored for loc
 have at least one electron with \ET above \SI{30}{\GeV} within pseudorapidity region of $\abs \eta < 2.5$, or at least
 one muon with \pt above \SI{20}{\GeV} and $\abs \eta < 2.1$. Additional event cleaning is performed at this stage to
 decrease the number of events with substantial detector noise. A small fraction of events with anomalous HCAL noise is
-removed by an HCAL noise filter. Furthermore, beam scraping is mitigated by the appropriate filter requiring at least
-\SI{25}{\percent} tracks with high purity if there are more than \num{10} tracks in the event. Finally, the preselection
-stage includes the requirement of at least one good primary vertex in the event which has to be located within
+removed by an HCAL noise filter. Furthermore, contribution from beam halo (mentioned in
+Section~\ref{ss_xsection:met_filters}) is mitigated by the appropriate filter requiring at least \SI{25}{\percent}
+tracks with high purity if there are more than \num{10} tracks in the event. Finally, the preselection stage includes
+the requirement of at least one good primary vertex in the event which has to be located within
 \SI{24}{\cm} in the $z$-direction from the centre of CMS and within a radial distance of \SI{2}{\cm}. The primary vertex
 is also required to have at least four degrees of freedom which is determined from the vertex fit and is strongly
 correlated with the number of tracks compatible with the primary interaction region \autocite{Tacking_PV_results_7TeV}.
@@ -356,8 +252,8 @@ The following kinematic constraints are imposed:
 	\end{equation}
 \end{enumerate}
 
-Apart from exploiting the knowledge of the \W mass, the \cPqb quark mass of \SI{4.7}{\GeV} is also used. Light quarks
-and leptons are considered to be massless.
+% Apart from exploiting the knowledge of the \W mass, the \cPqb quark mass of \SI{4.7}{\GeV} is also used. Light quarks
+% and leptons are considered to be massless.
 
 The full description of the fitting algorithm can be found in the appendix of the \HitFit author's PhD thesis
 \autocite{Snyder}. Essentially, since the constraints are non-linear, an iterative technique is used. Starting with the
@@ -500,7 +396,7 @@ a width of the fitted mass uncertainty $\sigma_{i}$ as estimated by the fit:
 \textrm{exp}\left(\frac{(m'-m_{i})^{2}}{2\sigma_{i}^2}\right)
 \end{equation}
 
-The resulting probability density for \ttbar events with correct permutations is shown in
+The fitted mass spectrum for \ttbar events with correct permutations is shown in
 Figure~\ref{fig:fitted_ttbar_cp_density}. The Monte Carlo sample with top mass of \SI{166.5}{\GeV} was used, for
 illustration.
 
@@ -508,8 +404,9 @@ illustration.
 	\centering
     \includegraphics[width=0.65\textwidth]{correct_permutations_fitted_top_mass}
 	\caption{\label{fig:fitted_ttbar_cp_density}
-	The fitted top quark mass distribution for \ttbar events with correct permutations (MC truth, \mtop =
-	\SI{166.5}{\GeV}).}
+	The fitted top quark mass distribution for \ttbar events with correct permutations. The points with error bars
+	represent the numbers of events for values of fitted \mtop from the output of the kinematic fit, obtained with MC
+	truth sample generated with \mtop = \SI{166.5}{\GeV}.}
 \end{figure}
 
 The second term shows the probability of a wrong permutation in the signal event. This probability density, denoted
@@ -543,8 +440,10 @@ functions of the top quark mass. The fitted distributions of wrong permutations 
 	\hfill
 	\subfloat[]{\includegraphics[width=0.50\textwidth]{wrong_permutations_fitted_top_mass_178}}
 	\caption{\label{fig:fitted_ttbar_wp_density}
-	The fitted top quark mass distribution for \ttbar events with wrong permutations (MC truth) for (a)
-	$\mtop=\SI{166.5}{\GeV}$, (b) $\mtop=\SI{172.5}{\GeV}$, (c) $\mtop=\SI{178.5}{\GeV}$.}
+	The fitted top quark mass distribution for \ttbar events with wrong permutations. The points with error bars
+	represent the numbers of events for values of fitted \mtop from the output of the kinematic fit, obtained with MC
+	truth sample generated with (a) $\mtop=\SI{166.5}{\GeV}$, (b) $\mtop=\SI{172.5}{\GeV}$, (c)
+	$\mtop=\SI{178.5}{\GeV}$.}
 \end{figure}
 
 \subsubsection*{Background probability}
@@ -570,7 +469,9 @@ Figure~\ref{fig:background_wjets_fitted_top_mass}. This distribution is describe
 	\centering
 	\includegraphics[width=0.65\textwidth]{background_wjets_fitted_top_mass}
 	\caption{\label{fig:background_wjets_fitted_top_mass}
-	The fitted top quark mass distribution for \ttbar events in \WpJets Monte Carlo sample.}
+	The fitted top quark mass distribution for background events. The points with error bars represent the numbers of
+	events for values of fitted \mtop from the output of the kinematic fit, obtained with a \WpJets Monte Carlo
+	sample.}
 \end{figure}
 
 \subsection{Combined likelihood fit}
@@ -602,7 +503,8 @@ bias of the ideogram method. The mass calibration technique is described in the 
 	\centering
 	\includegraphics[width=0.65\textwidth]{Likelihood}
 	\caption{\label{fig:LogLikelihood}
-	Log-likelihood curve as a function of top quark mass for e+jets dataset before calibration.}
+	Log-likelihood curve as a function of top quark mass for e+jets dataset before calibration (the true minimum is
+	subtracted in Equation~\ref{eq:CombinedLogLikelihood}).}
 \end{figure}
 
 \section{Mass Calibration}
@@ -688,9 +590,9 @@ described in Section~\ref{s_top_mass:calibration}, the statistical uncertainty o
 final measurement by regarding it as a systematic error. This uncertainty was evaluated with the central \ttbar MC
 sample with the top quark mass of \SI{172.5}{\GeV}.
 
-\item [b-tagging.] The nominal (``medium'') working point of the CSVM algorithm is varied in order to reflect the
-uncertainty of the b-tagging efficiency of \SI{\sim4}{\pc} \autocite{b-tagging_CMS}. The average effect of this change
-on the mass measurement (approximately \SI{0.1}{\GeV}) is quoted as a systematic uncertainty.
+\item [b-tagging.] The nominal (``medium'') working point of the CSVM algorithm (Section~\ref{sss:b-tagging}) is varied
+in order to reflect the uncertainty of the b-tagging efficiency of \SI{\sim4}{\pc} \autocite{b-tagging_CMS}. The average
+effect of this change on the mass measurement (approximately \SI{0.1}{\GeV}) is quoted as a systematic uncertainty.
 
 \item [Jet energy scale.] Since the top quark mass measurement is based on knowledge about at least four energetic jets
 in semileptonic \ttbar decay, it is very sensitive to any uncertainties in jet energies. Hence, the jet energy scale is
@@ -717,7 +619,7 @@ $\pm1\sigma$ uncertainties, an average systematic effect of \SI{1.21}{\GeV} on t
 % largest of the up and down variation, 0.07 GeV, as a systematic uncertainty.
 
 \item [Factorisation scale.]
-As mentioned in Section~\ref{sss_top_mass:matching_and_factorisation}, the factorisation scale is varied by factors of
+As mentioned in Section~\ref{ss:matching_and_factorisation}, the factorisation scale is varied by factors of
 0.5 and 2 with respect to the nominal value used in the central generated samples. The procedure is performed for
 \ttjets, \WpJets and \ZpJets Monte Carlo samples independently as the factorisation scales are considered uncorrelated.
 To combine the systematic uncertainty, the average absolute size of the up and down effects are added in quadrature. Due
@@ -728,7 +630,7 @@ the largest in the top quark mass measurement.
 
 \item [ME-PS matching threshold.]
 The systematic effect of choice of ME-PS threshold, also mentioned in
-Section~\ref{sss_top_mass:matching_and_factorisation}, is estimated by varying the default value of \SI{20}{\GeV} by
+Section~\ref{ss:matching_and_factorisation}, is estimated by varying the default value of \SI{20}{\GeV} by
 factors of 0.5 and 2. Similarly to factorisation scale systematic uncertainty, the matching thresholds are varied
 independently for \ttjets, \WpJets and \ZpJets Monte Carlo samples and then added in quadrature. The same issue with the
 lack of statistics appears here, although to a lesser extent.
