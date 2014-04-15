@@ -876,49 +876,45 @@ sections:
 The sources of systematic uncertainties considered in this analysis are largely the same to those of the top quark mass
 analysis (Section~\ref{s_top_mass:systematics}). Similarly, the errors are estimated by varying the input quantities
 according to their theoretical or experimental variations, and measuring the change in the final result. All systematic
-errors are added to the fitting and unfolding errors in quadrature.
+errors are added to the fitting and unfolding errors in quadrature. In the total error calculation, all systematic
+uncertainties are set to be symmetric, conservatively taking the larger of the upward and downward variations.
 
-The full list of systematic uncertainties for the normalised cross section measurement with respect to the \MET variable
-is shown in Table~\ref{tab:combined_MET_systematics}.
+The full lists of systematic uncertainties for the normalised differential cross section measurement with respect to all
+primary variables are presented in Tables~\ref{tab:combined_MET_systematics}--\ref{tab:combined_WPT_systematics}.
+Rate-changing systematic uncertainties, such as luminosity uncertainty and single top/\ttbar production cross sections,
+expectedly have very a low impact on all measurements. Typically, the dominating systematic uncertainties are due to the
+factorisation scale and matching threshold variations in both \VpJets and \ttbar events, mainly driven by low statistics
+available in corresponding Monte Carlo samples. Unfortunately, this leads to substantial errors in fit results.
+
+Jet energy scale is also amongst the dominating uncertainties due to the fact that it has a direct influence on the \MET
+measurement as the jet energy corrections are propagated to \MET (as explained in Section~\ref{ss:MET_reconstruction}).
+\HT and \ST variables are also affected by this systematic uncertainty, since they directly depend on the jet transverse
+momenta.
+
+A systematic uncertainty due to the hadronisation model is estimated by replacing the standard \MADGRAPH \ttbar signal
+sample with \MCATNLO signal sample. This systematic variation has a particularly strong effect on \HT and \ST variables,
+since they are sensitive to the hadronic activity in the event.
+
+Differential cross section measurement with respect to \MET-related variables can be affected by the unclustered energy
+variation, which studies the impact of the \pt\SI{>20}{\GeV} cut for the jets in \MET calculation. This cut is
+motivated by the large uncertainties of jet energy corrections for soft jets. The systematic uncertainty due to the
+choice of this cut has a moderate (\SI{\approx1}{\pc}) effect on distributions using \MET.
+
+The $p_\mathrm{T}(t,\bar{t})$ reweighting systematic variation accounts for the known issue of the event generators
+incorrectly modelling the \pt spectrum of the top quarks. This issue was discovered in early differential cross section
+measurements \autocite{CMS_diff_xsections_7TeV}, when it was found that the data distribution of the top quark
+transverse momentum is softer in the tail region than the MC prediction from most MC generators, including \MADGRAPH,
+\POWHEG and \MCATNLO. The results were confirmed by a range of analyses studying different \ttbar decay modes. A set of
+scale factors were derived in order to restore the data/MC agreement. These scale factors are not applied for the
+central measurements in this analysis, but investigated as a systematic variation. It was found that this variation has
+a very moderate effect on event-level distributions, with relative changes in the differential cross section below
+\SI{1}{\pc}.
 
 \input{06_Cross_section_analysis/tables/xsection_MET_systematics}
-
-% \begin{description}[wide=\parindent]
-% \item Luminosity: 4.4\% (global)
-% \item Electron efficiency (combined trigger + ID + isolation): 3\% (electron events, flat in \pt and $\eta$) (from
-% tag-and-probe)
-% \item Muon efficiency (combined trigger + ID + isolation): 1\% (muon events) (from tag-and-probe)
-% \item QCD shape uncertainty
-% \item Single top cross section: 30\% (global). Though the theoretical uncertainties of the NNLO predictions of the
-% single top production cross sections in the three production channels are of the order of 5-10\%, it has been agreed
-% within the Top PAG to use a combined uncertainty of 30\% for the single top production cross section in the phase space
-% of \ttbar production, i.e.\ events with more than three selected jets.
-% \item $Q^2$ scale for W and Z events (shape-changing, from dedicated samples, affecting W and Z samples)
-% \item Matching scale for W and Z events (shape-changing, from dedicated samples, affecting W and Z samples)
-% \item $Q^2$ scale for \ttbar events (shape-changing, from dedicated samples, affecting \ttbar samples)
-% \item Matching scale for \ttbar events (shape-changing, from dedicated samples, affecting \ttbar samples)
-% \item Jet energy scale (JES) uncertainty: \pt/$\eta$-dependent uncertainties provided by the JetMET group, taking into
-% account uncertainties due to jet flavours and pile-up conditions (shape-changing, different for individual samples and
-% categories)
-% \item Jet energy resolution (JER) uncertainty: $\pm 10$\% (shape-changing, different for individual samples and
-% categories)
-% \item Unclustered energy: $10\%$ (shape-changing)
-% \item Tau energy: $\pm 3\%$ from the TAU POG (shape-changing)
-% \item Electron \& photon energy: $\pm 0.6\%$ in EB and $\pm 1.5\%$ in EE. From
-% ECAL DPG /Egamma POG (shape-changing)
-% \item Muon momentum: $\pm 0.2\%$ as discussed with the muon POG.
-% Negligible (shape-changing)
-% \item pile up (shape-changing, affecting all simulated samples): 5\% variations of the inelastic cross section used as
-% input in the pile-up reweighting procedure
-% \item $b$ tagging (for b-flavoured jets with $\pt < \SI{800}{\GeV}$): \pt-dependent, 1.6-8\% (different scales for
-% individual samples and categories)~\cite{CMS-PAS-BTV-11-004}
-% \item $b$ tagging (for c-flavoured jets with $\pt < \SI{800}{\GeV}$): twice the uncertainty for b-flavoured jets
-% (different scales for individual samples and categories, fully correlated with $b$ tagging uncertainty)
-% \item $b$ tagging (for c- and b-flavoured jets with $\pt > \SI{800}{\GeV}$): twice the uncertainty at \SI{800}{\GeV}
-% (different scales for individual samples and categories, fully correlated with $b$ tagging uncertainty)
-% \item mistagging (or $b$ tagging for light-flavoured jets): O(10\%) (different scales for individual samples and
-% categories, uncorrelated with $b$ tag uncertainty for $c$/$b$-flavoured jets)~\cite{CMS-PAS-BTV-11-004}
-% \end{description}
+\input{06_Cross_section_analysis/tables/xsection_HT_systematics}
+\input{06_Cross_section_analysis/tables/xsection_ST_systematics}
+\input{06_Cross_section_analysis/tables/xsection_MT_systematics}
+\input{06_Cross_section_analysis/tables/xsection_WPT_systematics}
 
 \section{Results}
 \label{s_xsection:results}
@@ -929,14 +925,13 @@ described in Section~\ref{ss_xsection:unfolding}. Finally, the normalised cross 
 Section~\ref{ss_xsection:calculation}.
 
 The final combined results are shown in Figures~\ref{fig:results_MET_combined}--\ref{fig:results_WPT_combined} for all
-primary variables. The unfolded data are compared with predictions by \MADGRAPH, \POWHEG and \MCATNLO event generators
-(Section~\ref{ss:MC_generators}). Results are also compared with theoretical predictions showing the effects due to
-variations of modelling parameters, including matching threshold and normalisation scale
-(Section~\ref{ss:matching_and_factorisation}). In all figures, the inner error bars represent the combined fitting and
-unfolding uncertainties, whereas the outer error bars show the uncertainty due to systematic variations. Naturally, the
-systematic errors due to matching threshold and normalisation scale choice are excluded from comparison with variations
-due to these parameters, and the hadronisation systematic is excluded from the comparison with different generators.
-Overall, the results are consistent with predictions of the Standard Model.
+primary variables. The unfolded data are compared with predictions by \MADGRAPH, \POWHEG and \MCATNLO event generators.
+Results are also compared with theoretical predictions showing the effects due to variations of modelling parameters,
+including matching threshold and normalisation scale. In all figures, the inner error bars represent the combined
+fitting and unfolding uncertainties, whereas the outer error bars show the uncertainty due to systematic variations.
+Naturally, the systematic errors due to matching threshold and normalisation scale choice are excluded from comparison
+with variations due to these parameters, and the hadronisation systematic is excluded from the comparison with different
+generators. Overall, the results are consistent with predictions of the Standard Model.
 
 
 \begin{figure}[!htbp]
