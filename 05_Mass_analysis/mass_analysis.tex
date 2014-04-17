@@ -352,7 +352,7 @@ b-tagging information, thus the fit probability is multiplied by an additional t
 probability that the particular jet-parton assignment is compatible with the observed b-tags:
 
 \begin{equation}
-p_{\rm btags} = \prod_{j=1}^{4} p^{j}
+p_{\rm btags} = \prod_{j=1}^{4} p^{j}.
 \end{equation}
 
 Here the index $j$ runs over all four jets in the kinematic fit, and the probability $p^{j}$ can be either
@@ -365,7 +365,7 @@ efficiency is approximately \SI{\sim70}{\percent}, whilst the mis-tag rate (or $
 Therefore, for each such permutation the relative weight is $w_i$ is calculated as:
 
 \begin{equation}
-w_i = p_{\rm fit} \cdot p_{\rm btags} = \textrm{exp}(-\frac{1}{2}\chi^2) \cdot \prod_{j=1}^{4} p^{j}
+w_i = p_{\rm fit} \cdot p_{\rm btags} = \textrm{exp}(-\frac{1}{2}\chi^2) \cdot \prod_{j=1}^{4} p^{j}.
 \label{eq:permutation_weight}
 \end{equation}
 
@@ -376,9 +376,12 @@ These weights are used in the calculation of signal and background probability d
 The \ttbar signal probability in the event likelihood shown in Equation~\ref{eq:event_likelihood} is calculated as a
 weighted sum over all permutations:
 \begin{equation}
-P_{\ttbar}\left(\mathbf{x}|\mtop\right) = \sum_{i}^{24} w_{i} \left( f_{\textrm{cp}} \cdot
-\int\limits^{m_{\textrm{max}}}_{m_{\textrm{min}}} \textrm{G}\left(m'|m_{i},\sigma_{i}\right) \textrm{RBW}
-\left(m'|\mtop,\Gamma_{\textrm{t}}\right) \textrm{d}m' + (1 - f_{\textrm{cp}})\textrm{WP}(m_{i}|\mtop)\right)
+\begin{split}
+P_{\ttbar}(\mathbf{x}|\mtop) = \sum_{i}^{24} w_{i} \Biggl( f_{\textrm{cp}} \cdot
+\int\limits^{m_{\textrm{max}}}_{m_{\textrm{min}}} \textrm{G}(m'|m_{i},\sigma_{i}) ~\textrm{RBW}
+(m'|\mtop,\Gamma_{\textrm{t}}) \textrm{d}m' +  \\  + (1 -
+f_{\textrm{cp}})\textrm{WP}(m_{i}|\mtop) \Biggr).
+\end{split}
 \end{equation}
 
 Here $f_{\textrm{cp}}$ is the fraction of events in which the maximum weight is assigned to the correct permutation,
@@ -392,7 +395,7 @@ the latest experimental results \autocite{top_width_D0}. As suggested by Standar
 $s-$dependence of the phase space \cite{aleph_Z_RBW}, the following form of RBW is used:
 \begin{equation}
 \textrm{RBW}(m'|\mtop,\Gamma_{\textrm{t}}) \propto \frac{{m'}^{2}}{\left({m'}^{2} - {\mtop}^{2}
-\right)^{2} + {m'}^{4}\frac{\Gamma_{\textrm{t}}}{{\mtop}^{2}}}
+\right)^{2} + {m'}^{4}\frac{\Gamma_{\textrm{t}}}{{\mtop}^{2}}}.
 \end{equation}
 %need to properly understand
 
@@ -401,7 +404,7 @@ a width of the fitted mass uncertainty $\sigma_{i}$ as estimated by the fit:
 
 \begin{equation}
 \textrm{G}(m'|m_{i},\sigma_{i}) = \frac{1}{\sigma_{i}\sqrt{2\pi}}
-\textrm{exp}\left(\frac{(m'-m_{i})^{2}}{2\sigma_{i}^2}\right)
+\textrm{exp}\left(\frac{(m'-m_{i})^{2}}{2\sigma_{i}^2}\right).
 \end{equation}
 
 The fitted mass spectrum for \ttbar events with correct permutations is shown in
@@ -490,7 +493,7 @@ Finally, for the extraction of the top quark mass the total likelihood for the e
 product of all the event likelihoods:
 \begin{equation}
 \mathcal{L}_{\rm sample} = \prod_{\rm all~events}
-\mathcal{L}_\textrm{event} \left(\mathbf{x}|\mtop \right)
+\mathcal{L}_\textrm{event} \left(\mathbf{x}|\mtop \right).
 \label{eq:CombinedLikelihood}
 \end{equation}
 
@@ -499,7 +502,7 @@ performing the minimisation of the summed negative log-likelihoods:
 
 \begin{equation}
  -2\log{\mathcal{L}_{\rm sample}} = -2 \sum_{\rm all~events} \log{\mathcal{L}_\textrm{event} \left(\mathbf{x}|\mtop
- \right)}
+ \right)}.
 \label{eq:CombinedLogLikelihood}
 \end{equation}
 
@@ -544,34 +547,37 @@ where $\mtop^{\rm meas}$ is the mean top quark mass over all pseudo-experiments,
 width of the pull is defined as the standard deviation of a Gaussian fitted to the pull distribution.
 
 The mass bias and the width of the pull as a function of the generated top quark mass are shown in
-Figure~\ref{fig:bias_pull_vs_mass}. Clearly, using the ideogram method out of the box reveals a significant bias which
-needs to be corrected for. It can also be seen that the width of the pull distribution is approximately \SI{11}{\pc}
-larger than unity, suggesting that the ideogram method underestimates the statistical uncertainty.
+Figure~\ref{fig:bias_pull_vs_mass} (a, b). Clearly, using the ideogram method out of the box reveals a significant bias
+which needs to be corrected for. It can also be seen that the width of the pull distribution is approximately
+\SI{11}{\pc} larger than unity, suggesting that the ideogram method underestimates the statistical uncertainty.
 
 %why is the mass bias linear with the true top mass? How exactly is calibration applied?
 
 \begin{figure}[!htp]
    \subfloat[]{\includegraphics[width=0.485\textwidth]{bias}}
-   \subfloat[]{\includegraphics[width=0.515\textwidth]{pull}}
-   \caption[Average mass bias and width of the pull as a function of true top quark mass]{Average mass bias (a) and
-   width of the pull (b) as a function of true top quark mass.}
+   \subfloat[]{\includegraphics[width=0.515\textwidth]{pull}} \\
+   \subfloat[]{\includegraphics[width=0.485\textwidth]{bias_calibrated}}
+   \subfloat[]{\includegraphics[width=0.515\textwidth]{pull_calibrated}}
+   \caption[Average mass bias and width of the pull as a function of the true top quark mass before and after
+   calibration]{Average mass bias and width of the pull as a function of the true top quark mass before (a, b) and after
+   (c, d) calibration.}
    \label{fig:bias_pull_vs_mass}
 \end{figure}
 
 Due to the apparent bias, the fitted linear calibration curves in both distributions are used to correct the final
 measurement of the top quark mass. As a closure test, the mass bias and pull width as a function of true top quark mass
-are calculated after applying the full calibration. The distributions are shown in
-Figure~\ref{fig:calibrated_bias_pull_vs_mass}. Evidently, the closure tests confirm that the top quark mass and its
-statistical uncertainty are unbiased after calibration.
+are calculated after applying the full calibration. The distributions are shown in Figure~\ref{fig:bias_pull_vs_mass}
+(c, d). Evidently, the closure tests confirm that the top quark mass and its statistical uncertainty are unbiased after
+calibration.
 
-\begin{figure}[!htp]
-   \subfloat[]{\includegraphics[width=0.485\textwidth]{bias_calibrated}}
-   \subfloat[]{\includegraphics[width=0.515\textwidth]{pull_calibrated}}
-   \caption[Average mass bias and width of the pull as a function of true top quark mass after calibration]{Closure
-   test, showing the average mass bias (a) and width of the pull (b) as a function of true top quark mass after
-   calibration.}
-   \label{fig:calibrated_bias_pull_vs_mass}
-\end{figure}
+% \begin{figure}[!htp]
+%    \subfloat[]{\includegraphics[width=0.485\textwidth]{bias_calibrated}}
+%    \subfloat[]{\includegraphics[width=0.515\textwidth]{pull_calibrated}}
+%    \caption[Average mass bias and width of the pull as a function of true top quark mass after calibration]{Closure
+%    test, showing the average mass bias (a) and width of the pull (b) as a function of true top quark mass after
+%    calibration.}
+%    \label{fig:calibrated_bias_pull_vs_mass}
+% \end{figure}
  
 
 \section{Systematic Uncertainties}
@@ -713,12 +719,12 @@ scaling the pile-up weights up and down, leading to shifts in top quark mass mea
 (approximately \SI{0.22}{\GeV}) was quoted as a systematic uncertainty.
 
 \item [Parton distribution functions.]
-The CTEQ parton distribution functions (PDFs) \autocite{CTEQ} used in the simulation of Monte Carlo samples can be
-described by 22 orthogonal parameters. To estimate the systematic uncertainty due to the choice of PDFs, the up and down
-variations of these parameters were employed to calculate the impact on the measurement. Events in nominal \ttjets
-sample were re-weighted according to the deviation of each PDF parameter from the central value. The average absolute
-values of the up and down shifts for each variation are then summed in quadrature, yielding the value of \SI{0.15}{\GeV}
-which we quote as a PDF systematic uncertainty.
+The CTEQ parton distribution functions \autocite{CTEQ} used in the simulation of Monte Carlo samples can be described by
+22 orthogonal parameters. To estimate the systematic uncertainty due to the choice of PDFs, the up and down variations
+of these parameters were employed to calculate the impact on the measurement. Events in nominal \ttjets sample were
+re-weighted according to the deviation of each PDF parameter from the central value. The average absolute values of the
+up and down shifts for each variation are then summed in quadrature, yielding the value of \SI{0.15}{\GeV} which we
+quote as a PDF systematic uncertainty.
 
 %The observed shifts in top quark mass for each of the variations are listed in Table~\ref{tab:pdfs}.
 
@@ -733,6 +739,7 @@ which we quote as a PDF systematic uncertainty.
 
 \end{description}
 
+\newpage
 \section{Results}
 \label{s_top_mass:results}
 
@@ -767,18 +774,23 @@ channels, whereas separate fits in each channel yield following results:
 \end{split}
 \end{equation}
 
-All results are consistent with the latest Tevatron combination result of \autocite{tevatron_top_mass_combination}:
-\begin{equation*}
-\mtop = 173.20 \pm 0.51~\textrm{(stat.)} \pm 0.71~\textrm{(syst.)}~\textrm{GeV},
-\end{equation*}
-the latest LHC combination result of \autocite{LHC_top_mass_combination}:
-\begin{equation*}
-\mtop = 173.29 \pm 0.23~\textrm{(stat.)} \pm 0.92~\textrm{(syst.)}~\textrm{GeV},
-\end{equation*}
-and the first world combination result of \autocite{world_top_mass_combination}:
+All results are consistent with the latest Tevatron and LHC combination result \autocite{world_top_mass_combination}:
 \begin{equation*}
 \mtop = 173.34 \pm 0.27~\textrm{(stat.)} \pm 0.71~\textrm{(syst.)}~\textrm{GeV}.
 \end{equation*}
+
+% All results are consistent with the latest Tevatron combination result of \autocite{tevatron_top_mass_combination}:
+% \begin{equation*}
+% \mtop = 173.20 \pm 0.51~\textrm{(stat.)} \pm 0.71~\textrm{(syst.)}~\textrm{GeV},
+% \end{equation*}
+% the latest LHC combination result of \autocite{LHC_top_mass_combination}:
+% \begin{equation*}
+% \mtop = 173.29 \pm 0.23~\textrm{(stat.)} \pm 0.92~\textrm{(syst.)}~\textrm{GeV},
+% \end{equation*}
+% and the first world combination result of \autocite{world_top_mass_combination}:
+% \begin{equation*}
+% \mtop = 173.34 \pm 0.27~\textrm{(stat.)} \pm 0.71~\textrm{(syst.)}~\textrm{GeV}.
+% \end{equation*}
 
 \section{Summary}
 \label{s_top_mass:summary}

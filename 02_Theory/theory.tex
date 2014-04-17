@@ -186,9 +186,11 @@ the covariant derivative vanishes. The resulting gauge-invariant Lagrangian for 
 terms takes form:
 \begin{equation}
 \label{eq:EWK_L}
-\calL_\textrm{EWK} = \bar{\psi}_L \gamma^\mu ( i\partial_\mu  - g \mathbf{T} \cdot \mathbf{W}_\mu - \frac{g'}{2} Y
-B_\mu) \psi_L + \bar{\psi}_R \gamma^\mu (i \partial_\mu - \frac{g'}{2} Y B_\mu) \psi_R - \frac{1}{4}\mathbf{W}_{\mu\nu}
-\mathbf{W}^{\mu\nu} -\frac{1}{4}B_{\mu\nu} B^{\mu\nu},
+\begin{split}
+\calL_\textrm{EWK} & = \bar{\psi}_L \gamma^\mu ( i\partial_\mu  - g \mathbf{T} \cdot \mathbf{W}_\mu - \frac{g'}{2} Y
+B_\mu) \psi_L + \\ & + \bar{\psi}_R \gamma^\mu (i \partial_\mu - \frac{g'}{2} Y B_\mu) \psi_R -
+\frac{1}{4}\mathbf{W}_{\mu\nu} \mathbf{W}^{\mu\nu} -\frac{1}{4}B_{\mu\nu} B^{\mu\nu},
+\end{split}
 \end{equation}
 where
 \begin{equation*}
@@ -432,7 +434,8 @@ In the summer of 2012 both ATLAS and CMS experiments at the LHC observed the Hig
 predictions \autocite{CMS_Higgs_long_paper, ATLAS_Higgs_couplings}, which proved to be yet another triumph of the
 Standard Model.
 
-\section{Shortcomings of the SM and physics beyond the SM}
+\newpage
+\section{Shortcomings of the Standard Model and physics beyond it}
 \label{s:SM_shortcomings}
 Despite being the most successful theory up to date, the Standard Model is not perfect and has its shortcomings. There
 is a range of physical phenomena not explained by the SM. Let us mention the most prominent ones.
@@ -453,9 +456,10 @@ Standard Model.
 
 %\item [Strong CP problem] refers to the absence of any fundamental theoretical prohibition of CP violation in strong
 %interactions. However, such strong CP violation has not been observed.
-\item [Dark matter and dark energy] constitute approximately \SI{95}{\pc} of the mass/energy content in our Universe,
-according to the latest Planck data \autocite{planck2013-p01, planck2013-p11}. The Standard Model only describes the
-remaining \SI{5}{\pc} (i.e.\ ordinary matter), whereas the origin of dark matter and dark energy remains unknown.
+\item [Dark matter and dark energy] constitute approximately \SI{95}{\pc} of the mass and energy content in our
+Universe, according to the latest Planck data \autocite{planck2013-p01, planck2013-p11}. The Standard Model only
+describes the remaining \SI{5}{\pc} (i.e.\ ordinary matter), whereas the origin of dark matter and dark energy remains
+unknown.
 \end{description}
 
 Furthermore, there is a number of fundamental theoretical issues within the Standard Model, implying the intrinsic
@@ -504,9 +508,9 @@ vast discrepancy between fermion masses is not known. It is also not yet underst
 to the Higgs boson is so close to unity. Naturally, studying the most massive fermion is a logical starting point in
 search for answers to these questions.
 
-Due to its large mass, the top quark has an extremely short lifetime of \SI{\approx5e-25}{\s} \autocite{PDG}, meaning
-that it decays before the top-flavoured hadrons or \ttbar bound states can form. Therefore, the spin information is
-passed from the top quark on to its decay products, providing a unique possibility to study a ``bare'' quark.
+Due to its large mass, the top quark has an extremely short lifetime on the order of \SI{e-25}{\s} \autocite{PDG},
+meaning that it decays before the top-flavoured hadrons or \ttbar bound states can form. Therefore, the spin information
+is passed from the top quark on to its decay products, providing a unique possibility to study a ``bare'' quark.
 High-precision measurements of the top quark properties, such as mass (Chapter~\ref{c:top_mass_analysis}) and cross
 section (Chapter~\ref{c:xsection_analysis}) are important tools to test the Standard Model and probe for new physics
 beyond it.
@@ -529,9 +533,9 @@ was the main \ttbar production mode.
 \input{02_Theory/feynman_diagrams/ttbar_production}
 
 Figure~\ref{fig:single_top_production_feynman_diagrams} shows the Feynman diagrams of various single top production
-modes. Three major production mechanisms include s-channel and t-channel \W boson exchange, and associated production
-with a \W boson (tW-channel). Measurement of single top production is of significant interest since it allows the direct
-measurement of the Wtb vertex and therefore the magnitude of $|V_{tb}|$ element of the CKM matrix.
+modes. Three major production mechanisms include \cPqs-channel and \cPqt-channel \W boson exchange, and associated
+production with a \W boson (\tW-channel). Measurement of single top production is of significant interest since it
+allows the direct measurement of the Wtb vertex and therefore the magnitude of $|V_{tb}|$ element of the CKM matrix.
 
 \input{02_Theory/feynman_diagrams/single_top_production}
 
@@ -566,14 +570,14 @@ Percentages in parentheses show the branching fractions corresponding to the dec
 all final states hadronise into jets. The number of jets is not limited to the number of initial quarks due to the
 contribution from extra QCD radiation (i.e.\ gluon radiation) either before or after \ttbar production.
 
-The fully hadronic \ttbar decay signature implies at least 6 jets in the final state and no leptons, hence it is heavily
-contaminated by the background from QCD and \W/\ZpJets processes. Dileptonic \ttbar decay has a clean signature, but due
-to the lowest branching fraction can suffer from limited statistics. The semileptonic decay mode, shown in
+The fully hadronic \ttbar decay signature implies at least six jets in the final state and no leptons, hence it is
+heavily contaminated by the background from QCD and \W/\ZpJets processes. Dileptonic \ttbar decay has a clean signature,
+but due to the lowest branching fraction can suffer from limited statistics. The semileptonic decay mode, shown in
 Figure~\ref{fig:ttbar_semileptonic_decay}, has exactly one highly energetic lepton and at least four jets in the final
 state, which is therefore called the lepton plus jets final state. The lepton can be an electron, a muon or a
 $\tau$-lepton; however, since the $\tau$-leptons are difficult to reconstruct, they are usually excluded from top quark
 analyses studying semileptonic decays. Analyses in this thesis study the electron plus jets ($e+$jets) and muon plus
-jets ($\mu+$jets) decay channels, which have branching fractions of \SI{\approx14}{\pc} each.
+jets ($\mu+$jets) decay channels, which have branching fractions of about \SI{14}{\pc} each.
 
 \input{02_Theory/feynman_diagrams/semileptonic_ttbar_decay}
 
@@ -818,10 +822,10 @@ Normalised differential cross section in each bin $i$ of an observed variable $\
 \frac{x_i}{\Delta \mathrm{X}_i \calL},
 \end{equation}
 where $x_i$ is the number of signal events in data after subtraction of background, corrected for detector efficiency,
-acceptance and migration between the bins of variable $\mathrm{X}$; $\calL$ is the total integrated luminosity; $\Delta
-\mathrm{X}_i$ is the variable bin width; and $\sigttbar^\mathrm{tot}$ is the total \ttbar production cross section. The
-normalisation is performed in order to cancel the systematic uncertainties that are correlated between the bins of
-variable $\mathrm{X}$.
+acceptance and migration between the bins of the variable $\mathrm{X}$; $\calL$ is the total integrated luminosity;
+$\Delta \mathrm{X}_i$ is the variable bin width; and $\sigttbar^\mathrm{tot}$ is the total \ttbar production cross
+section. The normalisation is performed in order to cancel the systematic uncertainties that are correlated between the
+bins of the variable $\mathrm{X}$.
 
 Both ATLAS and CMS collaborations have delivered a range of differential \ttbar production cross section measurements
 \autocite{ATLAS_diff_xsections_7TeV, CMS_diff_xsections_7TeV}. For instance, Figure~\ref{fig:ATLAS_CMS_diff_xsections}

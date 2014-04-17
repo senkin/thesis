@@ -40,13 +40,13 @@ to the LHC in both clockwise and anti-clockwise directions where it takes about 
 \SI{7}{\TeV} energy (per beam).
 
 The LHC has four interaction points, providing collisions to four major experiments. Two of them, CMS and ATLAS, are
-multi-purpose high-luminosity experiments with a peak luminosity of $L = $ \SI{d34}{\cm^{-2} s^{-1}}. The other two
+multi-purpose high-luminosity experiments with a peak luminosity of $\calL = $ \SI{d34}{\cm^{-2} s^{-1}}. The other two
 experiments operate at low luminosities and have more specific physics goals: LHCb studies b-meson decays, and Alice is
 a dedicated heavy ion experiment.
 
 The instantaneous luminosity of a collider can be calculated as
 \begin{equation}
-	L = \frac{n_1 n_2 n_b f}{4 \pi \sigma_x \sigma_y},
+	\calL = \frac{n_1 n_2 n_b f}{4 \pi \sigma_x \sigma_y},
 \end{equation}
 where $n_1$ and $n_2$ are the numbers of particles in each of the colliding bunches, $n_b$ is the number of bunches per
 beam, $f$ is the revolution frequency, $\sigma_x$ and $\sigma_y$ are the horizontal and vertical beam sizes, assuming
@@ -55,17 +55,18 @@ conditions are shown in Table~\ref{tab:LHC_parameters}.
 
 The number of events generated in the collisions per second is given by
 \begin{equation}
-	N_{events} = L \times \sigma,
+	N_{events} = \calL \times \sigma,
 \end{equation}
 where $\sigma$ is the cross section of the process under study. Cross sections and production rates for several
 different processes as a function of the centre of mass energy are shown in Figure~\ref{fig:production_cross_sections}.
 
 \input{03_Detector/tables/LHC_parameters}
 
+\newpage
 \begin{figure}[!htbp]
   \centering
   \leavevmode
-  \includegraphics[width=0.6\columnwidth]{production_cross_sections}
+  \includegraphics[width=0.8\columnwidth]{production_cross_sections}
   \caption[Production cross sections for different processes as a function of the centre of mass energy]{Production
   cross sections for different processes as a function of the centre of mass energy $\sqrt{s}$. The discontinuity is due
   to extrapolation between proton-antiproton Tevatron and proton-proton LHC. The \ttbar production cross section is
@@ -73,22 +74,21 @@ different processes as a function of the centre of mass energy are shown in Figu
   \label{fig:production_cross_sections}
 \end{figure}
 
-The LHC started operating on the 10th of September 2008, with the first beams fully circulating in both rings. However,
-only 9 days later a magnet quench occurred in two sectors of the tunnel, which was caused by an electrical fault due to
-a bad connection between two magnets. A consequent liquid helium explosion damaged a total of 53 superconducting
-magnets. Over a year was spent on repairs and tests, and the first collisions were recorded on the 23rd of November 2009
-at a centre of mass energy of \SI{0.9}{\TeV}. The following few months showed the continuous ramp up of the beam
-energies up to \SI{3.5}{\TeV} per beam which was achieved on the 30rd of March 2010 when the LHC physics programme
-started.
+The LHC started operating on 10 September 2008 with the first beams fully circulating in both rings. However, only nine
+days later a magnet quench occurred in two sectors of the tunnel, which was caused by an electrical fault due to a bad
+connection between two magnets. A consequent liquid helium explosion damaged a total of 53 superconducting magnets. Over
+a year was spent on repairs and tests, and the first collisions were recorded on 23 November 2009 at a centre of mass
+energy of \SI{0.9}{\TeV}. The following few months showed the continuous ramp up of the beam energies up to
+\SI{3.5}{\TeV} per beam which was achieved on 30 March 2010 when the LHC physics programme started.
 
 Throughout the rest of 2010, the two general-purpose LHC experiments (CMS and ATLAS) recorded approximately
 \SI{40}{\invpb} of data, which resulted in the first measurements of various physics processes at the LHC. The following
-year became the main \SI{7}{\TeV} data-taking period, with about \SI{5}{\invfb} of data recorded by ATLAS and CMS. On
-the 5th of April 2012 the centre of mass energy was increased to 8 TeV, and July of 2012 marked the first major
-discovery of a new boson which was later shown to be consistent with the Standard Model Higgs boson, according to
-approximately \SI{21.8}{\invfb} of data recorded until early 2013. A long shut-down is planned for the following two
-years with various upgrades scheduled. The next physics run is expected in 2015 with the beam energy increased up to 6
-or \SI{7}{\TeV}.
+year became the main \SI{7}{\TeV} data-taking period, with about \SI{5}{\invfb} of data recorded by ATLAS and CMS. On 5
+April 2012 the centre of mass energy was increased to 8 TeV, and July of 2012 marked the first major discovery of a new
+boson which was later shown to be consistent with the Standard Model Higgs boson, according to approximately
+\SI{21.8}{\invfb} of data recorded until early 2013. A long shut-down is planned for the following two years with
+various upgrades scheduled. The next physics run is expected in 2015 with the beam energy increased up to 6 or
+\SI{7}{\TeV}.
 
 \section{The CMS Detector}
 \label{s:CMS}
@@ -127,13 +127,13 @@ This implies that the particles moving in the transverse plane (perpendicular to
 0, whereas the beam direction has an infinite pseudorapidity. Considering the cylindrical shape of the detector, it has
 barrel and endcap regions, with the transition occurring at $\eta \sim 1.4$. The momentum and energy transverse to the
 beamline are denoted by $p_T$ and $E_T$ respectively; the imbalance of the energy measured in the transverse plane,
-called missing transverse energy, is denoted by \ETm.
+called missing transverse energy, is denoted by \MET.
 
 \subsection{Inner Tracking System}
 \label{ss:tracker}
 The tracking system lies in the heart of the CMS detector and is the closest to the interaction point where the particle
 flux has the highest value. This imposes demanding requirements on the configuration of the system. At design luminosity
-of $L = $ \SI{d34}{\cm^{-2}~\s^{-1}} with the bunch spacing of \SI{25}{\ns}, an average of \num{1000} particles from
+of $\calL = $ \SI{d34}{\cm^{-2}~\s^{-1}} with the bunch spacing of \SI{25}{\ns}, an average of \num{1000} particles from
 about \num{25} proton-proton interactions (pile-up vertices) is expected to traverse the tracker for each bunch
 crossing. However, up until the long shutdown a bunch spacing of \SI{50}{\ns} was used, which meant a higher number of
 protons in each bunch leading to approximately twice the number of pile-up vertices. Therefore, in order for the
@@ -378,8 +378,8 @@ the ``global muon''), the momentum resolution is improved in the whole \pt regio
 \newpage
 \subsection{Trigger and Data Acquisition}
 \label{ss:trigger_daq}
-At design LHC luminosity of $L = $ \SI{d34}{\cm^{-2} s^{-1}}, approximately \num{25} collisions are expected to occur at
-each crossing of the proton bunches. The bunch spacing of \SI{25}{\ns} corresponds to a crossing rate of
+At design LHC luminosity of $\calL = $ \SI{d34}{\cm^{-2} s^{-1}}, approximately \num{25} collisions are expected to
+occur at each crossing of the proton bunches. The bunch spacing of \SI{25}{\ns} corresponds to a crossing rate of
 \SI{40}{\mega\hertz}. Since every event produces \SI{\sim1}{\mega\byte} of raw data, it corresponds to a total data
 production of \SI{40}{\tera\byte\per\second}. Attempting to store all of these data is clearly beyond the available
 technology. Moreover, only a fraction of events contain hard scattering processes that are of interest, therefore an
@@ -533,8 +533,7 @@ usually includes generation of the following steps, schematically illustrated in
 
 The performance of MC generators is usually optimised for one or more of these steps, therefore two or more generators
 often used in combination, e.g.\ the \ttbar signal is modelled with \MADGRAPH and \PYTHIA. Standalone generators can
-also be used for modelling theory systematic effects, which is also exploited in this thesis. %(\MCATNLO, \POWHEG +
-\PYTHIA).
+also be used for modelling theory systematic effects, which is also exploited in this thesis.
 
 \begin{description}[wide=\parindent, style=standard, labelsep=0pt]
 \item [\MADGRAPH] \autocite{MadGraph} is a matrix-element Monte Carlo event generator. For any renormalisable
@@ -986,7 +985,7 @@ requirements can also be applied; isolation definitions closely follow the ones 
 (Section~\ref{sss:electron_isolation}).
 
 %internal source https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideMuonId
-
+\newpage
 \subsection{Jet Reconstruction}
 \label{ss:jet_reconstruction}
 Hadronisation of quarks and gluons leads to the production of narrow cones of particles moving in approximately one

@@ -61,6 +61,9 @@
 \usepackage{enumitem}
 %\usepackage{lmodern}
 \usepackage[T1]{fontenc}
+\usepackage{hyphenat}
+\usepackage[a4paper,twoside]{geometry}
+\geometry{left=3cm,right=2cm,top=30mm,bottom=25mm,bindingoffset=1cm,head=14.5pt}
 
 % setup the SIunits package (more info in 'texdoc siunitx')
 \sisetup{number-unit-product = \text{ }}
@@ -74,12 +77,16 @@
 \usepackage{feynmp}
 \DeclareGraphicsRule{*}{mps}{*}{}
 
+% hyphenation
+\hyphenation{brems-strahl-ung}
+
 % Tables handling: adjustable row styles
 \newcolumntype{_}{>{\global\let\currentrowstyle\relax}}
 \newcolumntype{^}{>{\currentrowstyle}}
 \newcommand{\rowstyle}[1]{\gdef\currentrowstyle{#1}
   #1\ignorespaces
 }
+\renewcommand{\arraystretch}{1.2}
 
 %Bibliography
 %uncomment next line to change bibliography name to references for Book document class
@@ -164,35 +171,28 @@
     \graphicspath{{ThesisFigs/EPS/}{ThesisFigs/}}
 \fi
 
-%define the page size including an offset for binding
-%\setlength{\topmargin}{0.0in}
-%\setlength{\oddsidemargin}{0in}
-%\setlength{\evensidemargin}{0in}
-%\setlength{\textheight}{700pt}
-%\setlength{\textwidth}{500pt}
-
 \newcommand{\headfont}{\slshape}
 \newcommand{\chapterheadfont}{}
 
 %A4 settings
-\ifpdf
-   \pdfpageheight=297mm
-   \pdfpagewidth=210mm
-\else
-   \setlength{\paperheight}{297mm}
-   \setlength{\paperwidth}{210mm}
-\fi
+%\ifpdf
+%   \pdfpageheight=297mm
+%   \pdfpagewidth=210mm
+%\else
+%   \setlength{\paperheight}{297mm}
+%   \setlength{\paperwidth}{210mm}
+%\fi
 
-\setlength{\hoffset}{0.00cm}
-\setlength{\voffset}{0.00cm}
+%\setlength{\hoffset}{0.00cm}
+%\setlength{\voffset}{0.00cm}
 
-\setlength{\topmargin}{0in}
-\setlength{\headheight}{1.36cm}
-\setlength{\headsep}{1.00cm}
-\setlength{\textheight}{8.7in}
-\setlength{\textwidth}{6.5in}
-\setlength{\oddsidemargin}{0in}
-\setlength{\evensidemargin}{0in}
+%\setlength{\topmargin}{0in}
+%\setlength{\headheight}{1.36cm}
+%\setlength{\headsep}{1.00cm}
+%\setlength{\textheight}{8.7in}
+%\setlength{\textwidth}{6.5in}
+%\setlength{\oddsidemargin}{0in}
+%\setlength{\evensidemargin}{0in}
 %\setlength{\parindent}{0.25in}
 %\setlength{\parskip}{0.25in}
 

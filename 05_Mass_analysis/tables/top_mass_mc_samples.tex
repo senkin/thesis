@@ -4,7 +4,8 @@
 samples with cross sections at $\sqrt s = \SI{7}{\TeV}$, numbers of generated events and corresponding integrated
 luminosities.}
 \label{tab:top_mass_mc_samples}
-\begin{tabular}{|l|l|r|r|r|}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{@{}llrrr@{}}
 \toprule
 Process & Generator & $\sigma$ (\pb) & \# events & $\int\lumi dt$ (\fbinv)\\
 \midrule
@@ -28,14 +29,15 @@ Process & Generator & $\sigma$ (\pb) & \# events & $\int\lumi dt$ (\fbinv)\\
 $\Z/\gamma^* \rightarrow l^+l^- $ + jets, $m(ll) > \SI{50}{\GeV}$ & \MADGRAPH & 3048 & 36222153 & 11.9 \\
 \midrule
 Single top & \POWHEG & & & \\
-\hspace{5 mm} top $t$-channel & & 42.6 & 3814228 & 89.5 \\
-\hspace{5 mm} anti-top $t$-channel & & 22.0 & 1944822 & 88.4 \\
-\hspace{5 mm} top $s$-channel & & 2.72 & 259971 & 92.6 \\
-\hspace{5 mm} anti-top $s$-channel & & 1.49 & 137980 & 92.6 \\
-\hspace{5 mm} top $tW$-channel & & 5.3 & 814390 & 153.7 \\
-\hspace{5 mm} anti-top $tW$-channel & & 5.3 & 809984 & 152.8 \\
+\hspace{5 mm} top \cPqt-channel & & 42.6 & 3814228 & 89.5 \\
+\hspace{5 mm} anti-top \cPqt-channel & & 22.0 & 1944822 & 88.4 \\
+\hspace{5 mm} top \cPqs-channel & & 2.72 & 259971 & 92.6 \\
+\hspace{5 mm} anti-top \cPqs-channel & & 1.49 & 137980 & 92.6 \\
+\hspace{5 mm} top \tW-channel & & 5.3 & 814390 & 153.7 \\
+\hspace{5 mm} anti-top \tW-channel & & 5.3 & 809984 & 152.8 \\
 \bottomrule
 \end{tabular}
+}
 \end{table}
 
 % \begin{table}[!hbth] \centering
@@ -73,7 +75,7 @@ corresponding integrated luminosities.
 }
 \label{tab:top_mass_background_qcd}
 \resizebox{\textwidth}{!}{
-\begin{tabular}{|l|l|r|r|r|r|}
+\begin{tabular}{@{}llrrrr@{}}
 \toprule
 Process & Generator & $\sigma$ (\pb) & filter efficiency & \# events & $\int\lumi dt$ (\fbinv)\\
 \midrule
@@ -103,7 +105,7 @@ s = \SI{7}{\TeV}$, numbers of generated events and corresponding integrated lumi
 matching threshold systematic uncertainties (see Section \ref{ss:matching_and_factorisation}) are estimated with
 variations of \ttjets, \WpJets and \ZpJets samples.}
 \label{tab:top_mass_systematic_samples}
-\begin{tabular}{|l|l|r|r|r|}
+\begin{tabular}{@{}llrrr@{}}
 \toprule
 Process & Generator & $\sigma$ (\pb) & \# events & $\int\lumi dt$ (\fbinv)\\
 \midrule
