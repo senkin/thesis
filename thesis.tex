@@ -47,18 +47,17 @@ of Bristol \\ in accordance with the requirements for award of the degree of
 \begin{document}
 %roman page numbering for Title page, abstract and index
 \pagenumbering{roman}
-
+\pagestyle{plain}
 %\watermark{DRAFT COPY}
 
+\frontmatter
 %\onehalfspacing
-
 \maketitle
 
 %set the number of sectioning levels that get number and appear in the contents
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
 
-\frontmatter % book mode only
 %\include{Dedication/dedication}
 \include{Abstract/abstract}
 \include{Acknowledgements/acknowledgements}
@@ -66,7 +65,8 @@ of Bristol \\ in accordance with the requirements for award of the degree of
 
 %% ++++++++++++++++++++++++++++++++++++++++++                                                                                                                                                                                                 
 %% index                                                                                                                                                                                                                                      
-%% ++++++++++++++++++++++++++++++++++++++++++                                                                                                                                                                                                 
+%% ++++++++++++++++++++++++++++++++++++++++++        
+
 \tableofcontents
 
 %\cleardoublepage
@@ -75,11 +75,12 @@ of Bristol \\ in accordance with the requirements for award of the degree of
 %\addcontentsline{toc}{chapter}{Nomenclature}
 \listoftables
 
-%change page numbering back to arabic (and start from 1)
-\pagenumbering{arabic}
-
 \mainmatter % book mode only
 \onehalfspacing
+
+%change page numbering back to arabic (and start from 1), change to fancy headers
+\pagestyle{fancy}
+\pagenumbering{arabic}
 
 \include{01_Introduction/introduction}
 \begin{fmffile}{ThesisFigs/feynman-diagrams}

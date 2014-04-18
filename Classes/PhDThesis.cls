@@ -31,13 +31,11 @@
 %\renewcommand{\refname}{References}%
 \fi
 
-%\DeclareOption{book}{%
-%}%
-%\usepackage[square, sort&compress, numbers]{natbib}
+\usepackage[a4paper,twoside,left=2cm,right=3cm,top=30mm,bottom=25mm,bindingoffset=1cm,head=14.5pt]{geometry}
 \usepackage{csquotes}
 \usepackage[sorting=none,style=numeric,citestyle=numeric,backref=true,hyperref=true,isbn=false,backend=bibtex]{biblatex}
 \usepackage{setspace}
-\usepackage{tocbibind}
+\usepackage[nottoc]{tocbibind}
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{siunitx}
@@ -59,11 +57,9 @@
 \usepackage{multirow}
 \usepackage{pbox}
 \usepackage{enumitem}
-%\usepackage{lmodern}
+\usepackage{lmodern}
 \usepackage[T1]{fontenc}
 \usepackage{hyphenat}
-\usepackage[a4paper,twoside]{geometry}
-\geometry{left=3cm,right=2cm,top=30mm,bottom=25mm,bindingoffset=1cm,head=14.5pt}
 
 % setup the SIunits package (more info in 'texdoc siunitx')
 \sisetup{number-unit-product = \text{ }}
@@ -72,6 +68,10 @@
 
 % Print URLs not in Typewriter Font                                     
 \def\UrlFont{\rm}
+
+% bold small caps fix
+\normalfont
+\DeclareFontShape{T1}{lmr}{bx}{sc} { <-> ssub * cmr/bx/sc }{}
 
 % Feynman diagrams
 \usepackage{feynmp}
@@ -173,28 +173,6 @@
 
 \newcommand{\headfont}{\slshape}
 \newcommand{\chapterheadfont}{}
-
-%A4 settings
-%\ifpdf
-%   \pdfpageheight=297mm
-%   \pdfpagewidth=210mm
-%\else
-%   \setlength{\paperheight}{297mm}
-%   \setlength{\paperwidth}{210mm}
-%\fi
-
-%\setlength{\hoffset}{0.00cm}
-%\setlength{\voffset}{0.00cm}
-
-%\setlength{\topmargin}{0in}
-%\setlength{\headheight}{1.36cm}
-%\setlength{\headsep}{1.00cm}
-%\setlength{\textheight}{8.7in}
-%\setlength{\textwidth}{6.5in}
-%\setlength{\oddsidemargin}{0in}
-%\setlength{\evensidemargin}{0in}
-%\setlength{\parindent}{0.25in}
-%\setlength{\parskip}{0.25in}
 
 \pagestyle{fancy}
 \renewcommand{\chaptermark}[1]{\markboth{\thechapter.\ #1}{}}
@@ -373,7 +351,7 @@
 %define title page layout
 \renewcommand{\maketitle}{%
 \pagenumbering{roman} % Sasa Tomic
-\setcounter{page}{0}  % Sasa Tomic
+\setcounter{page}{1}  % Sasa Tomic
 \begin{alwayssingle}
     \renewcommand{\footnotesize}{\small}
     \renewcommand{\footnoterule}{\relax}
@@ -419,28 +397,21 @@
 % themselves appear in a quote environment, i.e. tabbed in at both sides, and
 % on its own page.
 
-\newenvironment{acknowledgements}
-{\pagestyle{empty}
-\begin{alwayssingle}
-\centering
-\vspace*{1.5cm}
-{\Large \bfseries Acknowledgements}
-\vspace{0.5cm}
-\begin{quote}}
-{\end{quote}\end{alwayssingle}}
+%\newenvironment{acknowledgements}
+%{\pagestyle{empty}
+%\begin{alwayssingle}
+%\centering
+%\vspace*{1.5cm}
+%{\Large \bfseries Acknowledgements}
+%\vspace{0.5cm}
+%\begin{quote}}
+%{\end{quote}\end{alwayssingle}}
 
-% The acknowledgementslong environment puts a large, bold, centered 
-% "Acknowledgements" label at the top of the page. The acknowledgement itself 
-% does not appears in a quote environment so you can get more in.
+\newenvironment{acknowledgements}{
+\cleardoublepage
+\chapter*{\centering \Large Acknowledgements}
+}
 
-\newenvironment{acknowledgementslong}
-{\pagestyle{empty}
-\begin{alwayssingle}
-\centering
-\vspace*{1.5cm}
-{\Large \bfseries Acknowledgements}
-\vspace{0.5cm}\begin{quote}}
-{\end{quote}\end{alwayssingle}}
 
 %ABSTRACT
 %
@@ -448,43 +419,10 @@
 %the top of the page. The abstract itself appears in a quote environment,
 %i.e. tabbed in at both sides, and on its own page.
 
-\newenvironment{abstracts} {\begin{alwayssingle} \pagestyle{empty}
-  \centering
-  \vspace*{1.5cm}
-  {\Large \bfseries  Abstract}
-  \vspace{0.5cm}
-   \begin{quote}}
-{\end{quote}\end{alwayssingle}}
-
-%The abstractlong environment puts a large, bold, centered "Abstract" label at
-%the top of the page. The abstract itself does not appears in a quote
-%environment so you can get more in.
-
-\newenvironment{abstractslong} {\begin{alwayssingle} \pagestyle{empty}
-  \centering
-  \vspace*{1.5cm}
-  {\Large \bfseries  Abstract}
-  \vspace{0.5cm} \begin{quote}}
-{\end{quote}\end{alwayssingle}}
-
-%The abstractseparate environment is for running of a page with the abstract
-%on including title and author etc as required to be handed in separately
-
-\newenvironment{abstractseparate} {\begin{alwayssingle} \pagestyle{empty}
-  \vspace*{-1in}
-  \centering
-    { \Large {\bfseries {\@title}} \par}
-    {{\large \vspace*{1ex} \@author} \par}
-{\large \vspace*{1ex}
-    {{\@collegeordept} \par}
-    {{\@university} \par}
-\vspace*{1ex}
-    {{\it \submittedtext} \par}
-    {\it {\@degree} \par}
-\vspace*{2ex}
-    {\@degreedate}}
-  }
-{\end{alwayssingle}}
+\newenvironment{abstract}{
+\cleardoublepage
+\chapter*{\centering \Large Abstract}
+}
 
 %ROMANPAGES
 %
