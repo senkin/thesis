@@ -435,7 +435,7 @@ predictions \autocite{CMS_Higgs_long_paper, ATLAS_Higgs_couplings}, which proved
 Standard Model.
 
 \newpage
-\section{Shortcomings of the Standard Model and physics beyond it}
+\section{Shortcomings of the SM and physics beyond the SM}
 \label{s:SM_shortcomings}
 Despite being the most successful theory up to date, the Standard Model is not perfect and has its shortcomings. There
 is a range of physical phenomena not explained by the SM. Let us mention the most prominent ones.
@@ -504,9 +504,9 @@ The top quark is the heaviest elementary particle in the Standard Model, and the
 in 1995 at the Tevatron collider by CDF and D{\O} collaborations \autocite{CDF_top_observation, D0_top_observation}. The
 large mass of approximately \SI{173}{\GeV} suggests that the top quark may have a special role in nature. It is
 substantially more massive than any other fermion. As mentioned in Section~\ref{s:SM_shortcomings}, the reason for such
-vast discrepancy between fermion masses is not known. It is also not yet understood why the top quark's Yukawa coupling
-to the Higgs boson is so close to unity. Naturally, studying the most massive fermion is a logical starting point in
-search for answers to these questions.
+vast discrepancy between fermion masses is unknown. It is also not yet understood why the top quark's Yukawa coupling to
+the Higgs boson is so close to unity. Naturally, studying the most massive fermion is a logical starting point in search
+for answers to these questions.
 
 Due to its large mass, the top quark has an extremely short lifetime on the order of \SI{e-25}{\s} \autocite{PDG},
 meaning that it decays before the top-flavoured hadrons or \ttbar bound states can form. Therefore, the spin information
@@ -522,13 +522,13 @@ via the strong interaction, and single top quark production via the electroweak 
 dominates over single top production, being the main source of top quarks at the LHC, and therefore is the main focus of
 this thesis.
 
-Feynman diagrams for \ttbar production to leading order are presented in
-Figure~\ref{fig:ttbar_production_feynman_diagrams}. At the LHC, the major process for \ttbar production is gluon fusion,
-constituting approximately \SI{90}{\pc} (\SI{80}{\pc}) at $\sqrt s =$ \SI{14}{\TeV} (\SI{7}{\TeV}) \autocite{PDG}.
-Quark-antiquark annihilation and higher-order processes contribute the rest of the Standard Model \ttbar production.
-This happens due to the fact that the LHC is a proton-proton collider, and the only source of antiquarks are virtual
-quarks (so-called sea quarks). At the Tevatron, which was a proton-antiproton collider, the quark-antiquark annihilation
-was the main \ttbar production mode.
+Feynman diagrams for leading order \ttbar production are presented in
+Figure~\ref{fig:ttbar_production_feynman_diagrams}. Since the LHC is a proton-proton collider with a high centre of mass
+energy, the only source of antiquarks are virtual quarks (so-called sea quarks), and the gluon contribution becomes
+dominating. Therefore, the major process for \ttbar production is gluon fusion, constituting approximately \SI{90}{\pc}
+(\SI{80}{\pc}) at $\sqrt s =$ \SI{14}{\TeV} (\SI{7}{\TeV}) \autocite{PDG}. Quark-antiquark annihilation and higher-order
+processes contribute the rest of the Standard Model \ttbar production. At the proton-antiproton Tevatron, on the
+contrary, the quark-antiquark annihilation was the main \ttbar production mode.
 
 \input{02_Theory/feynman_diagrams/ttbar_production}
 
@@ -792,10 +792,18 @@ $\hat{s} \sim x_i x_j s$, the top quark mass \mtop, and the QCD strong coupling 
 parameter is evaluated at renormalisation scale $\mu_r$. The top quark mass \mtop, as discussed in
 Section~\ref{ss:top_mass}, also depends on the choice of renormalisation scheme and scale $\mu_r$.
 
-The results of the most recent theoretical calculation of \ttbar cross section performed with
-next-to-next-to-leading-order (NNLO) QCD corrections \autocite{NNLO_ttbar} are given in
-Table~\ref{tab:ttbar_NNLO_xsections}. The cross section has also been measured by CMS and ATLAS experiments at the LHC
--- the comparison of these measurements with the theoretical prediction is shown in
+The partonic cross section $\hat{\sigma}_{i,j\rightarrow \ttbar}$ can be calculated in different orders of $\alpha_S$.
+If the calculation is performed in the lowest order of $\alpha_S$, it is referred to as the leading order calculation
+(LO). Such calculations provide a very limited prediction power, since they do not include any additional final-state
+partons produced in the hard scattering process. Moreover, LO calculations have a large uncertainty from the
+renormalisation scale ambiguity. Inclusion of higher-order terms in the calculation decreases this uncertainty, and a
+substantially better level of precision can be obtained with next-to-leading-order (NLO) and
+next-to-next-to-leading-order (NNLO) calculations, which have recently become available for the \ttbar production
+process.
+
+The results of the most recent theoretical calculation of \ttbar cross section performed with NNLO QCD corrections
+\autocite{NNLO_ttbar} are given in Table~\ref{tab:ttbar_NNLO_xsections}. The cross section has also been measured by CMS
+and ATLAS experiments at the LHC -- the comparison of these measurements with the theoretical prediction is shown in
 Figure~\ref{fig:xsections_comparison_NNLO}.
 
 \input{02_Theory/tables/ttbar_NNLO_xsections}

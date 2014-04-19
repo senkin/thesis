@@ -90,6 +90,7 @@ boson which was later shown to be consistent with the Standard Model Higgs boson
 various upgrades scheduled. The next physics run is expected in 2015 with the beam energy increased up to 6 or
 \SI{7}{\TeV}.
 
+\newpage
 \section{The CMS Detector}
 \label{s:CMS}
 
@@ -506,7 +507,7 @@ physics processes were generated with a set of different MC generators, includin
 \autocite{Pythia,Pythia6.4}, \MCATNLO \autocite{MCatNLO}, and \POWHEG \autocite{POWHEG}. A supplementary package
 (\TAUOLA \autocite{TAUOLA}) was used for the tau lepton decay description. In this section, all the event generators as
 well as the different MC tunes used for evaluation of systematic uncertainties are briefly described. Additionally, the
-\GEANTfour-based \autocite{GEANT4} CMS detector simulation is mentioned.
+\GEANTfour-based \autocite{GEANT4} simulation of the CMS detector is mentioned.
 
 \subsection{Monte Carlo event generators}
 \label{ss:MC_generators}
@@ -532,14 +533,15 @@ usually includes generation of the following steps, schematically illustrated in
 \end{figure}
 
 The performance of MC generators is usually optimised for one or more of these steps, therefore two or more generators
-often used in combination, e.g.\ the \ttbar signal is modelled with \MADGRAPH and \PYTHIA. Standalone generators can
-also be used for modelling theory systematic effects, which is also exploited in this thesis.
+often used in combination, e.g.\ the nominal \ttbar signal samples used in this thesis are modelled with \MADGRAPH and
+\PYTHIA. Standalone generators can also be used for modelling theory systematic effects, which is also exploited in this
+thesis.
 
 \begin{description}[wide=\parindent, style=standard, labelsep=0pt]
 \item [\MADGRAPH] \autocite{MadGraph} is a matrix-element Monte Carlo event generator. For any renormalisable
 Lagrangian-based model it produces all possible Feynman diagrams and automatically generates its matrix elements at the
-tree level, performing the integration over all phase-space. This calculation is then used to produce the \xsect of
-various processes and subprocesses as well as partons and kinematics of an event, including decays that are described
+tree level, performing the integration over all phase-space. This calculation is then used to produce the cross section
+of various processes and subprocesses as well as partons and kinematics of an event, including decays that are described
 using spin correlations. Partons from matrix element calculations are then matched to parton showers from hadronisation
 of quarks and gluons, which is simulated in \PYTHIA (see below) along with the fragmentation of initial protons and the
 soft scattering of underlying event. The matching is done according to the so-called MLM prescription \autocite{MLM} if
