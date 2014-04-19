@@ -42,6 +42,11 @@ of Bristol \\ in accordance with the requirements for award of the degree of
 % Put all the style files you want in the directory StyleFiles and usepackage like this:
 %\usepackage{StyleFiles/watermark}
 
+% chapters names in LoF and LoT
+\usepackage{StyleFiles/chaptersinindex}
+\AddChaptersToIndex{lof}{figure}
+\AddChaptersToIndex{lot}{table}
+
 \addbibresource{References/references.bib}
 
 \begin{document}

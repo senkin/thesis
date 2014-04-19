@@ -61,6 +61,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{hyphenat}
 \usepackage[raggedright]{titlesec}
+\usepackage{etoolbox}
 
 % setup the SIunits package (more info in 'texdoc siunitx')
 \sisetup{number-unit-product = \text{ }}

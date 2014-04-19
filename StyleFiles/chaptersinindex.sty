@@ -1,0 +1,44 @@
+% taken from http://www.latex-community.org/forum/viewtopic.php?f=44&t=17344#p61279
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{StyleFiles/chaptersinindex}[2012/01/21]
+
+\RequirePackage{etoolbox}
+
+\providecommand{\thechaptername}{}
+\renewcommand{\chaptermark}[1]
+             {%
+               \markboth{#1}{}%
+               \renewcommand{\thechaptername}{#1}%
+             }
+
+
+\newcommand%
+    {\AddChaptersToIndex}[2]%  #1: index name (e.g. `lof')
+                            %  #2: environment to patch (e.g. `figure')
+    {%
+      \newcounter{chapter@last@#1}
+      \AtBeginEnvironment
+          {#2}
+          {
+            \ifnumequal%
+                {\value{chapter}}%
+                {\value{chapter@last@#1}}%
+                {}%  already added
+                {%
+                  \addtocontents{#1}{\protect\numberline{\vspace{\BeforeChapterInIndex}}}%
+                  \addtocontents%
+                      {#1}%
+                      {\protect\numberline{\ChapterInIndex{\thechapter}{\thechaptername}}}%
+                      \setcounter{chapter@last@#1}{\value{chapter}}%
+                  %\addtocontents{#1}{\protect\numberline{\vspace{\AfterChapterInIndex}}}%
+                }
+          }
+    }
+
+\newlength{\BeforeChapterInIndex}
+\setlength{\BeforeChapterInIndex}{0ex}
+\newlength{\AfterChapterInIndex}
+\setlength{\AfterChapterInIndex}{0ex}
+
+\newcommand{\ChapterInIndex}[2]%  #1: number,  #2: title
+           {{\bfseries#1\quad#2}}
