@@ -60,6 +60,7 @@
 \usepackage{lmodern}
 \usepackage[T1]{fontenc}
 \usepackage{hyphenat}
+\usepackage[raggedright]{titlesec}
 
 % setup the SIunits package (more info in 'texdoc siunitx')
 \sisetup{number-unit-product = \text{ }}
@@ -195,92 +196,28 @@
 %% style for headings
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \renewcommand{\chaptername}{
-\vspace{-2cm}
+\vspace*{-2cm}
 }
 
-%\renewcommand{\section}{%
-%\@startsection{section}%
-%{1}% Gliederungsebene
-%{0mm}%
-%{1.5ex plus 1ex minus 1.2ex}%
-%{0.5ex plus 0.5ex minus 0.5ex}%
-%{\chapterheadfont\Large\bfseries}%
-%}
-%\renewcommand{\subsection}{%
-%\@startsection{subsection}%
-%{2}%
-%{0mm}%
-%{1ex plus 1ex minus 1ex}%
-%{0.3ex plus 0.3ex minus 0.3ex}%
-%{\chapterheadfont\large\bfseries}%
-%}
-%\renewcommand{\subsubsection}{%
-%\@startsection{subsubsection}%
-%{3}%
-%{0mm}%
-%{1ex plus 1ex minus 1ex}%
-%{0.2ex plus 0.2ex minus 0.2ex}%
-%{\chapterheadfont\normalsize\bfseries}%
-%}
-%\renewcommand{\paragraph}{%
-%\@startsection{paragraph}%
-%{4}%
-%{0mm}%
-%{2ex plus 1ex minus 2ex}%
-%{0.2ex plus 0.2ex minus 0.2ex}%
-%{\chapterheadfont\normalsize\bfseries}%
-%}
+\titleformat{\chapter}[block]
+  {\addvspace{-4pc}%
+  \Huge\bfseries}
+  {\thechapter.}
+  {10pt}
+  {\formatchaptertitle}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                                                                                                                                                                                  
-%% style of the chapter heading                                                                                                                                                                                                               
-%% examples : http://zoonek.free.fr/LaTeX/LaTeX_samples_chapter/0.html                                                                                                                                                                        
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                                                                                                                                                                                  
-\newlength{\chapnolen}
-\newlength{\chapparlen}
-\newsavebox{\chapno}
+\newcommand{\formatchaptertitle}[1]{%
+  \parbox[t]{\dimexpr\textwidth-10pt}{\raggedright#1}}
 
-\renewcommand{\@makeschapterhead}[1]{%                                                                                                                                                                                                        
-  \vspace*{50\p@}%                                                                                                                                                                                                                            
-  {\parindent \z@ \raggedright
-    \normalfont
-    \interlinepenalty\@M
-    \chapterheadfont \huge \bfseries  #1\par\nobreak                                                                                                                                                                                          
-    \vskip 40\p@                                                                                                                                                                                                                              
-  }%                                                                                                                                                                                                                                          
-}
-% new chapter                                                                                                                                                                                                                                 
-\makeatletter
-\def\@makechapterhead#1{%
-  %\vspace*{1\p@}%                                                                                                                                                                                                                     
-  {\parindent \z@ \reset@font
-        %{\Huge \scshape \thechapter}
-        %\par\nobreak
-        %\vspace*{10\p@}%                                                                                                                                                                                                                      
-        %\interlinepenalty\@M
-        %\par\nobreak
-        %\vspace*{2\p@}%                                                                                                                                                                                                      
-        \nohyphens{{\Huge \bfseries \thechapter.~ #1\par\nobreak}}
-        \par\nobreak
-        \vspace*{2\p@}
-    \vskip 40\p@                                                                                                                                                                                                                             
-    %\vskip 100\p@
-  }}
-\def\@makeschapterhead#1{%                                                                                                                                                                                                                    
-  \vspace*{10\p@}%                                                                                                                                                                                                                            
-  {\parindent \z@ \centering \reset@font
-        {\Huge \scshape \vphantom{\thechapter}}
-        \par\nobreak
-        \vspace*{10\p@}%                                                                                                                                                                                                                      
-        \interlinepenalty\@M
-        \par\nobreak
-        \vspace*{2\p@}%                                                                                                                                                                                                                       
-        \nohyphens{{\Huge \bfseries #1\par\nobreak}}
-        \par\nobreak
-        \vspace*{2\p@}%                                                                                                                                                                                                                       
-    \vskip 100\p@
-  }}
+%\newcommand{\chapterNumber}{%
+%  \fontsize{50}{50}\usefont{U}{eur}{b}{n}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\titleformat{\section}[hang]
+{\Large\bfseries}
+{\thesection}{0.5em}{}
+ 
+\titlespacing{\section}{0pt}{10pt}{5pt}
 
 %% index (also for other font families)              
 
@@ -411,6 +348,13 @@
 \cleardoublepage
 \chapter*{\centering \Large Acknowledgements}
 }
+
+
+\newenvironment{declaration}{
+\cleardoublepage
+\chapter*{\centering \Large Author's Declaration}
+}
+
 
 
 %ABSTRACT
