@@ -549,25 +549,40 @@ Partons from matrix element calculations are then matched to parton showers. Acc
 radiation in the form of gluons, similarly to QED radiation emitted by accelerated electric charges. But since gluons
 also carry a colour charge, they emit further radiation, which results in parton showering. It is convenient to describe
 it in terms of the initial state radiation (ISR), which refers to the radiation of incoming partons, and the final state
-raditation (FSR), i.e.\ radiation of outgoing partons.
+raditation (FSR), i.e.\ radiation of outgoing partons. Theoretically, parton showers can be regarded as higher-order
+corrections to the hard scattering process. However, precise calculation of these corrections is not feasible, therefore
+an approximation scheme is used, based on QCD evolution equations first described by Dokshitzer, Gribov, Lipatov,
+Altarelli and Parisi (DGLAP) \autocite{Dokshitzer, Gribov_Lipatov, Altarelli_Parisi}.
 
-Theoretically, parton showers can be regarded as higher-order corrections to the hard scattering process. However,
-precise calculation of these corrections is not feasible, therefore an approximation scheme is used, based on QCD
-evolution equations first described by Dokshitzer, Gribov, Lipatov, Altarelli and Parisi (DGLAP) \autocite{Dokshitzer,
-Gribov_Lipatov, Altarelli_Parisi}.
+After the parton showering is modelled, colour-neutral hadrons have to be formed in the hadronisation process according
+to the colour confinement, as described in Section~\ref{ss:QCD_theory}. The most widely used hadronisation model
+(implemented in \PYTHIA generator) is the Lund string model, where gluons are split into \qqbar pairs and then turned
+into hadrons via the string fragmentation model \autocite{Lund_model}.
 
-% hadronisation and underlying event...
+% Another hadronisation model is based on cluster fragmentation, where colourless clusters are formed from quarks and
+% gluons with low invariant masses, which then are turned into clusters. (HERWIG)
 
-The performance of MC generators is usually optimised for one or more of these steps, therefore two or more generators
-often used in combination, e.g.\ the nominal \ttbar signal samples used in this thesis are modelled with \MADGRAPH and
-\PYTHIA. Standalone generators can also be used for modelling theory systematic effects, which is also exploited in this
-thesis.
+Finally, apart from the hard scattering process, it is also important to model all the additional activity in
+proton-proton collisions, which is referred to as underlying event activity \autocite{underlying_event}. This activity
+includes the multiple interactions of the remaining partons in hadron collisions, and the beam remnants which do not
+participate in the hard scattering. Both the multiple parton interactions and the beam remnants carry a colour charge
+and produce additional soft hadrons. The colour charges from all the activity in the event, including the hard
+scattering process, ISR and FSR, beam remnants and multiple parton interactions can interact in a very non-trivial
+manner. This leads to additional uncertainty called colour reconnection \autocite{colour_reconnection}, which also
+affects the whole hadronisation process and may result in biased precision measurements. To account for all known
+hadronisation and underlying event effects, phenomenological models with free parameters need to be tuned to data.
+Different tunes can then be used to estimate the systematic uncertainties arising from imperfect understanding of these
+effects.
 
 \subsection{Monte Carlo event generators}
 \label{ss:MC_generators}
 In the analyses presented in this thesis, all physics processes were generated with a set of different MC generators,
 including \MADGRAPH \autocite{MadGraph}, \PYTHIA \autocite{Pythia,Pythia6.4}, \MCATNLO \autocite{MCatNLO}, and \POWHEG
-\autocite{POWHEG}. These generators are briefly described below.
+\autocite{POWHEG}. The performance of MC generators is usually optimised for one or more of the simulation steps
+described previously, therefore two or more generators are often used in combination. For example, the nominal \ttbar
+signal samples used in this thesis are modelled with \MADGRAPH and \PYTHIA. Standalone generators can also be used for
+modelling theory systematic effects, which is also exploited in this thesis.
+
 %A supplementary package (\TAUOLA \autocite{TAUOLA}) was used for the tau lepton decay description.
 
 \begin{description}[wide=\parindent, style=standard, labelsep=0pt]
