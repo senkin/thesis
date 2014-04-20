@@ -216,7 +216,7 @@
 
 \titleformat{\section}[hang]
 {\Large\bfseries}
-{\thesection}{0.5em}{}
+{\thesection}{1em}{}
  
 \titlespacing{\section}{0pt}{10pt}{5pt}
 
