@@ -30,7 +30,7 @@ cost savings.
   \caption{CERN accelerator complex}
   \label{fig:LHC}
 \end{figure}
-
+\newpage
 A schematic view of the LHC accelerator chain is shown in Figure~\ref{fig:LHC}. Initially, the protons are obtained by
 stripping orbiting electrons from hydrogen atoms. Then they are injected into the linear accelerator LINAC2 to reach the
 energy of \SI{50}{\MeV} and enter the Proton Synchrotron Booster (PSB). The booster accelerates them to \SI{1.4}{\GeV}
@@ -385,7 +385,7 @@ production of \SI{40}{\tera\byte\per\second}. Attempting to store all of these d
 technology. Moreover, only a fraction of events contain hard scattering processes that are of interest, therefore an
 effective trigger system had to be implemented.
 
-The CMS trigger is a two-level system, consisting of two independent parts: the Level-1 (L1) trigger and the High-Level
+The CMS trigger is a two-level system, consisting of two independent parts: the Level-1 (L1) trigger and the High Level
 Trigger (HLT). The L1 trigger is a hardware system implemented in programmable electronics residing partly on detector,
 and partly in the underground control room located at approximately \SI{90}{\metre} from the experimental cavern. The
 maximum latency between the collision and the L1 accept decision received by front-end electronics is
@@ -395,7 +395,7 @@ Since the reconstruction of tracks exceeds the time scale required for the L1 de
 used. The L1 trigger reduces the event rate from \SI{\sim40}{\mega\hertz} to \SI{\sim100}{\kilo\hertz}, corresponding to
 a data flow of about \SI{100}{\giga\byte\per\second}. These events are fed into the HLT system.
 
-The High-Level Trigger is a software system implemented in a single CPU farm, sometimes referred to as the ``Event
+The High Level Trigger is a software system implemented in a single CPU farm, sometimes referred to as the ``Event
 Filter Farm''. Having access to the full event information, customised algorithms of increasing complexity are used
 which results in a highly flexible trigger system. The event rate is reduced down to \SI{\sim300}{\Hz}, with the final
 data rate of approximately \SI{300}{\mega\byte\per\second} being stored on a large disk cache at the experimental site
@@ -415,7 +415,7 @@ to the HLT development of the trigger paths important for top physics is describ
 \section{Computing}
 \label{s:computing}
 The vast amounts of data delivered by the CMS detector impose high requirements on the offline computing system. During
-2010--2012 operation, CMS collected \SI{\sim10}{\peta\byte} of raw data per year. Including Monte Carlo simulations,
+2010--2012 operation, CMS collected \SI{\sim10}{\peta\byte} of raw data per year. Including Monte Carlo simulation,
 reconstructed data and analysis skims, the total annual amount of data essentially doubles. To handle the distributed
 storage and processing of these data, not just for CMS but for the entire high energy physics community using the LHC, a
 worldwide LHC computing grid (WLCG) has been put in place.
@@ -474,14 +474,14 @@ plug-in modules that contain all the code needed for event processing (reconstru
 Different versions of CMSSW were used for different analyses: 
 
 \begin{itemize}
-  \item \verb!CMSSW_4_2_8! for the top mass analysis on 2011 data;
-  \item \verb!CMSSW_4_4_4! for the missing transverse energy analysis on 2011 data;
-  \item \verb!CMSSW_5_3_9! for the top cross pair cross section analysis on 2012 data.
+  \item CMSSW\underline{\hspace{1ex}}4\underline{\hspace{1ex}}2\underline{\hspace{1ex}}8 for the top mass analysis on 2011 data;
+  \item CMSSW\underline{\hspace{1ex}}4\underline{\hspace{1ex}}4\underline{\hspace{1ex}}4 for the missing transverse energy analysis on 2011 data;
+  \item CMSSW\underline{\hspace{1ex}}5\underline{\hspace{1ex}}3\underline{\hspace{1ex}}9 for the top cross pair cross section analysis on 2012 data.
 \end{itemize}
 
 Corresponding versions were used to produce ntuples for processing by BAT, which was used to read the data, apply
 selections, calculate high-level variables and to create various histograms of distributions. BAT was originally started
-in 2010 by Dr.\ Lukasz Kreczko for the needs of the Bristol top group, later on also developed by the author and other
+in 2010 by Lukasz Kreczko for the needs of the Bristol top group, later on also developed by the author and other
 researchers from Bristol and affiliated top groups. Like CMSSW, this framework has a modular structure, with its classes
 falling in four main categories:
 
@@ -497,62 +497,91 @@ scripts is used to prepare the histograms, perform fitting and unfolding procedu
 and producing final tables and plots. Rootpy package \autocite{rootpy} was used to access ROOT libraries in python
 interface, and matplotlib \autocite{matplotlib} was used to create plots.
 
+\newpage
 \section{Monte Carlo Simulation}
 \label{s:MC_simulation}
+To develop and test any analysis technique in modern particle physics, simulated events from Monte Carlo (MC) generators
+as well as a working simulation model of the detector are inevitably needed. All current theoretical knowledge of the
+Standard Model processes is incorporated in Monte Carlo simulation, and can be validated by direct comparison of the
+simulated events with real data. Any deviations may indicate the signs of new physics processes, which are also
+simulated according to various BSM physics models. On the other hand, these deviations can also be caused by
+deficiencies in the simulation process. Therefore, adequate and robust MC simulation is crucial for both precision
+measurements and searches for new physics.
 
-To develop and test any analysis technique in particle physics, simulated events from Monte Carlo (MC) generators as
-well as a working simulation model of the detector are inevitably needed. In the analyses presented in this thesis, all
-physics processes were generated with a set of different MC generators, including \MADGRAPH \autocite{MadGraph}, \PYTHIA
-\autocite{Pythia,Pythia6.4}, \MCATNLO \autocite{MCatNLO}, and \POWHEG \autocite{POWHEG}. A supplementary package
-(\TAUOLA \autocite{TAUOLA}) was used for the tau lepton decay description. In this section, all the event generators as
-well as the different MC tunes used for evaluation of systematic uncertainties are briefly described. Additionally, the
-\GEANTfour-based \autocite{GEANT4} simulation of the CMS detector is mentioned.
+Different MC simulation techniques exist and can be used in various MC generators. In this section, the basic concepts
+of MC simulation are introduced. All the event generators exploited in this thesis as well as different MC tunes used
+for evaluation of theoretical uncertainties are briefly described. Additionally, the \GEANTfour-based
+\autocite{GEANT4} simulation of the CMS detector is mentioned.
 
-\subsection{Monte Carlo event generators}
-\label{ss:MC_generators}
-Simulation of \ttbar signal and background processes, described in Section~\ref{s:top_quak_physics}, is performed using
-several Monte Carlo event generators. The process of simulating a hadron collision event is rather complicated, and
-usually includes generation of the following steps, schematically illustrated in Figure~\ref{fig:MC_simulation_graphics}:
+\subsection{Generation of hadron collision events}
+\label{ss:hadron_collisions_simulation}
+
+Simulation of hadron collision events is a rather complicated process. It is usually factorised into the following
+steps, schematically illustrated in Figure~\ref{fig:MC_simulation_graphics}:
 
 \begin{enumerate}[label=\textbullet]
   \item incoming hadrons (protons);
   \item hard scattering of partons;
-  \item boson radiation (\Z, \photon, \cPg);
-  \item parton shower;
-  \item hadronisation of partons and hadron decays.
+  %\item boson radiation (\Z, \photon, \cPg);
+  \item parton showers;
+  \item hadronisation of partons and hadron decays;
+  \item underlying event.
 \end{enumerate}
 
 \begin{figure}[htbp]
   \centering
   \leavevmode
   \includegraphics[width=0.7\columnwidth]{MC_simulation_graphics}
-  \caption[Graphical overview of a hadron collision process]{Graphical overview of a hadron collision process
+  \caption[Schematic overview of a hadron collision process]{Schematic overview of a hadron collision process
   \autocite{Hoeche_slides}}
   \label{fig:MC_simulation_graphics}
 \end{figure}
+
+The simulation of hadron collisions makes use of the factorisation between the short-distance hard scattering process
+and long-distance soft interactions described by parton distribution functions, as shown in
+Section~\ref{ss:ttbar_cross_section}. In matrix-element MC generators such as \MADGRAPH, the hard scattering process is
+described by calculating the tree-level matrix elements and including higher-order corrections, i.e.\ additional partons
+in the final state. The generator produces all possible Feynman diagrams for a renormalisable Langrangian-based model,
+and generates its matrix elements at the tree level, performing the integration over all phase-space. This calculation
+is then used to produce the cross section of various processes and subprocesses, as well as partons and parton decays.
+
+Partons from matrix element calculations are then matched to parton showers. Accelerated coloured partons emit QCD
+radiation in the form of gluons, similarly to QED radiation emitted by accelerated electric charges. But since gluons
+also carry a colour charge, they emit further radiation, which results in parton showering. It is convenient to describe
+it in terms of the initial state radiation (ISR), which refers to the radiation of incoming partons, and the final state
+raditation (FSR), i.e.\ radiation of outgoing partons.
+
+Theoretically, parton showers can be regarded as higher-order corrections to the hard scattering process. However,
+precise calculation of these corrections is not feasible, therefore an approximation scheme is used, based on QCD
+evolution equations first described by Dokshitzer, Gribov, Lipatov, Altarelli and Parisi (DGLAP) \autocite{Dokshitzer,
+Gribov_Lipatov, Altarelli_Parisi}.
+
+% hadronisation and underlying event...
 
 The performance of MC generators is usually optimised for one or more of these steps, therefore two or more generators
 often used in combination, e.g.\ the nominal \ttbar signal samples used in this thesis are modelled with \MADGRAPH and
 \PYTHIA. Standalone generators can also be used for modelling theory systematic effects, which is also exploited in this
 thesis.
 
+\subsection{Monte Carlo event generators}
+\label{ss:MC_generators}
+In the analyses presented in this thesis, all physics processes were generated with a set of different MC generators,
+including \MADGRAPH \autocite{MadGraph}, \PYTHIA \autocite{Pythia,Pythia6.4}, \MCATNLO \autocite{MCatNLO}, and \POWHEG
+\autocite{POWHEG}. These generators are briefly described below.
+%A supplementary package (\TAUOLA \autocite{TAUOLA}) was used for the tau lepton decay description.
+
 \begin{description}[wide=\parindent, style=standard, labelsep=0pt]
-\item [\MADGRAPH] \autocite{MadGraph} is a matrix-element Monte Carlo event generator. For any renormalisable
-Lagrangian-based model it produces all possible Feynman diagrams and automatically generates its matrix elements at the
-tree level, performing the integration over all phase-space. This calculation is then used to produce the cross section
-of various processes and subprocesses as well as partons and kinematics of an event, including decays that are described
-using spin correlations. Partons from matrix element calculations are then matched to parton showers from hadronisation
-of quarks and gluons, which is simulated in \PYTHIA (see below) along with the fragmentation of initial protons and the
-soft scattering of underlying event. The matching is done according to the so-called MLM prescription \autocite{MLM} if
-a parton-jet pair satisfies a certain $\Delta R$ separation criterion. If no or more than one matched jets are found,
-events are rejected. There is also a certain transverse energy threshold requirement for the partons to be considered in
-the matching. Default values as well as variations used to estimate the systematic effect of the matching threshold are
-shown in Table~\ref{tab:systematic_mc_variations}.
+\item [\MADGRAPH] \autocite{MadGraph} is a matrix-element Monte Carlo event generator. The matching of matrix elements
+to parton showers is performed according to the so-called MLM prescription \autocite{MLM} if a parton-jet pair satisfies
+a certain $\Delta R$ separation criterion. If no or more than one matched jets are found, events are rejected. There is
+also a certain transverse energy threshold requirement for the partons to be considered in the matching. Default values
+as well as variations used to estimate the systematic effect of the matching threshold are shown in
+Table~\ref{tab:systematic_mc_variations}.
 
 \item [\PYTHIA] \autocite{Pythia,Pythia6.4} is one of the most widely used MC generators in high energy physics. It is a
-standard tool used for simulation of quark and gluon hadronisation, multi-particle production, beam remnants, initial
-protons fragmentation, etc. In this work, \PYTHIA is used to generate QCD multi-jet production, and to simulate the
-underlying event on top of other generators providing partons from hard processes.
+standard tool used for simulation of initial protons fragmentation, multi-particle production, quark and gluon
+hadronisation, beam remnants and the underlying event. In this work, \PYTHIA is used to generate QCD multi-jet
+production, and to simulate the underlying event on top of other generators providing partons from hard processes.
 
 \item [\MCATNLO] \autocite{MCatNLO} is a parton shower MC generator providing next-to-leading order (NLO) corrections
 for a simulated process. It represents a major improvement in precision and accuracy of physics simulations comparing to
@@ -568,7 +597,7 @@ radiation. This technique allows to avoid double-counting coming from subsequent
 
 \end{description}
 
-\subsection{Matching Threshold and Factorisation Scale}
+\subsection{Matching threshold and factorisation scale}
 \label{ss:matching_and_factorisation}
 %https://twiki.cern.ch/twiki/bin/view/CMS/MadGraphStandardModel
 
@@ -616,7 +645,7 @@ optimal way. The types of these particles include electrons, muons, charged hadr
 these particles are then used to reconstruct jets (Section~\ref{ss:jet_reconstruction}), missing transverse energy
 (Section~\ref{ss:electron_reconstruction}) and tau leptons from their decay products.
 
-\subsection{Electron Reconstruction}
+\subsection{Electron reconstruction}
 \label{ss:electron_reconstruction}
 The reconstruction of the \ttbar pair with an electron in the final state (see
 Section~\ref{fig:ttbar_semileptonic_decay}) imposes strict requirements on the electron identification and its
@@ -696,7 +725,7 @@ assigned to KF tracks are not included in the calculation. Also, the distance in
 extrapolation and the cluster is required to be smaller than \num{0.015}, which helps to reduce the neutral particle
 background.
 
-\subsubsection{Electron Identification}
+\subsubsection{Electron identification}
 \label{sss:electron_id}
 
 Electron reconstruction in CMS is based on a characteristic signature that electrons leave in the tracker and
@@ -746,7 +775,7 @@ analyses described in this thesis: simple cut-based (SCB ID), cuts in categories
 multivariate analysis (MVA ID).
 
 \begin{description}[wide=\parindent]
-  \item[Simple cut-based ID] \autocite{SCB_ID} is used in the High-Level Trigger, and therefore has to be as simple,
+  \item[Simple cut-based ID] \autocite{SCB_ID} is used in the High Level Trigger, and therefore has to be as simple,
 fast and robust as possible. This algorithm only uses a limite number electron ID variables shown in
 Table~\ref{tab:electron_ID_variables}, including $H/E$ ratio, $\Delta\eta_{\text{in}}$ and $\Delta\phi_{\text{in}}$
 matching variables, cluster shape variables and isolation variables (to be described in the next section). Although this
@@ -872,7 +901,7 @@ are also combined into a single discriminator, which is optimised by ``training'
 
 \end{description}
 
-\subsubsection{Electron Isolation}
+\subsubsection{Electron isolation}
 \label{sss:electron_isolation}
 
 Isolation is an observable that allows prompt electrons (i.e.\ the ones from W and Z decays) to distinguished from jets
@@ -940,7 +969,7 @@ partner track method.
 
 % internal source: https://twiki.cern.ch/twiki/bin/view/CMS/ConversionTools
 
-\subsection{Muon Reconstruction}
+\subsection{Muon reconstruction}
 \label{ss:muon_reconstruction}
 A good muon reconstruction and identification was one of the main CMS design requirements. Initially, muons are
 reconstructed independently in the tracker (``tracker tracks'') and in the muon system (``standalone muon tracks'')
@@ -987,7 +1016,7 @@ requirements can also be applied; isolation definitions closely follow the ones 
 
 %internal source https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideMuonId
 \newpage
-\subsection{Jet Reconstruction}
+\subsection{Jet reconstruction}
 \label{ss:jet_reconstruction}
 Hadronisation of quarks and gluons leads to the production of narrow cones of particles moving in approximately one
 direction, called jets. This happens due to colour confinement, as particles carrying a colour charge cannot exist in
@@ -1012,7 +1041,7 @@ distance between soft particles with similar separation will be substantially la
 cluster around the hard ones before they cluster amongst themselves. On the output, the \antikt algorithm forms
 conical jets with boundaries resilient to soft radiation.
 
-\subsubsection{Jet Energy Corrections}
+\subsubsection{Jet energy corrections}
 \label{sss:JEC}
 
 Due to non-linear and non-uniform response of the calorimetry systems, jets reconstructed using detector inputs
@@ -1088,7 +1117,7 @@ simulation reproducing the data features out of the box.
 
 %Jet energy resolution? https://twiki.cern.ch/twiki/bin/view/CMS/JetResolution
 
-\subsubsection{Particle Flow Jet Identification}
+\subsubsection{Particle Flow jet identification}
 \label{sss:PFJet_ID}
 To ensure the quality of the jets, final identification criteria are applied to all jet objects. Particle flow jet
 identification (or PF jet ID) is used to reduce the noise and rate of electrons reconstructed as jets. The cuts are
@@ -1150,7 +1179,7 @@ Section~\ref{ss_xsection:btagging_corrections}).
   \label{fig:CSV_efficiency}
 \end{figure}
 
-\subsection{Missing Transverse Energy}
+\subsection{Missing transverse energy}
 \label{ss:MET_reconstruction}
 Due to momentum conservation, the sum of transverse momenta of all particles in the final state of proton-proton
 collisions is expected to be zero. However, some particles can escape the detector without being reconstructed,
