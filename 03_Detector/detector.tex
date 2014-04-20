@@ -66,7 +66,7 @@ different processes as a function of the centre of mass energy are shown in Figu
 \begin{figure}[!htbp]
   \centering
   \leavevmode
-  \includegraphics[width=0.8\columnwidth]{production_cross_sections}
+  \includegraphics[width=0.7\columnwidth]{production_cross_sections}
   \caption[Production cross sections for different processes as a function of the centre of mass energy]{Production
   cross sections for different processes as a function of the centre of mass energy $\sqrt{s}$. The discontinuity is due
   to extrapolation between proton-antiproton Tevatron and proton-proton LHC. The \ttbar production cross section is
@@ -90,7 +90,6 @@ boson which was later shown to be consistent with the Standard Model Higgs boson
 various upgrades scheduled. The next physics run is expected in 2015 with the beam energy increased up to 6 or
 \SI{7}{\TeV}.
 
-\newpage
 \section{The CMS Detector}
 \label{s:CMS}
 
@@ -497,7 +496,6 @@ scripts is used to prepare the histograms, perform fitting and unfolding procedu
 and producing final tables and plots. Rootpy package \autocite{rootpy} was used to access ROOT libraries in python
 interface, and matplotlib \autocite{matplotlib} was used to create plots.
 
-\newpage
 \section{Monte Carlo Simulation}
 \label{s:MC_simulation}
 To develop and test any analysis technique in modern particle physics, simulated events from Monte Carlo (MC) generators
@@ -564,34 +562,41 @@ into hadrons via the string fragmentation model \autocite{Lund_model}.
 
 Finally, apart from the hard scattering process, it is also important to model all the additional activity in
 proton-proton collisions, which is referred to as underlying event activity \autocite{underlying_event}. This activity
-includes the multiple interactions of the remaining partons in hadron collisions, and the beam remnants which do not
-participate in the hard scattering. Both the multiple parton interactions and the beam remnants carry a colour charge
-and produce additional soft hadrons. The colour charges from all the activity in the event, including the hard
-scattering process, ISR and FSR, beam remnants and multiple parton interactions can interact in a very non-trivial
-manner. This leads to additional uncertainty called colour reconnection \autocite{colour_reconnection}, which also
-affects the whole hadronisation process and may result in biased precision measurements. To account for all known
-hadronisation and underlying event effects, phenomenological models with free parameters need to be tuned to data.
-Different tunes can then be used to estimate the systematic uncertainties arising from imperfect understanding of these
-effects.
+includes multiple interactions of the remaining partons in hadron collisions, and beam remnants which do not participate
+in the hard scattering. Both the multiple parton interactions and the beam remnants carry a colour charge and produce
+additional soft hadrons. The colour charges from all the activity in the event, including the hard scattering process,
+ISR and FSR, beam remnants and multiple parton interactions can interact in a very non-trivial manner. This leads to
+additional uncertainty called colour reconnection \autocite{colour_reconnection}, which also affects the whole
+hadronisation process and may result in biased precision measurements. To account for all known hadronisation and
+underlying event effects, phenomenological models with free parameters need to be tuned to data. Different tunes can
+then be used to estimate the systematic uncertainties arising from imperfect understanding of these effects.
+
+One of the most significant systematic uncertainties can arise from the procedure of matching the matrix elements to
+parton showers. There is a certain threshold for partons transverse momenta from matrix element calculations to be
+matched with parton showers, often referred to as ME-PS threshold. To estimate the systematic uncertainty arising from
+it, additional MC samples are generated with the varied value of the threshold. In this thesis, this procedure was
+performed for signal \ttjets and background \WpJets and \ZpJets samples. Similarly, the systematic effect of the choice
+of factorisation scale $Q^2$ (described in Section~\ref{ss:top_production}) is also be determined.
 
 \subsection{Monte Carlo event generators}
 \label{ss:MC_generators}
 In the analyses presented in this thesis, all physics processes were generated with a set of different MC generators,
 including \MADGRAPH \autocite{MadGraph}, \PYTHIA \autocite{Pythia,Pythia6.4}, \MCATNLO \autocite{MCatNLO}, and \POWHEG
 \autocite{POWHEG}. The performance of MC generators is usually optimised for one or more of the simulation steps
-described previously, therefore two or more generators are often used in combination. For example, the nominal \ttbar
-signal samples used in this thesis are modelled with \MADGRAPH and \PYTHIA. Standalone generators can also be used for
+described above, therefore two or more generators are often used in combination. For example, the nominal \ttbar signal
+samples used in this thesis are modelled with \MADGRAPH and \PYTHIA. Standalone generators can also be used for
 modelling theory systematic effects, which is also exploited in this thesis.
 
 %A supplementary package (\TAUOLA \autocite{TAUOLA}) was used for the tau lepton decay description.
 
 \begin{description}[wide=\parindent, style=standard, labelsep=0pt]
-\item [\MADGRAPH] \autocite{MadGraph} is a matrix-element Monte Carlo event generator. The matching of matrix elements
-to parton showers is performed according to the so-called MLM prescription \autocite{MLM} if a parton-jet pair satisfies
-a certain $\Delta R$ separation criterion. If no or more than one matched jets are found, events are rejected. There is
-also a certain transverse energy threshold requirement for the partons to be considered in the matching. Default values
-as well as variations used to estimate the systematic effect of the matching threshold are shown in
-Table~\ref{tab:systematic_mc_variations}.
+\item [\MADGRAPH] \autocite{MadGraph} is a multi-purpose matrix-element Monte Carlo event generator. It automatically
+generates matrix elements for decays and $2 \rightarrow n$ scatterings. The matching of matrix elements to parton
+showers is performed according to the so-called MLM prescription \autocite{MLM} if a parton-jet pair satisfies a certain
+$\Delta R$ separation criterion. If no or more than one matched jets are found, events are rejected. As it was
+mentioned, there is also a certain transverse momentum threshold requirement for the partons to be considered in the
+matching. Default values as well as variations used to estimate the systematic effect of the matching threshold can be
+found in Table~\ref{tab:systematic_mc_variations}.
 
 \item [\PYTHIA] \autocite{Pythia,Pythia6.4} is one of the most widely used MC generators in high energy physics. It is a
 standard tool used for simulation of initial protons fragmentation, multi-particle production, quark and gluon
@@ -611,20 +616,6 @@ radiation. This technique allows to avoid double-counting coming from subsequent
 %http://theory.fnal.gov/seminars/slides/2008/COleari.pdf
 
 \end{description}
-
-\subsection{Matching threshold and factorisation scale}
-\label{ss:matching_and_factorisation}
-%https://twiki.cern.ch/twiki/bin/view/CMS/MadGraphStandardModel
-
-As described above with the example of \MADGRAPH generator, there is a certain threshold for partons transverse momenta
-from matrix element calculations to be matched with parton showers, often referred to as ME-PS threshold. To estimate
-the systematic uncertainty arising from it, additional MC samples were generated with the value of the threshold either
-halved or doubled. This procedure was performed for signal \ttjets and background \WpJets and \ZpJets samples.
-Similarly, the systematic effect of the choice of factorisation scale $Q^2$ (described in
-Section~\ref{ss:top_production}) is determined. A summary of central values and variations used to estimate these
-systematic uncertainties is shown in Table~\ref{tab:systematic_mc_variations}.
-
-\input{03_Detector/tables/systematic_mc_variations}
 
 \subsection{CMS detector simulation}
 \label{ss:detector_simulation}
@@ -649,7 +640,7 @@ The data stream generated with this process is very similar to the output of the
 addition to reconstructed objects, generated events also include collections of generated objects, allowing users to
 access the Monte Carlo truth information, which is essential for any particle physics analysis.
 
-
+\newpage
 \section{Object Reconstruction}
 \label{s:object_reconstruction}
 Most CMS analyses, including the ones described in this thesis, adopt a reconstruction technique called Particle Flow
@@ -680,20 +671,22 @@ was designed and optimised for isolated high-\pt electrons. This approach starts
 called the ``ECAL-driven'' seeding. It is based on the property of ECAL energy deposits to have narrow width in the
 $\eta$ coordinate, and to be widely spread in $\phi$ (azimuthal direction) as mentioned above. The electron and all the
 associated Bremsstrahlung energy deposits form a single ``super-cluster'', and the ability to correctly identify it
-affects the overall performance of this method. Only super-clusters with transverse energy above \SI{4}{\GeV} are taken
-into account. Super-clusters are then matched to pairs or triplets of hits in the inner tracker layers, forming the
-track seeds on which the electron tracks are built upon.
+affects the overall performance of this method. Super-clusters are then matched to pairs or triplets of hits in the
+inner tracker layers, forming the track seeds on which the electron tracks are built upon.
+%Only super-clusters with transverse energy above \SI{4}{\GeV} are taken into account.
 
 The performance of the ECAL-driven method is not very well suited for non-isolated and low-\pt electrons. This occurs
 mainly due to the fact that the super-cluster position and energy can be highly biased by the impact of overlapping
 particles, especially if the electron happens to be within a jet and therefore non-isolated. Also, high track
 multiplicity complicates the backward propagation from a super-cluster, because it can be consistent with a number of
-track seeds corresponding to other particles. To minimise the number of these fake seeds, the ratio between the HCAL and
-ECAL energy deposits ($H/E$) is required to be smaller than \num{0.15}. The HCAL towers used in the calculation of this
-ratio are taken within a cone of $\DR = 0.3$ behind the super-cluster position. Although this helps to keep the fake
-seed rate under control, the efficiency for non-isolated electrons becomes rather limited. As for the low-\pt electrons,
-the wider azimuthal spread of Bremsstrahlung photons leads to poorer reconstruction of the super-cluster, biasing its
-position and therefore preventing the efficient matching with a track seed.
+track seeds corresponding to other particles.
+
+% To minimise the number of these fake seeds, the ratio between the HCAL and ECAL energy deposits ($H/E$) is required to
+% be smaller than \num{0.15}. The HCAL towers used in the calculation of this ratio are taken within a cone of $\DR = 0.3$
+% behind the super-cluster position. Although this helps to keep the fake seed rate under control, the efficiency for
+% non-isolated electrons becomes rather limited. As for the low-\pt electrons, the wider azimuthal spread of
+% Bremsstrahlung photons leads to poorer reconstruction of the super-cluster, biasing its position and therefore
+% preventing the efficient matching with a track seed.
 
 Within the particle flow method, efficient reconstruction of non-isolated and low-\pt electrons is particularly
 important since it affects the reconstruction of jets and missing transverse energy. Therefore, a different
@@ -719,11 +712,11 @@ In the next step, track-cluster matching is performed. In the case where an elec
 emission, the track is well reconstructed with the KF algorithm all the way to the ECAL internal surface, where the
 closest cluster is matched to the track. The corresponding cluster energy is compared with the track momentum, and if
 the ratio ($E/p$) is close to unity, the track is selected. On the contrary, if the electron experiences a significant
-Bremsstrahlung emission, other track characteristics have to be exploited. In this case a selection based on the number
-of hits in the tracker and the $\chi^2_\textrm{KF}$ of the KF fit is applied before running a GSF refit. Finally, the
-number of hits, the GSF refit $\chi^2_\textrm{GSF}$, $\chi^2_\textrm{KF}/\chi^2_\textrm{GSF}$ ratio, the energy loss
-measured by the track and the quality of the ECAL cluster-track matching are fed into a multivariate analysis using a
-Boosted Decision Tree (BDT) estimator.
+Bremsstrahlung emission, other track characteristics are used. In this case a selection based on the number of hits in
+the tracker and the $\chi^2_\textrm{KF}$ of the KF fit is applied before running a GSF refit. Finally, the number of
+hits, the GSF refit $\chi^2_\textrm{GSF}$, $\chi^2_\textrm{KF}/\chi^2_\textrm{GSF}$ ratio, the energy loss measured by
+the track and the quality of the ECAL cluster-track matching are fed into a multivariate analysis using a Boosted
+Decision Tree (BDT) estimator.
 
 Both tracker-driven and ECAL-driven seeds are used to obtain the GSF track collection of electron candidates. In the
 particle flow algorithm, it is necessary to link both electron and Bremsstrahlung energy deposits to the GSF track. A
@@ -736,9 +729,10 @@ reconstruct an electron with correctly assigned energy and momentum, it is cruci
 Bremsstrahlung photons, thus forming a super-cluster. This procedure is carried out for each tracker layer by computing
 a straight-line extrapolation tangent to the track, up to the calorimeter. To determine a Bremsstrahlung photon,
 track-cluster linking is performed as described above. To limit the charged hadron contamination, clusters already
-assigned to KF tracks are not included in the calculation. Also, the distance in $\eta$ coordinate between the
-extrapolation and the cluster is required to be smaller than \num{0.015}, which helps to reduce the neutral particle
-background.
+assigned to KF tracks are not included in the calculation.
+
+% Also, the distance in $\eta$ coordinate between the extrapolation and the cluster is required to be smaller than
+% \num{0.015}, which helps to reduce the neutral particle background.
 
 \subsubsection{Electron identification}
 \label{sss:electron_id}
@@ -1030,7 +1024,6 @@ requirements can also be applied; isolation definitions closely follow the ones 
 (Section~\ref{sss:electron_isolation}).
 
 %internal source https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideMuonId
-\newpage
 \subsection{Jet reconstruction}
 \label{ss:jet_reconstruction}
 Hadronisation of quarks and gluons leads to the production of narrow cones of particles moving in approximately one

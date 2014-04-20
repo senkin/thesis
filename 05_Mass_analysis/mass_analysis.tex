@@ -72,9 +72,11 @@ luminosities.
 
 Finally, Table~\ref{tab:top_mass_systematic_samples} lists the additional samples generated to allow estimation of the
 systematic uncertainties due to factorisation scale and matching threshold choices, as discussed in
-Section~\ref{ss:matching_and_factorisation}.
+Section~\ref{ss:hadron_collisions_simulation}. A summary of central values and variations used to estimate these
+systematic uncertainties is shown in Table~\ref{tab:systematic_mc_variations}.
 
 \input{05_Mass_analysis/tables/top_mass_mc_samples}
+\input{05_Mass_analysis/tables/systematic_mc_variations}
 
 
 % \subsection{Pile-up reweighting}
@@ -637,21 +639,21 @@ $\pm1\sigma$ uncertainties, an average systematic effect of \SI{1.21}{\GeV} on t
 % largest of the up and down variation, 0.07 GeV, as a systematic uncertainty.
 
 \item [Factorisation scale.]
-As mentioned in Section~\ref{ss:matching_and_factorisation}, the factorisation scale is varied by factors of
-0.5 and 2 with respect to the nominal value used in the central generated samples. The procedure is performed for
-\ttjets, \WpJets and \ZpJets Monte Carlo samples independently as the factorisation scales are considered uncorrelated.
-To combine the systematic uncertainty, the average absolute size of the up and down effects are added in quadrature. Due
-to the lack of statistics available in variations of \WpJets and \ZpJets samples, this systematic uncertainty is one of
-the largest in the top quark mass measurement.
+As shown in Table~\ref{tab:systematic_mc_variations}, the factorisation scale is varied by factors of 0.5 and 2 with
+respect to the nominal value used in the central generated samples. The procedure is performed for \ttjets, \WpJets and
+\ZpJets Monte Carlo samples independently as the factorisation scales are considered uncorrelated. To combine the
+systematic uncertainty, the average absolute size of the up and down effects are added in quadrature. Due to the lack of
+statistics available in variations of \WpJets and \ZpJets samples, this systematic uncertainty is one of the largest in
+the top quark mass measurement.
 
 %The individual variations are shown in Table~\ref{tab:systematicsScale}.
 
 \item [ME-PS matching threshold.]
-The systematic effect of choice of ME-PS threshold, also mentioned in
-Section~\ref{ss:matching_and_factorisation}, is estimated by varying the default value of \SI{20}{\GeV} by
-factors of 0.5 and 2. Similarly to factorisation scale systematic uncertainty, the matching thresholds are varied
-independently for \ttjets, \WpJets and \ZpJets Monte Carlo samples and then added in quadrature. The same issue with the
-lack of statistics appears here, although to a lesser extent.
+The systematic effect of choice of ME-PS threshold, mentioned in Section~\ref{ss:hadron_collisions_simulation}, is
+estimated by varying the default value of \SI{20}{\GeV} by factors of 0.5 and 2. Similarly to factorisation scale
+systematic uncertainty, the matching thresholds are varied independently for \ttjets, \WpJets and \ZpJets Monte Carlo
+samples and then added in quadrature. The same issue with the lack of statistics appears here, although to a lesser
+extent.
 
 %The individual variations are shown in Table~\ref{tab:systematicsMatching}.
 
