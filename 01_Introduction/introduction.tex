@@ -1,3 +1,5 @@
+%!TEX root = ../thesis.tex
+
 %%% Thesis Introduction --------------------------------------------------
 \chapter{Introduction}
 \label{c:intro}
@@ -7,6 +9,75 @@
     \graphicspath{{01_Introduction/plots/EPS/}{01_Introduction/plots/}}
 \fi
 
+The beginning of the 21st century has been a truly exciting time in particle physics. First LHC collisions in 2009
+marked the start of the new era, which only three years later brought the discovery of the Higgs boson, the last missing
+piece of the Standard Model. The hopes are high that it was not the last discovery of this era, and new physics is
+hiding around the corner at the energies accessible to the LHC.
+
+While searches for the new physics are very exciting, one should not underestimate the importance of precision
+measurements of the Standard Model. Even after the Higgs boson discovery, top quark physics has remained in the
+priorities of the LHC physics programme. One of the main reasons is its importance as a primary background to many new
+physics scenarios beyond the Standard Model. Moreover, it is still not understood why the top quark Yukawa coupling is
+so close to unity, which implies that severe fine tuning of the Higgs mass happens mostly due to the top quark. Many
+extensions of the Standard Model offer solutions to this hierarchy problem by extending the top quark sector and
+introducing more degrees of freedom, which are expected to cause deviations from the Standard Model predictions in top
+quark-related observables. Therefore, precise measurements of the top quark properties are of high importance.
+
+The top quark mass is a crucial fundamental parameter of the Standard Model. The mass analysis presented in this thesis
+contributes to the most precise single measurement of the top quark mass up to date. While the systematic uncertainty
+due to the jet energy scale (JES) in author's work is significantly larger than that of the published CMS measurement,
+the analysis serves as an important cross-check of the mass extraction technique and the kinematic fitting procedure.
+The mentioned JES systematic uncertainty is mitigated in the published measurement via the \textit{in situ} measurement
+of the JES and the top quark mass in a joint likelihood fit. This thesis shows the consistency of these measurements
+within uncertainties, as well as with the first world combination of the top quark mass measurements.
+
+The LHC has proven to be a top quark factory, with an abundance of statistics pushing the limits of precision
+calculations to the level of uncertainties of theoretical predictions. All these data need to be carefully selected, as
+recording the top quark events is significantly complicated by background processes with similar signatures occurring at
+much higher rates. Therefore, an efficient and manageable trigger is a crucial part of any top quark analysis. In this
+thesis, work on the high-level triggers used for selection of top quark events with semileptonic signature, particularly
+with an electron and jets in the final state, is presented.
+
+For the first time in history of particle physics, the abundance of top quark pair (\ttbar) events at the LHC gives an
+opportunity to measure the \ttbar differential cross section with respect to various quantities. Both the CMS and ATLAS
+collaborations have published results on such measurements with respect to top quark-related variables. In this thesis,
+the \ttbar differential cross section is measured with respect to the event-level distributions, which do not require a
+kinematic reconstruction of the \ttbar decay. The absence of systematic uncertainties associated with the kinematic
+reconstruction is the main advantage of these measurements, which allows more detailed comparison of the data and
+predictions by different Monte Carlo generators. Furthermore, new physics could reveal itself in the tails of these
+event-level distributions. For instance, an associated production of a \ttbar pair with a new resonance
+($\ttbar+\mathrm{X}$) decaying invisibly may show up in the tail of the missing transverse energy distribution.
+
+The work on the top quark mass analysis using the \SI{7}{\TeV} LHC data was performed at CERN in collaboration with
+Martijn Mulders and Enrique Palencia. The author's main contribution was to the electron side of the analysis,
+particularly all the analysis steps up to setting up the kinematic fit and obtaining the fitted information which was
+used in the mass extraction technique. The high-level triggers used in the analysis were developed by the author in
+collaboration with Lukasz Kreczko and St\'{e}phanie Beauceron.
+
+The differential cross section analysis based on both \SI{7}{\TeV} and \SI{8}{\TeV} LHC datasets was done in close
+collaboration with Lukasz Kreczko, Jeson Jacon and Phil Symonds under supervision of Greg Heath and Joel Goldstein. On
+the technical side of the analysis, the author mainly focused on developing the C\texttt{++}/Python-based analysis
+framework (Bristol Analysis Software) and ensuring the latest and most precise physics object definitions were used;
+producing the local n-tuples; programming Python scripts in conjunction with ROOT/PyROOT software to extract the
+differential cross section and produce final results. On the physics side, the main contribution was also to the
+electron channel, particularly the missing transverse energy measurement, data-driven QCD estimation, evaluation of
+systematic uncertainties and implementation of the SVD unfolding.
+
+The thesis is structured as follows. Some theoretical background on the Standard Model and top quark physics is given in
+Chapter~\ref{c:theory}. Then the LHC and the CMS detector, as well as the relevant aspects of Monte Carlo simulation and
+object reconstruction are discussed in Chapter~\ref{c:detector}. The author's contribution to the CMS high-level
+trigger development is detailed in Chapter~\ref{c:service_work}. Afterwards, two major analysis chapters are presented:
+the top quark mass measurement in Chapter~\ref{c:top_mass_analysis}, and the top quark pair differential cross section
+measurement in Chapter~\ref{c:xsection_analysis}. Finally, conclusions and outlook are given in the last chapter.
+
+\section*{Conventions}
+In this thesis, the natural units convention is adopted:
+\begin{equation*}
+\hslash = c = 1,
+\end{equation*}
+therefore, the same units (electronvolts, \si{\eV}) are used to denote momentum, energy and mass quantities. Typically,
+these would be \si{\GeV} units (\SI{1}{\GeV} = \SI{e9}{\eV}), due to the energies accessible at the LHC. The coordinate
+system used to describe the geometry of the detector and event kinematics is explained in Section~\ref{s:CMS}.
 
 
 %%% ----------------------------------------------------------------------
