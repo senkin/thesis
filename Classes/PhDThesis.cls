@@ -31,10 +31,10 @@
 %\renewcommand{\refname}{References}%
 \fi
 
-\usepackage[a4paper,twoside,left=2cm,right=3cm,top=30mm,bottom=25mm,bindingoffset=1cm,head=14.5pt]{geometry}
+\usepackage[a4paper,twoside,left=2cm,right=2.5cm,top=30mm,bottom=25mm,bindingoffset=1.5cm,head=14.5pt]{geometry}
 \usepackage[sorting=none,style=numeric,citestyle=numeric,backref=true,hyperref=true,isbn=false,backend=bibtex]{biblatex}
 \usepackage{setspace}
-\usepackage[nottoc]{tocbibind}
+%\usepackage[nottoc,numbib]{tocbibind}
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{siunitx}
@@ -62,6 +62,10 @@
 \usepackage{hyphenat}
 \usepackage[noindentafter, raggedright]{titlesec}
 \usepackage{etoolbox}
+
+% break urls in biblatex
+\setcounter{biburllcpenalty}{7000}
+\setcounter{biburlucpenalty}{8000}
 
 % setup the SIunits package (more info in 'texdoc siunitx')
 \sisetup{number-unit-product = \text{ }}
@@ -144,7 +148,7 @@
                  anchorcolor = green,
                  hyperindex = true,
                  hyperfigures
-                 ]{hyperref} 
+                 ]{hyperref}
     \usepackage[pdftex]{graphicx}
     \DeclareGraphicsExtensions{.png, .jpg, .pdf}
 

@@ -80,7 +80,7 @@ these factors: the luminosity uncertainty, measured to be \SI{4.4}{\pc} by a ded
 and the uncertainty on the total inelastic cross section. To obtain the total cross section value, the CMS measurement
 of \SI{68\pm4.5}{\milli\barn} based on \SI{7}{\TeV} data \autocite{CMS_total_inelastic_7TeV} was extrapolated to the
 \SI{8}{\TeV} value of \SI{69.3}{\milli\barn}. The recommended uncertainty on this value, set to be \SI{5}{\pc}, covers
-the modelling and physics aspects of pile-up simulation that have not been fully studied up to date.
+the modelling and physics aspects of pile-up simulation that have not been fully studied to date.
 
 %https://twiki.cern.ch/twiki/bin/viewauth/CMS/PileupSystematicErrors (this has been updated to 69.4mb!)
 
@@ -356,9 +356,9 @@ anomalously high missing transverse energy. A short description of each filter i
 
 \end{description}
 
-% Although the number of events removed by these filters is extremely small (\SI{\ll1}{\pc}), most of them have high
-% fake \MET, which could lead to an artificial excess in the \MET distribution. Due to the analysis sensitivity to
-% \MET, application of these filters was rather important.
+Although the number of events removed by these filters is extremely small (\SI{\ll1}{\pc}), most of them have high fake
+\MET, which could lead to an artificial excess in the \MET distribution. Due to the analysis sensitivity to \MET,
+application of these filters was of high importance.
 
 \section{Data-driven QCD Estimation}
 \label{s_xsection:data_driven_QCD}
@@ -415,27 +415,26 @@ final measurement. More information on systematic uncertainties is presented in 
 For the QCD shape extraction in the muon plus jets channel, the inverted isolation cut is applied in the event
 selection: at least one muon with $\reliso>0.3$ is required, and events with isolated muons with $\reliso<0.3$ are
 vetoed. Similarly to the electron channel, only events with no b-tagged jets are taken into account. Additionally, to
-increase the available statistics, events with only three jets are also considered ($\geq 3$ jet bin).
+increase the available statistics, events with only three jets are also considered. %($\geq 3$ jet bin).
 
 The relative isolation distribution with the cut value and the muon $\abs \eta$ for the non-isolated region are shown on
 Figure~\ref{fig:qcd_muon_plots}. Clearly, the control region is dominated by QCD events and generally there is a
-reasonable agreement between data and simulation. The contamination from other processes is subtracted using Monte
-Carlo.
+reasonable agreement between data and simulation. The contamination from other processes is subtracted using MC.
 
 \begin{figure}[!htbp]
 	\centering
+	\vspace*{-0.35cm}
   	\subfloat[]{\includegraphics[width=0.47\textwidth]{QCD/QCD_muon_pfIsolation_0btag}}\hfill
   	\subfloat[]{\includegraphics[width=0.47\textwidth]{QCD/QCD_non_iso_control_region_muon_AbsEta_0btag}}
     \caption[Muon relative isolation with no isolation cut and muon $\abs \eta$ for non-isolated selection in muon plus
     jets events]{Muon relative isolation with no isolation cut (a) and muon $\abs \eta$ (b) for non-isolated ($\reliso >
-    0.3$) selection in muon plus jets events with at least three jets and 0 b-tagged jets. The vertical red line on plot
-    (a) shows the \reliso cut value of \num{0.3}.}
+    0.3$) selection in muon plus jets events with at least three jets and 0 b-tagged jets. The red line on plot (a)
+    shows the \reliso cut value of \num{0.3}.}
     \label{fig:qcd_muon_plots}
 \end{figure}
 
 \section{Data/MC Comparison}
 \label{s_xsection:data_mc_comparison}
-%explain the MC error on the plots. explain the yields.
 
 In this section, the agreement between simulation and data for various kinematic distributions is reviewed after the
 final event selection. The event yields for all selection steps described in Section~\ref{s_xsection:event_selection}
@@ -509,7 +508,7 @@ variables:
 	\item \HT, or scalar sum of jet transverse momenta;
 	\item \ST, or scalar sum of the transverse momenta of all objects in the event;
 	\item \MT, or transverse mass of the leptonically decaying \W boson;
-	\item \WPT, or magnitude of transverse momentum of the leptonically decaying \W boson.
+	\item \WPT, or transverse momentum magnitude of the leptonically decaying \W boson.
 \end{itemize}
 
 These observables are often called event-level (or global) variables due to the fact that no high-level kinematic
@@ -582,7 +581,6 @@ variable. Results for other primary variables can be found in Appendix~\ref{a:bi
 	\label{fig:choice_of_bins_MET}
  \end{figure}
 
-\newpage
 \subsection{Fitting procedure}
 \label{ss_xsection:fitting}
 To calculate the differential cross section as a function of a primary variable, the number of signal \ttbar events has
@@ -746,7 +744,6 @@ where $N_{\ttbar}^{\text{fit}}$ ($N_{\text{signal}}^{\text{fit}}$) is the number
 as found by the fit, and $N_{\ttbar}^{\text{exp}}$ ($N_{\text{signal}}^{\text{exp}}$) is the number of \ttbar (\ttbar +
 single top) events as predicted by theory.
 
-
 \subsection{Unfolding}
 \label{ss_xsection:unfolding}
 Measurements of physical observables are inevitably distorted by various detector effects, including limited detector
@@ -872,6 +869,7 @@ sections:
 \mathrm{X}} = \frac{1}{\Delta \mathrm{X}^k} \frac{\Nttbar^k}{\sum\limits_k \Nttbar^k}.
 \end{equation}
 
+\clearpage
 \section{Systematic Uncertainties}
 \label{s_xsection:systematics}
 The sources of systematic uncertainties considered in this analysis are largely the same to those of the top quark mass

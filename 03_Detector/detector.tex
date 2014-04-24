@@ -189,7 +189,7 @@ The silicon sensors' thickness varies between \num{320} and \SI{500}{\micron} an
 \begin{figure}[!htbp]
   \centering
   \leavevmode
-  \includegraphics[width=0.6\columnwidth]{tracker_material_budget}
+  \includegraphics[width=0.65\columnwidth]{tracker_material_budget}
   \caption[Material budget as a function of pseudorapidity $\eta$ for the different sub-detectors of the
   tracker]{Material budget as a function of pseudorapidity $\eta$ for the different sub-detectors of the tracker in
   units of radiation length \autocite{CMS_tracker_twiki}}
@@ -198,8 +198,8 @@ The silicon sensors' thickness varies between \num{320} and \SI{500}{\micron} an
 
 The silicon detectors of the tracker, the readout electronics and support structure form a considerable amount of
 material for the particles traversing from the interaction point. Figure~\ref{fig:tracker_material_budget}
-\autocite{CMS} shows the material budget of the CMS tracker in units of radiation lengths\footnote{A material's
-radiation length is the mean distance over which a high-energy electron loses all but $1/e$ of its energy by
+\autocite{CMS_tracker_twiki} shows the material budget of the CMS tracker in units of radiation lengths\footnote{A
+material's radiation length is the mean distance over which a high-energy electron loses all but $1/e$ of its energy by
 bremsstrahlung; this is equal to \num{7/9} of the mean free path for pair production by a high-energy photon.} ($X_0$).
 It grows from about \num{0.4} $X_0$ to \num{1.8} $X_0$ in the barrel region, and then decreases to about \num{1} $X_0$
 in the endcaps. This causes a substantial conversion rate for photons and electrons in the tracker material; it also
@@ -208,7 +208,7 @@ will be discussed in more detail in the electron reconstruction section.
 %\textit{[perhaps need to add the $p_T$ resolution plots]}
 
 \subsection{Electromagnetic Calorimeter}
-The next detector subsystem which is surrounding the tracker is the electromagnetic calorimeter, or ECAL. It is of a
+The next detector subsystem which is surrounding the tracker is the electromagnetic calorimeter, or ECAL. It is of
 primary importance for the analyses described in this thesis, as it provides information for the electron and positron
 reconstruction. Combination of this information with that from the tracking system must ensure a precise measurement of
 electron position and momentum, and also sufficient background removal. It has to effectively distinguish the energy
@@ -290,11 +290,11 @@ limitations the barrel calorimeters do not contain complete hadronic showers, th
 designed to measure the energy leakage. It is placed in the muon system just outside of the solenoid in the barrel
 region.
 
-HCAL is a sampling calorimeter consisting of alternating layers of brass and stainless steel absorbers, and plastic
-scintillators as active elements. The choice of the absorber material was caused by its short hadronic interaction
-length and its property of being non-magnetic, which is crucial in the strong magnetic field of the CMS magnet. The
-scintillation light is guided by embedded wavelength-shifting (WLS) fibres. The light from the WLS is then transmitted
-via a network of clear fibres, arranged in read-out towers, to hybrid photodiodes (HPDs) \autocite{CMS}.
+HCAL is a sampling calorimeter consisting of alternating layers of brass absorbers and plastic scintillators, which form
+the active elements. The choice of the absorber material was caused by its short hadronic interaction length and its
+property of being non-magnetic, which is crucial in the strong magnetic field of the CMS magnet. The scintillation light
+is guided by embedded wavelength-shifting (WLS) fibres. The light from the WLS is then transmitted via a network of
+clear fibres, arranged in read-out towers, to hybrid photodiodes (HPDs) \autocite{CMS}.
 
 Both HB and HE scintillators have a granularity of $\Delta \eta \times \Delta \phi =$ \num{0.087x0.087} for \abs\eta
 \num{<1.6}, and $\Delta \eta \times \Delta \phi =$ \num{0.17x0.17} for \abs\eta \num{>=1.6}. The tower segmentation of
@@ -393,7 +393,7 @@ production of \SI{40}{\tera\byte\per\second}. Attempting to store all of these d
 technology. Moreover, only a fraction of events contain hard scattering processes that are of interest, therefore an
 effective trigger system had to be implemented.
 
-The CMS trigger is a two-level system, consisting of two independent parts: the Level-1 (L1) trigger and the High Level
+The CMS trigger is a two-level system, consisting of two independent parts: the Level-1 (L1) trigger and the High-Level
 Trigger (HLT). The L1 trigger is a hardware system implemented in programmable electronics residing partly on detector,
 and partly in the underground control room located at approximately \SI{90}{\metre} from the experimental cavern. The
 maximum latency between the collision and the L1 accept decision received by front-end electronics is
@@ -403,7 +403,7 @@ Since the reconstruction of tracks exceeds the time scale required for the L1 de
 used. The L1 trigger reduces the event rate from \SI{\sim40}{\mega\hertz} to \SI{\sim100}{\kilo\hertz}, corresponding to
 a data flow of about \SI{100}{\giga\byte\per\second}. These events are fed into the HLT system.
 
-The High Level Trigger is a software system implemented in a single CPU farm, sometimes referred to as the ``Event
+The High-Level Trigger is a software system implemented in a single CPU farm, sometimes referred to as the ``Event
 Filter Farm''. Having access to the full event information, customised algorithms of increasing complexity are used
 which results in a highly flexible trigger system. The event rate is reduced down to \SI{\sim300}{\Hz}, with the final
 data rate of approximately \SI{300}{\mega\byte\per\second} being stored on a large disk cache at the experimental site
@@ -585,7 +585,7 @@ parton showers. There is a certain threshold for partons transverse momenta from
 matched with parton showers, often referred to as ME-PS threshold. To estimate the systematic uncertainty arising from
 it, additional MC samples are generated with the varied value of the threshold. In this thesis, this procedure was
 performed for signal \ttjets and background \WpJets and \ZpJets samples. Similarly, the systematic effect of the choice
-of factorisation scale $Q^2$ (described in Section~\ref{ss:top_production}) is also be determined.
+of factorisation scale $Q^2$ (described in Section~\ref{ss:top_production}) is also determined.
 
 \subsection{Monte Carlo event generators}
 \label{ss:MC_generators}
@@ -602,10 +602,10 @@ modelling theory systematic effects, which is also exploited in this thesis.
 \item [\MADGRAPH] \autocite{MadGraph} is a multi-purpose matrix-element Monte Carlo event generator. It automatically
 generates matrix elements for decays and $2 \rightarrow n$ scatterings. The matching of matrix elements to parton
 showers is performed according to the so-called MLM prescription \autocite{MLM} if a parton-jet pair satisfies a certain
-$\Delta R$ separation criterion. If no or more than one matched jets are found, events are rejected. As it was
-mentioned, there is also a certain transverse momentum threshold requirement for the partons to be considered in the
-matching. Default values as well as variations used to estimate the systematic effect of the matching threshold can be
-found in Table~\ref{tab:systematic_mc_variations}.
+$\Delta R$ separation criterion. If no or more than one matched jets are found, events are rejected. As mentioned above,
+there is also a certain transverse momentum threshold requirement for the partons to be considered in the matching.
+Default values as well as variations used to estimate the systematic effect of the matching threshold in this work can
+be found in Table~\ref{tab:systematic_mc_variations}.
 
 \item [\PYTHIA] \autocite{Pythia,Pythia6.4} is one of the most widely used MC generators in high energy physics. It is a
 standard tool used for simulation of initial protons fragmentation, multi-particle production, quark and gluon
@@ -613,8 +613,8 @@ hadronisation, beam remnants and the underlying event. In this work, \PYTHIA is 
 production, and to simulate the underlying event on top of other generators providing partons from hard processes.
 
 \item [\MCATNLO] \autocite{MCatNLO} is a parton shower MC generator providing next-to-leading order (NLO) corrections
-for a simulated process. It represents a major improvement in precision and accuracy of physics simulations comparing to
-leading order (LO) generators like \PYTHIA. An NLO implementation can handle additional partons in the final state
+for a simulated process. It represents a major improvement in precision and accuracy of physics simulations compared to
+the leading order (LO) generators like \PYTHIA. An NLO implementation can handle additional partons in the final state
 coming from the hard scattering, which is not possible with LO calculations. Therefore it includes additional dynamic
 features, giving a major advantage for heavy flavour physics.
 
@@ -632,7 +632,7 @@ radiation. This technique allows to avoid double-counting coming from subsequent
 Detector simulation is an essential final step on top of the full physics simulation of proton-proton collisions. All
 generated particles resulting from these collisions are propagated to the simulated layers of the detector so that their
 interaction with the detector material and detector response can also be modelled. The CMS simulation is based on the
-\GEANTfour (GEometry ANd Tracking \autocite{GEANT4}) package, which is implemented in CMS software \CMSSW
+\GEANTfour (GEometry ANd Tracking \autocite{GEANT4}) package, which is implemented in the CMS software \CMSSW
 \autocite{CMSSW}. This package fully recreates the geometry of the detector, including all its subsystems as well as a
 detailed map of the magnetic field.
 
@@ -646,7 +646,7 @@ In general, the simulation procedure includes modelling of the following steps:
 %https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideSimulation
 
 The data stream generated with this process is very similar to the output of the real detector, although naturally in
-addition to reconstructed objects, generated events also include collections of generated objects, allowing users to
+addition to reconstructed objects, generated events also include collections of generated objects. This allows users to
 access the Monte Carlo truth information, which is essential for any particle physics analysis.
 
 \newpage
@@ -681,7 +681,7 @@ called the ``ECAL-driven'' seeding. It is based on the property of ECAL energy d
 $\eta$ coordinate, and to be widely spread in $\phi$ (azimuthal direction) as mentioned above. The electron and all the
 associated Bremsstrahlung energy deposits form a single ``super-cluster'', and the ability to correctly identify it
 affects the overall performance of this method. Super-clusters are then matched to pairs or triplets of hits in the
-inner tracker layers, forming the track seeds on which the electron tracks are built upon.
+inner tracker layers, forming the track seeds upon which the electron tracks are built.
 %Only super-clusters with transverse energy above \SI{4}{\GeV} are taken into account.
 
 The performance of the ECAL-driven method is not very well suited for non-isolated and low-\pt electrons. This occurs
@@ -712,10 +712,10 @@ limited number of seeds.
 
 The GSF tracks are reconstructed upon all ECAL-driven seeds. In the case of ``tracker-driven'' seeds, a
 pre-identification based on high-purity KF tracks has been adopted. This procedure starts with the tracks reconstructed
-with very tight criteria, thus decreasing the fake rate yet compromising on tracking efficiency. Then an
-iterative-tracking strategy is carried out by means of removing hits unambiguously assigned to tracks from the previous
-iteration, and also progressively relaxing track seeding criteria. This approach leads to both high efficiency and low
-fake rate, which is crucial for low-\pt and non-isolated electrons.
+with very tight criteria, thus substantially decreasing the fake rate. Then an iterative-tracking strategy is carried
+out by means of removing hits unambiguously assigned to tracks from the previous iteration, and also progressively
+relaxing track seeding criteria. This approach leads to both high efficiency and low fake rate, which is crucial for
+low-\pt and non-isolated electrons.
 
 In the next step, track-cluster matching is performed. In the case where an electron has negligible Bremsstrahlung
 emission, the track is well reconstructed with the KF algorithm all the way to the ECAL internal surface, where the
@@ -793,7 +793,7 @@ analyses described in this thesis: simple cut-based (SCB ID), cuts in categories
 multivariate analysis (MVA ID).
 
 \begin{description}[wide=\parindent]
-  \item[Simple cut-based ID] \autocite{SCB_ID} is used in the High Level Trigger, and therefore has to be as simple,
+  \item[Simple cut-based ID] \autocite{SCB_ID} is used in the high-level trigger, and therefore has to be as simple,
 fast and robust as possible. This algorithm only uses a limite number electron ID variables shown in
 Table~\ref{tab:electron_ID_variables}, including $H/E$ ratio, $\Delta\eta_{\text{in}}$ and $\Delta\phi_{\text{in}}$
 matching variables, cluster shape variables and isolation variables (to be described in the next section). Although this
@@ -922,10 +922,10 @@ are also combined into a single discriminator, which is optimised by ``training'
 \subsubsection{Electron isolation}
 \label{sss:electron_isolation}
 
-Isolation is an observable that allows prompt electrons (i.e.\ the ones from W and Z decays) to distinguished from jets
-faking electrons and electrons within jets. It is essentially a measure of activity around the particle. In CMS, there
-are two different ways of quantifying isolation: detector-based and particle-based. The detector-based isolation is
-defined separately for each detector sub-system (tracker, ECAL and HCAL) \autocite{electron_reconstruction_ID_7TeV}:
+Isolation is an observable that allows prompt electrons (i.e.\ the ones from \W and \Z decays) to be distinguished from
+jets faking electrons and electrons within jets. It is essentially a measure of activity around the particle. In CMS,
+there are two different ways of quantifying isolation: detector-based and particle-based. The detector-based isolation
+is defined separately for each detector sub-system (tracker, ECAL and HCAL) \autocite{electron_reconstruction_ID_7TeV}:
 
 \begin{itemize}
   \item Tracker isolation, calculated as the sum of the transverse momenta of all tracks within a cone of $\Delta R =
