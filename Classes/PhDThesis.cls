@@ -60,7 +60,7 @@
 \usepackage[british]{babel}
 \usepackage{csquotes}
 \usepackage{hyphenat}
-\usepackage[noindentafter,raggedright]{titlesec}
+\usepackage[noindentafter, raggedright]{titlesec}
 \usepackage{etoolbox}
 
 % setup the SIunits package (more info in 'texdoc siunitx')
@@ -269,8 +269,8 @@
 
 % The year and term the degree will be officially conferred
 \def\degreedate#1{\gdef\@degreedate{#1}}
-% The full (unabbreviated) name of the degree
-\def\degree#1{\gdef\@degree{#1}}
+% The word count of thesis
+\def\wordcount#1{\gdef\@wordcount{#1}}
 % The name of your college or department(eg. Trinity, Pembroke, Maths, Physics)
 \def\collegeordept#1{\gdef\@collegeordept{#1}}
 % The name of your University
@@ -297,19 +297,18 @@
 %  \null\vfill
   \centering
     { \Huge {\bfseries {\@title}} \par}
-{\large \vspace*{35mm} {{\@crest} \par} \vspace*{25mm}}
-    {{\Large \@author} \par}
+    {\vspace*{35mm} {\Large \@author} \par}
+{\vspace*{35mm} {{\@crest} \par} \vspace*{35mm}}
 {\large \vspace*{1ex}
-    {{\@collegeordept} \par}
-\vspace*{1ex}
-    {{\@university} \par}
-\vspace*{25mm}
+    %{{\@collegeordept} \par}
+%\vspace*{1ex}
+    %{{\@university} \par}
     {{\submittedtext} \par}
-\vspace*{1ex}
-    {\it {\@degree} \par}
-    \null\vfill
-\vspace*{2ex}
-    {\@degreedate}}
+    \null
+    \vfill
+    {\raggedleft {\@wordcount} \par}
+    {\raggedleft {\@collegeordept} \par}
+    {\raggedleft {\@degreedate} \par}}
 \end{alwayssingle}}
 
 % DEDICATION
