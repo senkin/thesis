@@ -112,7 +112,7 @@ length of \SI{21.6}{\metre}, a diameter of \SI{14.6}{\metre} and a total weight 
 
 The sectional view of CMS is shown in Figure~\ref{fig:CMS}. In the centre of the detector, tracking and calorimetry
 systems are surrounded by the superconducting solenoid. On the outermost part of it the magnetic flux is returned
-through the iron yoke in which the muon system is also integrated. All the sub-systems are discussed in the following
+through the iron yoke in which the muon system is also integrated. All the subsystems are discussed in the following
 sections in more detail.
 
 The cylindrical shape of the CMS detector dictates using a cylindrical coordinate system, with the origin centred at the
@@ -129,7 +129,7 @@ barrel and endcap regions, with the transition occurring at $\eta \sim 1.4$. The
 beamline are denoted by $p_T$ and $E_T$ respectively; the imbalance of the energy measured in the transverse plane,
 called missing transverse energy, is denoted by \MET.
 
-The distance between any two objects (say, $i$ and $j$) in the detector is often described in terms of $\Delta R$
+The distance between any two objects (say, $i$ and $j$) in the detector is often described in terms of the $\Delta R$
 quantity, defined as follows:
 \begin{equation}
   \Delta R = \sqrt{(\eta_i-\eta_j)^2 + (\phi_i-\phi_j)^2}.
@@ -299,8 +299,8 @@ clear fibres, arranged in read-out towers, to hybrid photodiodes (HPDs) \autocit
 Both HB and HE scintillators have a granularity of $\Delta \eta \times \Delta \phi =$ \num{0.087x0.087} for \abs\eta
 \num{<1.6}, and $\Delta \eta \times \Delta \phi =$ \num{0.17x0.17} for \abs\eta \num{>=1.6}. The tower segmentation of
 the forward calorimeter (HF) varies from $\Delta \eta \times \Delta \phi =$ \num{0.175x0.175} at \abs\eta \num{=3.0} to
-$\Delta \eta \times \Delta \phi =$ \num{0.3x0.35} at at \abs\eta \num{=5.0}. The HF is placed at about \SI{11}{\metre}
-from the interaction point, and is essential to reconstruct very forward hadron jets. Together with HO, it provides the
+$\Delta \eta \times \Delta \phi =$ \num{0.3x0.35} at \abs\eta \num{=5.0}. The HF is placed at about \SI{11}{\metre} from
+the interaction point, and is essential to reconstruct very forward hadron jets. Together with the HO, it provides the
 hermeticity of the calorimetry system, making it possible to measure the transverse missing energy to a reasonable
 precision.
 
@@ -317,7 +317,7 @@ The main parameters of the CMS magnet are shown in Table~\ref{tab:solenoid_param
 
 The large bending power of the solenoid is required to bend the tracks of high energy charged particles to an extent
 where good momentum resolution is achieved. The design requirement for the strength of the magnetic field was the
-ability to unambiguously determine the sign of the electric charge for muons with a momentum of \SI{\approx 1}{\TeV/c}
+ability to unambiguously determine the sign of the electric charge for muons with a momentum of \SI{\approx 1}{\TeV}
 \autocite{CMS_TDR1}.
 
 The solenoid coil is constructed from four layers of superconducting high-purity niobium-titanium cable co-extruded with
@@ -361,7 +361,7 @@ causes gas ionisation and a subsequent electron avalanche which produces a charg
 on the cathode strips. The gas used in CSCs is a mixture of $\textrm{Ar}$, $\textrm{CO}_2$ and $\textrm{CF}_4$.
 
 The resistive plate chambers system is complementary to both DT and CSC systems, and is located in both barrel and
-endcap regions (\abs\eta\num{<2.1}). RPCs also operate in avalanche mode with a gas mixture of C$_2$H$_2$F$_4$,
+endcap regions (\abs\eta\num{<2.1}). RPCs also operate in an avalanche mode with a gas mixture of C$_2$H$_2$F$_4$,
 C$_4$H$_{10}$ and $\textrm{SF}_6$, and due to an excellent time resolution of about \SI{1}{\ns} they provide fast
 information for triggering. The spacial resolution is, however, quite limited (\SI{\approx 1}{\cm}, compared to
 \SI{\approx 100}{\micron} for DTs and CSCs). %http://arxiv.org/abs/1306.6905
@@ -378,11 +378,11 @@ information for triggering. The spacial resolution is, however, quite limited (\
 \end{figure}
 
 The muon momentum is measured in both the tracker and the muon system.  As it can be seen on
-Figure~\ref{fig:muon_resolution}, both sub-systems contribute to the momentum resolution at different \pt values. This
+Figure~\ref{fig:muon_resolution}, both subsystems contribute to the momentum resolution at different \pt values. This
 happens due to the difference in the magnetic field and detector technology. For low-\pt muons, the best momentum
 resolution is obtained in the tracker, whereas in the high-\pt region the muon system provides a significant
 improvement. Therefore, by using information from both the silicon tracker and the muon chambers (i.e.\ reconstructing
-the ``global muon''), the momentum resolution is improved in the whole \pt region up to a \SI{\approx 1}{\TeV/c} level.
+the ``global muon''), the momentum resolution is improved in the whole \pt region up to a \SI{\approx 1}{\TeV} level.
 
 \subsection{Trigger and Data Acquisition}
 \label{ss:trigger_daq}
@@ -394,9 +394,9 @@ technology. Moreover, only a fraction of events contain hard scattering processe
 effective trigger system had to be implemented.
 
 The CMS trigger is a two-level system, consisting of two independent parts: the Level-1 (L1) trigger and the High-Level
-Trigger (HLT). The L1 trigger is a hardware system implemented in programmable electronics residing partly on detector,
-and partly in the underground control room located at approximately \SI{90}{\metre} from the experimental cavern. The
-maximum latency between the collision and the L1 accept decision received by front-end electronics is
+Trigger (HLT). The L1 trigger is a hardware system implemented in programmable electronics residing partly on the
+detector, and partly in the underground control room located at approximately \SI{90}{\metre} from the experimental
+cavern. The maximum latency between the collision and the L1 accept decision received by front-end electronics is
 \SI{3.2}{\micro\second}. During this amount of time, the complete event information is buffered in pipelined memories
 on the detector. The only information used for the L1 trigger decision is that from the muon system and the calorimetry.
 Since the reconstruction of tracks exceeds the time scale required for the L1 decision, the tracker information can't be
@@ -412,7 +412,7 @@ data rate of approximately \SI{300}{\mega\byte\per\second} being stored on a lar
 Since the start of the LHC running, the operating conditions have been changing drastically. During the start-up year of
 2010, the instantaneous luminosity went up from about \SI{d27}{\cm^{-2} s^{-1}} to approximately \SI{0.2d32}{\cm^{-2}
 s^{-1}}. In 2011 the luminosity ramped up to a factor of \num{20} above that of 2010, reaching approximately
-\SI{4d33}{\cm^{-2} s^{-1}}. This required a lot of continuous effort to control the trigger rates at reasonable level,
+\SI{4d33}{\cm^{-2} s^{-1}}. This required a lot of continuous effort to control the trigger rates at a reasonable level,
 whilst also keeping its efficiency acceptable. In 2012 the luminosity was more stable, peaking at
 \SI{\approx7.6d33}{\cm^{-2} s^{-1}} which is just a factor of 2 above the 2011 values. However, it still came as a
 challenge because of the impact of pile-up. At a bunch spacing of \SI{50}{\ns} and increased centre of mass energy of
@@ -438,7 +438,7 @@ Accelerator Laboratory in the US). Each of the T1 centres is used for large-scal
 activities. The data are then distributed in a reduced format (see Section~\ref{ss:edm}) to a more numerous set of Tier
 2 centres, typically located at collaborating universities. Each of these centres is used for the grid-based analysis
 and Monte Carlo simulation for the whole experiment, as well as local services for groups maintaining them. The last
-stage of computing system, Tier 3, is meant solely for the local institution's user analysis.
+stage of computing system, Tier 3, is meant solely for a local institution's user analysis.
 
 \subsection{Event Data Model}
 \label{ss:edm}
@@ -484,7 +484,7 @@ Different versions of CMSSW were used for different analyses:
 \begin{itemize}
   \item CMSSW\underline{\hspace{1ex}}4\underline{\hspace{1ex}}2\underline{\hspace{1ex}}8 for the top mass analysis on 2011 data;
   \item CMSSW\underline{\hspace{1ex}}4\underline{\hspace{1ex}}4\underline{\hspace{1ex}}4 for the missing transverse energy analysis on 2011 data;
-  \item CMSSW\underline{\hspace{1ex}}5\underline{\hspace{1ex}}3\underline{\hspace{1ex}}9 for the top cross pair cross section analysis on 2012 data.
+  \item CMSSW\underline{\hspace{1ex}}5\underline{\hspace{1ex}}3\underline{\hspace{1ex}}9 for the top pair cross section analysis on 2012 data.
 \end{itemize}
 
 Corresponding versions were used to produce ntuples for processing by BAT, which was used to read the data, apply
@@ -794,7 +794,7 @@ multivariate analysis (MVA ID).
 
 \begin{description}[wide=\parindent]
   \item[Simple cut-based ID] \autocite{SCB_ID} is used in the high-level trigger, and therefore has to be as simple,
-fast and robust as possible. This algorithm only uses a limite number electron ID variables shown in
+fast and robust as possible. This algorithm only uses a limited number of electron ID variables shown in
 Table~\ref{tab:electron_ID_variables}, including $H/E$ ratio, $\Delta\eta_{\text{in}}$ and $\Delta\phi_{\text{in}}$
 matching variables, cluster shape variables and isolation variables (to be described in the next section). Although this
 identification method has an advantage of its simplicity, it does not show the best signal efficiency and background
@@ -925,7 +925,7 @@ are also combined into a single discriminator, which is optimised by ``training'
 Isolation is an observable that allows prompt electrons (i.e.\ the ones from \W and \Z decays) to be distinguished from
 jets faking electrons and electrons within jets. It is essentially a measure of activity around the particle. In CMS,
 there are two different ways of quantifying isolation: detector-based and particle-based. The detector-based isolation
-is defined separately for each detector sub-system (tracker, ECAL and HCAL) \autocite{electron_reconstruction_ID_7TeV}:
+is defined separately for each detector subsystem (tracker, ECAL and HCAL) \autocite{electron_reconstruction_ID_7TeV}:
 
 \begin{itemize}
   \item Tracker isolation, calculated as the sum of the transverse momenta of all tracks within a cone of $\Delta R =
@@ -954,13 +954,13 @@ a large proportion of the QCD background to top signal. The electron-positron pa
 momenta, therefore a veto on a second electron is not sufficient to reject such electrons and other conversion
 identification criteria are necessary.
 
-There are three main method of conversion rejection adopted by CMS \autocite{electron_reconstruction_ID_7TeV}. The
+There are three main methods of conversion rejection adopted by CMS \autocite{electron_reconstruction_ID_7TeV}. The
 simplest method is based on counting the number of missing hits in the tracker. Conversions are most likely to happen at
 some distance from the interaction point, essentially anywhere between the point of photon production and the end of the
 tracker. Therefore electrons produced in such conversions are likely not to traverse through all the pixel layers. To
 separate these electrons from the prompt ones, a cut on the number of missing layers can be used. However, this approach
-fails if conversion occurs in the beam pipe, or if the reconstructed electron track is paired with unrelated hits in the
-tracker, making it look like a prompt electron.
+fails if a conversion occurs in the beam pipe, or if the reconstructed electron track is paired with unrelated hits in
+the tracker, making it look like a prompt electron.
 
 A slightly more sophisticated approach is the partner track method, based on a search for a second track close to the
 electron, but with opposite curvature (hence opposite charge). After optimised geometrical cuts, a pair of tracks is
@@ -980,10 +980,10 @@ interpreted as an electron/positron pair from a photon conversion.
 
 These two methods for conversion identification were used in the top mass analysis on 2011 data. For the top cross
 sections analysis on 2012 data, along with the number of hits method, a more advanced technique called vertex fit was
-used. It is essentially a full vertex fit of all pairs of tracks, with the selection being made on the the fit
-probability. The method benefits from the full use of track uncertainties and covariances, combining all information
-into a single discriminator. However, increased complexity of this technique makes it more CPU-intensive than the
-partner track method.
+used. It is essentially a full vertex fit of all pairs of tracks, with the selection being made on the fit probability.
+The method benefits from the full use of track uncertainties and covariances, combining all information into a single
+discriminator. However, increased complexity of this technique makes it more CPU-intensive than the partner track
+method.
 
 % internal source: https://twiki.cern.ch/twiki/bin/view/CMS/ConversionTools
 
@@ -1178,7 +1178,7 @@ used in the algorithm:
 \end{itemize}
 
 All these observables are combined into a single discriminator, the ``medium'' working point of which is used in this
-work. It provides \SI{\sim70}{\percent} b-tagging efficiency for mis-tag rate of approximately \SI{1}{\percent}
+work. It provides \SI{\sim70}{\percent} b-tagging efficiency for a mis-tag rate of approximately \SI{1}{\percent}
 \autocite{b-tagging_CMS}. Figure~\ref{fig:CSV_efficiency} shows the efficiency of the CSV algorithm as a function of
 the discriminator threshold, as measured using b-jet enriched sample from \SI{7}{\TeV} data and MC simulation. The scale
 factors represent the difference in b-tagging efficiency between data and MC samples (see
@@ -1214,7 +1214,7 @@ covered in this thesis implicitly (top mass) or explicitly (\ttbar cross section
 rely on efficient reconstruction of \METvec. Misidentification and misreconstruction of any visible particles in the
 event contribute to \METvec measurement, therefore it is a rather demanding task.
 
-Just like in the case of leptons and jets, particle flow was used for \METvec reconstruction: in equation~\ref{eq:MET}
+Just like in the case of leptons and jets, particle flow was used for \METvec reconstruction: in Equation~\ref{eq:MET}
 the transverse momentum vectors are of the particles reconstructed using the particle flow algorithm. This procedure
 gives so-called raw \METvec on the output. The raw \METvec is systematically different from the true \METvec, which
 denotes the transverse momentum carried by invisible particles. This happens mainly due to non-compensating nature of

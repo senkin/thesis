@@ -161,12 +161,13 @@ performed with the \antikt algorithm (see Section~\ref{ss:jet_reconstruction}) w
 Historically, at the early stages of LHC operation, CMS analyses mostly used calorimeter jets, i.e.\ jets reconstructed
 using calorimeter information exclusively. Therefore, initially the trigger jet module used the calorimeter jet
 collection, which provided fast reconstruction but worse resolution, hence lower trigger efficiency comparing to PF jets
-which were introduced later on during 2011 data-taking. In order to work online, PF jet reconstruction was modified to
-be compatible with the simplified tracking algorithm. Despite the fact that running the jet module with PF jet
-reconstruction is highly CPU-intensive and therefore can not be used as an unprescaled stand-alone trigger, it works
-effectively together with the electron module since it reduces the input event rate considerably. Both calorimeter and
-PF jet versions of the module impose a $\SI{30}{\GeV}$ cut on transverse momentum of the jets as well as a
-pseudorapidity cut of $|\eta| < 2.6$. Subsequently, the jet collection is passed to the cleaning module.
+which were introduced later on during 2011 data-taking. In order to work online, Particle Flow (PF,
+Section~\ref{sss:PFJet_ID}) jet reconstruction was modified to be compatible with the simplified tracking algorithm.
+Despite the fact that running the jet module with PF jet reconstruction is highly CPU-intensive and therefore can not be
+used as an unprescaled standalone trigger, it works effectively together with the electron module since it reduces the
+input event rate considerably. Both calorimeter and PF jet versions of the module impose a $\SI{30}{\GeV}$ cut on
+transverse momentum of the jets as well as a pseudorapidity cut of $|\eta| < 2.6$. Subsequently, the jet collection is
+passed to the cleaning module.
 
 Within CMS, electron and jet collections are reconstructed independently, and since they often leave similar footprints
 in the detector, these collections can overlap, causing potential double-counting. The electron-jet cleaning module
@@ -175,17 +176,16 @@ A jet is removed from the jet collection if there is an electron within a cone o
 However, occasionally a genuine jet can be incorrectly identified as an electron. In this case the fake electron can be
 removed from the jet collection, biasing the performance of the jet multiplicity filter. To tackle this issue, separate
 jet collections are created for all electrons in the event, where jets are only cleaned from additional (non-signal)
-electrons. All these jet collections are passed to the following jet multiplicity filter, which accepts and event if at
+electrons. All these jet collections are passed to the following jet multiplicity filter, which accepts an event if at
 least one collection contains a desired number of cleaned jets.
 
 Electron plus jets triggers successfully functioned throughout 2011 and 2012 years of data taking. During 2011, they
-were used in the top mass analysis and differential cross section analysis with respect to missing transverse energy,
-described in this thesis. The 2012 cross section analysis used a single electron trigger with a lepton \pt threshold of
-\SI{27}{\GeV}, reasonably tight (WP80) lepton isolation requirements, but no specific jet requirements. In contrast to
-2011 running, this trigger was decided to be unprescaled in the trigger menu for the whole period of data-taking in
-2012, despite having a significant rate. It is favourable for many analyses as it is much more straightforward in terms
-of calculating efficiency and acceptance scale factors, also reducing the complexity of estimating the systematic errors
-associated with the triggering.
+were used in the top mass analysis, described in this thesis. The 2012 cross section analysis used a single electron
+trigger with a lepton \pt threshold of \SI{27}{\GeV}, reasonably tight (WP80) lepton isolation requirements, but no
+specific jet requirements. In contrast to 2011 running, this trigger was decided to be unprescaled in the trigger menu
+for the whole period of data-taking in 2012, despite having a significant rate. It is favourable for many analyses as it
+is much more straightforward in terms of calculating efficiency and acceptance scale factors, also reducing the
+complexity of estimating the systematic errors associated with the triggering.
 
 \newpage
 \section{Trigger efficiency measurement}

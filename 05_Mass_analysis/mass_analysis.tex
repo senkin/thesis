@@ -220,22 +220,22 @@ the forward-backward charge asymmetry in \ttbar production \autocite{D0_charge_a
 One of the key features of the \HitFit package is its independence of specific experiments and detector geometries. The
 only external dependence is on \textsc{CLHEP} \autocite{CLHEP}, a \Cplusplus library that provides utility classes for
 linear algebra, geometry, vector arithmetic, etc., which was specifically developed for high energy physics simulation
-and analysis software and is notably used by \GEANTfour package. In 2011 \HitFit was ported to CMSSW and later on
+and analysis software and is notably used by the \GEANTfour package. In 2011 \HitFit was ported to CMSSW and later on
 successfully used in a number of CMS top quark analyses, including the top mass measurement in the lepton plus jets
 channel \autocite{top_mass_ljets_CMS}.
 
 \HitFit is designed to fit lepton plus jets events under the \ttbar hypothesis. Specifically, it strives to constrain
-the event to a hypothesis of production of two heavy particles, each decaying into a \W boson and \cPqb quark. According
-to the semileptonic signature, one of the \W boson decays into an electron-neutrino pair, while the other decays into a
-light quark-antiquark pair.
+the event to a hypothesis of production of two heavy particles, each decaying into a \W boson and a \cPqb quark.
+According to the semileptonic signature, one of the \W boson decays into an electron-neutrino pair, while the other
+decays into a light quark-antiquark pair.
 
 The input to the fit includes the four-momenta of the lepton, four leading jets and missing transverse energy, as well
 as their respective resolutions that were calculated using Monte Carlo samples. Since only four leading jets are used,
 there are $4!=24$ ways to associate these four reconstructed jets with the partons from the \ttbar decay. The number of
 permutations is reduced to $4!/2=12$ since the light jets from the hadronic \W decay are interchangeable. However, for
 each hypothesis the $z$ component of neutrino four-momentum needs to be determined. This is done by requiring the two
-heavy particles to have equal mass ($m_{\cPqt} = m_{\cPaqt}$), which yields a quadratic equation which has either two
-real solutions, or two complex solutions that share the real part. In the case of the two real solutions, the fit is
+heavy particles to have equal mass ($m_{\cPqt} = m_{\cPaqt}$), which yields a quadratic equation with either two real
+solutions, or two complex solutions that share the real part. In the case of the two real solutions, the fit is
 performed for each of them. If there are two complex solutions, the fit is performed once for the common real part of
 them, but the fit result is included in the event content twice. Therefore, each hypothesis has two possible values of
 the neutrino four-momentum, which doubles the number of permutations back to $4!=24$.
@@ -354,10 +354,10 @@ b-tagging information, thus the fit probability is multiplied by an additional t
 probability that the particular jet-parton assignment is compatible with the observed b-tags:
 
 \begin{equation}
-p_{\rm btags} = \prod_{j=1}^{4} p^{j}.
+p_{\rm btags} = \prod_{j=1}^{4} p_{j}.
 \end{equation}
 
-Here the index $j$ runs over all four jets in the kinematic fit, and the probability $p^{j}$ can be either
+Here the index $j$ runs over all four jets in the kinematic fit, and the probability $p_{j}$ can be either
 $\varepsilon_{l}$, $(1 - \varepsilon_{l})$, $\varepsilon_{b}$, or $(1 - \varepsilon_{b})$, depending on the flavour of
 the jet as derived by the fit (light jet or \cPqb-jet), and whether the jet is b-tagged or not. As a recap from
 Section~\ref{sss:b-tagging}, for the medium working point of CSV b-tagging algorithm used in this analysis, b-tagging
@@ -367,7 +367,7 @@ efficiency is approximately \SI{\sim70}{\percent}, whilst the mis-tag rate (or $
 Therefore, for each such permutation the relative weight is $w_i$ is calculated as:
 
 \begin{equation}
-w_i = p_{\rm fit} \cdot p_{\rm btags} = \textrm{exp}(-\frac{1}{2}\chi^2) \cdot \prod_{j=1}^{4} p^{j}.
+w_i = p_{\rm fit} \cdot p_{\rm btags} = \textrm{exp}(-\frac{1}{2}\chi^2) \cdot \prod_{j=1}^{4} p_{j}.
 \label{eq:permutation_weight}
 \end{equation}
 
@@ -428,9 +428,10 @@ $\textrm{WP}(m_i|\mtop)$, is calculated by fitting the Crystal Ball analytical f
 distribution for permutations with wrong jet-parton assignment, estimated purely from Monte Carlo \ttbar sample whilst
 taking the permutation weights (Equation~\ref{eq:permutation_weight}) into account. The wrong permutations fall in two
 categories: the first one corresponds to events where the four leading jets come from \ttbar decay, but are not assigned
-to the partons correctly; the second one are events with one ore more of the four leading jets coming from soft gluon
+to the partons correctly; the second one are events with one or more of the four leading jets coming from soft gluon
 radiation (ISR or FSR). It was found that the fitted top quark mass distributions have similar shapes for both
-categories, therefore they were combined for the purpose of fitting. The Crystal Ball function has the form of:
+categories, therefore they were combined for the purpose of fitting. The Crystal Ball function \autocite{CB1, CB2} has
+the form of:
 
 \begin{equation}
 \textrm{CB}(x;\mu,\sigma,\alpha,n) = N \times
@@ -445,7 +446,7 @@ categories, therefore they were combined for the purpose of fitting. The Crystal
 
 The exponential order of $n=\num{5}$ was used, and parameters $\mu$, $\sigma$, and $\alpha$ were parametrised as
 functions of the top quark mass. The fitted distributions of wrong permutations spectra for three different top masses
-(\SIlist{166.5;172.5;178.5}{\GeV}) are shown in Figure \ref{fig:fitted_ttbar_wp_density}.
+(\SIlist{166.5;172.5;178.5}{\GeV}) are shown in Figure~\ref{fig:fitted_ttbar_wp_density}.
 
 \begin{figure}[!htpb]
 	\centering
@@ -586,10 +587,10 @@ calibration.
 \section{Systematic Uncertainties}
 \label{s_top_mass:systematics}
 
-Like any measurement, the top quark mass measurement is prone to various systematic errors. In attempt to evaluate them,
-several sources of systematic effects are considered in this analysis. These include theoretical uncertainties on Monte
-Carlo modelling, assumptions made within the ideogram method, as well as imperfect understanding of detector effects and
-reconstruction algorithms.
+Like any measurement, the top quark mass measurement is prone to various systematic errors. In an attempt to evaluate
+them, several sources of systematic effects are considered in this analysis. These include theoretical uncertainties on
+Monte Carlo modelling, assumptions made within the ideogram method, as well as imperfect understanding of detector
+effects and reconstruction algorithms.
 
 Systematic uncertainties are calculated by running the analysis with tuned MC samples where systematic effects are
 varied by $\pm 1$ standard deviation, and comparing the result with the nominal one. The obtained difference in fitted
