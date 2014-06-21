@@ -8,7 +8,7 @@
     \graphicspath{{04_Service_work/plots/EPS/}{04_Service_work/plots/}}
 \fi
 
-The LHC is often referred to as a top quark factory, producing a \ttbar pair nearly each second of its nominal
+The LHC is often referred to as a top quark factory, producing a \ttbar pair nearly every second of its nominal
 operation. While the production rate of \SI{\approx1}{\Hz} seems manageable in terms of recording the data, it is
 significantly complicated by background processes with similar signatures occurring at much higher rates.
 
@@ -76,7 +76,7 @@ input ``seeds'' to the HLT system, described in the following section.
 
 \section{High-Level Triggers}
 \label{s:hlt_for_top_physics}
-The High-Level Trigger \autocite{HLT} is the crucial part of CMS event selection process. As mentioned in
+The High-Level Trigger \autocite{HLT} is the crucial part of the CMS event selection process. As mentioned in
 Section~\ref{ss:trigger_daq}, it is based on software algorithms running on the Event Filter Farm, i.e.\ a large cluster
 of commercial CPUs. The HLT reconstruction, often referred to as online reconstruction, is implemented in the same
 software framework (CMSSW) which is used for offline reconstruction, and the algorithms can be very similar. However,
@@ -198,7 +198,7 @@ therefore the same trigger may have different efficiencies for each of them.
 
 The trigger efficiency can be measured in both data and Monte Carlo simulation using various methods. For all of them,
 the study has to be performed on some initial preselected dataset. Ideally, this preselection needs to be unbiased with
-respect to selection imposed by the trigger and offline selection. However, in reality it implies running on vast
+respect to the selection imposed by the trigger and offline selection. However, in reality it implies running on vast
 amounts of data, with very few events satisfying the trigger selection, leading to insufficient statistics or
 non-feasible computing resources needed for the study. Therefore, some other trigger is used for preselecting the
 initial dataset, somewhat correlated to the trigger under study in order to obtain reasonable statistics. To correctly
@@ -226,8 +226,8 @@ Here the conditional probability $P(A|B)$ can be estimated by taking the ratio o
 triggers $A$ and $B$, given that they all pass offline selection. Efficiency of the auxiliary trigger $\epsilon_{B} =
 P(B)$ can be estimated from data by using a dataset obtained with looser (``minimum bias'') selection. Unfortunately,
 conditional probability $P(B|A)$ can not be measured using real data, as by the nature of the study the trigger $A$ only
-considers events preselected by the trigger $B$. However, the trigger $B$ is usually chosen in such way that it is safe
-to assume that $P(B|A) = 1$ with negligible uncertainty. This is the case if the preselection trigger criteria are
+considers events preselected by the trigger $B$. However, the trigger $B$ is usually chosen in such a way that it is
+safe to assume that $P(B|A) = 1$ with negligible uncertainty. This is the case if the preselection trigger criteria are
 considerably looser than those of the trigger under study. To summarise, the trigger efficiency can be measured as:
 
 \begin{equation}
@@ -243,19 +243,19 @@ of the trigger:
 \end{equation}
 This method can be used under assumption that the probability of finding an electron in the event is independent of the
 presence of the jets in the event, i.e.\ leptonic and hadronic ``legs'' of the trigger are uncorrelated. Although
-such correlations do exist, it has been shown that most of them are negligible and factorisation method provides a
+such correlations do exist, it has been shown that most of them are negligible and the factorisation method provides a
 meaningful estimate of the trigger efficiency \autocite{d0_note_top_trigger_efficiency}.
 
-Trigger efficiency can be parametrised by various physical quantities of the triggered objects, e.g.\ reconstructed jet
-pseudorapidity and transverse momentum. As the background spectrum and trigger rate fall down as a function of jet \pt,
-trigger efficiency can be described by a turn-on curve approaching a plateau region, where the efficiency is maximum and
-constant within the statistical uncertainty. It is important for the trigger to have a sharp turn-on, with the nominal
-\SI{95}{\percent} efficiency point being below or approximately at the cut value of offline reconstructed jet \pt. This
-can be achieved by adjusting the online cuts to be lower than offline ones: if these thresholds are close, then the
-trigger would bias the analysis distributions. In this case, non-flat \pt-dependent scale factors have to be applied to
-the total number of signal events, which also complicates estimation of the systematic uncertainty attributed to the
-trigger. As for the efficiency dependency on the jet angular distribution, it is expected to be flat -- however, as it
-can be seen from the following section, this is not always the case.
+The trigger efficiency can be parametrised by various physical quantities of the triggered objects, e.g.\ reconstructed
+jet pseudorapidity and transverse momentum. As the background spectrum and trigger rate fall down as a function of jet
+\pt, the trigger efficiency can be described by a turn-on curve approaching a plateau region, where the efficiency is
+maximum and constant within the statistical uncertainty. It is important for the trigger to have a sharp turn-on, with
+the nominal \SI{95}{\percent} efficiency point being below or approximately at the cut value of offline reconstructed
+jet \pt. This can be achieved by adjusting the online cuts to be lower than offline ones: if these thresholds are close,
+then the trigger would bias the analysis distributions. In this case, non-flat \pt-dependent scale factors have to be
+applied to the total number of signal events, which also complicates estimation of the systematic uncertainty attributed
+to the trigger. As for the efficiency dependency on the jet angular distribution, it is expected to be flat -- however,
+as it can be seen from the following section, this is not always the case.
 
 \section[{Validation of jet energy corrections and charged hadron subtraction}]{Validation of jet energy corrections and
 \\charged hadron subtraction}
@@ -264,7 +264,7 @@ In the end of 2011, to match the jet reconstruction method used by most CMS anal
 in the electron plus jets HLT path was replaced with a PF-based one. This was done in an attempt to improve the \pt
 resolution of online jet reconstruction, reduce the rate and obtain sharper turn-on curves of the trigger efficiency. In
 the first iteration of PF-based trigger paths, no jet energy corrections were applied to the jets online, which resulted
-in observation of a non-flat trigger efficiency with respect to jet pseudorapidity. After a few months of work, the
+in the observation of a non-flat trigger efficiency with respect to jet pseudorapidity. After a few months of work, the
 responsible physics object group (known as ``JetMET'') provided a series of jet energy corrections to be applied at the
 HLT level, which were tested by the author.
 
@@ -275,7 +275,7 @@ implementation of pile-up mitigation techniques at the HLT level. As a result, c
 jets, also known as ``PFnoPU'', was introduced online. As the name suggests, it essentially removes the charged hadrons
 associated with secondary vertices from PF candidates, which helped to reduce the trigger rate dramatically. As top
 triggers operate with PF jets, they were greatly affected by pile-up, therefore this correction also had to be validated
-for electron plus jets triggers.
+for the electron plus jets triggers.
 
 
 In this work, the impact of both jet energy corrections and pile-up subtraction on the electron plus jets trigger
@@ -311,9 +311,9 @@ where $A$, $B$ and $C$ are the fit parameters.
 Although the $\eta$ dependency was expected to be flat, the observed structure in the $\eta$ distribution of the PF jet
 triggers suggested the use of a parabolic fit function. In fact, this drop of the efficiency in the endcap region was
 the main motivation for the study, as it was believed to be due to the fact that the \pt- and $\eta$-dependent jet
-energy corrections were not applied online, causing inconsistency between HLT and offline reconstructed jets. Efficiency
-of the main electron plus jets trigger with no jet energy corrections applied is shown on
-Figure~\ref{fig:top_hlt_pt_eta_3jets}. Clearly, parabolic shape is seen on the efficiency plot with respect to
+energy corrections were not applied online, causing inconsistency between HLT and offline reconstructed jets. The
+efficiency of the main electron plus jets trigger with no jet energy corrections applied is shown on
+Figure~\ref{fig:top_hlt_pt_eta_3jets}. Clearly, a parabolic shape is seen on the efficiency plot with respect to
 pseudorapidity of a third reconstructed jet (all the jets were sorted by the value of transverse momentum).
 
 \begin{figure}[hbtp]
@@ -377,7 +377,7 @@ from the trigger and jet/\MET experts.
 \label{fig:top_hlt_pt_eta_JEC_PFnoPU_3jets} 
 \end{figure}
 
-In order to gain further understanding, jet response distributions were investigated. Jet response is a ratio of the
+In order to gain further understanding, the jet response distributions were investigated. Jet response is a ratio of the
 transverse momenta of offline-reconstructed and HLT jets, ideally produced from the same objects in the detector. To
 find this ratio, all the HLT jets were matched with offline jets found within a cone of $\Delta R = 0.3$ for each online
 jet. Matching efficiency proved to be close to unity, and subsequent distributions were produced only for the

@@ -61,13 +61,14 @@ interactions. The GWS model, a unified theory of electromagnetic and weak intera
 $SU(2)_L \times U(1)_Y$, whereas the QCD theory has a gauge symmetry of $SU(3)_C$. Therefore, the Standard Model is also
 a gauge theory with the symmetry group of $SU(3)_C \times SU(2)_L \times U(1)_Y$. A gauge theory is a theory that is
 invariant under a set of local transformations, i.e.\ transformations with space-time dependent parameters. To explain
-this concept, let us consider a Lagrangian density of a free Dirac field $\psi$, describing free-moving fermions:
+this concept, let us consider a Lagrangian density of a free Dirac field $\psi$, describing free-moving fermions with
+mass $m$:
 \begin{equation}
-\calL = \bar{\psi}(i \gamma^\mu	\partial_\mu - m) \psi.
+\calL = \bar{\psi}(i \gamma^\mu	\partial_\mu - m) \psi,
 \label{eq:dirac_field_L}
 \end{equation}
-
-Clearly, it is invariant under the following phase transformation:
+where $\gamma^\mu$ are Dirac matrices and $\mu$ the Lorentz indices. Clearly, it is invariant under the following phase
+transformation:
 \begin{equation}
 \psi \rightarrow \psi' = e^{i \theta} \psi, ~\bar{\psi} \rightarrow \bar{\psi}' = e^{-i \theta} \bar{\psi},
 \end{equation}
@@ -178,7 +179,7 @@ By requiring local gauge invariance under the group $SU(2)_L \times U(1)_Y$, the
 \label{eq:D_mu_EWK}
 \end{equation}
 
-Here $g$ and $g'$ are the coupling constants for groups $SU(2)_L$ and $U(1)_Y$, respectively; $\mathbf{T} =
+Here $g$ and $g'$ are the coupling constants for the $SU(2)_L$ and $U(1)_Y$ groups, respectively; $\mathbf{T} =
 \hat{\sigma}/2$, where $\hat{\sigma}$ are the Pauli matrices which are the generators for the $SU(2)$ group;
 $\mathbf{W}_\mu$ is the triplet of new gauge fields $W^{1,2,3}_\mu$ introduced for $SU(2)_L$ invariance; $B_\mu$ is the
 new gauge field for $U(1)_Y$ invariance. For right-handed particles (singlets), $\mathbf{T} = 0$ and the second term in
@@ -209,8 +210,8 @@ A_\mu & = B_\mu \cos{\theta_W} + W^3_\mu \sin{\theta_W}. \label{eq:A_mu}
 \end{align}
 \end{subequations}
 
-We obtained the physical fields of charged $W^{\pm}$ bosons, as well as a neutral $Z^0$ boson and a photon, which were
-produced by mixing the neutral fields $W^3_\mu$ and $B_\mu$ with a rotation by the weak mixing (or
+Here the physical fields of the charged $W^{\pm}$ bosons, as well as a neutral $Z^0$ boson and a photon were produced by
+mixing the neutral fields $W^3_\mu$ and $B_\mu$ with a rotation by the weak mixing (or
 \textit{Weinberg}) angle $\theta_W$. The electric charge is then given as
 \begin{equation}
 e = g' \cos{\theta_W} = g \sin{\theta_W}.
@@ -224,7 +225,7 @@ subject of Section~\ref{ss:electroweak_symmetry_breaking}.
 \newpage
 \subsection{Quantum Chromodynamics}
 \label{ss:QCD_theory}
-Quantum Chromodynamics is the quantum field theory of strong interaction between quarks and gluons. It is a non-Abelian
+Quantum Chromodynamics is the quantum field theory of strong interactions between quarks and gluons. It is a non-Abelian
 gauge theory based on the symmetry group $SU(3)_C$, where $C$ denotes colour charge. This is motivated mainly by
 experimental evidence, which suggests that quarks are multiplets of fields in colour space:
 
@@ -254,9 +255,9 @@ responsible for self-interaction of gluons:
 G^a_{\mu\nu} = [\partial_\mu G^a_\nu] - [\partial_\nu G^a_\mu] + g_S f^{abc} G^b_\mu G^c_\nu.
 \end{equation}
 
-Notably, leptons are singlets under $SU(3)$ symmetry, and therefore do not participate in strong interaction with gluons
-and quarks. Self-interaction of gluons leads to two distinctive fundamental properties of QCD: asymptotic freedom and
-colour confinement.
+Notably, leptons are singlets under $SU(3)$ symmetry, and therefore do not participate in strong interactions with
+gluons and quarks. Self-interaction of gluons leads to two distinctive fundamental properties of QCD: asymptotic freedom
+and colour confinement.
 
 \begin{description}[wide=\parindent]
 \item [Asymptotic freedom] was firstly described by Frank Wilczek, David Gross \autocite{Gross_Wilczek}, and
@@ -267,7 +268,7 @@ QCD gauge coupling $g_S$, which is usually presented in terms of $\alpha_S$ defi
 \end{equation}
 where $\mu$ is the energy scale of the process. It was discovered that $\alpha_S$ \textit{decreases} with the increase
 of energy scale. This can be shown by evaluating contributions from quark-antiquark and (crucially) gluon-gluon loops
-\autocite{Griffiths}, leading to the first order to:
+\autocite{Griffiths}, leading to first order to:
 \begin{equation}
 \alpha_S (\mu) = \frac{12\pi}{(33-2n_f) \ln(\mu^2/\Lambda_{\text{QCD}}^2)},
 \label{eq:alpha_S}
@@ -344,8 +345,8 @@ with the following additional term in the Lagrangian:
 \calL_\textrm{Higgs} = (D_\mu \phi)^{\dag} (D^\mu \phi) - V(\phi),
 \label{eq:Higgs_L}
 \end{equation}
-where $D_\mu$ is the electroweak covariant derivative from Equation~\ref{eq:D_mu_EWK}. The scalar potential $V(\phi)$
-is given by
+where $D_\mu$ is the electroweak covariant derivative from Equation~\ref{eq:D_mu_EWK}. A simple possible scalar
+potential $V(\phi)$ is given by
 \begin{equation}
 V(\phi) = - \mu^2(\phi^{\dag} \phi) + \lambda(\phi^{\dag} \phi)^2.
 \end{equation}
@@ -409,7 +410,7 @@ M_H = \sqrt{2} \mu = v \sqrt{2\lambda}.
 
 Naturally, the photon field $A_\mu$ acquires no mass terms in the Lagrangian. The Higgs mechanism can also be used in a
 similar way to generate fermion masses by introducing an $SU(2)_L \times U(1)_Y$ gauge invariant term responsible for
-interaction between the Higgs and fermion fields. This additional term in the Standard Model Lagrangian is called
+interaction between the Higgs and fermion fields. This additional term in the Standard Model Lagrangian is called the
 \textit{Yukawa term}, which for the first generation of fermions is given by
 \begin{equation}
 \calL_\textrm{Yukawa} = -Y_e^{ij} \bar{l_L}^i \phi e_R^j - Y_u^{ij} \bar{q_L}^i \epsilon \phi^\dag u_R^j - Y_d^{ij}
@@ -429,7 +430,7 @@ large mass of the top quark of approximately \SI{173}{\GeV}, and the Higgs field
 $v\approx\SI{246}{\GeV}$, the Yukawa coupling to the top quark is very close to unity.
 
 The existence of the Higgs boson and therefore the nature of electroweak symmetry breaking had long remained a mystery.
-In the summer of 2012 both ATLAS and CMS experiments at the LHC observed the Higgs boson with an approximate mass of
+In the summer of 2012 both ATLAS and CMS experiments at the LHC observed a Higgs boson with an approximate mass of
 \SI{125}{\GeV} \autocite{ATLAS_higgs_observation, CMS_higgs_observation}, with couplings consistent with theoretical
 predictions \autocite{CMS_Higgs_long_paper, ATLAS_Higgs_couplings}, which proved to be yet another triumph of the
 Standard Model.
@@ -442,8 +443,8 @@ range of physical phenomena not explained by the SM. Let us mention the most pro
 
 \begin{description}[wide=\parindent]
 \item [Gravity] is not included in the Standard Model, as a consistent theory of quantum gravity is yet to be derived.
-General relativity, the only accepted theory of gravity, is in fact fundamentally incompatible with quantum mechanics
-and therefore the Standard Model.
+General relativity, the only accepted theory of gravity, is in fact incompatible with quantum mechanics and therefore
+the Standard Model.
 \item [Massive neutrinos] are also not explained by the SM. The evidence for neutrino oscillations was confirmed by the
 Super-Kamiokande collaboration \autocite{neutrino_oscillations}, which necessarily implies that neutrinos are massive
 particles. It is possible to include massive neutrinos in some extensions of the Standard Model, whilst also keeping the
@@ -485,7 +486,7 @@ mentioned problems of the SM. For example, the hierarchy problem is naturally so
 are automatically cancelled by corresponding contributions from supersymmetric partners. Most SUSY models also provide
 good candidates for Dark Matter.
 \item [Extra dimensions] refer to theories containing additional space-time dimensions, in which gravity is allowed to
-propagate. This leads to reduction of the hierarchy between the Planck and electroweak scales, thus resolving the
+propagate. This leads to a reduction of the hierarchy between the Planck and electroweak scales, thus resolving the
 hierarchy problem \autocite{Arkani-Hamed, RS}.
 \item [Composite models,] such as topcolour \autocite{topcolour} or composite Higgs \autocite{composite_Higgs} models,
 attempt to resolve some of the issues of the Standard Model by either introducing new composite particles or suggesting
@@ -501,8 +502,8 @@ therefore a rich physics programme at the LHC must ensure an active search for a
 \section{Top Quark Physics within the Standard Model}
 \label{s:top_quak_physics}
 The top quark is the heaviest elementary particle in the Standard Model, and the heaviest observed particle, discovered
-in 1995 at the Tevatron collider by CDF and D{\O} collaborations \autocite{CDF_top_observation, D0_top_observation}. The
-large mass of approximately \SI{173}{\GeV} suggests that the top quark may have a special role in nature. It is
+in 1995 at the Tevatron collider by the CDF and D{\O} collaborations \autocite{CDF_top_observation, D0_top_observation}.
+Its large mass of approximately \SI{173}{\GeV} suggests that the top quark may have a special role in nature. It is
 substantially more massive than any other fermion. As mentioned in Section~\ref{ss:SM_shortcomings}, the reason for such
 vast discrepancy between fermion masses is unknown. It is also not yet understood why the top quark's Yukawa coupling to
 the Higgs boson is so close to unity. Naturally, studying the most massive fermion is a logical starting point in search
@@ -532,10 +533,10 @@ contrary, the quark-antiquark annihilation was the main \ttbar production mode.
 
 \input{02_Theory/feynman_diagrams/ttbar_production}
 
-Figure~\ref{fig:single_top_production_feynman_diagrams} shows the Feynman diagrams of various single top production
-modes. Three major production mechanisms include \cPqs-channel and \cPqt-channel \W boson exchange, and associated
-production with a \W boson (\tW-channel). Measurement of single top production is of significant interest since it
-allows the direct measurement of the Wtb vertex and therefore the magnitude of $|\Vtb|$ element of the CKM matrix.
+Figure~\ref{fig:single_top_production_feynman_diagrams} shows the Feynman diagrams of single top production modes. Three
+major production mechanisms include \cPqs-channel and \cPqt-channel \W boson exchange, and associated production with a
+\W boson (\tW-channel). Measurement of single top production is of significant interest since it allows the direct
+measurement of the Wtb vertex and therefore the magnitude of the $|\Vtb|$ element of the CKM matrix.
 
 \input{02_Theory/feynman_diagrams/single_top_production}
 
@@ -584,16 +585,16 @@ jets ($\mu+$jets) decay channels, which have branching fractions of about \SI{14
 \newpage
 \subsection{Background processes to semileptonic top quark pair decay}
 \label{ss:backgrounds}
-Both top quark mass and differential cross section analyses presented in this thesis are based on selection of events
+Both top quark mass and differential cross section analyses presented in this thesis are based on a selection of events
 with semileptonic ($e/\mu+$jets) \ttbar decay signature. Being relatively clean yet still providing sufficient event
-yields, this decay mode is used in many measurements of top quark properties, and is often called a ``golden channel''
-in top quark physics. Good understanding of background contributions is very important for accuracy and reliability of
-measurements. The most significant background processes to semileptonic \ttbar decay are described below.
+yields, this decay mode is used in many measurements of top quark properties. Good understanding of background
+contributions is very important for accuracy and reliability of measurements. The most significant background processes
+to semileptonic \ttbar decay are described below.
 
 \subsubsection*{Single top quark background}
 One of the less significant backgrounds to lepton plus jets analyses is the single top quark production. Major
 production modes for this process (mentioned in Section~\ref{ss:top_production}) have a lower number of jets in the
-final state than that of the \ttbar production, however, additional jets can emerge from inital and final state
+final state than that of the \ttbar production, however, additional jets can emerge from initial and final state
 radiation (ISR/FSR), i.e.\ soft gluon radiation before and after the hard scattering process. This contribution is not
 negligible, and is modelled using Monte Carlo simulation.
 
@@ -607,7 +608,7 @@ jets are less likely to be \cPqb-jets which are necessarily present in \ttbar de
 and high kinematic cuts on lepton and jets transverse momenta can significantly reduce the
 \WpJets background. Besides, the production cross section of \WpJets events reduces exponentially with increasing number
 of jets \autocite{multijet_WZ}, therefore jet multiplicity cuts also help to mitigate this background. These methods are
-detailed in selection procedures of top quark mass and differential cross section analyses in
+detailed in the selection procedures of top quark mass and differential cross section analyses in
 Sections~\ref{s_top_mass:event_selection} and \ref{s_xsection:event_selection}, respectively.
 
 \subsubsection*{\ZpJets background}
@@ -622,39 +623,39 @@ identification criteria. This contribution is estimated to be small, and togethe
 
 \subsubsection*{QCD multi-jet background}
 Standard QCD processes in hadron collisions, such as gluon fusion and quark-antiquark annihilation, usually result in
-production of highly energetic jets. Examples of these processes in the lowest order with two jets in the final state
-are shown in Figure~\ref{fig:QCD_processes}. Additional jets arise at higher orders and can potentially fake \ttbar
-signal. Although QCD events do not produce real prompt leptons, this can happen when jets are mis-identified as leptons.
-These objects are referred to as fake leptons. Due to strict identification criteria of real electrons and muons
-(described in Sections~\ref{ss:electron_reconstruction} and \ref{ss:muon_reconstruction}), such mis-identifications are
-extremely rare. However, since the production cross section of QCD events is very large, this background becomes
-considerable.
+the production of highly energetic jets. Examples of these processes in the lowest order with two jets in the final
+state are shown in Figure~\ref{fig:QCD_processes}. Additional jets arise at higher orders and can potentially fake
+\ttbar signal. Although QCD events do not produce real prompt leptons, this can happen when jets are mis-identified as
+leptons. These objects are referred to as fake leptons. Due to strict identification criteria of real electrons and
+muons (described in Sections~\ref{ss:electron_reconstruction} and \ref{ss:muon_reconstruction}), such
+mis-identifications are extremely rare. However, since the production cross section of QCD events is very large, this
+background becomes non-negligible.
 
 \input{02_Theory/feynman_diagrams/QCD_processes}
 
 QCD multi-jet background is usually less significant in the muon plus jets channel, since jets faking muons are easier
-to recognise. For instance, when a highly energetic jet punches through the calorimetry system into muon chambers and
-thus becomes a fake muon, it can be removed by isolation criteria as it also leaves a significant energy deposit in
-calorimeters. Muons (and electrons) can also arise from heavy flavour decays of \cPqb and \cPqc quarks -- these are in
-fact real leptons, but as they don't originate at the interaction point, they can be removed by track quality cuts most
-of the time.
+to recognise. For instance, when a highly energetic jet punches through the calorimetry system into the muon chambers
+and thus becomes a fake muon, it can be removed by isolation criteria as it also leaves a significant energy deposit in
+the calorimeters. Muons (and electrons) can also arise from heavy flavour decays of \cPqb and \cPqc quarks -- these are
+in fact real leptons, but as they don't originate at the interaction point, they can be removed by track quality cuts
+most of the time.
 
-In the electron plus jets channel, QCD multi-jet background is more prominent. This happens mainly due to photon
+In the electron plus jets channel, the QCD multi-jet background is more prominent. This is mainly due to photon
 conversions, which occur when photons convert into electron-positron pairs. Photons can arise from prompt production
-($\gamma+$jets), particle decays or bremsstrahlung radiation. Different methods of identifying such conversions have
-been developed, which is discussed in detail in Section~\ref{sss:photon_conversions}.
+($\gamma+$jets), particle decays or bremsstrahlung radiation. Different methods for identifying such conversions have
+been developed, which are discussed in detail in Section~\ref{sss:photon_conversions}.
 
-Due to the large contribution from higher-order processes in signal region, the QCD background is very hard to model.
-Large uncertainties in theoretical cross section and potential mismodelling of higher-order effects may lead to biases
-in kinematic distributions based on Monte Carlo simulation, as well as in overall acceptance of QCD events passing the
-signal selection. Therefore, data-driven methods of QCD background estimation are often preferable (see
+Due to the large contribution from higher-order processes in the signal region, the QCD background is very hard to
+model. Large uncertainties in theoretical cross section and potential mismodelling of higher-order effects may lead to
+biases in kinematic distributions based on Monte Carlo simulation, as well as in overall acceptance of QCD events
+passing the signal selection. Therefore, data-driven methods of QCD background estimation are often preferable (see
 Section~\ref{s_xsection:data_driven_QCD}).
 
 \subsubsection*{Additional backgrounds}
 Other background processes potentially mimicking semileptonic \ttbar decay include the Drell-Yan process with dilepton
 production ($q \bar{q} \rightarrow \Z/\gamma^* \rightarrow l \bar{l}$), and diboson production. The background
 contamination from these processes can be reduced by vetoing the second lepton, and is generally considered negligible
-due to relatively small production cross sections of these processes.
+due to the relatively small production cross sections of these processes.
 
 
 \subsection{Top quark mass}
@@ -673,15 +674,16 @@ is accessible experimentally. As $\mtop \gg \Gamma_\textrm{t}/2$, the peak appro
 therefore it is usually assumed that experimentally measured top quark mass represents the pole mass. As will be
 discussed later, there are a few problems with this approach.
 
-It has been shown \autocite{pole_mass_in_QCD_Kronfeld} that the pole mass is infrared finite and gauge-invariant to all
-orders of perturbative QCD. Despite being well-defined in perturbation theory, an all-order resummation of a particular
-class of diagrams known as ``infrared renormalons'' \autocite{renormalons1, renormalons2} leads to an intrinsic
-ambiguity of the top quark pole mass proportional to the energy scale of a strong interaction
+It has been shown \autocite{pole_mass_in_QCD_Kronfeld} that the pole mass is infrared finite\footnote{Infrared
+finiteness corresponds to the absence of divergences due to contributions of terms with energy apporaching zero.} and
+gauge-invariant to all orders of perturbative QCD. Despite being well-defined in perturbation theory, an all-order
+resummation of a particular class of diagrams known as ``infrared renormalons'' \autocite{renormalons1, renormalons2}
+leads to an intrinsic ambiguity of the top quark pole mass proportional to the energy scale of the strong interaction
 $\Lambda_\textrm{QCD}~\SI{\approx200}{\MeV}$
 \autocite{pole_MS_top_difference}.
 
 Another frequently used mass definition which is free from renormalon ambiguity is the renormalised mass $\MSmtop(\mu)$
-in the minimal subtraction (\MS) renormalisation scheme. This mass definition is often call a running mass, since it
+in the minimal subtraction (\MS) renormalisation scheme. This mass definition is often called a running mass, since it
 depends on the renormalisation scale $\mu$ which is in principle arbitrary. For a choice of $\mu=\MSmtop$, the \MS mass
 \MSmtop is related to the pole mass \mtop as follows \autocite{top_pole_mass}:
 \begin{equation}
@@ -718,8 +720,8 @@ Tevatron gives \autocite{tevatron_top_mass_combination}:
 \mtop = 173.20 \pm 0.51~\textrm{(stat.)} \pm 0.71~\textrm{(syst.)}~\textrm{GeV}.
 \end{equation}
 
-The LHC experiments have reached nearly as good precision, with a statistical uncertainty being expectedly smaller
-than that of the Tevatron, however, with a larger systematic error due still improving understanding of detector
+The LHC experiments have reached nearly as good precision, with a statistical uncertainty being expectedly smaller than
+that of the Tevatron, however, with a larger systematic uncertainty due to still improving understanding of detector
 effects. The latest LHC combination result yields \autocite{LHC_top_mass_combination}:
 \begin{equation}
 \mtop = 173.29 \pm 0.23~\textrm{(stat.)} \pm 0.92~\textrm{(syst.)}~\textrm{GeV}.
@@ -734,9 +736,9 @@ which corresponds to a total uncertainty on the top quark mass of \SI{0.76}{\GeV
 compared with contributions of individual mass measurements are shown in Figure~\ref{fig:top_mass_world_combination}.
 
 At a proposed linear electron-positron collider (International Linear Collider, ILC), the uncertainty on the top quark
-mass is expected to fall below \SI{200}{\MeV}, i.e.\ the energy scale of the strong interaction $\Lambda_\textrm{QCD}$.
-It will clearly challenge the theoretical understanding of different mass schemes, ultimately leading to more vigorous
-tests of the Standard Model and potentially providing sensitivity to new physics models.
+mass is expected to fall below \SI{200}{\MeV} \autocite{ILC_TDR}, i.e.\ the energy scale of the strong interaction
+$\Lambda_\textrm{QCD}$. It will clearly challenge the theoretical understanding of different mass schemes, ultimately
+leading to more vigorous tests of the Standard Model and potentially providing sensitivity to new physics models.
 
 \begin{figure}[hbtp]
    \centering

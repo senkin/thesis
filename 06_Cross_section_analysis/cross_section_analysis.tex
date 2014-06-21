@@ -144,10 +144,10 @@ As in the top quark mass analysis, the event selection in this work is based on 
 Standard Model \ttbar production. It also exploits the semileptonic signature of a \ttbar decay with exactly one
 isolated lepton and at least four jets, two of which are b-tagged. One of the main goals of the analysis is the
 measurement of the missing transverse energy distribution represented by a neutrino from the leptonic decay of the \W
-boson. However, there is no specific requirement on the \MET in the selection.
+boson. Consequently, there is no specific requirement on the \MET in the selection.
 
 Comparing to the 2011 event selection described in Section~\ref{s_top_mass:event_selection}, enhanced pile-up
-subtraction and lepton identification techniques are used. Improved understanding of the detector in form of updated
+subtraction and lepton identification techniques are used. Improved understanding of the detector in the form of updated
 alignment and calibration constants resulted in better resolution of jets and \MET. The preselection (or skimming) step
 used in order to reduce the number of events for local analysis processing is identical to that of the 2011 analysis.
 However, additional filters are used to reject the events with artificial \MET caused by noise or known problems with
@@ -543,7 +543,7 @@ where $\ET {}^{\mathrm{lepton}}$ denotes the transverse energy of the lepton.
 \subsection{Choice of binning}
 \label{ss_xsection:binning}
 
-The choice of binning for primary variables is an important part of differential cross section measurement. It is
+The choice of binning for primary variables is an important part of a differential cross section measurement. It is
 directly influenced by available statistics and detector resolution. An ideal measurement would benefit from the cross
 section calculation in as many bins as possible. However, insufficient statistics leads to high statistical uncertainty
 in a particular bin, whereas limited detector resolution causes substantial migration effects between bins. Bin
@@ -560,12 +560,12 @@ where $N^{\rec\&\gen}_i$ is the number of events both generated and reconstructe
 $N^{\rec}_k$ ($N^{\gen}_i$) is the number of reconstructed (generated) events within a bin.
 
 The purity $p_i$ quantifies migration into a bin $i$, whereas the stability $s_i$ is sensitive to migration out of a
-bin. The binning is chosen in such way that both purity and stability are above \num{0.5}, or do not fall far below this
-value. This process is performed for both electron and muon channels, and common binning is derived in order to be able
-to combine both channels in the final cross section measurement.
+bin. The binning is chosen in such a way that both purity and stability are above \num{0.5}, or do not fall far below
+this value. This process is performed for both electron and muon channels, and common binning is derived in order to be
+able to combine both channels in the final cross section measurement.
 
 Figure~\ref{fig:choice_of_bins_MET} shows the two-dimensional distributions of reconstructed versus generated \MET,
-which were used to calculate purity and stability. The distributions were obtained with the central signal
+which were used to calculate purity and stability. The distributions were obtained with the nominal (\MADGRAPH) signal
 \ttbar sample. Red lines represent the bin edges for the chosen binning. Tables~\ref{tab:binning_MET_electron} and
 \ref{tab:binning_MET_muon} show the numerical values of purity and stability, as well as the selected binning for \MET
 variable. Results for other primary variables can be found in Appendix~\ref{a:binning}.
@@ -803,9 +803,9 @@ oscillating vectors. This implies that the distribution $d_i$ of the vector $d$ 
 towards a Gaussian-distributed random values for large $i$. The number of first few significant components ($\abs {d_i}
 \geq 1$) is therefore chosen as a regularisation parameter.
 
-In this work, RooUnfold package \autocite{RooUnfold} is used to implement the SVD method of data unfolding. The unfolded
-\MET is defined as the generated \pt of the neutrino produced in the semileptonic \ttbar decay. The underlying \HT (and
-therefore \ST) distribution is calculated by applying the full jet clustering reconstruction described in
+In this work, the RooUnfold package \autocite{RooUnfold} is used to implement the SVD method of data unfolding. The
+unfolded \MET is defined as the generated \pt of the neutrino produced in the semileptonic \ttbar decay. The underlying
+\HT (and therefore \ST) distribution is calculated by applying the full jet clustering reconstruction described in
 Section~\ref{ss:jet_reconstruction} to the generated particles, with the $\pt > \SI{20}{\GeV}$ requirement for the
 generated jets. \MT and \WPT variables are constructed from generated \MET and leptons, as shown in
 Section~\ref{ss_xsection:variables}. The response matrices are built from true and measured distributions of primary
@@ -872,7 +872,7 @@ sections:
 \clearpage
 \section{Systematic Uncertainties}
 \label{s_xsection:systematics}
-The sources of systematic uncertainties considered in this analysis are largely the same to those of the top quark mass
+The sources of systematic uncertainties considered in this analysis are largely the same as those of the top quark mass
 analysis (Section~\ref{s_top_mass:systematics}). Similarly, the errors are estimated by varying the input quantities
 according to their theoretical or experimental variations, and measuring the change in the final result. All systematic
 errors are added to the fitting and unfolding errors in quadrature. In the total error calculation, all systematic
@@ -896,9 +896,8 @@ sample with \MCATNLO signal sample. This systematic variation has a particularly
 since they are sensitive to the hadronic activity in the event.
 
 Differential cross section measurement with respect to \MET-related variables can be affected by the unclustered energy
-variation, which studies the impact of the \pt\SI{>20}{\GeV} cut for the jets in \MET calculation. This cut is
-motivated by the large uncertainties of jet energy corrections for soft jets. The systematic uncertainty due to the
-choice of this cut has a moderate (\SI{\approx1}{\pc}) effect on distributions using \MET.
+variation, which studies the impact of fluctuations in the calorimeter energy depositions that are not clustered in
+jets. This systematic uncertainty has a moderate (\SI{\approx1}{\pc}) effect on distributions using \MET.
 
 The $p_\mathrm{T}(t,\bar{t})$ reweighting systematic variation accounts for the known issue of the event generators
 incorrectly modelling the \pt spectrum of the top quarks. This issue was discovered in early differential cross section

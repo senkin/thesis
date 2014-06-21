@@ -200,12 +200,11 @@ The silicon detectors of the tracker, the readout electronics and support struct
 material for the particles traversing from the interaction point. Figure~\ref{fig:tracker_material_budget}
 \autocite{CMS_tracker_twiki} shows the material budget of the CMS tracker in units of radiation lengths\footnote{A
 material's radiation length is the mean distance over which a high-energy electron loses all but $1/e$ of its energy by
-bremsstrahlung; this is equal to \num{7/9} of the mean free path for pair production by a high-energy photon.} ($X_0$).
-It grows from about \num{0.4} $X_0$ to \num{1.8} $X_0$ in the barrel region, and then decreases to about \num{1} $X_0$
-in the endcaps. This causes a substantial conversion rate for photons and electrons in the tracker material; it also
-will be discussed in more detail in the electron reconstruction section.
+bremsstrahlung.} ($X_0$). It grows from about \num{0.4} $X_0$ to \num{1.8} $X_0$ in the barrel region, and then
+decreases to about \num{1} $X_0$ in the endcaps. This causes a substantial conversion rate for photons and electrons in
+the tracker material; it also will be discussed in more detail in the electron reconstruction section.
 
-%\textit{[perhaps need to add the $p_T$ resolution plots]}
+%\textit{[perhaps need to add the $p_T$ resolution plots, if only they were public an not from TDR]}
 
 \subsection{Electromagnetic Calorimeter}
 The next detector subsystem which is surrounding the tracker is the electromagnetic calorimeter, or ECAL. It is of
@@ -240,14 +239,13 @@ determination of electrons and photons with high granularity.
 The main geometrical characteristics of the ECAL crystals are shown in Table~\ref{tab:ECAL_crystals}. The choice of lead
 tungstate was driven by the constraints of the CMS design. It is a very dense material (\SI{8.28}{g\per\cm\cubed}) with
 a short radiation length of $X_0 = \SI{0.89}{\cm}$, which allows the calorimeter to fit inside the compact magnet. Lead
-tungstate also has a small Moli\`ere radius\footnote{The Moli\`ere radius $R_\mu$ is a characteristic constant of a
-material giving the scale of the transverse dimension of the fully contained electromagnetic showers initiated by an
-incident high energy electron or photon. It is defined as the radius of a cylinder containing an average of
-\SI{90}{\percent} of the shower's energy deposition.} of \SI{2.2}{\cm}, which allows a calorimeter with fine
-granularity. Finally, the crystals emit \SI{80}{\percent} of their scintillation light in just \SI{25}{\ns}, however the
-light yield is relatively low. At \SI{18}{\degreeCelsius}, about \num{4.5} photoelectrons per MeV are collected. The
-dependence of the light yield on temperature requires a cooling system capable of keeping the crystal temperature stable
-within \SI{+-0.05}{\degreeCelsius} to preserve energy resolution \autocite{CMS_TDR1}.
+tungstate also has a small Moli\`ere radius\footnote{The Moli\`ere radius $R_\mu$ is a characteristic of a material
+giving the scale of the transverse dimension of the fully contained electromagnetic showers. It is defined as the radius
+of a cylinder containing an average of \SI{90}{\percent} of the shower's energy deposition.} of \SI{2.2}{\cm}, which
+allows a calorimeter with fine granularity. Finally, the crystals emit \SI{80}{\percent} of their scintillation light in
+just \SI{25}{\ns}, however the light yield is relatively low. At \SI{18}{\degreeCelsius}, about \num{4.5} photoelectrons
+per MeV are collected. The dependence of the light yield on temperature requires a cooling system capable of keeping the
+crystal temperature stable within \SI{+-0.05}{\degreeCelsius} to preserve energy resolution \autocite{CMS_TDR1}.
 
 The energy-dependent resolution of the calorimeter can be parameterised as follows \autocite{CMS}:
 \begin{equation}
@@ -260,10 +258,12 @@ shows the energy resolution in bins of pseudorapidity, measured using $\Z \right
 \begin{figure}[htbp]
   \centering
   \leavevmode
-  \includegraphics[width=0.7\columnwidth]{ECAL_resolution}
+  \includegraphics[width=0.65\columnwidth]{ECAL_resolution}
   \caption[Relative ECAL energy resolution in bins of pseudorapidity $\eta$]{Relative electron (ECAL) energy resolution
 unfolded in bins of pseudorapidity $\eta$. Electrons from $\Z \rightarrow ee$ decays are used. The resolution
-$\sigma_\mathrm{E}/\mathrm{E}$ is plotted separately for data and simulated events \autocite{CMS_ECAL_twiki}.}
+$\sigma_\mathrm{E}/\mathrm{E}$ is plotted separately for data and simulated events. Clearly, it is affected by the
+amount of material in front of the ECAL, and is degraded in the vicinity of gaps in $\eta$ between ECAL modules (shown
+by the vertical lines in the plot) \autocite{CMS_ECAL_twiki}.}
   \label{fig:ECAL_resolution}
 \end{figure}
 
@@ -275,7 +275,7 @@ calorimetry system. It is essential for the measurement of hadron jets and missi
 \begin{figure}[htbp]
   \centering
   \leavevmode
-  \includegraphics[width=\columnwidth]{HCAL}
+  \includegraphics[width=0.9\columnwidth]{HCAL}
   \caption[Longitudinal view of the CMS detector]{Longitudinal view of the CMS detector showing the locations of the
   hadron barrel (HB), endcap (HE), outer (HO) and forward (HF) calorimeters \autocite{CMS}.}
   \label{fig:HCAL}
@@ -602,7 +602,7 @@ modelling theory systematic effects, which is also exploited in this thesis.
 \item [\MADGRAPH] \autocite{MadGraph} is a multi-purpose matrix-element Monte Carlo event generator. It automatically
 generates matrix elements for decays and $2 \rightarrow n$ scatterings. The matching of matrix elements to parton
 showers is performed according to the so-called MLM prescription \autocite{MLM} if a parton-jet pair satisfies a certain
-$\Delta R$ separation criterion. If no or more than one matched jets are found, events are rejected. As mentioned above,
+$\Delta R$ separation criterion. If none or more than one matched jets are found, events are rejected. As mentioned above,
 there is also a certain transverse momentum threshold requirement for the partons to be considered in the matching.
 Default values as well as variations used to estimate the systematic effect of the matching threshold in this work can
 be found in Table~\ref{tab:systematic_mc_variations}.
@@ -619,8 +619,8 @@ coming from the hard scattering, which is not possible with LO calculations. The
 features, giving a major advantage for heavy flavour physics.
 
 \item [\POWHEG] (Positive Weight Hardest Emission Generator) \autocite{POWHEG} also works at NLO precision. Its main
-difference to \MCATNLO generator lies in the order of process generation: \POWHEG initially generates the hardest
-radiation. This technique allows to avoid double-counting coming from subsequent radiation which may happen with
+difference to the \MCATNLO generator lies in the order of process generation: \POWHEG initially generates the hardest
+radiation. This technique allows to avoid double-counting coming from subsequent radiation which may happen with the
 \MCATNLO method when matching QCD NLO calculations with parton showers.
 %http://theory.fnal.gov/seminars/slides/2008/COleari.pdf
 
@@ -655,9 +655,9 @@ access the Monte Carlo truth information, which is essential for any particle ph
 Most CMS analyses, including the ones described in this thesis, adopt a reconstruction technique called Particle Flow
 (PF) \autocite{PF}. This algorithm is used to obtain a global event description at the level of individually
 reconstructed particles by means of combining information coming from all sub-detector systems. The ultimate goal is to
-determine type, energy and momentum of all the particles in the event with highest possible precision and in the most
-optimal way. The types of these particles include electrons, muons, charged hadrons, neutral hadrons and photons. All
-these particles are then used to reconstruct jets (Section~\ref{ss:jet_reconstruction}), missing transverse energy
+determine type, energy and momentum of all the particles in the event with the highest possible precision and in the
+most optimal way. The types of these particles include electrons, muons, charged hadrons, neutral hadrons and photons.
+All these particles are then used to reconstruct jets (Section~\ref{ss:jet_reconstruction}), missing transverse energy
 (Section~\ref{ss:electron_reconstruction}) and tau leptons from their decay products.
 
 \subsection{Electron reconstruction}
@@ -677,7 +677,7 @@ account the kinks in the electron trajectory caused by photon emission.
 Electron reconstruction in CMS has the following distinct stages: seeding; track finding; pre-identification;
 Bremsstrahlung recovery; track-cluster linking; and final identification. Historically, the original seeding algorithm
 was designed and optimised for isolated high-\pt electrons. This approach starts from ECAL clusters, and therefore is
-called the ``ECAL-driven'' seeding. It is based on the property of ECAL energy deposits to have narrow width in the
+called the ``ECAL-driven'' seeding. It is based on the property of ECAL energy deposits to have a narrow width in the
 $\eta$ coordinate, and to be widely spread in $\phi$ (azimuthal direction) as mentioned above. The electron and all the
 associated Bremsstrahlung energy deposits form a single ``super-cluster'', and the ability to correctly identify it
 affects the overall performance of this method. Super-clusters are then matched to pairs or triplets of hits in the
@@ -760,7 +760,7 @@ the selection description for each analysis in corresponding chapters.
 
 Different algorithms are used for electron identification at different stages of physics analysis. These algorithms use
 information from both the tracker and calorimeter systems combined in different ways, including the track quality
-variables, ECAL shower shape variables, track and super-cluster mathcing variables and Bremsstrahlung variables. The
+variables, ECAL shower shape variables, track and super-cluster matching variables and Bremsstrahlung variables. The
 full list of variables used by electron ID algorithms described below is given in Table~\ref{tab:electron_ID_variables}.
 
 % \begin{itemize}
@@ -797,7 +797,7 @@ multivariate analysis (MVA ID).
 fast and robust as possible. This algorithm only uses a limited number of electron ID variables shown in
 Table~\ref{tab:electron_ID_variables}, including $H/E$ ratio, $\Delta\eta_{\text{in}}$ and $\Delta\phi_{\text{in}}$
 matching variables, cluster shape variables and isolation variables (to be described in the next section). Although this
-identification method has an advantage of its simplicity, it does not show the best signal efficiency and background
+identification method has the advantage of simplicity, it does not show the best signal efficiency and background
 rejection.
 
  \item[Cuts in categories ID] \autocite{CiC_ID} is one of the more complex methods, exploiting the categorisation of
@@ -938,7 +938,7 @@ is defined separately for each detector subsystem (tracker, ECAL and HCAL) \auto
 
 Particle-based isolation exploits the particle flow information: it is calculated as the sum of the transverse energy of
 all PF particles in a cone of $\Delta R = 0.3$ around the electron. Both detector-based and particle-based isolation
-definitions are often normalised to the electron transverse momentum (or energy in case of calorimeter isolation) in
+definitions are often normalised to the electron transverse momentum (or energy in the case of calorimeter isolation) in
 order to improve signal efficiency. The normalised sum of the tracker, ECAL and HCAL isolation variables is referred to
 as detector-based relative isolation (or \reliso), similarly normalised particle-based isolation is called PF \reliso.
 These quantities are crucial in various methods to estimate the QCD background contribution for many analyses, and will
@@ -998,7 +998,7 @@ using the Kalman Filter technique \autocite{KF}. Based on these objects, two dif
   \item Global muon reconstruction. Each standalone muon track reconstructed in the muon system is matched with the
   tracker track by propagating onto a common surface. A global fit is performed on the combined collection of hits from
   both tracks, and the resulting muon is referred to as a \textit{global muon}.
-  \item Tracker muon reconstruction. All tracker tracks above certain threshold (\pt $>$ \SI{0.5}{\GeV}, $p >$
+  \item Tracker muon reconstruction. All tracker tracks above a certain threshold (\pt $>$ \SI{0.5}{\GeV}, $p >$
   \SI{0.5}{\GeV}) are extrapolated to the muon system, taking into account possible energy losses, magnetic field and
   multiple Coulomb scattering. If the track matches at least one muon segment in the muon system, i.e.\ a short track
   stub made of DT or CSC hits, it is considered a \textit{tracker muon}.
@@ -1007,13 +1007,13 @@ using the Kalman Filter technique \autocite{KF}. Based on these objects, two dif
 Global muon reconstruction has a high efficiency for high-\pt muons, penetrating through more than one muon station. On
 the contrary, tracker muon reconstruction is more efficient for low-\pt muons (\pt $<$ \SI{5}{\GeV}), as it requires
 just a single muon segment. Since the \ttbar analyses described in this thesis have a semileptonic signature with
-exactly one energetic muon in the final state (in case of the muon channel), only the global muon reconstruction method
+exactly one energetic muon in the final state (in the case of the muon channel), only the global muon reconstruction method
 is used, as its momentum resolution at high transverse momenta benefits from both the tracker and the muon system
 (Figure~\ref{fig:muon_resolution}).
 
 Following the reconstruction, the quality of the muon objects is verified by applying identification criteria. This is
-done in order to suppress hadronic punch-through, muons from decays in flight and cosmic muons. Selection is applied on
-the following observables:
+done in order to suppress hadronic punch-through, muons from decays in flight and cosmic muons. The selection is applied
+on the following observables:
 \begin{itemize}
   \item normalised $\chi^2$ ($\chi^2$/number of degrees of freedom) of the global muon fit;
   \item number of muon chamber hits in the global muon fit;
@@ -1061,7 +1061,7 @@ conical jets with boundaries resilient to soft radiation.
 \subsubsection{Jet energy corrections}
 \label{sss:JEC}
 
-Due to non-linear and non-uniform response of the calorimetry systems, jets reconstructed using detector inputs
+Due to the non-linear and non-uniform response of the calorimetry systems, jets reconstructed using detector inputs
 typically have energies different to those of the corresponding Monte Carlo particle jets (or generator jets),
 reconstructed by clustering the four-momenta of all stable particles generated in Monte Carlo simulation. Therefore,
 some mapping procedure is necessary. Corrections applied to reconstructed jets in order to translate the measured energy
@@ -1083,11 +1083,11 @@ the correction levels go as follows:
   % \item L7 Parton correction.
 \end{itemize}
 
-The goal of the offset correction is subtraction of pile-up and electronic noise contributions from the jet energy. The
-energy from pile-up vertices can be deposited in calorimeters since the additional proton-proton collisions occur close
-enough in time to the hard scattering process. Electronic noise in calorimeter readouts also creates additional energy
-offset which needs to be corrected for. The scale factors for offset correction are derived using data-driven methods
-(zero-bias collisions).
+The goal of the offset correction is the subtraction of pile-up and electronic noise contributions from the jet energy.
+The energy from pile-up vertices can be deposited in calorimeters since the additional proton-proton collisions occur
+close enough in time to the hard scattering process. Electronic noise in calorimeter readouts also creates additional
+energy offset which needs to be corrected for. The scale factors for offset correction are derived using data-driven
+methods (zero-bias collisions).
 
 The relative $\eta$ correction is designed to flatten the jet response in pseudorapidity. These corrections are
 extracted with respect to the barrel region in bins of \pt, and therefore are uncorrelated with the following absolute
@@ -1217,8 +1217,8 @@ event contribute to \METvec measurement, therefore it is a rather demanding task
 Just like in the case of leptons and jets, particle flow was used for \METvec reconstruction: in Equation~\ref{eq:MET}
 the transverse momentum vectors are of the particles reconstructed using the particle flow algorithm. This procedure
 gives so-called raw \METvec on the output. The raw \METvec is systematically different from the true \METvec, which
-denotes the transverse momentum carried by invisible particles. This happens mainly due to non-compensating nature of
-the calorimeters, effects of pile-up, noise, etc. Therefore, a set of corrections is applied:
+denotes the transverse momentum carried by invisible particles. This happens mainly due to the non-compensating nature
+of the calorimeters, effects of pile-up, noise, etc. Therefore, a set of corrections is applied:
 \begin{itemize}
  \item Type-0, which corrects \MET for pile-up;
  \item Type-I, a propagation of jet energy corrections (Section~\ref{sss:JEC}) to \MET;
