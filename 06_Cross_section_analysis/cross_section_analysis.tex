@@ -45,8 +45,11 @@ Table~\ref{tab:xsection_electron_qcd_samples} presents the list of QCD multi-jet
 used in the estimation of the QCD background in the electron plus jets channel. The analogous set of muon-enriched QCD
 samples used in the muon plus jets channel is shown in Table~\ref{tab:xsection_muon_qcd_samples}. Although the QCD
 background is estimated using data-driven techniques in both channels (see Section~\ref{s_xsection:data_driven_QCD}),
-the MC simulation is still used for normalisation purposes.
-% Mention the systematic samples (Table~\ref{tab:xsection_systematic_samples})
+the MC simulation is still used for normalisation purposes. Table~\ref{tab:xsection_systematic_samples} lists the
+samples used for estimation of the systematic uncertainties due to factorisation scale and matching threshold choices,
+as discussed in Section~\ref{ss:hadron_collisions_simulation}. Similarly to the top quark mass analysis, a summary of
+central values and variations used to estimate these systematic uncertainties is shown in
+Table~\ref{tab:systematic_mc_variations}.
 
 \input{06_Cross_section_analysis/tables/xsection_mc_samples}
 
@@ -565,10 +568,11 @@ this value. This process is performed for both electron and muon channels, and c
 able to combine both channels in the final cross section measurement.
 
 Figure~\ref{fig:choice_of_bins_MET} shows the two-dimensional distributions of reconstructed versus generated \MET,
-which were used to calculate purity and stability. The distributions were obtained with the nominal (\MADGRAPH) signal
-\ttbar sample. Red lines represent the bin edges for the chosen binning. Tables~\ref{tab:binning_MET_electron} and
-\ref{tab:binning_MET_muon} show the numerical values of purity and stability, as well as the selected binning for \MET
-variable. Results for other primary variables can be found in Appendix~\ref{a:binning}.
+which were used to calculate purity and stability. The distributions were obtained with the nominal
+($\MADGRAPH+\PYTHIA$) signal \ttbar sample. Red lines represent the bin edges for the chosen binning.
+Tables~\ref{tab:binning_MET_electron} and \ref{tab:binning_MET_muon} show the numerical values of purity and stability,
+as well as the selected binning for \MET variable. Results for other primary variables can be found in
+Appendix~\ref{a:binning}.
 
 \input{06_Cross_section_analysis/tables/xsection_binning}
 
@@ -799,9 +803,9 @@ d = U^T \times b
 
 For a reasonably smooth measured distribution (an \textit{a priori} knowledge used for regularisation), only the first
 few terms of the decomposition are expected to be significant, with the rest of the terms corresponding to quickly
-oscillating vectors. This implies that the distribution $d_i$ of the vector $d$ components is expected to gradually fall
-towards a Gaussian-distributed random values for large $i$. The number of first few significant components ($\abs {d_i}
-\geq 1$) is therefore chosen as a regularisation parameter.
+oscillating vectors. This implies that the distribution $d_i$ of the vector $d$ components is expected to exponentially
+fall towards a Gaussian-distributed random values for large $i$. The number of first few significant components ($\abs
+{d_i} \gtrsim 1$) is therefore chosen as a regularisation parameter (see Figure~\ref{fig:MET_SVD_tests}, (c)).
 
 In this work, the RooUnfold package \autocite{RooUnfold} is used to implement the SVD method of data unfolding. The
 unfolded \MET is defined as the generated \pt of the neutrino produced in the semileptonic \ttbar decay. The underlying
@@ -822,23 +826,52 @@ is calculated:
 p_i = \frac{N_i^{\text{unfolded}} -N_i^{\text{truth}} }{\sigma_i},
 \end{equation}
 where $\sigma_i$ is the combined statistical and unfolding uncertainty in bin $i$. The pull distributions for all bins
-of the \MET variable are shown in Figure~\ref{fig:met_SVD_pull}. Clearly, there is no significant bias in the unfolding
+of the \MET variable are shown in Figure~\ref{fig:MET_SVD_pull}. Clearly, there is no significant bias in the unfolding
 procedure, as all the distributions are centred around zero. The width of the distributions is close to unity, meaning
 that the errors are reliably calculated. The unfolding performance was similarly validated for other primary variables.
 
 \begin{figure}[hbtp]
    	\centering
    	\vspace*{-0.8cm}
-    \includegraphics[width=0.42\textwidth]{unfolding_performance/pull_from_files_bin_0_stats_89700} 
-    \includegraphics[width=0.42\textwidth]{unfolding_performance/pull_from_files_bin_1_stats_89700}   \\
-    \includegraphics[width=0.42\textwidth]{unfolding_performance/pull_from_files_bin_2_stats_89700} 
-    \includegraphics[width=0.42\textwidth]{unfolding_performance/pull_from_files_bin_3_stats_89700}   \\
-    \includegraphics[width=0.42\textwidth]{unfolding_performance/pull_from_files_bin_4_stats_89700}
-    \includegraphics[width=0.42\textwidth]{unfolding_performance/pull_from_files_bin_5_stats_89700}
+    \includegraphics[width=0.42\textwidth]{unfolding_performance/pulls/pull_from_files_bin_0_stats_89700} 
+    \includegraphics[width=0.42\textwidth]{unfolding_performance/pulls/pull_from_files_bin_1_stats_89700}   \\
+    \includegraphics[width=0.42\textwidth]{unfolding_performance/pulls/pull_from_files_bin_2_stats_89700} 
+    \includegraphics[width=0.42\textwidth]{unfolding_performance/pulls/pull_from_files_bin_3_stats_89700}   \\
+    \includegraphics[width=0.42\textwidth]{unfolding_performance/pulls/pull_from_files_bin_4_stats_89700}
+    \includegraphics[width=0.42\textwidth]{unfolding_performance/pulls/pull_from_files_bin_5_stats_89700}
     \caption[Pull distributions for the SVD unfolding]{Pull distributions for the SVD unfolding method for all \MET
     bins, from top left to bottom right: \SIrange{0}{25}{\GeV}, \SIrange{25}{45}{\GeV}, \SIrange{45}{70}{\GeV},
     \SIrange{70}{100}{\GeV}, \SIrange{100}{150}{\GeV} and $\geq \SI{150}{\GeV}$.}
-    \label{fig:met_SVD_pull}
+    \label{fig:MET_SVD_pull}
+\end{figure}
+
+To further check the robustness of the SVD approach, a series of closure tests were performed for all possible
+regularisation parameters in the unfolding of all primary variables. A closure test is carried out by running the
+unfolding on the number of \ttbar events in the reconstructed MC sample used to obtain the response matrix. For a
+correct procedure, the unfolded values should correspond exactly to the true generated number of events obtained from
+the same MC sample. Figure~\ref{fig:MET_SVD_tests} shows the results of these tests for \MET variable in the electron
+channel, suggesting that the unfolding performs as expected for two different choices of binning.
+
+It can also be seen that non-optimal binning leads to an increased unfolding uncertainty. The regularisation parameters
+$k$ were chosen by fitting the $d_i$ distribution (mentioned above) to an exponential. The optimal $k$-value for the
+standard \MET binning obtained from plot (c) on Figure~\ref{fig:MET_SVD_tests} is \num{3}, whereas the increased number
+of bins in plot (d) leads to a $k$-value of \num{7}. Plots (a) and (b) show that for these $k$-values, the unfolding
+uncertainty is significantly larger for the increased number of \MET bins compared to the standard binning chosen as
+described in Section~\ref{ss_xsection:binning}. This can be explained by the increased migration effects between smaller
+bins, and therefore less stable unfolding procedure.
+
+\begin{figure}[hbtp]
+   	\centering
+    \subfloat[]{\includegraphics[width=0.5\textwidth]{unfolding_performance/electron_MET_RooUnfoldSvd_closure}} \hfill
+    \subfloat[]{\includegraphics[width=0.5\textwidth]{unfolding_performance/electron_MET_RooUnfoldSvd_closure_finer_bins}}\\
+	\subfloat[]{\includegraphics[width=0.47\textwidth]{unfolding_performance/k_from_d_i_electron_channel_MET_data}}	\hspace{0.4cm}
+	\subfloat[]{\includegraphics[width=0.47\textwidth]{unfolding_performance/k_from_d_i_electron_channel_MET_bias_finer_bins}}
+    \caption[Unfolding performance tests for \MET]{Unfolding performance tests for \MET. Plots (a) and (b) show the
+    results of closure tests performed by unfolding the reconstructed \MADGRAPH distribution (shown as `measured') back
+    to the generated values. Plots (c) and (d) show the corresponding $d_i$ distributions used to choose the optimal
+    regularisation parameter. (a) and (c) represent the standard binning chosen in the analysis; (b) and (d) correspond
+    to the doubled number of \MET bins. }
+    \label{fig:MET_SVD_tests}
 \end{figure}
 
 \subsection{Differential cross section calculation}
@@ -869,7 +902,6 @@ sections:
 \mathrm{X}} = \frac{1}{\Delta \mathrm{X}^k} \frac{\Nttbar^k}{\sum\limits_k \Nttbar^k}.
 \end{equation}
 
-\clearpage
 \section{Systematic Uncertainties}
 \label{s_xsection:systematics}
 The sources of systematic uncertainties considered in this analysis are largely the same as those of the top quark mass
@@ -914,20 +946,21 @@ a very moderate effect on event-level distributions, with relative changes in th
 \section{Results}
 \label{s_xsection:results}
 The template fit explained in Section~\ref{ss_xsection:fitting} was performed for both electron and muon channels,
-yielding two distributions of signal \ttbar events. These distributions are then summed together to obtain the total
-distribution of \ttbar events in semileptonic production mode, which is unfolded using the SVD unfolding method
-described in Section~\ref{ss_xsection:unfolding}. Finally, the normalised cross section is calculated as outlined in
+yielding two distributions of signal \ttbar events. These distributions are then unfolded using the SVD unfolding method
+described in Section~\ref{ss_xsection:unfolding}, and then summed together to obtain the total distribution of \ttbar
+events in semileptonic production mode. Finally, the normalised cross section is calculated as outlined in
 Section~\ref{ss_xsection:calculation}.
 
 The final combined results are shown in Figures~\ref{fig:results_MET_combined}--\ref{fig:results_WPT_combined} for all
-primary variables. The unfolded data are compared with predictions by \MADGRAPH, \POWHEG and \MCATNLO event generators.
-Results are also compared with theoretical predictions showing the effects due to variations of modelling parameters,
-particularly matching threshold and normalisation scale. In all figures, the inner error bars represent the combined
-fitting and unfolding uncertainties, whereas the outer error bars show the uncertainty due to systematic variations.
-Naturally, the systematic errors due to matching threshold and normalisation scale choice are excluded from comparison
-with variations due to these parameters, and the hadronisation systematic is excluded from the comparison with different
-generators. Overall, the results are consistent with predictions of the Standard Model.
-
+primary variables. The unfolded data are compared with predictions by $\MADGRAPH+\PYTHIA$, $\POWHEG+\PYTHIA$ and
+$\MCATNLO+\HERWIG$ event generators. Results are also compared with theoretical predictions showing the effects due to
+variations of modelling parameters, particularly matching threshold and normalisation scale. To allow easier
+interpretation of data, additional box graphs underneath main plots show the ratios between theory predictions and data.
+In all figures, the inner error bars (or gray bands on ratio plots) represent the combined fitting and unfolding
+uncertainties, whereas the outer error bars (or yellow bands on ratio plots) include the uncertainty due to systematic
+variations added in quadrature. Naturally, the systematic errors due to matching threshold and normalisation scale
+choice are excluded from comparison with variations due to these parameters, and the hadronisation systematic is
+excluded from the comparison with different generators.
 
 \begin{figure}[!htbp]
 	\centering
@@ -935,7 +968,9 @@ generators. Overall, the results are consistent with predictions of the Standard
   	{\includegraphics[width=0.5\textwidth]{measurement/MET/central/normalised_xsection_combined_systematics_shifts}}
     \caption[Normalised semileptonic \ttbar differential cross section with respect to \MET]{Normalised semileptonic
       \ttbar differential cross section with respect to \MET. The data are compared to predictions of three different MC
-      generators (left) and theoretical predictions showing the variation due to modelling uncertainties (right).}
+      generators (left) and theoretical predictions showing the variation due to modelling uncertainties (right). The
+      inner error bars represent the combined statistical (fitting) and unfolding uncertainties, the outer error bars
+      include the systematic uncertainties added in quadrature.}
     \label{fig:results_MET_combined}
 \end{figure}
 
@@ -945,7 +980,9 @@ generators. Overall, the results are consistent with predictions of the Standard
   	{\includegraphics[width=0.5\textwidth]{measurement/HT/central/normalised_xsection_combined_systematics_shifts}}
     \caption[Normalised semileptonic \ttbar differential cross section with respect to \HT]{Normalised semileptonic
       \ttbar differential cross section with respect to \HT. The data are compared to predictions of three different MC
-      generators (left) and theoretical predictions showing the variation due to modelling uncertainties (right).}
+      generators (left) and theoretical predictions showing the variation due to modelling uncertainties (right). The
+      inner error bars represent the combined statistical (fitting) and unfolding uncertainties, the outer error bars
+      include the systematic uncertainties added in quadrature.}
     \label{fig:results_HT_combined}
 \end{figure}
 
@@ -955,7 +992,9 @@ generators. Overall, the results are consistent with predictions of the Standard
   	{\includegraphics[width=0.5\textwidth]{measurement/ST/central/normalised_xsection_combined_systematics_shifts}}
     \caption[Normalised semileptonic \ttbar differential cross section with respect to \ST]{Normalised semileptonic
       \ttbar differential cross section with respect to \ST. The data are compared to predictions of three different MC
-      generators (left) and theoretical predictions showing the variation due to modelling uncertainties (right).}
+      generators (left) and theoretical predictions showing the variation due to modelling uncertainties (right). The
+      inner error bars represent the combined statistical (fitting) and unfolding uncertainties, the outer error bars
+      include the systematic uncertainties added in quadrature.}
     \label{fig:results_ST_combined}
 \end{figure}
 
@@ -965,7 +1004,9 @@ generators. Overall, the results are consistent with predictions of the Standard
   	{\includegraphics[width=0.5\textwidth]{measurement/MT/central/normalised_xsection_combined_systematics_shifts}}
     \caption[Normalised semileptonic \ttbar differential cross section with respect to \MT]{Normalised semileptonic
       \ttbar differential cross section with respect to \MT. The data are compared to predictions of three different MC
-      generators (left) and theoretical predictions showing the variation due to modelling uncertainties (right).}
+      generators (left) and theoretical predictions showing the variation due to modelling uncertainties (right). The
+      inner error bars represent the combined statistical (fitting) and unfolding uncertainties, the outer error bars
+      include the systematic uncertainties added in quadrature.}
     \label{fig:results_MT_combined}
 \end{figure}
 
@@ -975,7 +1016,9 @@ generators. Overall, the results are consistent with predictions of the Standard
   	{\includegraphics[width=0.5\textwidth]{measurement/WPT/central/normalised_xsection_combined_systematics_shifts}}
     \caption[Normalised semileptonic \ttbar differential cross section with respect to \WPT]{Normalised semileptonic
       \ttbar differential cross section with respect to \WPT. The data are compared to predictions of three different MC
-      generators (left) and theoretical predictions showing the variation due to modelling uncertainties (right).}
+      generators (left) and theoretical predictions showing the variation due to modelling uncertainties (right). The
+      inner error bars represent the combined statistical (fitting) and unfolding uncertainties, the outer error bars
+      include the systematic uncertainties added in quadrature.}
     \label{fig:results_WPT_combined}
 \end{figure}
 

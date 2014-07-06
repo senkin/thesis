@@ -9,7 +9,7 @@ luminosities.}
 \toprule
 Process & Generator & $\sigma$ (\pb) & \# events & $\int\lumi dt$ (\fbinv)\\
 \midrule
-\ttjets & \MADGRAPH & & & \\
+\ttjets & $\MADGRAPH+\PYTHIA$ & & & \\
 \hspace{5 mm}\mtop = \SI{161.5}{\GeV} & & 157.5 & 1620072 & 10.3\\
 \hspace{5 mm}\mtop = \SI{163.5}{\GeV} & & 157.5 & 1633197 & 10.4\\
 \hspace{5 mm}\mtop = \SI{166.5}{\GeV} & & 157.5 & 1669034 & 10.6\\
@@ -20,15 +20,15 @@ Process & Generator & $\sigma$ (\pb) & \# events & $\int\lumi dt$ (\fbinv)\\
 \hspace{5 mm}\mtop = \SI{181.5}{\GeV} & & 157.5 & 1665350 & 10.6\\
 \hspace{5 mm}\mtop = \SI{184.5}{\GeV} & & 157.5 & 1671859 & 10.6\\
 \midrule
-\WpJets ($\W \rightarrow l\nu$) & \MADGRAPH & 31314 & 81345381 & 2.6 \\
+\WpJets ($\W \rightarrow l\nu$) & $\MADGRAPH+\PYTHIA$ & 31314 & 81345381 & 2.6 \\
 % \hspace{5 mm}\W + 1 jet & & 4480 & 76051609 & 17.0 \\
 % \hspace{5 mm}\W + 2 jet & & 1674 & 25400546 & 15.2 \\
 % \hspace{5 mm}\W + 3 jet & & 484.7 & 7541595 & 15.6 \\
 % \hspace{5 mm}\W + 4 jet & & 211.7 & 13133738 & 62.0 \\
 \midrule
-$\Z/\gamma^* \rightarrow l^+l^- $ + jets, $m(ll) > \SI{50}{\GeV}$ & \MADGRAPH & 3048 & 36222153 & 11.9 \\
+$\Z/\gamma^* \rightarrow l^+l^- $ + jets, $m(ll) > \SI{50}{\GeV}$ & $\MADGRAPH+\PYTHIA$ & 3048 & 36222153 & 11.9 \\
 \midrule
-Single top & \POWHEG & & & \\
+Single top & $\POWHEG+\PYTHIA$ & & & \\
 \hspace{5 mm} top \cPqt-channel & & 42.6 & 3814228 & 89.5 \\
 \hspace{5 mm} anti-top \cPqt-channel & & 22.0 & 1944822 & 88.4 \\
 \hspace{5 mm} top \cPqs-channel & & 2.72 & 259971 & 92.6 \\
@@ -89,10 +89,10 @@ QCD ($\cPqb/\cPqc \rightarrow e\nu$) & \PYTHIA & & & & \\
 \hspace{5 mm}\SIrange[range-phrase = $~<\pthat<~$]{30}{80}{\GeV} & & \num{5.93d7}& \num{2.34d-3} & 2030030 & \num{1.5d-2} \\
 \hspace{5 mm}\SIrange[range-phrase = $~<\pthat<~$]{80}{170}{\GeV} & & \num{9.06d5} & \num{0.0104} & 1082690 & \num{0.1} \\
 \midrule
-$\gamma$ + jets & \MADGRAPH & & & & \\
-\hspace{5 mm}\SIrange[range-phrase = $~<\HT<~$]{40}{100}{\GeV} & & \num{23620} & 1 & 12730863 & \num{0.5} \\
-\hspace{5 mm}\SIrange[range-phrase = $~<\HT<~$]{100}{200}{\GeV} & & \num{3476} & 1 & 1536287 & \num{0.4} \\
-\hspace{5 mm}$\HT >$ \SI{200}{\GeV} & & \num{485} & 1 & 9377168 & \num{19.3} \\
+$\gamma$ + jets 												& \MADGRAPH & & & & \\
+\hspace{5 mm}\SIrange[range-phrase = $~<\HT<~$]{40}{100}{\GeV}  & +\PYTHIA  & \num{23620} & 1 & 12730863 & \num{0.5} \\
+\hspace{5 mm}\SIrange[range-phrase = $~<\HT<~$]{100}{200}{\GeV} & 			& \num{3476} & 1 & 1536287 & \num{0.4} \\
+\hspace{5 mm}$\HT >$ \SI{200}{\GeV} 							& 			& \num{485} & 1 & 9377168 & \num{19.3} \\
 \bottomrule
 \end{tabular}
 }
@@ -105,27 +105,29 @@ s = \SI{7}{\TeV}$, numbers of generated events and corresponding integrated lumi
 matching threshold systematic uncertainties (see Section \ref{ss:hadron_collisions_simulation}) are estimated with
 variations of \ttjets, \WpJets and \ZpJets samples.}
 \label{tab:top_mass_systematic_samples}
+\resizebox{\textwidth}{!}{
 \begin{tabular}{@{}llrrr@{}}
 \toprule
 Process & Generator & $\sigma$ (\pb) & \# events & $\int\lumi dt$ (\fbinv)\\
 \midrule
-\ttjets & \MADGRAPH & & & \\
+\ttjets & $\MADGRAPH+\PYTHIA$ & & & \\
 \hspace{5 mm}$0.5~\times$ matching threshold & & 157.5 & 1607808& 10.2 \\
 \hspace{5 mm}$2~\times$ matching threshold  & & 157.5 & 4029823& 25.5 \\
 \hspace{5 mm}$0.5\times Q$  & & 157.5 & 4004587 & 25.4 \\
 \hspace{5 mm}$2\times Q$ & & 157.5 & 3696269 & 23.4 \\
 \midrule
-\WpJets ($\W \rightarrow l\nu$) & \MADGRAPH & & & \\
+\WpJets ($\W \rightarrow l\nu$) & $\MADGRAPH+\PYTHIA$ & & & \\
 \hspace{5 mm}$0.5~\times$ matching threshold & & 29690 & 9956679 & 0.3 \\
 \hspace{5 mm}$2~\times$ matching threshold & & 30290 & 10461655 & 0.3 \\
 \hspace{5 mm}$0.5 \times Q$ & & 33300 &10092532 & 0.3 \\
 \hspace{5 mm}$2 \times Q$ & & 32000 &9784907 &0.3 \\
 \midrule
-\ZpJets ($\Z \rightarrow ll$) & \MADGRAPH & & & \\
+\ZpJets ($\Z \rightarrow ll$) & $\MADGRAPH+\PYTHIA$ & & & \\
 \hspace{5 mm}$0.5~\times$ matching threshold & & 2888 & 1614808& 0.6 \\
 \hspace{5 mm}$2~\times$ matching threshold & & 2915 & 1641121 & 0.6 \\
 \hspace{5 mm}$0.5 \times Q$ & & 3312 & 1658855 & 0.5 \\
 \hspace{5 mm}$2 \times Q$ & & 2954 & 1592742 & 0.5 \\
 \bottomrule
 \end{tabular}
+}
 \end{table}
