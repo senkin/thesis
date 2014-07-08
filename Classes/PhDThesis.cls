@@ -31,7 +31,7 @@
 %\renewcommand{\refname}{References}%
 \fi
 
-\usepackage[a4paper,twoside,left=2cm,right=2.5cm,top=30mm,bottom=25mm,bindingoffset=1.5cm,head=14.5pt]{geometry}
+\usepackage[a4paper,twoside,left=2.5cm,right=2cm,top=30mm,bottom=25mm,bindingoffset=1.5cm,head=14.5pt]{geometry}
 \usepackage[sorting=none,style=numeric,citestyle=numeric,backref=true,hyperref=true,isbn=false,backend=bibtex]{biblatex}
 \usepackage{setspace}
 %\usepackage[nottoc,numbib]{tocbibind}
@@ -324,7 +324,7 @@
 {\begin{alwayssingle}
   \pagestyle{empty}
   \centering
-  \vspace*{1.5cm}
+  \vspace*{7.5cm}
   {\LARGE }
   \vspace{0.5cm}
   \begin{quote} \centering}
